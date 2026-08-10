@@ -430,14 +430,14 @@ body::after{transform:translate3d(15px,-16px,0) scale(.98)}
  <div class="settingbox"><div class="row spread"><div><b class="small">Ejercicios aprendidos</b><div id="exercisePrefsStatus" class="tiny muted">Todavía estoy aprendiendo tus gustos.</div></div><span id="exercisePrefsCount" class="pill">0</span></div><div id="exercisePrefsSummary" class="prefsSummary"></div></div>
  <button id="saveProfile" class="btn full" style="margin-top:12px">Guardar cambios</button>
  <div class="divider"></div><h3 style="margin:0 0 8px">Datos</h3><div class="row wrap"><button id="showTutorialSettings" class="btn ghost">Tutorial</button><button id="exportData" class="btn secondary">Guardar copia</button><label class="btn secondary" style="display:inline-flex;align-items:center;margin:0">Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">Cambiar datos iniciales</button><button id="resetData" class="btn red">Borrar todo</button></div>
- <p class="note"><b>IRON COACH 5.4 SIMPLE</b><br><span class="buildstamp">Build 2026.08.10 · motor v20 · simple + entrenamiento libre</span><br>Guardado local en este iPhone · autosave · copia redundante IndexedDB · backup manual exportable.</p>
+ <p class="note"><b>IRON COACH 5.4.1 FIX</b><br><span class="buildstamp">Build 2026.08.10 · motor v20.1 · hotfix onboarding</span><br>Guardado local en este iPhone · autosave · copia redundante IndexedDB · backup manual exportable.</p>
 </div></div>
 
 <nav class="bottom"><div class="bottomIn"><button class="navbtn active" data-page="home"><span>⌂</span>Hoy</button><button class="navbtn" data-page="train"><span>▶</span>Entrenar</button><button class="navbtn" data-page="plan"><span>≡</span>Plan</button><button class="navbtn" data-page="progress"><span>↗</span>Progreso</button><button class="navbtn" data-page="rank"><span>◆</span>Rango</button></div></nav>
 
 <script>
 'use strict';
-const BUILD='5.4 SIMPLE · 2026.08.10';
+const BUILD='5.4.1 FIX · 2026.08.10';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=4, TUTORIAL_VERSION=12;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -1014,6 +1014,17 @@ function updateObRec(){const p=obTempProfile(),n=recommendedDays(p),names=buildP
 function updateObSummary(){
  const p=obTempProfile(),n=recommendedDays(p),lay=$('obLayoff').value,bridge=lay!=='active',bridgeN=bridgeNeedFor(lay),names=buildPlanNamesFor(p);
  $('obPlanPreview').innerHTML=`<b>${bridge?'Primero: volver al ritmo':'Empezás directo con tu rutina'}</b>${bridge?`<span class="small muted">${bridgeN} sesiones controladas para descubrir tus cargas actuales.</span>`:''}<div class="divider"></div><b>Tu rutina habitual: ${n} días</b><span class="small muted">${names.join(' → ')}</span><div class="divider"></div><b>¿Y si querés ir un día extra?</b><span class="small muted">Entrenás igual. Tocás “Entrenar ahora” y sigo con la próxima sesión; el calendario nunca te bloquea.</span><div class="divider"></div><b>¿Qué hace el Coach?</b><span class="small muted">Ajusta kilos, reps y trabajo según lo que realmente vas haciendo. No necesitás entender fórmulas.</span>`
+}
+function showOb(){
+ document.querySelectorAll('.obstep').forEach(s=>s.classList.toggle('active',+s.dataset.ob===obStep));
+ $('obBack').classList.toggle('hidden',obStep===0);
+ const hasPrior=obStep===3&&['priorBenchW','priorSquatW','priorDeadliftW','priorOhpW'].some(id=>+$(id).value>0);
+ $('obNext').textContent=obStep===7?'Crear mi programa':obStep===3&&!hasPrior?'Continuar sin marcas':'Continuar';
+ $('obDots').innerHTML='';
+ for(let i=0;i<8;i++){const d=document.createElement('i');if(i<=obStep)d.className='on';$('obDots').appendChild(d)}
+ if(obStep===2)updateReturnNote();
+ if(obStep===5)updateObRec();
+ if(obStep===7)updateObSummary()
 }
 function startOnboarding(){obStep=0;$('obName').value=db.profile.name||'';$('obDob').value=db.profile.dob||'';$('obHeight').value=db.profile.height||'';$('obWeight').value=db.profile.weight||'';$('obExperience').value=db.profile.experience||'advanced';$('obLayoff').value=db.profile.layoff||'1-3m';$('obAvailability').value=db.profile.availability||3;$('obSessionMinutes').value=db.profile.sessionMinutes||75;$('obTime').value=db.profile.time||'18:30';obGoal=db.profile.goal||'muscle';obPriority=db.profile.priority||'balanced';document.querySelectorAll('#goalChoices button').forEach(b=>b.classList.toggle('selected',b.dataset.goal===obGoal));document.querySelectorAll('#priorityChoices button').forEach(b=>b.classList.toggle('selected',b.dataset.priority===obPriority));const pm=db.profile.priorMarks||{};[['Bench','bench'],['Squat','squat'],['Deadlift','deadlift'],['Ohp','ohp']].forEach(([n,id])=>{const m=pm[id]||{};$('prior'+n+'W').value=m.weight||'';$('prior'+n+'R').value=m.reps||''});document.querySelectorAll('#limitationChoices button').forEach(b=>{const ls=db.profile.limitations||[];b.classList.toggle('selected',b.dataset.limit==='none'?!ls.length:ls.includes(b.dataset.limit))});$('onboarding').classList.remove('hidden');showOb()}
 
