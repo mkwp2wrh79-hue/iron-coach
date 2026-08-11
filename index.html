@@ -343,6 +343,52 @@ body::after{transform:translate3d(15px,-16px,0) scale(.98)}
 #train .detailsBox{opacity:.88}
 #train .detailsBox:not([open]){padding-top:7px}
 
+
+/* --- 5.6 RECAP --- */
+.monthRecapCard{width:100%;border:1px solid #443a76;color:#fff;text-align:left;display:grid;grid-template-columns:54px 1fr 30px;align-items:center;gap:12px;background:radial-gradient(280px 120px at 100% 0,rgba(123,97,255,.24),transparent 75%),linear-gradient(180deg,#131927,#0e1218)}
+.monthRecapIcon{width:54px;height:54px;border-radius:18px;background:linear-gradient(145deg,#694cf2,#9c87ff);display:grid;place-items:center;font-size:26px;box-shadow:0 12px 28px rgba(115,83,245,.22)}
+.monthRecapCard span{display:block;font-size:9px;letter-spacing:1.35px;color:#a89cff;font-weight:950}
+.monthRecapCard b{display:block;font-size:18px;text-transform:capitalize;margin-top:3px}
+.monthRecapArrow{font-size:34px;color:#9e91df;text-align:right}
+
+.recapModal{position:fixed;inset:0;z-index:180;background:#06070a;display:none;align-items:stretch;justify-content:center}
+.recapModal.show{display:flex}
+.recapShell{position:relative;width:min(780px,100%);height:100%;min-height:100dvh;overflow:hidden;background:#080a0f}
+.recapProgress{position:absolute;z-index:5;left:14px;right:54px;top:calc(14px + var(--safeTop));display:grid;grid-auto-flow:column;gap:5px}
+.recapProgress i{height:3px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.recapProgress i.on{background:rgba(255,255,255,.92)}
+.recapClose{position:absolute;z-index:7;right:13px;top:calc(3px + var(--safeTop));width:38px;height:38px;border:0;background:transparent;color:white;font-size:30px}
+.recapSlide{position:absolute;inset:0;padding:calc(68px + var(--safeTop)) 22px calc(105px + var(--safeBottom));display:flex;align-items:center;justify-content:center;overflow:auto}
+.recapSlide.purple{background:radial-gradient(520px 420px at 50% 20%,#4d30bb 0%,#17102e 48%,#080a0f 82%)}
+.recapSlide.blue{background:radial-gradient(520px 420px at 50% 20%,#154c8f 0%,#0d1e34 48%,#080a0f 82%)}
+.recapSlide.gold{background:radial-gradient(520px 420px at 50% 20%,#855b16 0%,#2b1c09 48%,#080a0f 82%)}
+.recapSlide.green{background:radial-gradient(520px 420px at 50% 20%,#12654c 0%,#0b281f 48%,#080a0f 82%)}
+.recapCenter{width:100%;max-width:520px;text-align:center;animation:recapIn .28s ease-out both}
+@keyframes recapIn{from{opacity:.15;transform:scale(.96) translateY(12px)}to{opacity:1;transform:none}}
+.recapIcon{width:86px;height:86px;border-radius:29px;margin:0 auto 18px;display:grid;place-items:center;font-size:43px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.recapEyebrow{font-size:10px;letter-spacing:2px;font-weight:950;color:rgba(255,255,255,.67)}
+.recapCenter h1{font-size:38px;line-height:1.02;letter-spacing:-1.2px;margin:8px 0 24px}
+.recapBigGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.recapBigGrid.two{grid-template-columns:repeat(2,1fr)}
+.recapBigGrid>div{padding:17px 7px;border-radius:20px;background:rgba(0,0,0,.20);border:1px solid rgba(255,255,255,.12)}
+.recapBigGrid strong{display:block;font-size:30px}
+.recapBigGrid span{display:block;margin-top:3px;color:rgba(255,255,255,.62);font-size:10px}
+.recapPunch{font-size:16px;font-weight:850;line-height:1.35;margin:22px auto 0;max-width:390px;color:rgba(255,255,255,.88)}
+.recapProgressText{font-size:18px;line-height:1.55;max-width:420px;margin:auto;color:rgba(255,255,255,.88)}
+.recapProgressText b{color:#fff;font-size:20px}
+.recapHeroStat{margin:22px auto 0;padding:19px;border-radius:23px;background:rgba(0,0,0,.20);border:1px solid rgba(255,255,255,.13)}
+.recapHeroStat strong{display:block;font-size:27px}.recapHeroStat span{display:block;margin-top:5px;color:rgba(255,255,255,.64);font-size:11px}
+.recapHeroStat.huge strong{font-size:46px}
+.recapRewards{display:grid;gap:9px}
+.recapReward{padding:16px;border-radius:18px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);font-size:17px;font-weight:950}
+.mutedReward{color:rgba(255,255,255,.78)}
+.recapNextSession{display:inline-block;padding:9px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.18);font-size:11px;font-weight:900}
+.recapControls{position:absolute;z-index:8;left:16px;right:16px;bottom:calc(16px + var(--safeBottom));display:grid;grid-template-columns:58px 1fr;gap:9px}
+.recapNav{min-height:54px;border-radius:17px;font-size:14px;font-weight:950}
+.ghostRecap{border:1px solid rgba(255,255,255,.17);background:rgba(0,0,0,.22);color:#fff}
+.mainRecap{border:0;background:#fff;color:#101116}
+.recapNav.invisible{visibility:hidden}
+
 </style>
 </head>
 <body>
@@ -446,6 +492,7 @@ body::after{transform:translate3d(15px,-16px,0) scale(.98)}
 
   <section id="progress" class="page">
    <div class="card hero"><div class="eyebrow">Evolución</div><h1 class="title">Progreso real</h1><div class="grid3"><div class="kpi"><strong id="totalSessions">0</strong><span class="small muted">Sesiones</span></div><div class="kpi"><strong id="adherenceKpi">0%</strong><span class="small muted">Cumplimiento</span></div><div class="kpi"><strong id="totalVolume">0</strong><span class="small muted">Carga movida</span></div></div></div>
+   <button id="monthlyRecapBtn" class="card monthRecapCard" type="button"><div class="monthRecapIcon">✦</div><div><span>RESUMEN MENSUAL</span><b id="monthlyRecapLabel">Este mes</b></div><div class="monthRecapArrow">›</div></button>
    <div class="card"><div class="eyebrow">Marcas anteriores</div><h2 style="font-size:18px;margin:5px 0">Superar tu mejor versión</h2><p class="note">Compara tu fuerza estimada actual con las marcas que recordabas antes de la pausa. Esas marcas no suman RP hasta que las vuelvas a demostrar.</p><div id="comebackList"></div></div>
    <div class="card"><div class="row spread"><h2 style="font-size:18px;margin:0">Fuerza estimada</h2><span class="pill">estimación</span></div><select id="chartExercise" style="margin-top:10px"></select><div style="height:10px"></div><canvas id="chart" width="700" height="250"></canvas></div>
    <div class="card"><h2 style="font-size:18px;margin-top:0">Trabajo semanal por músculo</h2><canvas id="muscleChart" class="miniCanvas" width="700" height="300"></canvas><p class="note">Es una estimación de cuánto trabajo recibió cada músculo durante la semana.</p></div>
@@ -468,6 +515,18 @@ body::after{transform:translate3d(15px,-16px,0) scale(.98)}
    <details class="card rankDetails"><summary>Ver cómo se calcula</summary><div id="rankBreakdown" style="margin-top:10px"></div></details>
   </section>
  </main>
+</div>
+
+<div id="recapModal" class="recapModal">
+ <div class="recapShell">
+  <div id="recapProgress" class="recapProgress"></div>
+  <button id="recapClose" class="recapClose" type="button">×</button>
+  <div id="recapSlide" class="recapSlide"></div>
+  <div class="recapControls">
+   <button id="recapPrev" class="recapNav ghostRecap" type="button">‹</button>
+   <button id="recapNext" class="recapNav mainRecap" type="button">Siguiente</button>
+  </div>
+ </div>
 </div>
 
 <div id="trainConfirm" class="confirmModal"><div class="confirmCard"><div class="confirmIcon">▶</div><div class="eyebrow">Entrenamiento</div><h2>¿Querés entrenar ahora?</h2><p id="trainConfirmText"></p><div class="confirmActions"><button id="cancelTrain" class="btn ghost">Ahora no</button><button id="confirmTrain" class="btn">Sí, entrenar</button></div></div></div>
@@ -504,14 +563,14 @@ body::after{transform:translate3d(15px,-16px,0) scale(.98)}
  <div class="settingbox"><div class="row spread"><div><b class="small">Ejercicios aprendidos</b><div id="exercisePrefsStatus" class="tiny muted">Todavía estoy aprendiendo tus gustos.</div></div><span id="exercisePrefsCount" class="pill">0</span></div><div id="exercisePrefsSummary" class="prefsSummary"></div></div>
  <button id="saveProfile" class="btn full" style="margin-top:12px">Guardar cambios</button>
  <div class="divider"></div><h3 style="margin:0 0 8px">Datos</h3><div class="row wrap"><button id="showTutorialSettings" class="btn ghost">Tutorial</button><button id="exportData" class="btn secondary">Guardar copia</button><label class="btn secondary" style="display:inline-flex;align-items:center;margin:0">Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">Cambiar datos iniciales</button><button id="resetData" class="btn red">Borrar todo</button></div>
- <p class="note"><b>IRON COACH 5.5 REWARD UI</b><br><span class="buildstamp">Build 2026.08.10 · motor v21 · reward ui</span><br>Guardado local en este iPhone · autosave · copia redundante IndexedDB · backup manual exportable.</p>
+ <p class="note"><b>IRON COACH 5.6 RECAP</b><br><span class="buildstamp">Build 2026.08.10 · motor v22 · session + monthly recap</span><br>Guardado local en este iPhone · autosave · copia redundante IndexedDB · backup manual exportable.</p>
 </div></div>
 
 <nav class="bottom"><div class="bottomIn"><button class="navbtn active" data-page="home"><span>⌂</span>Hoy</button><button class="navbtn trainNav" data-page="train"><span>▶</span>Entrenar</button><button class="navbtn" data-page="plan"><span>≡</span>Plan</button><button class="navbtn" data-page="progress"><span>↗</span>Progreso</button><button class="navbtn" data-page="trophies"><span>🏆</span>Trofeos</button><button class="navbtn" data-page="rank"><span>◆</span>Rango</button></div></nav>
 
 <script>
 'use strict';
-const BUILD='5.5 REWARD UI · 2026.08.10';
+const BUILD='5.6 RECAP · 2026.08.10';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=4, TUTORIAL_VERSION=12;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -602,14 +661,14 @@ const BUILD6=[
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
 
-const fresh={version:54,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',goal:'muscle',experience:'intermediate',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[1,3,5],timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{}},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,date:''},routineCursor:0};
+const fresh={version:55,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',goal:'muscle',experience:'intermediate',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[1,3,5],timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},lastMonthlyRecap:''},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,date:''},routineCursor:0};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const dk=(d=new Date())=>{const z=new Date(d);return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0')};
 const fmtDate=s=>new Date(s).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'});
 function ageFromDOB(s){if(!s)return null;const b=new Date(s+'T12:00:00'),n=new Date();if(Number.isNaN(b.getTime()))return null;let a=n.getFullYear()-b.getFullYear();const m=n.getMonth()-b.getMonth();if(m<0||(m===0&&n.getDate()<b.getDate()))a--;return a}
 function scheduleFor(n){return n===3?[1,3,5]:n===4?[1,2,4,6]:n===5?[1,2,4,5,6]:[1,2,3,4,5,6]}
 function recommendedDays(p){let n=p.experience==='beginner'?3:p.experience==='advanced'?Math.min(5,+p.availability||3):Math.min(4,+p.availability||3);if(p.goal==='strength'&&p.experience!=='advanced')n=Math.min(n,4);return Math.max(3,Math.min(+p.availability||3,n))}
-function migrate(x){const d=Object.assign(clone(fresh),x||{});d.profile=Object.assign(clone(fresh.profile),(x||{}).profile||{});d.logs=Array.isArray(d.logs)?d.logs:[];d.prs=d.prs||{};d.baselinePrs=d.baselinePrs||{};d.bodyweightLogs=Array.isArray(d.bodyweightLogs)?d.bodyweightLogs:[];d.checkin=Object.assign(clone(fresh.checkin),(x||{}).checkin||{});d.profile.limitations=Array.isArray(d.profile.limitations)?d.profile.limitations:[];d.profile.priorMarks=d.profile.priorMarks||{};d.profile.priority=d.profile.priority||'balanced';d.profile.sessionMinutes=+d.profile.sessionMinutes||75;d.profile.barWeight=0;d.profile.days=recommendedDays(d.profile);if(!Array.isArray(d.profile.scheduleDays)||d.profile.scheduleDays.length!==d.profile.days)d.profile.scheduleDays=scheduleFor(d.profile.days);if(d.profile.bridgeStartLogCount===undefined||d.profile.bridgeStartLogCount===null)d.profile.bridgeStartLogCount=d.logs.length;if(d.profile.tutorialVersion===undefined)d.profile.tutorialVersion=0;if(!Array.isArray(d.profile.seenAchievements))d.profile.seenAchievements=[];if(d.profile.achievementsInitialized===undefined)d.profile.achievementsInitialized=false;if(!d.profile.exercisePrefs||typeof d.profile.exercisePrefs!=='object')d.profile.exercisePrefs={};d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';d.version=54;return d}
+function migrate(x){const d=Object.assign(clone(fresh),x||{});d.profile=Object.assign(clone(fresh.profile),(x||{}).profile||{});d.logs=Array.isArray(d.logs)?d.logs:[];d.prs=d.prs||{};d.baselinePrs=d.baselinePrs||{};d.bodyweightLogs=Array.isArray(d.bodyweightLogs)?d.bodyweightLogs:[];d.checkin=Object.assign(clone(fresh.checkin),(x||{}).checkin||{});d.profile.limitations=Array.isArray(d.profile.limitations)?d.profile.limitations:[];d.profile.priorMarks=d.profile.priorMarks||{};d.profile.priority=d.profile.priority||'balanced';d.profile.sessionMinutes=+d.profile.sessionMinutes||75;d.profile.barWeight=0;d.profile.days=recommendedDays(d.profile);if(!Array.isArray(d.profile.scheduleDays)||d.profile.scheduleDays.length!==d.profile.days)d.profile.scheduleDays=scheduleFor(d.profile.days);if(d.profile.bridgeStartLogCount===undefined||d.profile.bridgeStartLogCount===null)d.profile.bridgeStartLogCount=d.logs.length;if(d.profile.tutorialVersion===undefined)d.profile.tutorialVersion=0;if(!Array.isArray(d.profile.seenAchievements))d.profile.seenAchievements=[];if(d.profile.achievementsInitialized===undefined)d.profile.achievementsInitialized=false;if(!d.profile.exercisePrefs||typeof d.profile.exercisePrefs!=='object')d.profile.exercisePrefs={};if(typeof d.profile.lastMonthlyRecap!=='string')d.profile.lastMonthlyRecap='';d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';d.version=55;return d}
 function load(){for(const k of [DBKEY,AUTOKEY]){try{const raw=localStorage.getItem(k);if(raw)return migrate(JSON.parse(raw))}catch(e){}}return clone(fresh)}
 let db=load();
 function idbWrite(data){try{const req=indexedDB.open('IronCoachSafe',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('store'))req.result.createObjectStore('store')};req.onsuccess=()=>req.result.transaction('store','readwrite').objectStore('store').put(clone(data),'db')}catch(e){}}
@@ -902,6 +961,133 @@ function planReasonCopy(){
 function renderWhyPlan(){const c=planReasonCopy();$('whyPlanShort').textContent=c.short;$('whyPlanLong').textContent=c.long}
 
 
+
+let recapState={slides:[],index:0,onClose:null};
+
+function bestSetE1RM(exercise){
+ const valid=(exercise?.sets||[]).filter(s=>s.done&&+s.weight>0&&+s.reps>0&&s.feel!=='pain'&&s.sensation!=='sharp');
+ if(!valid.length)return null;
+ const best=valid.reduce((a,s)=>e1rm(+s.weight,+s.reps)>e1rm(+a.weight,+a.reps)?s:a,valid[0]);
+ return {value:e1rm(+best.weight,+best.reps),weight:+best.weight,reps:+best.reps}
+}
+function priorBestE1RM(id,beforeDate,excludeId=null){
+ let best=0;
+ for(const l of db.logs){
+  if(excludeId&&String(l.id)===String(excludeId))continue;
+  if(beforeDate&&new Date(l.date)>=beforeDate)continue;
+  const e=(l.exercises||[]).find(x=>x.id===id);
+  const b=bestSetE1RM(e);if(b&&b.value>best)best=b.value
+ }
+ return best
+}
+function sessionRecapData(log,newAch=[],beforeRank='',afterRank=''){
+ const improved=[],firstRefs=[];
+ for(const ex of log.exercises||[]){
+  const cur=bestSetE1RM(ex);if(!cur)continue;
+  const prev=priorBestE1RM(ex.id,new Date(log.date),log.id);
+  if(!prev)firstRefs.push({name:ex.name,...cur});
+  else if(cur.value>prev*1.005)improved.push({name:ex.name,pct:(cur.value/prev-1)*100,...cur})
+ }
+ improved.sort((a,b)=>b.pct-a.pct);
+ return {
+  improved,firstRefs,newAch,
+  rankUp:beforeRank&&afterRank&&beforeRank!==afterRank?afterRank:'',
+  sets:log.completedSets||0,
+  duration:log.durationMin||0,
+  volume:+log.volume||0,
+  weekCount:logsThisWeek().length,
+  weekGoal:db.profile.days||3,
+  streak:weeklyStreak()
+ }
+}
+function sessionRecapSlides(log,data){
+ const volumeT=(data.volume/1000).toFixed(1);
+ const progressTitle=data.improved.length?`${data.improved.length} mejora${data.improved.length===1?'':'s'}`:data.firstRefs.length?'Base creada':'Sesión sumada';
+ const progressSub=data.improved.length
+  ?data.improved.slice(0,2).map(x=>`${x.name} <b>+${x.pct.toFixed(1)}%</b>`).join('<br>')
+  :data.firstRefs.length?`${data.firstRefs.length} referencia${data.firstRefs.length===1?'':'s'} nueva${data.firstRefs.length===1?'':'s'} para empezar a medir tu progreso.`:'No hace falta romper un récord todos los días. Hoy sumaste trabajo.';
+ const rewardItems=[];
+ if(data.rankUp)rewardItems.push(`◆ ${data.rankUp}`);
+ data.newAch.slice(0,2).forEach(a=>rewardItems.push(`🏆 ${a.name}`));
+ const rewardHTML=rewardItems.length?rewardItems.map(x=>`<div class="recapReward">${x}</div>`).join(''):`<div class="recapReward mutedReward">🔥 ${data.streak} semana${data.streak===1?'':'s'} de racha</div>`;
+ const next=currentSession();
+ return [
+  {tone:'purple',eyebrow:'SESIÓN COMPLETA',icon:'✓',title:log.sessionName,html:`<div class="recapBigGrid"><div><strong>${data.sets}</strong><span>series</span></div><div><strong>${data.duration}</strong><span>min</span></div><div><strong>${volumeT}</strong><span>t movidas</span></div></div><div class="recapPunch">${pickMsg('finish')}</div>`},
+  {tone:'blue',eyebrow:'PROGRESO DE HOY',icon:data.improved.length?'↗':'◆',title:progressTitle,html:`<div class="recapProgressText">${progressSub}</div>${data.improved[0]?`<div class="recapHeroStat"><strong>${data.improved[0].weight} kg × ${data.improved[0].reps}</strong><span>${data.improved[0].name}</span></div>`:''}`},
+  {tone:'gold',eyebrow:'RECOMPENSAS',icon:'🏆',title:rewardItems.length?'Te llevaste esto':'Seguís construyendo',html:`<div class="recapRewards">${rewardHTML}</div><div class="recapHeroStat"><strong>${data.weekCount}/${data.weekGoal}</strong><span>sesiones esta semana</span></div>`},
+  {tone:'green',eyebrow:'LO QUE SIGUE',icon:'▶',title:next.name,html:`<div class="recapNextSession">${next.items.length} ejercicios</div><div class="recapPunch">El Coach ya recalculó tu próxima sesión.</div>`}
+ ]
+}
+function monthKey(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`}
+function monthRange(d=new Date()){
+ const start=new Date(d.getFullYear(),d.getMonth(),1),end=new Date(d.getFullYear(),d.getMonth()+1,1);
+ return {start,end}
+}
+function monthLogs(d=new Date()){const {start,end}=monthRange(d);return db.logs.filter(l=>{const x=new Date(l.date);return x>=start&&x<end})}
+function monthName(d=new Date()){return d.toLocaleDateString('es-AR',{month:'long',year:'numeric'}).toUpperCase()}
+function monthStats(d=new Date()){
+ const logs=monthLogs(d),{start}=monthRange(d),minutes=logs.reduce((a,l)=>a+(+l.durationMin||0),0),volume=logs.reduce((a,l)=>a+(+l.volume||0),0);
+ const ids=new Set(),improved=[],firstRefs=[];
+ for(const l of logs)for(const e of l.exercises||[])ids.add(e.id);
+ for(const id of ids){
+  let monthBest=null,name=EX[id]?.name||id;
+  for(const l of logs){
+   const e=(l.exercises||[]).find(x=>x.id===id),b=bestSetE1RM(e);
+   if(b&&(!monthBest||b.value>monthBest.value))monthBest={...b,name}
+  }
+  if(!monthBest)continue;
+  const prev=priorBestE1RM(id,start);
+  if(!prev)firstRefs.push(monthBest);
+  else if(monthBest.value>prev*1.005)improved.push({...monthBest,pct:(monthBest.value/prev-1)*100})
+ }
+ improved.sort((a,b)=>b.pct-a.pct);
+ const weekKeys=[...new Set(logs.map(l=>weekKey(new Date(l.date))))];
+ const completeWeeks=weekKeys.filter(k=>distinctDaysInWeek(k)>=(db.profile.days||3)).length;
+ const extra=logs.filter(l=>l.extraSession).length;
+ return {logs,sessions:logs.length,minutes,volume,improved,firstRefs,completeWeeks,extra}
+}
+function monthlyRecapSlides(d=new Date(),complete=false){
+ const s=monthStats(d),name=monthName(d),volumeT=(s.volume/1000).toFixed(1),hours=(s.minutes/60).toFixed(1);
+ const progress=s.improved.length?`${s.improved.length} ejercicio${s.improved.length===1?'':'s'} mejorado${s.improved.length===1?'':'s'}`:s.firstRefs.length?`${s.firstRefs.length} referencias nuevas`:'Base acumulada';
+ const best=s.improved[0];
+ const monthLabel=complete?'TU MES':'HASTA HOY';
+ return [
+  {tone:'purple',eyebrow:monthLabel,icon:'✦',title:name,html:`<div class="recapBigGrid"><div><strong>${s.sessions}</strong><span>sesiones</span></div><div><strong>${hours}</strong><span>horas</span></div><div><strong>${volumeT}</strong><span>t movidas</span></div></div>`},
+  {tone:'blue',eyebrow:'PROGRESO',icon:'↗',title:progress,html:best?`<div class="recapHeroStat huge"><strong>+${best.pct.toFixed(1)}%</strong><span>${best.name}</span></div><div class="recapPunch">${best.weight} kg × ${best.reps} en tu mejor serie.</div>`:`<div class="recapPunch">Seguí registrando: el resumen se vuelve más preciso a medida que acumulás sesiones.</div>`},
+  {tone:'gold',eyebrow:'CONSTANCIA',icon:'🔥',title:`${s.completeWeeks} semana${s.completeWeeks===1?'':'s'} completa${s.completeWeeks===1?'':'s'}`,html:`<div class="recapBigGrid two"><div><strong>${s.extra}</strong><span>sesiones extra</span></div><div><strong>${weeklyStreak()}</strong><span>racha actual</span></div></div>`},
+  {tone:'green',eyebrow:'MES EN UNA FRASE',icon:'🏆',title:s.sessions?`${s.sessions} sesiones. ${s.improved.length} mejoras.`:'El mes recién empieza.',html:`<div class="recapPunch">${s.sessions?`Seguiste apareciendo. Ahora toca construir sobre esto.`:`Cuando completes sesiones, acá vas a ver tu historia del mes.`}</div>`}
+ ]
+}
+function renderRecapSlide(){
+ const s=recapState.slides[recapState.index];if(!s)return;
+ $('recapProgress').innerHTML=recapState.slides.map((_,i)=>`<i class="${i<=recapState.index?'on':''}"></i>`).join('');
+ $('recapSlide').className=`recapSlide ${s.tone||'purple'}`;
+ $('recapSlide').innerHTML=`<div class="recapCenter"><div class="recapIcon">${s.icon||'✦'}</div><div class="recapEyebrow">${s.eyebrow||''}</div><h1>${s.title||''}</h1>${s.html||''}</div>`;
+ $('recapPrev').classList.toggle('invisible',recapState.index===0);
+ $('recapNext').textContent=recapState.index===recapState.slides.length-1?'Listo':'Siguiente'
+}
+function openRecap(slides,onClose=null){
+ recapState={slides,index:0,onClose};
+ renderRecapSlide();$('recapModal').classList.add('show')
+}
+function closeRecap(){
+ $('recapModal').classList.remove('show');
+ const cb=recapState.onClose;recapState={slides:[],index:0,onClose:null};if(cb)cb()
+}
+function nextRecap(){
+ if(recapState.index<recapState.slides.length-1){recapState.index++;renderRecapSlide()}else closeRecap()
+}
+function prevRecap(){if(recapState.index>0){recapState.index--;renderRecapSlide()}}
+function openCurrentMonthRecap(){openRecap(monthlyRecapSlides(new Date(),false))}
+function previousMonthDate(){const d=new Date();return new Date(d.getFullYear(),d.getMonth()-1,1)}
+function maybeAutoMonthlyRecap(){
+ if(!db.onboarded||$('onboarding')?.classList.contains('hidden')===false)return;
+ const d=previousMonthDate(),key=monthKey(d),logs=monthLogs(d);
+ if(!logs.length||db.profile.lastMonthlyRecap===key)return;
+ db.profile.lastMonthlyRecap=key;save(true);
+ openRecap(monthlyRecapSlides(d,true))
+}
+
 let achievementTimer=null,livePrCelebrated=new Set(),allDoneRewardShown=false;
 function showAchievement(kicker,title,sub='',kind='good'){
  const el=$('achievementBurst');if(!el)return;
@@ -1092,7 +1278,7 @@ function drawVolumeChart(){drawLine($('volumeChart').getContext('2d'),$('volumeC
 function drawReadinessChart(){drawLine($('readinessChart').getContext('2d'),$('readinessChart'),db.logs.slice(-12).map(l=>+l.readiness||70),'#f0b44d','Todavía no hay sesiones.')}
 function drawBWChart(){drawLine($('bwChart').getContext('2d'),$('bwChart'),db.bodyweightLogs.slice(-20).map(x=>+x.weight),'#a28cff','Agregá tu peso corporal para ver tendencia.')}
 function drawMuscleChart(){const cv=$('muscleChart'),ctx=cv.getContext('2d'),d=weeklySetCounts(),entries=ALL_GROUPS.map(g=>[GROUP_LABEL[g],d[g]]),max=Math.max(1,...entries.map(x=>x[1]));ctx.clearRect(0,0,cv.width,cv.height);ctx.font='12px sans-serif';entries.forEach(([n,v],i)=>{const y=14+i*27,w=(cv.width-165)*v/max;ctx.fillStyle='#8f99a8';ctx.fillText(n,12,y+10);ctx.fillStyle='#171d27';ctx.fillRect(100,y,cv.width-125,10);ctx.fillStyle='#7b61ff';ctx.fillRect(100,y,w,10);ctx.fillStyle='#dfe3e9';ctx.fillText(Number(v).toFixed(v%1?1:0),cv.width-28,y+10)})}
-function renderProgress(){$('totalSessions').textContent=db.logs.length;$('adherenceKpi').textContent=adherence()+'%';$('totalVolume').textContent=(calcTotalVolume()/1000).toFixed(1);$('currentBW').textContent=(+db.profile.weight||75).toFixed(1)+' kg';const bw=db.bodyweightLogs;if(bw.length>=2){const d=bw.at(-1).weight-bw[0].weight;$('bwTrend').textContent=`Desde el primer registro: ${d>=0?'+':''}${d.toFixed(1)} kg.`}else $('bwTrend').textContent='Sumá registros para ver tendencia.';const prev=$('chartExercise').value;$('chartExercise').innerHTML=Object.entries(EX).map(([id,x])=>`<option value="${id}">${x.name}</option>`).join('');if(prev&&EX[prev])$('chartExercise').value=prev;renderComeback();drawStrengthChart();drawMuscleChart();drawVolumeChart();drawReadinessChart();drawBWChart();const ps=Object.values(db.prs).sort((a,b)=>b.e1rm-a.e1rm);$('prsList').innerHTML=ps.length?ps.slice(0,12).map(p=>`<div class="history"><b>${p.name}</b> · ${p.e1rm.toFixed(1)} kg e1RM<br><span class="muted">${p.weight} kg × ${p.reps} · ${fmtDate(p.date)}</span></div>`).join(''):'Todavía no hay récords actuales.';$('historyList').innerHTML=db.logs.length?[...db.logs].reverse().slice(0,20).map(l=>`<div class="history"><div class="row spread"><div><b>${l.sessionName}</b><br><span class="muted">${fmtDate(l.date)} · ${l.durationMin||0} min · cómo llegaste: ${l.readiness?readinessLabelFromScore(l.readiness):'—'}</span></div><button class="btn ghost slim" data-delete-log="${l.id}">Corregir</button></div></div>`).join(''):'Sin sesiones registradas.'}
+function renderProgress(){if($('monthlyRecapLabel'))$('monthlyRecapLabel').textContent=new Date().toLocaleDateString('es-AR',{month:'long'});$('totalSessions').textContent=db.logs.length;$('adherenceKpi').textContent=adherence()+'%';$('totalVolume').textContent=(calcTotalVolume()/1000).toFixed(1);$('currentBW').textContent=(+db.profile.weight||75).toFixed(1)+' kg';const bw=db.bodyweightLogs;if(bw.length>=2){const d=bw.at(-1).weight-bw[0].weight;$('bwTrend').textContent=`Desde el primer registro: ${d>=0?'+':''}${d.toFixed(1)} kg.`}else $('bwTrend').textContent='Sumá registros para ver tendencia.';const prev=$('chartExercise').value;$('chartExercise').innerHTML=Object.entries(EX).map(([id,x])=>`<option value="${id}">${x.name}</option>`).join('');if(prev&&EX[prev])$('chartExercise').value=prev;renderComeback();drawStrengthChart();drawMuscleChart();drawVolumeChart();drawReadinessChart();drawBWChart();const ps=Object.values(db.prs).sort((a,b)=>b.e1rm-a.e1rm);$('prsList').innerHTML=ps.length?ps.slice(0,12).map(p=>`<div class="history"><b>${p.name}</b> · ${p.e1rm.toFixed(1)} kg e1RM<br><span class="muted">${p.weight} kg × ${p.reps} · ${fmtDate(p.date)}</span></div>`).join(''):'Todavía no hay récords actuales.';$('historyList').innerHTML=db.logs.length?[...db.logs].reverse().slice(0,20).map(l=>`<div class="history"><div class="row spread"><div><b>${l.sessionName}</b><br><span class="muted">${fmtDate(l.date)} · ${l.durationMin||0} min · cómo llegaste: ${l.readiness?readinessLabelFromScore(l.readiness):'—'}</span></div><button class="btn ghost slim" data-delete-log="${l.id}">Corregir</button></div></div>`).join(''):'Sin sesiones registradas.'}
 function renderRank(){
  const r=rankInfo(),p=ratingParts();$('rankTitle').textContent=r.display;$('rankRP').textContent=r.rp;$('rankIcon').textContent=r.t[1];$('rankFill').style.width=(r.pct*100)+'%';
  if(r.blocked&&r.next)$('rankNext').innerHTML=`<b>${r.next[0]}</b><span>todavía bloqueado</span>`;
@@ -1109,7 +1295,25 @@ function applyDraft(d){for(const exd of d.exercises||[]){const card=[...$('exerc
 let sessionStarted=0,sessionClockInt=null;function startSessionClock(){if(!sessionStarted)sessionStarted=Date.now();clearInterval(sessionClockInt);sessionClockInt=setInterval(()=>{const s=Math.floor((Date.now()-sessionStarted)/1000);$('sessionDuration').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000)}
 let restEnd=0,restInt=null;function startRest(sec,name){restEnd=Date.now()+sec*1000;$('restExercise').textContent=name;$('restBar').classList.remove('hidden');tickRest();clearInterval(restInt);restInt=setInterval(tickRest,500)}function tickRest(){const left=Math.max(0,Math.ceil((restEnd-Date.now())/1000));$('restTimer').textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left<=0){clearInterval(restInt);$('restBar').classList.add('hidden');if(navigator.vibrate)navigator.vibrate([100,80,100]);toast('Descanso sugerido cumplido')}}
 function validateSet(card,row){const w=+row.querySelector('.w').value||0,r=+row.querySelector('.reps').value||0,rir=+row.querySelector('.rir').value;if(!w||!r){toast('Cargá kilos y repeticiones.');return false}if(r>50||w>800||rir<0||rir>5)return confirm(`Ese dato parece inusual (${w} kg × ${r}, RIR ${rir}). ¿Guardar igual?`);const h=logsFor(card.dataset.id),lw=h.length?workingWeight(workSets(h.at(-1))):0;if(lw&&(w>lw*1.7||w<lw*.4))return confirm(`La última carga fue ~${lw} kg y ahora pusiste ${w} kg. ¿Es correcto?`);return true}
-function finishWorkoutNow(){const beforeRank=rankInfo().display,sess=currentSession(),cards=[...$('exerciseList').querySelectorAll('.exercise')],exs=[];let incomplete=0;cards.forEach(c=>{const rows=[...c.querySelectorAll('.setrow')],sets=rows.map(r=>({weight:+r.querySelector('.w').value||0,reps:+r.querySelector('.reps').value||0,rir:+r.querySelector('.rir').value||0,feel:r.querySelector('.feel')?.value||'',sensation:r.querySelector('.sensation')?.value||'',doneAt:+r.dataset.doneAt||0,done:r.querySelector('.donebtn').classList.contains('on')}));incomplete+=sets.filter(s=>!s.done).length;const done=sets.filter(s=>s.done&&s.weight>0&&s.reps>0);if(done.length)exs.push({id:c.dataset.id,name:EX[c.dataset.id].name,sets:done})});if(!exs.length){toast('Marcá al menos una serie completada.');return}if(incomplete&&!confirm(`Quedan ${incomplete} series sin marcar. ¿Guardar igual?`))return;const last=db.logs.at(-1);if(last&&last.sessionId===sess.id&&Date.now()-new Date(last.date).getTime()<20*60000&&!confirm('Ya guardaste esta sesión hace poco. ¿Guardar otra?'))return;const plannedSets=cards.reduce((a,c)=>a+c.querySelectorAll('.setrow').length,0),completedSets=exs.reduce((a,e)=>a+e.sets.length,0),completionRate=plannedSets?completedSets/plannedSets:0,vol=exs.reduce((a,e)=>a+e.sets.reduce((q,s)=>q+s.weight*s.reps,0),0),duration=Math.max(1,Math.round((Date.now()-(sessionStarted||Date.now()))/60000)),log={id:Date.now(),date:new Date().toISOString(),sessionId:sess.id,sessionName:sess.name,phase:phaseInfo().name,readiness:rd100(),coachState:coachState().key,extraSession:isExtraWorkout(),durationMin:duration,plannedSets,completedSets,completionRate,volume:vol,exercises:exs};db.logs.push(log);exs.forEach(e=>{const valid=e.sets.filter(s=>s.weight&&s.reps&&s.feel!=='pain'&&s.sensation!=='sharp');if(!valid.length)return;const best=valid.reduce((a,s)=>e1rm(s.weight,s.reps)>e1rm(a.weight,a.reps)?s:a,valid[0]),v=e1rm(best.weight,best.reps),old=db.prs[e.id]?.e1rm||0;if(!db.baselinePrs[e.id])db.baselinePrs[e.id]={e1rm:v,date:log.date};if(v>old)db.prs[e.id]={name:e.name,e1rm:v,weight:best.weight,reps:best.reps,date:log.date}});const afterRank=rankInfo().display,newAch=newlyUnlockedAchievements();markAchievementsSeen(newAch);manualRoutine=null;sessionOverrides={};sessionStarted=0;clearInterval(sessionClockInt);clearInterval(restInt);$('restBar').classList.add('hidden');clearDraft();save();renderAll();go('progress');toast('Sesión guardada · plan recalculado');const rewards=[];if(afterRank!==beforeRank)rewards.push({kicker:'RANGO',title:afterRank,sub:'Subiste gracias a rendimiento y constancia registrados.',kind:'milestone'});newAch.forEach(a=>rewards.push({kicker:'LOGRO DESBLOQUEADO',title:a.name,sub:a.desc,kind:'milestone'}));if(rewards.length)rewardSequence(rewards,300)}
+function finishWorkoutNow(){
+ const beforeRank=rankInfo().display,sess=currentSession(),cards=[...$('exerciseList').querySelectorAll('.exercise')],exs=[];let incomplete=0;
+ cards.forEach(c=>{
+  const rows=[...c.querySelectorAll('.setrow')],sets=rows.map(r=>({weight:+r.querySelector('.w').value||0,reps:+r.querySelector('.reps').value||0,rir:+r.querySelector('.rir').value||0,feel:r.querySelector('.feel')?.value||'',sensation:r.querySelector('.sensation')?.value||'',doneAt:+r.dataset.doneAt||0,done:r.querySelector('.donebtn').classList.contains('on')}));
+  incomplete+=sets.filter(s=>!s.done).length;const done=sets.filter(s=>s.done&&s.weight>0&&s.reps>0);if(done.length)exs.push({id:c.dataset.id,name:EX[c.dataset.id].name,sets:done})
+ });
+ if(!exs.length){toast('Marcá al menos una serie completada.');return}
+ if(incomplete&&!confirm(`Quedan ${incomplete} series sin marcar. ¿Guardar igual?`))return;
+ const last=db.logs.at(-1);if(last&&last.sessionId===sess.id&&Date.now()-new Date(last.date).getTime()<20*60000&&!confirm('Ya guardaste esta sesión hace poco. ¿Guardar otra?'))return;
+ const plannedSets=cards.reduce((a,c)=>a+c.querySelectorAll('.setrow').length,0),completedSets=exs.reduce((a,e)=>a+e.sets.length,0),completionRate=plannedSets?completedSets/plannedSets:0,vol=exs.reduce((a,e)=>a+e.sets.reduce((q,s)=>q+s.weight*s.reps,0),0),duration=Math.max(1,Math.round((Date.now()-(sessionStarted||Date.now()))/60000));
+ const log={id:Date.now(),date:new Date().toISOString(),sessionId:sess.id,sessionName:sess.name,phase:phaseInfo().name,readiness:rd100(),coachState:coachState().key,extraSession:isExtraWorkout(),durationMin:duration,plannedSets,completedSets,completionRate,volume:vol,exercises:exs};
+ db.logs.push(log);
+ exs.forEach(e=>{const valid=e.sets.filter(s=>s.weight&&s.reps&&s.feel!=='pain'&&s.sensation!=='sharp');if(!valid.length)return;const best=valid.reduce((a,s)=>e1rm(s.weight,s.reps)>e1rm(a.weight,a.reps)?s:a,valid[0]),v=e1rm(best.weight,best.reps),old=db.prs[e.id]?.e1rm||0;if(!db.baselinePrs[e.id])db.baselinePrs[e.id]={e1rm:v,date:log.date};if(v>old)db.prs[e.id]={name:e.name,e1rm:v,weight:best.weight,reps:best.reps,date:log.date}});
+ const afterRank=rankInfo().display,newAch=newlyUnlockedAchievements(),recap=sessionRecapData(log,newAch,beforeRank,afterRank);markAchievementsSeen(newAch);
+ manualRoutine=null;sessionOverrides={};sessionStarted=0;clearInterval(sessionClockInt);clearInterval(restInt);$('restBar').classList.add('hidden');clearDraft();save();renderAll();go('home');
+ openRecap(sessionRecapSlides(log,recap),()=>{
+  const rewards=[];if(afterRank!==beforeRank)rewards.push({kicker:'RANGO',title:afterRank,sub:'Subiste gracias a rendimiento y constancia registrados.',kind:'milestone'});newAch.forEach(a=>rewards.push({kicker:'LOGRO DESBLOQUEADO',title:a.name,sub:a.desc,kind:'milestone'}));if(rewards.length)rewardSequence(rewards,180)
+ })
+}
 function rebuildPRs(){db.prs={};db.baselinePrs={};for(const l of db.logs){for(const e of l.exercises||[]){const valid=(e.sets||[]).filter(s=>s.done&&s.weight&&s.reps&&s.feel!=='pain'&&s.sensation!=='sharp');if(!valid.length)continue;const best=valid.reduce((a,s)=>e1rm(+s.weight,+s.reps)>e1rm(+a.weight,+a.reps)?s:a,valid[0]),v=e1rm(+best.weight,+best.reps);if(!db.baselinePrs[e.id])db.baselinePrs[e.id]={e1rm:v,date:l.date};if(v>(db.prs[e.id]?.e1rm||0))db.prs[e.id]={name:EX[e.id]?.name||e.name,e1rm:v,weight:+best.weight,reps:+best.reps,date:l.date}}}}
 function deleteLog(id){if(!confirm('¿Eliminar esta sesión? Los PRs se recalcularán.'))return;db.logs=db.logs.filter(l=>String(l.id)!==String(id));rebuildPRs();save();renderAll();toast('Sesión eliminada')}
 function addBodyweight(){const w=+$('newBW').value;if(!w||w<30||w>250){toast('Ingresá un peso válido.');return}db.profile.weight=w;db.bodyweightLogs.push({date:new Date().toISOString(),weight:w});$('newBW').value='';save();renderProgress();toast('Peso guardado')}
@@ -1183,7 +1387,7 @@ async function checkFreshBuild(){try{const r=await fetch('./index.html?buildchec
 cleanupLegacy();window.addEventListener('pageshow',()=>setTimeout(checkFreshBuild,700));document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(checkFreshBuild,500)});
 
 $('skipPriorMarks').addEventListener('click',skipPriorMarksNow);['priorBenchW','priorSquatW','priorDeadliftW','priorOhpW','priorBenchR','priorSquatR','priorDeadliftR','priorOhpR'].forEach(id=>$(id).addEventListener('input',()=>{if(obStep===3)showOb()}));$('prefLater').addEventListener('click',()=>closeExercisePreference(true));$('exercisePrefModal').addEventListener('click',e=>{if(e.target===$('exercisePrefModal'))closeExercisePreference(true)});document.querySelectorAll('[data-ex-pref]').forEach(b=>b.addEventListener('click',()=>setExercisePreference(b.dataset.exPref)));$('rewardStrip').addEventListener('click',()=>go('rank'));$('rewardStrip').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go('rank')}});$('feedbackCancel').addEventListener('click',closeSetFeedback);$('burnSensation').addEventListener('click',toggleBurnSensation);$('sharpPain').addEventListener('click',applySharpPain);$('setFeedback').addEventListener('click',e=>{if(e.target===$('setFeedback'))closeSetFeedback()});$('openTutorial').addEventListener('click',()=>openTutorial(0));$('showTutorialSettings').addEventListener('click',()=>{$('settingsModal').classList.remove('show');openTutorial(0)});$('tutorialSkip').addEventListener('click',()=>closeTutorial(true));$('tutorialNext').addEventListener('click',nextTutorial);$('tutorialModal').addEventListener('click',e=>{if(e.target===$('tutorialModal'))closeTutorial(true)});$('rirQuickHelp').addEventListener('click',rirHelp);$('whyPlanBtn').addEventListener('click',()=>{const x=$('whyPlanLong'),open=x.classList.contains('hidden');x.classList.toggle('hidden',!open);$('whyPlanBtn').textContent=open?'Ocultar':'Ver'});
-$('cancelTrain').addEventListener('click',closeTrainConfirm);$('confirmTrain').addEventListener('click',enterTrainingFromConfirm);$('trainConfirm').addEventListener('click',e=>{if(e.target===$('trainConfirm'))closeTrainConfirm()});$('homeTrain').addEventListener('click',()=>{if(!checkinCurrent()){toast('Elegí cómo te sentís y arrancamos.');document.querySelector('.quickCheck').scrollIntoView({behavior:'smooth',block:'center'});return}go('train')});
+$('recapClose').addEventListener('click',closeRecap);$('recapNext').addEventListener('click',nextRecap);$('recapPrev').addEventListener('click',prevRecap);$('recapModal').addEventListener('click',e=>{if(e.target===$('recapModal'))closeRecap()});$('monthlyRecapBtn').addEventListener('click',openCurrentMonthRecap);$('cancelTrain').addEventListener('click',closeTrainConfirm);$('confirmTrain').addEventListener('click',enterTrainingFromConfirm);$('trainConfirm').addEventListener('click',e=>{if(e.target===$('trainConfirm'))closeTrainConfirm()});$('homeTrain').addEventListener('click',()=>{if(!checkinCurrent()){toast('Elegí cómo te sentís y arrancamos.');document.querySelector('.quickCheck').scrollIntoView({behavior:'smooth',block:'center'});return}go('train')});
 $('saveCheckin').addEventListener('click',saveCheckinNow);document.querySelectorAll('.quickBtn').forEach(b=>b.addEventListener('click',()=>setQuick(b.dataset.quick)));
 $('cycleRoutine').addEventListener('click',()=>{manualRoutine=(currentRoutineIndex()+1)%plan().length;sessionOverrides={};clearDraft();renderTrain(false)});$('finishWorkout').addEventListener('click',finishWorkoutNow);$('finishEarly').addEventListener('click',()=>{if(confirm('¿Terminar la sesión con lo que ya registraste?'))finishWorkoutNow()});$('chartExercise').addEventListener('change',drawStrengthChart);$('addBW').addEventListener('click',addBodyweight);$('openSettings').addEventListener('click',()=>{renderSettings();$('settingsModal').classList.add('show')});$('closeSettings').addEventListener('click',()=>$('settingsModal').classList.remove('show'));$('settingsModal').addEventListener('click',e=>{if(e.target===$('settingsModal'))$('settingsModal').classList.remove('show')});$('saveProfile').addEventListener('click',saveProfileNow);$('exportData').addEventListener('click',exportBackup);$('importFile').addEventListener('change',importBackup);$('restartOnboarding').addEventListener('click',()=>{$('settingsModal').classList.remove('show');startOnboarding()});$('resetData').addEventListener('click',resetAll);$('timerToggle').addEventListener('click',()=>{db.profile.timerEnabled=!db.profile.timerEnabled;$('timerToggle').classList.toggle('on',db.profile.timerEnabled);save();toast(db.profile.timerEnabled?'Timer activado':'Timer apagado')});$('restPlus').addEventListener('click',()=>{restEnd+=30000;tickRest()});$('restSkip').addEventListener('click',()=>{clearInterval(restInt);$('restBar').classList.add('hidden')});$('resumeDraft').addEventListener('click',()=>{const d=draft();if(d){manualRoutine=d.routineIndex;sessionOverrides=d.overrides||{};go('train')}});$('discardDraft').addEventListener('click',()=>{if(confirm('¿Descartar la sesión en curso?')){clearDraft();sessionStarted=0;sessionOverrides={};renderHome()}});$('obNext').addEventListener('click',nextOb);$('obBack').addEventListener('click',backOb);$('obExperience').addEventListener('change',()=>{updateReturnNote();updateObRec()});$('obLayoff').addEventListener('change',()=>{updateReturnNote();updateObRec()});$('obAvailability').addEventListener('change',updateObRec);$('pDob').addEventListener('change',()=>{$('pAge').value=ageFromDOB($('pDob').value)??''});
 document.querySelectorAll('#goalChoices button').forEach(b=>b.addEventListener('click',()=>{obGoal=b.dataset.goal;document.querySelectorAll('#goalChoices button').forEach(x=>x.classList.toggle('selected',x===b));updateObRec()}));document.querySelectorAll('#priorityChoices button').forEach(b=>b.addEventListener('click',()=>{obPriority=b.dataset.priority;document.querySelectorAll('#priorityChoices button').forEach(x=>x.classList.toggle('selected',x===b))}));document.querySelectorAll('#limitationChoices button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.limit==='none'){document.querySelectorAll('#limitationChoices button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')}else{document.querySelector('#limitationChoices [data-limit="none"]').classList.remove('selected');b.classList.toggle('selected');if(!document.querySelector('#limitationChoices button.selected'))document.querySelector('#limitationChoices [data-limit="none"]').classList.add('selected')}}));
@@ -1191,6 +1395,6 @@ document.addEventListener('click',e=>{const nav=e.target.closest('.navbtn');if(n
 document.addEventListener('input',e=>{if(e.target.matches('.w,.reps,.rir')){setAutosave('Guardando…');clearTimeout(window._draftT);window._draftT=setTimeout(saveDraft,250)}if(e.target.classList.contains('w')){const row=e.target.closest('.setrow'),card=e.target.closest('.exercise'),rows=[...card.querySelectorAll('.setrow')];if(rows[0]===row){const v=e.target.value;rows.slice(1).forEach(r=>{const f=r.querySelector('.w');if(!f.value)f.value=v})}}});
 window.addEventListener('pagehide',()=>{saveDraft();save(true)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){saveDraft();save(true)}else if(!$('restBar').classList.contains('hidden'))tickRest()});
 
-const needsIntake=!db.onboarded||(db.profile.intakeVersion||0)<INTAKE_VERSION||!db.profile.dob;if(needsIntake)startOnboarding();seedAchievements();renderAll();idbRestoreIfNeeded();if(!needsIntake&&(db.profile.tutorialVersion||0)<TUTORIAL_VERSION)setTimeout(()=>openTutorial(0),450);
+const needsIntake=!db.onboarded||(db.profile.intakeVersion||0)<INTAKE_VERSION||!db.profile.dob;if(needsIntake)startOnboarding();seedAchievements();renderAll();idbRestoreIfNeeded();if(!needsIntake&&(db.profile.tutorialVersion||0)<TUTORIAL_VERSION)setTimeout(()=>openTutorial(0),450);if(!needsIntake)setTimeout(maybeAutoMonthlyRecap,1200);
 </script>
 </body></html>
