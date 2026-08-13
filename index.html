@@ -750,6 +750,30 @@ details>summary{font-size:16px!important}
 @keyframes setSuccess{0%{transform:scale(.96)}55%{transform:scale(1.025);filter:brightness(1.13)}100%{transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.microReward,.donebtn.on{transition:none!important;animation:none!important}}
 
+
+/* =========================================================
+   5.14 MOTIVATION — a new line every time the app opens
+   ========================================================= */
+.welcomeMotivation{margin:4px 0 17px;padding:17px 15px;border-radius:20px;background:linear-gradient(145deg,#17132a,#0d1219);border:1px solid #4c4178;position:relative;overflow:hidden}
+.welcomeMotivation::after{content:'◆';position:absolute;right:-4px;top:-18px;font-size:84px;color:rgba(142,116,255,.055);transform:rotate(12deg)}
+.welcomeMotivation>span{display:block;font-size:10px;font-weight:950;letter-spacing:1.5px;color:#9183d2;margin-bottom:8px}
+.welcomeMotivation blockquote{position:relative;z-index:1;margin:0;font-size:21px;font-weight:900;line-height:1.28;letter-spacing:-.25px;color:#f7f5ff}
+.welcomeTask{padding-top:2px}
+.welcomeTask h2{font-size:26px!important}
+.welcomeTask>p{font-size:14px!important;margin-bottom:14px!important}
+.welcomeCard{max-height:calc(100vh - 34px);overflow:auto}
+@media(max-width:390px){
+ .welcomeMotivation blockquote{font-size:19px}
+ .welcomeMotivation{padding:15px 13px}
+}
+
+
+/* 6.0 INTELLIGENCE */
+.replacementSheet{padding:20px 16px calc(28px + var(--safeBottom))}.replacementSheet h2{font-size:27px;margin:3px 0}.replacementIntro{font-size:14px;line-height:1.4;color:#aeb8c7;margin:4px 0 14px}.replacementList{display:grid;gap:9px}.replacementOption{width:100%;border:1px solid #303a49;background:#0b1017;color:#fff;border-radius:19px;padding:13px;display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;text-align:left;font-family:inherit}.replacementOption:active{transform:scale(.985)}.replacementRank{width:38px;height:38px;border-radius:13px;background:#1b1732;border:1px solid #52468a;display:grid;place-items:center;font-size:16px;font-weight:950;color:#c9bdff}.replacementMain b{display:block;font-size:16px;line-height:1.15}.replacementMain span{display:block;font-size:12px;color:#aeb8c7;margin-top:3px}.replacementMain small{display:block;font-size:12px;color:#85c9ad;margin-top:5px;line-height:1.3}.replacementTags{display:flex;flex-direction:column;align-items:flex-end;gap:5px}.replacementTags em,.replacementTags i{font-style:normal;font-size:9px;font-weight:950;border-radius:8px;padding:5px 6px;white-space:nowrap}.replacementTags em{background:#211a38;border:1px solid #514486;color:#cdbfff}.replacementTags i{background:#121a23;border:1px solid #314052;color:#aab8c8}
+.weeklyCoachCard{border-color:#394a60;background:radial-gradient(360px 150px at 100% 0,rgba(68,139,210,.14),transparent 75%),#0c1118;margin-bottom:12px}.weeklyCoachCard h2{font-size:24px;margin:4px 0}.weeklyCoachIcon{width:48px;height:48px;border-radius:16px;background:#101c2a;border:1px solid #31567d;display:grid;place-items:center;font-size:24px}.weeklyCoachStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0}.weeklyCoachStats>div{border:1px solid #2b3543;background:#090d13;border-radius:15px;padding:11px 8px;text-align:center}.weeklyCoachStats strong{display:block;font-size:23px}.weeklyCoachStats span{font-size:10.5px;color:#8f9aa9}.weeklyCoachCard>p{font-size:14px;line-height:1.45;color:#b5bfcc;margin:0 0 11px}.weeklyCoachNext{border-top:1px solid #27303d;padding-top:11px}.weeklyCoachNext>span{display:block;font-size:9.5px;letter-spacing:1px;font-weight:950;color:#7fa6c9}.weeklyCoachNext>b{display:block;font-size:15px;margin-top:4px;line-height:1.3}.weeklyCoachNext>small{display:block;font-size:11px;color:#8f9aa8;margin-top:5px}
+.blockReviewCard{border-color:#54451f;background:radial-gradient(390px 190px at 100% -15%,rgba(220,174,65,.18),transparent 70%),#0e1116}.blockReviewCard h2{font-size:27px;margin:4px 0}.blockReviewIcon{width:50px;height:50px;border-radius:17px;background:#2b210b;border:1px solid #72571e;display:grid;place-items:center;font-size:25px;color:#ffd36c}.blockReviewCard>p{font-size:14px;color:#bbc3cc;line-height:1.4}.blockReviewStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.blockReviewStats>div{padding:11px 8px;border-radius:15px;background:#0a0d11;border:1px solid #34352d;text-align:center}.blockReviewStats strong{display:block;font-size:23px}.blockReviewStats span{font-size:10px;color:#9a9687}.blockReviewBest{display:grid;gap:7px;margin-top:11px}.blockReviewBest>div{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:12px;border-radius:15px;background:#15130d;border:1px solid #453a1c}.blockReviewBest span{grid-column:1/3;font-size:9px;color:#aa975c;font-weight:950;letter-spacing:.8px}.blockReviewBest b{font-size:14px}.blockReviewBest strong{font-size:18px;color:#ffd16a}.blockReviewBest small{grid-column:1/3;font-size:11px;color:#a9a59a}.blockReviewNext{margin-top:10px;padding:12px;border-radius:15px;background:#111628;border:1px solid #343e67}.blockReviewNext span{display:block;font-size:9px;letter-spacing:.9px;font-weight:950;color:#8e9bd6}.blockReviewNext b{display:block;font-size:15px;margin:4px 0}.blockReviewNext small{display:block;font-size:11px;color:#9aa4be;line-height:1.35}
+.textSizeSetting select{margin-top:7px}body.textXL{font-size:20px}body.textXL .small{font-size:16px!important}body.textXL .tiny{font-size:15px!important}body.textXL .note{font-size:17px!important}body.textXL label{font-size:17px!important}body.textXL .navbtn{font-size:14px!important;min-height:73px!important}body.textXL .navbtn span{font-size:27px!important}body.textXL .btn{font-size:17px!important}body.textXL .btn.slim{font-size:15px!important}body.textXL .pill{font-size:14px!important}body.textXL .eyebrow{font-size:13.5px!important}body.textXL .quickBtn strong{font-size:17px!important}body.textXL .replacementMain b{font-size:18px}body.textXL .replacementMain span,body.textXL .replacementMain small{font-size:14px}body.textXL .weeklyCoachCard>p{font-size:16px}body.textXL .weeklyCoachNext>b{font-size:17px}body.textXL .weeklyCoachNext>small{font-size:13px}body.textXL .blockReviewCard>p{font-size:16px}body.textXL .setField label{font-size:14px!important}body.textXL .setnum{font-size:16px!important}body.textXL .setnum em{font-size:14px!important}@media(max-width:390px){.replacementOption{grid-template-columns:36px 1fr}.replacementTags{grid-column:2;align-items:flex-start;flex-direction:row;flex-wrap:wrap}.weeklyCoachStats strong,.blockReviewStats strong{font-size:21px}body.textXL .navbtn{font-size:12.5px!important}}
+
 </style>
 </head>
 <body>
@@ -847,6 +871,12 @@ details>summary{font-size:16px!important}
 
    <div id="rewardStrip" class="rewardStrip rewardStripClean" role="button" tabindex="0" aria-label="Ver trofeos"><div class="rewardMetric"><span>🔥</span><div><b id="streakHome">0</b><small>racha</small></div></div><div class="rewardMetric"><span>🏆</span><div><b id="achHome">0/0</b><small>trofeos</small></div></div><div class="rewardNext"><small>PRÓXIMO</small><b id="nextAchHome">Primera sesión</b></div></div>
 <div id="momentumBand" class="momentumBand"><span>◆</span><div><small>MOMENTUM</small><b id="momentumText">Empezá la próxima sesión</b></div></div>
+<div id="weeklyCoachCard" class="card weeklyCoachCard">
+ <div class="row spread"><div><div class="eyebrow">COACH SEMANAL</div><h2 id="weeklyCoachTitle">Esta semana</h2></div><span id="weeklyCoachIcon" class="weeklyCoachIcon">🧠</span></div>
+ <div id="weeklyCoachStats" class="weeklyCoachStats"></div>
+ <p id="weeklyCoachText"></p>
+ <div id="weeklyCoachNext" class="weeklyCoachNext"></div>
+</div>
 
    <div id="draftCard" class="card hidden"><div class="row spread"><div><div class="eyebrow">EN CURSO</div><h2 class="cleanH2">Tenés un entrenamiento empezado</h2><p id="draftText" class="small muted" style="margin:0"></p></div><span class="pill good">GUARDADO</span></div><div class="row" style="margin-top:12px"><button id="resumeDraft" class="btn full">SEGUIR</button><button id="discardDraft" class="btn ghost">Descartar</button></div></div>
 
@@ -888,7 +918,14 @@ details>summary{font-size:16px!important}
   <section id="progress" class="page">
    <div class="card hero progressHero"><div class="eyebrow">TU PROGRESO</div><h1 class="title">Cómo venís</h1><div class="grid3 progressKpis"><div class="kpi"><strong id="totalSessions">0</strong><span>Entrenos</span></div><div class="kpi"><strong id="adherenceKpi">0%</strong><span>Constancia</span></div><div class="kpi"><strong id="totalVolume">0</strong><span>Toneladas</span></div></div></div>
    <div class="card progressCoachCard"><div class="row spread"><div><div class="eyebrow">LECTURA DEL COACH</div><h2 id="progressCoachTitle">Armando tu base</h2></div><span class="progressPulse">↗</span></div><p id="progressCoachText"></p><div id="progressInsightGrid" class="progressInsightGrid"></div><div id="progressBestMove" class="progressBestMove hidden"></div></div>
-   <button id="monthlyRecapBtn" class="card monthRecapCard" type="button"><div class="monthRecapIcon">✦</div><div><span>RESUMEN DEL MES</span><b id="monthlyRecapLabel">Este mes</b></div><div class="monthRecapArrow">›</div></button>
+   <div id="blockReviewCard" class="card blockReviewCard hidden">
+ <div class="row spread"><div><div class="eyebrow">REVISIÓN DE BLOQUE</div><h2 id="blockReviewTitle">Bloque terminado</h2></div><span class="blockReviewIcon">✦</span></div>
+ <p id="blockReviewText"></p>
+ <div id="blockReviewStats" class="blockReviewStats"></div>
+ <div id="blockReviewBest" class="blockReviewBest"></div>
+ <div id="blockReviewNext" class="blockReviewNext"></div>
+</div>
+<button id="monthlyRecapBtn" class="card monthRecapCard" type="button"><div class="monthRecapIcon">✦</div><div><span>RESUMEN DEL MES</span><b id="monthlyRecapLabel">Este mes</b></div><div class="monthRecapArrow">›</div></button>
 
    <details class="card progressFold easyProgressFold"><summary><span>💪</span><div><b>Fuerza y marcas</b><small>Pesos y récords</small></div></summary><div class="progressInside"><div id="comebackList"></div><div class="divider"></div><select id="chartExercise"></select><canvas id="chart" width="700" height="250"></canvas><div class="divider"></div><div id="prsList"></div></div></details>
    <details class="card progressFold easyProgressFold"><summary><span>⚖️</span><div><b>Peso corporal</b><small>Cómo viene cambiando</small></div></summary><div class="progressInside"><div class="row spread"><b>Hoy</b><span id="currentBW" class="pill"></span></div><div class="row weightAdd"><input id="newBW" type="number" inputmode="decimal" step="0.1" placeholder="kg"><button id="addBW" class="btn">Guardar</button></div><div id="bwTrend" class="small muted"></div><canvas id="bwChart" class="miniCanvas" width="700" height="220"></canvas></div></details>
@@ -925,6 +962,13 @@ details>summary{font-size:16px!important}
 </div>
 
 
+
+<div id="replacementModal" class="modal replacementModal"><div class="sheet replacementSheet">
+ <div class="sheethead"><div><div class="eyebrow">CAMBIAR EJERCICIO</div><h2 id="replacementTitle">Elegí una alternativa</h2></div><button id="closeReplacement" class="iconbtn closeBig">✕</button></div>
+ <p id="replacementIntro" class="replacementIntro">Te muestro las opciones que menos cambian el objetivo de la rutina.</p>
+ <div id="replacementList" class="replacementList"></div>
+</div></div>
+
 <div id="planPreviewModal" class="modal planPreviewModal"><div class="sheet planPreviewSheet">
  <div class="sheethead"><div><div class="eyebrow">VISTA PREVIA</div><h2 id="planPreviewTitle">Entrenamiento</h2></div><button id="closePlanPreview" class="iconbtn closeBig">✕</button></div>
  <div id="planPreviewSummary" class="planPreviewSummary"></div>
@@ -945,14 +989,20 @@ details>summary{font-size:16px!important}
 <div id="welcomeModal" class="welcomeModal">
  <div class="welcomeCard">
   <button id="closeWelcome" class="welcomeClose" type="button">✕</button>
-  <div id="welcomeIcon" class="welcomeIcon">⚡</div>
-  <div id="welcomeEyebrow" class="eyebrow">IRON COACH</div>
-  <h2 id="welcomeTitle">Hoy suma.</h2>
-  <p id="welcomeText"></p>
-  <div id="welcomeQuick" class="welcomeQuick hidden"></div>
-  <div id="welcomeWeightBox" class="welcomeWeightBox hidden"><div class="unitInput"><input id="welcomeWeight" type="number" inputmode="decimal" step="0.1" min="30" max="250" placeholder="Peso de hoy"><span>kg</span></div></div>
-  <button id="welcomePrimary" class="btn full">LISTO</button>
-  <button id="welcomeSecondary" class="welcomeSecondary hidden" type="button">Ahora no</button>
+  <div id="welcomeIcon" class="welcomeIcon">◆</div>
+  <div class="welcomeMotivation">
+   <span>IRON COACH</span>
+   <blockquote id="welcomeQuote">Hoy suma.</blockquote>
+  </div>
+  <div id="welcomeTask" class="welcomeTask">
+   <div id="welcomeEyebrow" class="eyebrow">HOY</div>
+   <h2 id="welcomeTitle">Vamos.</h2>
+   <p id="welcomeText"></p>
+   <div id="welcomeQuick" class="welcomeQuick hidden"></div>
+   <div id="welcomeWeightBox" class="welcomeWeightBox hidden"><div class="unitInput"><input id="welcomeWeight" type="number" inputmode="decimal" step="0.1" min="30" max="250" placeholder="Peso de hoy"><span>kg</span></div></div>
+   <button id="welcomePrimary" class="btn full">LISTO</button>
+   <button id="welcomeSecondary" class="welcomeSecondary hidden" type="button">Ahora no</button>
+  </div>
  </div>
 </div>
 
@@ -1020,13 +1070,14 @@ details>summary{font-size:16px!important}
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">❤️</span><div><b>Molestias</b><small>Qué movimientos tengo que cuidar</small></div></summary><div class="settingFoldBody"><div id="pLimitations" class="daysel"></div></div></details>
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">⭐</span><div><b>Preferencias</b><small>Ejercicios, descanso y marcas</small></div></summary><div class="settingFoldBody">
    <div class="settingbox"><div class="row spread"><b>Cronómetro de descanso</b><button id="timerToggle" class="switch" type="button"><i></i></button></div></div>
+   <div class="settingbox textSizeSetting"><label for="pTextScale">Tamaño de letra</label><select id="pTextScale"><option value="large">Grande</option><option value="xl">Muy grande</option></select><div class="small muted">“Muy grande” está pensado para leer cómodo sin acercar el teléfono.</div></div>
    <div class="settingbox"><div class="row spread"><div><b>Ejercicios que aprendí</b><div id="exercisePrefsStatus" class="small muted">Todavía estoy aprendiendo.</div></div><span id="exercisePrefsCount" class="pill">0</span></div><div id="exercisePrefsSummary" class="prefsSummary"></div></div>
    <div class="settingbox unavailableSetting"><div class="row spread"><div><b>🚫 No existe en mi gimnasio</b><div class="small muted">No te los recomiendo más.</div></div><span id="unavailableExercisesCount" class="pill">0</span></div><div id="unavailableExercisesSummary" class="unavailableExercisesSummary"></div></div>
    <details class="nestedSettings"><summary>Marcas anteriores · opcional</summary><div class="markGrid"><div><label>Banca · kg</label><input id="pPriorBenchW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorBenchR" type="number"></div><div><label>Sentadilla · kg</label><input id="pPriorSquatW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorSquatR" type="number"></div><div><label>Peso muerto · kg</label><input id="pPriorDeadliftW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorDeadliftR" type="number"></div><div><label>Press militar · kg</label><input id="pPriorOhpW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorOhpR" type="number"></div></div></details>
   </div></details>
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">💾</span><div><b>Ayuda y datos</b><small>Tutorial, copia y reinicio</small></div></summary><div class="settingFoldBody">
    <div class="dataButtons"><button id="showTutorialSettings" class="btn ghost">❔ Tutorial</button><button id="exportData" class="btn secondary">↓ Guardar copia</button><label class="btn secondary fileBtn">↑ Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">↻ Rehacer configuración</button><button id="resetData" class="btn red">🗑 Borrar todo</button></div>
-   <p class="buildNote"><b>IRON COACH 5.13 AUTO COACH</b> · guardado local</p>
+   <p class="buildNote"><b>IRON COACH 6.0 INTELLIGENCE</b> · guardado local</p>
   </div></details>
  </div>
  <button id="saveProfile" class="btn full saveProfileBig">GUARDAR CAMBIOS</button>
@@ -1036,7 +1087,7 @@ details>summary{font-size:16px!important}
 
 <script>
 'use strict';
-const BUILD='5.13 AUTO COACH · 2026.08.12';
+const BUILD='6.0 INTELLIGENCE · 2026.08.12';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=4, TUTORIAL_VERSION=12;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -1134,7 +1185,7 @@ const BUILD6=[
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
 
-const fresh={version:62,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',goal:'muscle',experience:'intermediate',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[1,3,5],timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:''},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,date:''},routineCursor:0};
+const fresh={version:64,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',goal:'muscle',experience:'intermediate',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[1,3,5],timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large'},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,date:''},routineCursor:0};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const dk=(d=new Date())=>{const z=new Date(d);return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0')};
 const fmtDate=s=>new Date(s).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'});
@@ -1161,7 +1212,7 @@ function maskARDateInput(el){
 function ageFromDOB(s){if(!s)return null;const b=new Date(s+'T12:00:00'),n=new Date();if(Number.isNaN(b.getTime()))return null;let a=n.getFullYear()-b.getFullYear();const m=n.getMonth()-b.getMonth();if(m<0||(m===0&&n.getDate()<b.getDate()))a--;return a}
 function scheduleFor(n){return n===1?[3]:n===2?[1,4]:n===3?[1,3,5]:n===4?[1,2,4,6]:n===5?[1,2,4,5,6]:[1,2,3,4,5,6]}
 function recommendedDays(p){return Math.max(1,Math.min(6,+p.availability||3))}
-function migrate(x){const d=Object.assign(clone(fresh),x||{});d.profile=Object.assign(clone(fresh.profile),(x||{}).profile||{});d.logs=Array.isArray(d.logs)?d.logs:[];d.prs=d.prs||{};d.baselinePrs=d.baselinePrs||{};d.bodyweightLogs=Array.isArray(d.bodyweightLogs)?d.bodyweightLogs:[];d.checkin=Object.assign(clone(fresh.checkin),(x||{}).checkin||{});d.profile.limitations=Array.isArray(d.profile.limitations)?d.profile.limitations:[];d.profile.priorMarks=d.profile.priorMarks||{};d.profile.priority=d.profile.priority||'balanced';d.profile.sessionMinutes=+d.profile.sessionMinutes||75;d.profile.barWeight=0;d.profile.days=recommendedDays(d.profile);if(!Array.isArray(d.profile.scheduleDays)||d.profile.scheduleDays.length!==d.profile.days)d.profile.scheduleDays=scheduleFor(d.profile.days);if(d.profile.bridgeStartLogCount===undefined||d.profile.bridgeStartLogCount===null)d.profile.bridgeStartLogCount=d.logs.length;if(d.profile.tutorialVersion===undefined)d.profile.tutorialVersion=0;if(!Array.isArray(d.profile.seenAchievements))d.profile.seenAchievements=[];if(d.profile.achievementsInitialized===undefined)d.profile.achievementsInitialized=false;if(!d.profile.exercisePrefs||typeof d.profile.exercisePrefs!=='object')d.profile.exercisePrefs={};if(!d.profile.unavailableExercises||typeof d.profile.unavailableExercises!=='object')d.profile.unavailableExercises={};if(typeof d.profile.lastMonthlyRecap!=='string')d.profile.lastMonthlyRecap='';d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';d.version=62;return d}
+function migrate(x){const d=Object.assign(clone(fresh),x||{});d.profile=Object.assign(clone(fresh.profile),(x||{}).profile||{});d.logs=Array.isArray(d.logs)?d.logs:[];d.prs=d.prs||{};d.baselinePrs=d.baselinePrs||{};d.bodyweightLogs=Array.isArray(d.bodyweightLogs)?d.bodyweightLogs:[];d.checkin=Object.assign(clone(fresh.checkin),(x||{}).checkin||{});d.profile.limitations=Array.isArray(d.profile.limitations)?d.profile.limitations:[];d.profile.priorMarks=d.profile.priorMarks||{};d.profile.priority=d.profile.priority||'balanced';d.profile.sessionMinutes=+d.profile.sessionMinutes||75;d.profile.barWeight=0;d.profile.days=recommendedDays(d.profile);if(!Array.isArray(d.profile.scheduleDays)||d.profile.scheduleDays.length!==d.profile.days)d.profile.scheduleDays=scheduleFor(d.profile.days);if(d.profile.bridgeStartLogCount===undefined||d.profile.bridgeStartLogCount===null)d.profile.bridgeStartLogCount=d.logs.length;if(d.profile.tutorialVersion===undefined)d.profile.tutorialVersion=0;if(!Array.isArray(d.profile.seenAchievements))d.profile.seenAchievements=[];if(d.profile.achievementsInitialized===undefined)d.profile.achievementsInitialized=false;if(!d.profile.exercisePrefs||typeof d.profile.exercisePrefs!=='object')d.profile.exercisePrefs={};if(!d.profile.unavailableExercises||typeof d.profile.unavailableExercises!=='object')d.profile.unavailableExercises={};if(typeof d.profile.lastMonthlyRecap!=='string')d.profile.lastMonthlyRecap='';if(!['large','xl'].includes(d.profile.textScale))d.profile.textScale='large';d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';d.version=64;return d}
 function load(){for(const k of [DBKEY,AUTOKEY]){try{const raw=localStorage.getItem(k);if(raw)return migrate(JSON.parse(raw))}catch(e){}}return clone(fresh)}
 let db=load();
 function idbWrite(data){try{const req=indexedDB.open('IronCoachSafe',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('store'))req.result.createObjectStore('store')};req.onsuccess=()=>req.result.transaction('store','readwrite').objectStore('store').put(clone(data),'db')}catch(e){}}
@@ -1502,57 +1553,51 @@ const EXERCISE_EQUIVALENTS={
  pallof:['cablecrunch','abmachine']
 };
 function exerciseUnavailable(id){return !!db.profile.unavailableExercises?.[id]}
-function exerciseCandidates(id){
- const arr=[...(EXERCISE_EQUIVALENTS[id]||[])];
- const direct=EX[id]?.altId;if(direct&&!arr.includes(direct))arr.unshift(direct);
- return [...new Set(arr)].filter(x=>EX[x]&&!exerciseUnavailable(x))
+function equipmentKind(id){
+ const x=EX[id]||{},u=String(x.unit||'').toLowerCase(),n=String(x.name||'').toLowerCase();
+ if(u.includes('mancuerna')||n.includes('mancuerna'))return 'mancuernas';
+ if(u.includes('barra')||n.includes('barra'))return 'barra';
+ if(u.includes('polea')||n.includes('polea')||n.includes('cable'))return 'polea';
+ if(u.includes('máquina')||n.includes('máquina')||['hack','legpress','legcurl','legext','pecdeck','abmachine','assistedpull','chestpress','chestrow'].includes(id))return 'máquina';
+ if(n.includes('flex')||n.includes('dominada')||n.includes('pull-up'))return 'peso corporal';
+ return 'libre'
+}
+function stimulusSimilarity(a,b){
+ const pa=stimulusProfile(a),pb=stimulusProfile(b),groups=new Set([...Object.keys(pa),...Object.keys(pb)]);let common=0,total=0;
+ groups.forEach(g=>{common+=Math.min(pa[g]||0,pb[g]||0);total+=Math.max(pa[g]||0,pb[g]||0)});return total?common/total:0
+}
+function replacementScore(source,candidate){
+ if(!EX[source]||!EX[candidate]||source===candidate||exerciseUnavailable(candidate))return -9999;
+ if(recentSharpPain(candidate)||limitationConflict(candidate))return -900;
+ const sx=EX[source],cx=EX[candidate],pref=exercisePref(candidate),fixed=(EXERCISE_EQUIVALENTS[source]||[]).includes(candidate);let score=0;
+ if(directGroup(source)===directGroup(candidate))score+=52;score+=Math.round(stimulusSimilarity(source,candidate)*55);if(fixed)score+=22;if(sx.primary===cx.primary)score+=10;if(equipmentKind(source)===equipmentKind(candidate))score+=6;
+ if(pref?.rating==='love')score+=25;else if(pref?.rating==='ok')score+=7;else if(pref?.rating==='avoid')score-=70;if(logsFor(candidate).length)score+=5;if(EX[source]?.altId===candidate)score+=10;return score
+}
+function candidateUniverse(id){
+ const fixed=[...(EXERCISE_EQUIVALENTS[id]||[])],direct=EX[id]?.altId;if(direct&&!fixed.includes(direct))fixed.unshift(direct);
+ const dynamic=Object.keys(EX).filter(x=>x!==id&&directGroup(x)===directGroup(id)&&stimulusSimilarity(id,x)>=.42);return [...new Set([...fixed,...dynamic])]
+}
+function exerciseCandidates(id){return candidateUniverse(id).filter(x=>EX[x]&&!exerciseUnavailable(x)&&!recentSharpPain(x)&&!limitationConflict(x)).sort((a,b)=>replacementScore(id,b)-replacementScore(id,a))}
+function replacementReason(source,candidate){
+ const sim=stimulusSimilarity(source,candidate),pref=exercisePref(candidate),same=directGroup(source)===directGroup(candidate);
+ if(pref?.rating==='love')return 'Te gusta y mantiene bien el objetivo.';if(sim>=.8)return 'Muy parecido en músculos y función.';if(same&&sim>=.55)return 'Mismo grupo y estímulo muy cercano.';if(EX[source]?.altId===candidate)return 'Alternativa directa prevista por el Coach.';return 'Es la opción disponible que menos cambia la sesión.'
 }
 function bestAvailableExercise(id){
- if(!EX[id])return id;
- const own=exercisePref(id);
- if(!exerciseUnavailable(id)&&own?.rating==='love')return id;
- const candidates=exerciseCandidates(id);
- const loved=candidates.find(x=>exercisePref(x)?.rating==='love');
- if(loved)return loved;
- if(exerciseUnavailable(id)||own?.rating==='avoid'){
-   const acceptable=candidates.find(x=>exercisePref(x)?.rating!=='avoid');
-   return acceptable||candidates[0]||id
- }
- return id
+ if(!EX[id])return id;const own=exercisePref(id);if(!exerciseUnavailable(id)&&own?.rating==='love'&&!recentSharpPain(id)&&!limitationConflict(id))return id;const candidates=exerciseCandidates(id);if(exerciseUnavailable(id)||own?.rating==='avoid'||recentSharpPain(id)||limitationConflict(id))return candidates[0]||id;return id
 }
-function markExerciseUnavailable(id){
- if(!id||!EX[id])return;
- db.profile.unavailableExercises[id]={since:Date.now(),name:EX[id].name};
- save(true);renderUnavailableExercises()
+function markExerciseUnavailable(id){if(!id||!EX[id])return;db.profile.unavailableExercises[id]={since:Date.now(),name:EX[id].name};save(true);renderUnavailableExercises()}
+function restoreExerciseAvailability(id){if(!db.profile.unavailableExercises)return;delete db.profile.unavailableExercises[id];save();renderUnavailableExercises();toast(`${EX[id]?.name||'Ejercicio'} vuelve a estar disponible.`)}
+function renderUnavailableExercises(){const box=$('unavailableExercisesSummary');if(!box)return;const entries=Object.keys(db.profile.unavailableExercises||{}).filter(id=>EX[id]);if($('unavailableExercisesCount'))$('unavailableExercisesCount').textContent=entries.length;box.innerHTML=entries.length?entries.map(id=>`<button class="unavailableTag" type="button" data-restore-availability="${id}"><span>🚫 ${EX[id].name}</span><b>×</b></button>`).join(''):'<span class="small muted">No marcaste equipos como faltantes.</span>'}
+let replacementContext=null;
+function openReplacementModal(original,current){
+ if(!EX[current])return;const candidates=exerciseCandidates(current).slice(0,4);if(!candidates.length){toast('No encontré una alternativa equivalente disponible.');return}replacementContext={original,current};$('replacementTitle').textContent=`Cambiar ${EX[current].name}`;$('replacementIntro').textContent='Ordenadas por similitud, preferencias, molestias y equipamiento disponible.';$('replacementList').innerHTML=candidates.map((id,i)=>{const pref=exercisePref(id),known=logsFor(id).length>0;return `<button class="replacementOption" type="button" data-replacement-id="${id}"><div class="replacementRank">${i+1}</div><div class="replacementMain"><b>${EX[id].name}</b><span>${EX[id].muscle}</span><small>${replacementReason(current,id)}</small></div><div class="replacementTags">${pref?.rating==='love'?'<em>♥ FAVORITO</em>':''}${known?'<em>CON HISTORIAL</em>':''}<i>${equipmentKind(id)}</i></div></button>`}).join('');$('replacementModal').classList.add('show')
 }
-function restoreExerciseAvailability(id){
- if(!db.profile.unavailableExercises)return;
- delete db.profile.unavailableExercises[id];save();renderUnavailableExercises();toast(`${EX[id]?.name||'Ejercicio'} vuelve a estar disponible.`)
-}
-function renderUnavailableExercises(){
- const box=$('unavailableExercisesSummary');if(!box)return;
- const entries=Object.keys(db.profile.unavailableExercises||{}).filter(id=>EX[id]);
- if($('unavailableExercisesCount'))$('unavailableExercisesCount').textContent=entries.length;
- box.innerHTML=entries.length
-  ?entries.map(id=>`<button class="unavailableTag" type="button" data-restore-availability="${id}"><span>🚫 ${EX[id].name}</span><b>×</b></button>`).join('')
-  :'<span class="small muted">No marcaste equipos como faltantes.</span>'
-}
+function closeReplacementModal(){$('replacementModal').classList.remove('show');replacementContext=null}
+function chooseReplacement(id){if(!replacementContext||!EX[id])return;const {original}=replacementContext;sessionOverrides[original]=id;saveDraft();closeReplacementModal();renderTrain(true);toast(`Listo. Cambié por ${EX[id].name}.`)}
 function unavailableCurrentExercise(card){
- if(!card)return;
- const original=card.dataset.originalId||card.dataset.id,current=card.dataset.id;
- if(card.querySelector('.donebtn.on')){toast('Ya registraste una serie de este ejercicio. Marcá esto antes de empezar la próxima vez.');return}
- if(!confirm(`¿${EX[current].name} NO existe en este gimnasio?\n\nLo voy a recordar y no te lo voy a recomendar de nuevo.`))return;
- markExerciseUnavailable(current);
- const alt=exerciseCandidates(current).find(id=>exercisePref(id)?.rating!=='avoid')||exerciseCandidates(current)[0];
- if(alt){
-   sessionOverrides[original]=alt;saveDraft();renderTrain(true);
-   toast(`Anotado. Lo cambié por ${EX[alt].name}.`)
- }else{
-   skipCurrentExercise(card);
-   toast('Anotado. No encontré una variante equivalente disponible, así que lo saqué de hoy.')
- }
+ if(!card)return;const original=card.dataset.originalId||card.dataset.id,current=card.dataset.id;if(card.querySelector('.donebtn.on')){toast('Ya registraste una serie de este ejercicio. Marcá esto antes de empezar la próxima vez.');return}
+ if(!confirm(`¿${EX[current].name} NO existe en este gimnasio?\n\nLo voy a recordar y no te lo voy a recomendar de nuevo.`))return;markExerciseUnavailable(current);const alt=exerciseCandidates(current)[0];if(alt){sessionOverrides[original]=alt;saveDraft();renderTrain(true);toast(`Anotado. Elegí ${EX[alt].name} porque es la variante más parecida disponible.`)}else{skipCurrentExercise(card);toast('Anotado. No encontré una variante equivalente disponible, así que lo saqué de hoy.')}
 }
-
 let sessionPreferenceAsked=false,pendingExercisePref=null;
 function exercisePref(id){return db.profile.exercisePrefs?.[id]||null}
 function exerciseExposureCount(id){return logsFor(id).length}
@@ -1686,6 +1731,15 @@ function isExtraWorkout(){
 function renderPhaseTrack(el){if(!el)return;const ph=phaseInfo();el.innerHTML='';el.style.gridTemplateColumns=ph.kind==='bridge'?`repeat(${bridgeNeedFor()},1fr)`:'repeat(6,1fr)';if(ph.kind==='bridge'){for(let i=0;i<bridgeNeedFor();i++){const d=document.createElement('div');d.className='phaseWeek'+(i<ph.index?' done':i===ph.index?' on':'');d.textContent=`R${i+1}`;el.appendChild(d)}return}for(let i=1;i<=6;i++){const d=document.createElement('div');d.className='phaseWeek'+(i<ph.week?' done':i===ph.week?' on':'');d.textContent='S'+i;el.appendChild(d)}}
 function coachAction(q){if(q.mode==='RECALIBRAR')return `Empezá desde ~${q.weight} kg; no es una obligación.`;if(q.mode==='CALIBRAR')return 'Encontrá tu carga actual con margen.';if(q.mode==='SUBIR')return q.why;if(q.mode==='MANTENER')return 'Mismo peso · buscá una repetición más total.';return q.why}
 function renderMuscleRecovery(){const r=muscleRecovery();$('muscleRecovery').innerHTML=ALL_GROUPS.map(g=>`<div class="muscleStatus"><div class="row spread"><b class="small">${GROUP_LABEL[g]}</b><span class="tiny muted">${r[g]}%</span></div><div class="bar"><i style="width:${r[g]}%"></i></div></div>`).join('')}
+function weekExerciseChanges(logs){const changes=[];for(const l of logs)for(const e of l.exercises||[]){const imp=exactExerciseImprovement(e,l);if(imp&&imp.type!=='base')changes.push({...imp,date:l.date})}const by={};changes.forEach(x=>{if(!by[x.name]||(x.pct||0)>(by[x.name].pct||0))by[x.name]=x});return Object.values(by).sort((a,b)=>(b.pct||0)-(a.pct||0))}
+function weeklyCoachData(){
+ const logs=logsThisWeek(),goal=db.profile.days||3,changes=weekExerciseChanges(logs),sets=logs.reduce((a,l)=>a+(+l.completedSets||0),0),remaining=Math.max(0,goal-logs.length),state=coachState();let title='Semana en marcha',txt='',next='';
+ if(!logs.length){title='Semana lista';txt=`Tenés ${goal} entrenamiento${goal===1?'':'s'} planificado${goal===1?'':'s'}. Todavía no hace falta ajustar nada.`;next=`Primero: ${currentSession().name}.`}
+ else if(remaining===0){title='Semana cumplida ✓';txt=changes.length?`Cumpliste el plan y mejoraste ${changes.length} ejercicio${changes.length===1?'':'s'}.`:'Cumpliste todas las sesiones. No hace falta inventar trabajo extra para que cuente.';next=state.key==='push'?'La próxima semana puedo empujar progresiones ganadas.':'La próxima semana ajusto según recuperación y rendimiento.'}
+ else{title=`Faltan ${remaining}`;txt=changes.length?`Ya apareció progreso en ${changes.length} ejercicio${changes.length===1?'':'s'}.`:`Llevás ${logs.length}/${goal}. La semana todavía está abierta.`;next=`Próximo: ${currentSession().name}.`}
+ return {logs,goal,changes,sets,remaining,state,title,txt,next}
+}
+function renderWeeklyCoach(){const w=weeklyCoachData();if(!$('weeklyCoachCard'))return;$('weeklyCoachTitle').textContent=w.title;$('weeklyCoachIcon').textContent=w.remaining===0?'✓':w.state.key==='push'?'↗':'🧠';$('weeklyCoachStats').innerHTML=`<div><strong>${w.logs.length}/${w.goal}</strong><span>entrenos</span></div><div><strong>${w.sets}</strong><span>series</span></div><div><strong>${w.changes.length}</strong><span>mejoras</span></div>`;$('weeklyCoachText').textContent=w.txt;const best=w.changes[0];$('weeklyCoachNext').innerHTML=`<span>LO QUE SIGUE</span><b>${w.next}</b>${best?`<small>Mejor cambio: ${best.name} · ${best.headline}</small>`:''}`}
 function renderHome(){
  const r=rankInfo(),sess=currentSession(),week=logsThisWeek(),st=coachState(),ph=phaseInfo(),extra=isExtraWorkout();
  $('homeRank').textContent=r.display;$('rdKpi').textContent=readinessLabel();
@@ -1700,7 +1754,7 @@ function renderHome(){
  if(!$('todayStatus').classList.contains('hidden'))$('todayStatus').textContent=completedToday()?'Ya entrenaste hoy. Si tenés ganas de hacer otra sesión, podés empezar igual.':week.length>=db.profile.days?`Ya cumpliste tus ${db.profile.days} sesiones habituales. Si querés una extra, sigo con la próxima.`:'Hoy no era uno de tus días habituales. Si querés entrenar, empezá igual.';
  renderMuscleRecovery();renderWhyPlan();$('previewTitle').textContent=sess.name;$('previewSubtitle').textContent=`${sess.items.length} ejercicios · ${db.profile.sessionMinutes||75} min`;
  const visible=sess.items.slice(0,3);$('todayTargets').innerHTML=visible.map((it,idx)=>{const q=recommendation(it,idx,sess),x=EX[q.id],target=q.weight?(q.mode==='RECALIBRAR'?`~${formatWeight(q.id,q.weight)}`:formatWeight(q.id,q.weight)):'Elegir peso';return `<div class="previewItem"><div class="row spread"><div class="previewName">${x.name}</div><div style="text-align:right"><div class="target">${target}</div><div class="tiny muted">${q.sets}×${q.min}–${q.max}</div></div></div></div>`}).join('')+(sess.items.length>3?`<div class="simpleMore">+ ${sess.items.length-3} más</div>`:'');
- renderWeek($('homeWeek'));$('weekCaption').textContent=`Tus ${db.profile.days} días son una guía. Si querés meter otro, podés.`;renderRewardStrip();renderDraftCard()
+ renderWeek($('homeWeek'));$('weekCaption').textContent=`Tus ${db.profile.days} días son una guía. Si querés meter otro, podés.`;renderRewardStrip();renderDraftCard();renderWeeklyCoach()
 }
 function priorityLabel(p){return ({balanced:'equilibrada',cardio:'cardio',chest:'pecho',back:'espalda',shoulders:'hombros',arms:'brazos',legs:'piernas'})[p]||'equilibrada'}
 function goalLabel(g){return ({muscle:'ganar músculo',strength:'ser más fuerte',recomp:'ganar músculo y mejorar el físico',general:'un poco de todo',fatloss:'bajar de peso cuidando músculo'})[g]||'progresar'}
@@ -2221,7 +2275,13 @@ function drawMuscleChart(){const cv=$('muscleChart'),ctx=cv.getContext('2d'),d=w
 function bodyweightChangeDays(days=30){const since=Date.now()-days*86400000,logs=(db.bodyweightLogs||[]).filter(x=>new Date(x.date).getTime()>=since);if(logs.length>=2)return +logs.at(-1).weight-(+logs[0].weight);const all=db.bodyweightLogs||[];return all.length>=2?+all.at(-1).weight-(+all[0].weight):null}
 function progress30d(){const since=new Date(Date.now()-30*86400000),logs=db.logs.filter(l=>new Date(l.date)>=since),ids=[...new Set(logs.flatMap(l=>(l.exercises||[]).map(e=>e.id)))],improved=[];for(const id of ids){const seq=logsFor(id).filter(z=>new Date(z.log.date)>=since),last=seq.at(-1);if(!last)continue;const prevAll=logsFor(id).filter(z=>new Date(z.log.date)<new Date(last.log.date));if(prevAll.length<1)continue;const cur=bestSetE1RM(last.ex),prev=bestSetE1RM(prevAll.at(-1).ex);if(!cur||!prev||cur.value<=prev.value*1.005)continue;const dw=cur.weight-prev.weight,dr=cur.reps-prev.reps,pct=(cur.value/prev.value-1)*100,headline=dw>0?`${formatWeightDelta(id,dw)} más`:Math.abs(dw)<.001&&dr>0?`+${dr} reps`:`+${pct.toFixed(1)}%`;improved.push({id,name:EX[id]?.name||id,headline,detail:`${formatWeight(id,cur.weight)} × ${cur.reps} reps`,pct})}improved.sort((a,b)=>b.pct-a.pct);const expected=Math.max(1,Math.round((db.profile.days||3)*30/7)),consistency=Math.min(100,Math.round(logs.length/expected*100)),bw=bodyweightChangeDays(30);return {logs,improved,consistency,bw}}
 function renderProgressCoach(){const p=progress30d(),goal=db.profile.goal||'muscle',best=p.improved[0];let title='Estamos armando tu base.',txt='Seguí registrando entrenos y te voy a mostrar tendencias reales.';if(p.logs.length>=2){if(goal==='fatloss'&&p.bw!==null&&p.bw<-.2&&p.improved.length)title='Bajando peso sin regalar rendimiento.';else if(p.improved.length>=3)title='Vas para arriba.';else if(p.consistency>=80)title='La constancia está muy bien.';else if(p.improved.length)title='Ya hay progreso medible.';else title='Todavía consolidando.';txt=p.improved.length?`${p.improved.length} ejercicio${p.improved.length===1?'':'s'} mejoró en los últimos 30 días.`:'Todavía no hay suficientes mejoras comparables; sigo juntando datos.'}$('progressCoachTitle').textContent=title;$('progressCoachText').textContent=txt;$('progressInsightGrid').innerHTML=`<div><span>30 DÍAS</span><strong>${p.logs.length}</strong><small>entrenos</small></div><div><span>CONSTANCIA</span><strong>${p.consistency}%</strong><small>del plan</small></div><div><span>${goal==='fatloss'?'PESO':'MEJORAS'}</span><strong>${goal==='fatloss'?(p.bw===null?'—':`${p.bw>=0?'+':''}${p.bw.toFixed(1)} kg`):p.improved.length}</strong><small>${goal==='fatloss'?'30 días':'ejercicios'}</small></div>`;const bm=$('progressBestMove');if(best){bm.classList.remove('hidden');bm.innerHTML=`<span>MEJOR CAMBIO</span><b>${best.name}</b><strong>${best.headline}</strong><small>${best.detail}</small>`}else bm.classList.add('hidden')}
-function renderProgress(){if($('monthlyRecapLabel'))$('monthlyRecapLabel').textContent=new Date().toLocaleDateString('es-AR',{month:'long'});$('totalSessions').textContent=db.logs.length;$('adherenceKpi').textContent=adherence()+'%';$('totalVolume').textContent=(calcTotalVolume()/1000).toFixed(1);renderProgressCoach();$('currentBW').textContent=(+db.profile.weight||75).toFixed(1)+' kg';const bw=db.bodyweightLogs;if(bw.length>=2){const d=bw.at(-1).weight-bw[0].weight;$('bwTrend').textContent=`Cambio total: ${d>=0?'+':''}${d.toFixed(1)} kg.`}else $('bwTrend').textContent='Sumá registros para ver tendencia.';const prev=$('chartExercise').value;$('chartExercise').innerHTML=Object.entries(EX).map(([id,x])=>`<option value="${id}">${x.name}</option>`).join('');if(prev&&EX[prev])$('chartExercise').value=prev;renderComeback();drawStrengthChart();drawMuscleChart();drawVolumeChart();drawReadinessChart();drawBWChart();const ps=Object.entries(db.prs).sort((a,b)=>(b[1].e1rm||0)-(a[1].e1rm||0));$('prsList').innerHTML=ps.length?ps.slice(0,12).map(([id,p])=>`<div class="history usefulHistory"><div><b>${p.name}</b><strong>${formatWeight(id,p.weight)} × ${p.reps}</strong></div><span>${fmtDate(p.date)}</span></div>`).join(''):'Todavía no hay mejores marcas.';$('historyList').innerHTML=db.logs.length?[...db.logs].reverse().slice(0,20).map(l=>`<div class="history usefulHistory"><div><b>${l.sessionName}</b><strong>${l.completedSets||0} series · ${l.durationMin||0} min</strong></div><span>${fmtDate(l.date)} · ${l.readiness?readinessLabelFromScore(l.readiness):'—'}</span><button class="btn ghost slim" data-delete-log="${l.id}">Corregir</button></div>`).join(''):'Sin entrenamientos registrados.'}
+function buildPhaseLogs(){const all=returnLogs(),skip=bridgeRequired()?bridgeNeedFor():0;return all.slice(skip)}
+function completedCycles(){const size=Math.max(1,(db.profile.days||3)*6);return Math.floor(buildPhaseLogs().length/size)}
+function cycleLogs(cycle){const size=Math.max(1,(db.profile.days||3)*6),all=buildPhaseLogs(),start=(cycle-1)*size;return all.slice(start,start+size)}
+function cycleExerciseImprovements(logs){const ids=[...new Set(logs.flatMap(l=>(l.exercises||[]).map(e=>e.id)))],out=[];for(const id of ids){const exp=logs.map(l=>({l,e:(l.exercises||[]).find(e=>e.id===id)})).filter(x=>x.e);if(exp.length<2)continue;const first=bestSetE1RM(exp[0].e),last=bestSetE1RM(exp.at(-1).e);if(!first||!last||last.value<=first.value*1.005)continue;const pct=(last.value/first.value-1)*100,dw=last.weight-first.weight,dr=last.reps-first.reps,headline=dw>0?formatWeightDelta(id,dw):Math.abs(dw)<.001&&dr>0?`+${dr} reps`:`+${pct.toFixed(1)}%`;out.push({id,name:EX[id]?.name||id,headline,pct,detail:`${formatWeight(id,last.weight)} × ${last.reps}`})}return out.sort((a,b)=>b.pct-a.pct)}
+function blockReviewData(){const cycle=completedCycles();if(cycle<1)return null;const logs=cycleLogs(cycle),changes=cycleExerciseImprovements(logs),sets=logs.reduce((a,l)=>a+(+l.completedSets||0),0),volume=logs.reduce((a,l)=>a+(+l.volume||calcLogVolume(l)),0);return {cycle,logs,changes,sets,volume}}
+function renderBlockReview(){const card=$('blockReviewCard'),b=blockReviewData();if(!card)return;if(!b){card.classList.add('hidden');return}card.classList.remove('hidden');$('blockReviewTitle').textContent=`Bloque ${b.cycle} terminado`;$('blockReviewText').textContent=b.changes.length?`Cerraste seis semanas con ${b.changes.length} mejora${b.changes.length===1?'':'s'} medible${b.changes.length===1?'':'s'}.`:'Cerraste las seis semanas. El próximo bloque sigue usando tus cargas y respuestas reales.';$('blockReviewStats').innerHTML=`<div><strong>${b.logs.length}</strong><span>sesiones</span></div><div><strong>${b.sets}</strong><span>series</span></div><div><strong>${(b.volume/1000).toFixed(1)}</strong><span>toneladas</span></div>`;$('blockReviewBest').innerHTML=b.changes.length?b.changes.slice(0,3).map((x,i)=>`<div><span>${i===0?'MEJOR CAMBIO':'MEJORA'}</span><b>${x.name}</b><strong>${x.headline}</strong><small>${x.detail}</small></div>`).join(''):`<div><span>LECTURA</span><b>Consolidación</b><small>No todos los bloques necesitan récords para haber servido.</small></div>`;const ph=phaseInfo();$('blockReviewNext').innerHTML=`<span>SIGUIENTE BLOQUE</span><b>${ph.kind==='build'?`Bloque ${ph.cycle} · ${ph.name}`:'Después de la vuelta empieza tu bloque principal.'}</b><small>Iron Coach ya continúa automáticamente con tu historial. No tenés que reconfigurar nada.</small>`}
+function renderProgress(){if($('monthlyRecapLabel'))$('monthlyRecapLabel').textContent=new Date().toLocaleDateString('es-AR',{month:'long'});$('totalSessions').textContent=db.logs.length;$('adherenceKpi').textContent=adherence()+'%';$('totalVolume').textContent=(calcTotalVolume()/1000).toFixed(1);renderProgressCoach();renderBlockReview();$('currentBW').textContent=(+db.profile.weight||75).toFixed(1)+' kg';const bw=db.bodyweightLogs;if(bw.length>=2){const d=bw.at(-1).weight-bw[0].weight;$('bwTrend').textContent=`Cambio total: ${d>=0?'+':''}${d.toFixed(1)} kg.`}else $('bwTrend').textContent='Sumá registros para ver tendencia.';const prev=$('chartExercise').value;$('chartExercise').innerHTML=Object.entries(EX).map(([id,x])=>`<option value="${id}">${x.name}</option>`).join('');if(prev&&EX[prev])$('chartExercise').value=prev;renderComeback();drawStrengthChart();drawMuscleChart();drawVolumeChart();drawReadinessChart();drawBWChart();const ps=Object.entries(db.prs).sort((a,b)=>(b[1].e1rm||0)-(a[1].e1rm||0));$('prsList').innerHTML=ps.length?ps.slice(0,12).map(([id,p])=>`<div class="history usefulHistory"><div><b>${p.name}</b><strong>${formatWeight(id,p.weight)} × ${p.reps}</strong></div><span>${fmtDate(p.date)}</span></div>`).join(''):'Todavía no hay mejores marcas.';$('historyList').innerHTML=db.logs.length?[...db.logs].reverse().slice(0,20).map(l=>`<div class="history usefulHistory"><div><b>${l.sessionName}</b><strong>${l.completedSets||0} series · ${l.durationMin||0} min</strong></div><span>${fmtDate(l.date)} · ${l.readiness?readinessLabelFromScore(l.readiness):'—'}</span><button class="btn ghost slim" data-delete-log="${l.id}">Corregir</button></div>`).join(''):'Sin entrenamientos registrados.'}
 
 
 let crestSeq=0;
@@ -2244,7 +2304,7 @@ function draft(){try{return JSON.parse(localStorage.getItem(DRAFTKEY)||'null')}c
 function collectDraft(){if(!document.querySelector('#train.active'))return null;const sess=currentSession(),cards=[...$('exerciseList').querySelectorAll('.exercise')];return {version:9,savedAt:Date.now(),sessionId:sess.id,routineIndex:currentRoutineIndex(),startedAt:sessionStarted||Date.now(),overrides:sessionOverrides,order:cards.map(c=>c.dataset.originalId||c.dataset.id),exercises:cards.map(c=>({originalId:c.dataset.originalId||c.dataset.id,id:c.dataset.id,sets:[...c.querySelectorAll('.setrow')].map(r=>({weight:r.querySelector('.w').value,reps:r.querySelector('.reps').value,rir:r.querySelector('.rir').value,feel:r.querySelector('.feel')?.value||'',sensation:r.querySelector('.sensation')?.value||'',technique:r.dataset.technique||'',doneAt:+r.dataset.doneAt||0,done:r.querySelector('.donebtn').classList.contains('on')}))}))}}
 function saveDraft(){const d=collectDraft();if(d){try{localStorage.setItem(DRAFTKEY,JSON.stringify(d));setAutosave('Guardado')}catch(e){}}}
 function clearDraft(){localStorage.removeItem(DRAFTKEY)}
-function renderDraftCard(){const d=draft(),card=$('draftCard');if(d&&plan().some(s=>s.id===d.sessionId)){card.classList.remove('hidden');$('draftText').textContent=`${plan().find(s=>s.id===d.sessionId)?.name||'Sesión'} · ${new Date(d.savedAt).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})}`}else card.classList.add('hidden')}
+function renderDraftCard(){const d=draft(),card=$('draftCard');if(d&&plan().some(s=>s.id===d.sessionId)){const session=plan().find(s=>s.id===d.sessionId),sets=(d.exercises||[]).flatMap(e=>e.sets||[]),done=sets.filter(s=>s.done).length,total=sets.length,lastEx=[...(d.exercises||[])].reverse().find(e=>(e.sets||[]).some(s=>s.done));card.classList.remove('hidden');$('draftText').textContent=`${session?.name||'Sesión'} · ${done}/${total} series${lastEx&&EX[lastEx.id]?` · último: ${EX[lastEx.id].name}`:''} · guardado ${new Date(d.savedAt).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'})}`}else card.classList.add('hidden')}
 function applyDraft(d){for(const exd of d.exercises||[]){const card=[...$('exerciseList').querySelectorAll('.exercise')].find(c=>(c.dataset.originalId||c.dataset.id)===exd.originalId);if(!card)continue;const rows=[...card.querySelectorAll('.setrow')];exd.sets.forEach((s,i)=>{if(!rows[i])return;rows[i].querySelector('.w').value=s.weight;rows[i].querySelector('.reps').value=s.reps;rows[i].querySelector('.rir').value=s.rir;const f=rows[i].querySelector('.feel');if(f)f.value=s.feel||'';const sn=rows[i].querySelector('.sensation');if(sn)sn.value=s.sensation||'';if(s.doneAt)rows[i].dataset.doneAt=s.doneAt;rows[i].querySelector('.donebtn').classList.toggle('on',!!s.done)})}}
 let sessionStarted=0,sessionClockInt=null;function startSessionClock(){if(!sessionStarted)sessionStarted=Date.now();clearInterval(sessionClockInt);sessionClockInt=setInterval(()=>{const s=Math.floor((Date.now()-sessionStarted)/1000);$('sessionDuration').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000)}
 let restEnd=0,restInt=null;function startRest(sec,name){restEnd=Date.now()+sec*1000;$('restExercise').textContent=name;$('restBar').classList.remove('hidden');tickRest();clearInterval(restInt);restInt=setInterval(tickRest,500)}function tickRest(){const left=Math.max(0,Math.ceil((restEnd-Date.now())/1000));$('restTimer').textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left<=0){clearInterval(restInt);$('restBar').classList.add('hidden');if(navigator.vibrate)navigator.vibrate([100,80,100]);toast('Descanso sugerido cumplido')}}
@@ -2288,18 +2348,19 @@ function importBackup(ev){const f=ev.target.files[0];if(!f)return;const r=new Fi
 function resetAll(){if(confirm('¿Borrar perfil, entrenamientos, PRs y progreso de este iPhone?')){localStorage.removeItem(DBKEY);localStorage.removeItem(AUTOKEY);clearDraft();db=clone(fresh);startOnboarding();renderAll()}}
 
 function renderSchedulePicker(){const el=$('schedulePicker');el.innerHTML='';for(let d=1;d<=7;d++){const wd=d===7?0:d,b=document.createElement('button');b.type='button';b.className='daybtn '+(db.profile.scheduleDays.includes(wd)?'on':'');b.dataset.day=wd;b.textContent=DAYN[wd];el.appendChild(b)}}
-function renderSettings(){$('settingsNameSummary').textContent=db.profile.name||'Mi perfil';$('settingsGoalSummary').textContent=goalLabel(db.profile.goal);$('settingsDaysSummary').textContent=db.profile.days||db.profile.availability||3;$('pName').value=db.profile.name||'';$('pDob').value=isoToARDate(db.profile.dob||'');$('pAge').textContent=ageFromDOB(db.profile.dob)??db.profile.age??'—';$('pHeight').value=db.profile.height||'';$('pWeight').value=db.profile.weight||75;$('pGoal').value=db.profile.goal||'muscle';$('pExperience').value=db.profile.experience||'intermediate';$('pLayoff').value=db.profile.layoff||'active';$('pPriority').value=db.profile.priority||'balanced';$('pAvailability').value=db.profile.availability||3;$('pSessionMinutes').value=db.profile.sessionMinutes||75;$('pTime').value=db.profile.time||'18:30';$('timerToggle').classList.toggle('on',!!db.profile.timerEnabled);const pl=$('pLimitations');pl.innerHTML='';[['shoulder','Hombro'],['knee','Rodilla'],['back','Espalda'],['elbow','Codo']].forEach(([id,n])=>{const b=document.createElement('button');b.type='button';b.className='daybtn'+((db.profile.limitations||[]).includes(id)?' on':'');b.textContent=n;b.dataset.limit=id;b.addEventListener('click',()=>b.classList.toggle('on'));pl.appendChild(b)});const pm=db.profile.priorMarks||{};[['Bench','bench'],['Squat','squat'],['Deadlift','deadlift'],['Ohp','ohp']].forEach(([n,id])=>{const v=pm[id]||{};$('pPrior'+n+'W').value=v.weight||'';$('pPrior'+n+'R').value=v.reps||''});renderSchedulePicker();renderExercisePrefs()}
+function applyTextScale(){document.body.classList.toggle('textXL',(db.profile.textScale||'large')==='xl')}
+function renderSettings(){$('settingsNameSummary').textContent=db.profile.name||'Mi perfil';$('settingsGoalSummary').textContent=goalLabel(db.profile.goal);$('settingsDaysSummary').textContent=db.profile.days||db.profile.availability||3;$('pName').value=db.profile.name||'';$('pDob').value=isoToARDate(db.profile.dob||'');$('pAge').textContent=ageFromDOB(db.profile.dob)??db.profile.age??'—';$('pHeight').value=db.profile.height||'';$('pWeight').value=db.profile.weight||75;$('pGoal').value=db.profile.goal||'muscle';$('pExperience').value=db.profile.experience||'intermediate';$('pLayoff').value=db.profile.layoff||'active';$('pPriority').value=db.profile.priority||'balanced';$('pAvailability').value=db.profile.availability||3;$('pSessionMinutes').value=db.profile.sessionMinutes||75;$('pTime').value=db.profile.time||'18:30';$('pTextScale').value=db.profile.textScale||'large';$('timerToggle').classList.toggle('on',!!db.profile.timerEnabled);const pl=$('pLimitations');pl.innerHTML='';[['shoulder','Hombro'],['knee','Rodilla'],['back','Espalda'],['elbow','Codo']].forEach(([id,n])=>{const b=document.createElement('button');b.type='button';b.className='daybtn'+((db.profile.limitations||[]).includes(id)?' on':'');b.textContent=n;b.dataset.limit=id;b.addEventListener('click',()=>b.classList.toggle('on'));pl.appendChild(b)});const pm=db.profile.priorMarks||{};[['Bench','bench'],['Squat','squat'],['Deadlift','deadlift'],['Ohp','ohp']].forEach(([n,id])=>{const v=pm[id]||{};$('pPrior'+n+'W').value=v.weight||'';$('pPrior'+n+'R').value=v.reps||''});renderSchedulePicker();renderExercisePrefs()}
 function collectSettingsPrior(){const out={};[['Bench','bench'],['Squat','squat'],['Deadlift','deadlift'],['Ohp','ohp']].forEach(([n,id])=>{const w=+$('pPrior'+n+'W').value||0,r=+$('pPrior'+n+'R').value||0;if(w&&r)out[id]={weight:w,reps:r}});return out}
 function saveProfileNow(){
  const dob=arDateToISO($('pDob').value),age=ageFromDOB(dob);
  if(!dob||age===null||age<13||age>100){toast('Revisá la fecha. Usá día/mes/año.');return}
  const oldW=+db.profile.weight||0,newW=+$('pWeight').value||75,oldDays=db.profile.days,oldLayoff=db.profile.layoff||'active';
- db.profile={...db.profile,name:$('pName').value.trim(),dob,height:$('pHeight').value,weight:newW,email:db.profile.email||'',goal:$('pGoal').value,experience:$('pExperience').value,layoff:$('pLayoff').value,priority:$('pPriority').value,limitations:[...$('pLimitations').querySelectorAll('.daybtn.on')].map(b=>b.dataset.limit),priorMarks:collectSettingsPrior(),availability:+$('pAvailability').value||3,sessionMinutes:+$('pSessionMinutes').value||75,time:$('pTime').value||'18:30',barWeight:0};
+ db.profile={...db.profile,name:$('pName').value.trim(),dob,height:$('pHeight').value,weight:newW,email:db.profile.email||'',goal:$('pGoal').value,experience:$('pExperience').value,layoff:$('pLayoff').value,priority:$('pPriority').value,limitations:[...$('pLimitations').querySelectorAll('.daybtn.on')].map(b=>b.dataset.limit),priorMarks:collectSettingsPrior(),availability:+$('pAvailability').value||3,sessionMinutes:+$('pSessionMinutes').value||75,time:$('pTime').value||'18:30',textScale:$('pTextScale').value||'large',barWeight:0};
  db.profile.age=age;db.profile.days=recommendedDays(db.profile);
  if(db.profile.layoff!=='active'&&db.profile.layoff!==oldLayoff)db.profile.bridgeStartLogCount=db.logs.length;
  if(oldDays!==db.profile.days||db.profile.scheduleDays.length!==db.profile.days)db.profile.scheduleDays=scheduleFor(db.profile.days);
  if(Math.abs(newW-oldW)>=.1)db.bodyweightLogs.push({date:new Date().toISOString(),weight:newW});
- save();$('settingsModal').classList.remove('show');manualRoutine=null;renderAll();toast('Perfil guardado')
+ save();applyTextScale();$('settingsModal').classList.remove('show');manualRoutine=null;renderAll();toast('Perfil guardado')
 }
 
 let obStep=0,obGoal='muscle',obPriority='balanced';
@@ -2333,7 +2394,7 @@ function selectedLimits(){return [...document.querySelectorAll('#limitationChoic
 function nextOb(){if(obStep===0){const dob=arDateToISO($('obDob').value),age=ageFromDOB(dob);if(!$('obName').value.trim()||!dob||age===null||age<13||age>100||!+$('obWeight').value){toast('Completá nombre, fecha (día/mes/año) y peso.');return}}if(obStep<7){obStep++;showOb();return}const oldLogs=db.logs.length;db.profile={...db.profile,name:$('obName').value.trim(),dob:arDateToISO($('obDob').value),height:$('obHeight').value,weight:+$('obWeight').value||75,email:db.profile.email||'',goal:obGoal,experience:$('obExperience').value,layoff:$('obLayoff').value,limitations:selectedLimits(),priorMarks:collectPrior(),priority:obPriority,intakeVersion:INTAKE_VERSION,availability:+$('obAvailability').value||3,sessionMinutes:+$('obSessionMinutes').value||75,time:$('obTime').value||'18:30',barWeight:0,timerEnabled:false,bridgeStartLogCount:oldLogs};db.profile.age=ageFromDOB(db.profile.dob);db.profile.days=recommendedDays(db.profile);db.profile.scheduleDays=scheduleFor(db.profile.days);db.onboarded=true;if(!db.bodyweightLogs.length)db.bodyweightLogs.push({date:new Date().toISOString(),weight:db.profile.weight});save();$('onboarding').classList.add('hidden');manualRoutine=null;renderAll();toast(`Programa creado · ${db.profile.days} días`);setTimeout(()=>openTutorial(0),350)}
 function backOb(){if(obStep>0){obStep--;showOb()}}
 
-function renderAll(){renderDate();$('sleep').value=db.checkin.sleep||4;$('energy').value=db.checkin.energy||4;$('stress').value=db.checkin.stress||2;$('soreness').value=db.checkin.soreness||2;renderHome();renderPlan();renderProgress();renderRank();save(true)}
+function renderAll(){applyTextScale();renderDate();$('sleep').value=db.checkin.sleep||4;$('energy').value=db.checkin.energy||4;$('stress').value=db.checkin.stress||2;$('soreness').value=db.checkin.soreness||2;renderHome();renderPlan();renderProgress();renderRank();save(true)}
 function openTrainConfirm(index=null){
  pendingRoutineIndex=index===null?null:+index;
  const s=index===null?currentSession():timeAdjustedSession(plan()[pendingRoutineIndex]),d=index===null?draft():null;
@@ -2361,8 +2422,230 @@ const OPEN_MOTIVATION=[
  'Tu progreso no necesita ruido. Necesita sesiones.',
  'Los kilos suben cuando la constancia se queda.',
  'Hacé el trabajo de hoy. El físico aparece después.',
- 'No hace falta sentirte invencible para entrenar bien.'
-];
+ 'No hace falta sentirte invencible para entrenar bien.',
+ 'Entrenar hoy es votar por el físico que querés mañana.',
+ 'Cada serie bien hecha cuenta.',
+ 'No busques sentir ganas. Buscá cumplir.',
+ 'Hoy ganás si hacés lo que toca.',
+ 'El cuerpo cambia cuando la constancia deja de ser negociable.',
+ 'Una sesión más. Un paso menos entre vos y tu objetivo.',
+ 'El progreso serio casi siempre se ve aburrido desde afuera.',
+ 'Entrená como alguien que piensa seguir haciendo esto dentro de un año.',
+ 'No necesitás motivación perfecta. Necesitás empezar.',
+ 'El primer ejercicio rompe la pereza.',
+ 'No todos los días son récord. Todos pueden sumar.',
+ 'El físico no sabe de excusas. Sabe de estímulo y recuperación.',
+ 'Entrená con cabeza. Después entrená fuerte.',
+ 'Hoy no le tenés que ganar a nadie.',
+ 'Tu referencia es lo que hiciste la última vez.',
+ 'Mejorá una repetición. Mejorá un kilo. Mejorá una decisión.',
+ 'Una serie buena puede cambiar toda la sesión.',
+ 'El progreso grande está hecho de mejoras chicas.',
+ 'La constancia vuelve fuerte a una rutina normal.',
+ 'Lo que repetís termina definiéndote.',
+ 'Cumplí hoy. Mañana volvemos a ajustar.',
+ 'No entrenes para demostrar. Entrená para construir.',
+ 'Fuerte no es descontrolado.',
+ 'Más peso no siempre es mejor. Mejor ejecución sí.',
+ 'Una repetición limpia vale más que una repetición regalada.',
+ 'El ego levanta rápido. El progreso levanta por años.',
+ 'Entrená para progresar, no para impresionar.',
+ 'Hoy el objetivo es salir mejor de lo que entraste.',
+ 'Tu mejor físico todavía necesita otra sesión.',
+ 'Cada entrenamiento deja datos. Cada dato hace mejor al Coach.',
+ 'Vos ejecutá. El Coach se ocupa del resto.',
+ 'Entrená. Registrá. Ajustá. Repetí.',
+ 'El progreso ama los datos reales.',
+ 'Lo que medís, lo podés mejorar.',
+ 'No adivines tu progreso. Construí historial.',
+ 'Una sesión registrada vale más que una memoria aproximada.',
+ 'El cuerpo responde a lo que hacés, no a lo que planeás.',
+ 'Hoy construís la base de la próxima subida de peso.',
+ 'Cada repetición deja información.',
+ 'El entrenamiento de hoy prepara el de mañana.',
+ 'Tu historial se está convirtiendo en ventaja.',
+ 'Cuanto más entrenás bien, menos necesitás improvisar.',
+ 'El músculo no necesita caos. Necesita estímulo.',
+ 'El esfuerzo sirve cuando está bien colocado.',
+ 'No todo va al fallo. Lo importante es que lo que va, tenga sentido.',
+ 'La intensidad sin estrategia es solo cansancio.',
+ 'Entrená duro. Recuperate mejor.',
+ 'Más no siempre es mejor. Mejor es mejor.',
+ 'Cada serie tiene un propósito.',
+ 'El objetivo no es terminar destruido. Es terminar estimulado.',
+ 'El mejor entrenamiento es el que podés volver a superar.',
+ 'La fatiga no es el premio. El progreso sí.',
+ 'Sentirte cansado no siempre significa haber entrenado bien.',
+ 'Hoy buscamos estímulo, no espectáculo.',
+ 'La técnica te deja progresar donde el ego te frena.',
+ 'Control primero. Intensidad después.',
+ 'Cuando el peso sube y la técnica queda, estás avanzando.',
+ 'Una repetición más con el mismo peso también es progreso.',
+ 'Subir carga no es la única forma de ganar.',
+ 'Mejor ejecución también cuenta.',
+ 'Más control también es progreso.',
+ 'Tu cuerpo no cambia en una sesión. Cambia por no faltar.',
+ 'La paciencia también entrena.',
+ 'El físico fuerte se construye durante meses, no durante un lunes.',
+ 'Los resultados llegan tarde. El trabajo llega hoy.',
+ 'Seguí acumulando sesiones.',
+ 'El músculo tarda. La disciplina no.',
+ 'No busques el cambio de una semana. Construí el de un año.',
+ 'Lo que hoy parece poco, repetido cien veces deja de ser poco.',
+ 'Entrenar bien durante meses vence entrenar perfecto durante días.',
+ 'La sesión de hoy no tiene que ser histórica. Tiene que existir.',
+ 'Cada semana completa es una victoria.',
+ 'El progreso se esconde hasta que deja de poder esconderse.',
+ 'Hay días para romper marcas y días para mantener el rumbo.',
+ 'Hoy puede ser un día silencioso de progreso.',
+ 'El cuerpo aprende de la repetición.',
+ 'Tu futuro físico se está negociando hoy.',
+ 'Si hoy cumplís, ya hiciste algo importante.',
+ 'Entrená aunque no sea tu mejor día.',
+ 'Un día normal también construye un físico extraordinario.',
+ 'Cuando no tengas ganas, hacé la primera serie.',
+ 'Después de empezar, todo cambia.',
+ 'No necesitás estar motivado para ser constante.',
+ 'Disciplina es hacer una buena sesión sin necesitar emoción.',
+ 'Hay días que se ganan simplemente apareciendo.',
+ 'Volver siempre es mejor que abandonar.',
+ 'Una mala semana no borra meses de trabajo.',
+ 'Tu próximo buen entrenamiento puede empezar hoy.',
+ 'No castigues un mal día. Ajustalo.',
+ 'El progreso también incluye saber cuándo bajar un cambio.',
+ 'Recuperarte también es entrenar.',
+ 'Dormir bien también suma kilos a futuro.',
+ 'Comer bien también es parte de la serie.',
+ 'El descanso no roba progreso. Lo permite.',
+ 'Hoy entrenás. Después dejá al cuerpo hacer su parte.',
+ 'Fuerza y paciencia son un buen equipo.',
+ 'Construí un físico que puedas mantener.',
+ 'Tu objetivo no es una foto. Es una versión estable de vos.',
+ 'El mejor progreso es el que no necesitás perder después.',
+ 'Entrená para verte bien y sentirte capaz.',
+ 'Más músculo también se construye con mejores decisiones.',
+ 'El gimnasio es una parte del proceso, no todo el proceso.',
+ 'Todo suma cuando está bien orientado.',
+ 'El plan gana cuando lo seguís.',
+ 'No cambies el plan por ansiedad.',
+ 'Confía en el proceso, pero medilo.',
+ 'Constancia sin dirección sirve menos. Por eso está el Coach.',
+ 'Dirección sin constancia tampoco alcanza. Por eso estás vos.',
+ 'Vos ponés el esfuerzo. Iron Coach pone la estructura.',
+ 'Hoy hacé exactamente lo necesario.',
+ 'Ni menos por pereza ni más por ansiedad.',
+ 'Entrená con intención.',
+ 'Cada ejercicio tiene una razón.',
+ 'Cada descanso también.',
+ 'El descanso entre series también es parte de la serie.',
+ 'No apures el peso. Ganátelo.',
+ 'Cuando el Coach suba la carga, hacela valer.',
+ 'Cuando el Coach te frene, también te está haciendo progresar.',
+ "No todos los mensajes de progreso dicen 'más peso'.",
+ 'A veces progresar es repetir mejor.',
+ 'A veces progresar es llegar más fresco.',
+ 'A veces progresar es no pasarte.',
+ 'Aprender a regularte también te hace avanzado.',
+ 'Un avanzado no entrena siempre al máximo. Entrena cuando corresponde.',
+ 'El fallo es una herramienta, no una religión.',
+ 'Un drop set sirve cuando suma, no cuando impresiona.',
+ 'Una superserie sirve cuando encaja, no porque suene intensa.',
+ 'Los métodos avanzados funcionan mejor cuando el básico ya está hecho.',
+ 'Primero construí. Después intensificá.',
+ 'Los accesorios terminan el trabajo que los básicos empiezan.',
+ 'Un buen entrenamiento tiene orden.',
+ 'Un gran entrenamiento sabe dónde poner la intensidad.',
+ 'Hoy puede tocar apretar. O puede tocar guardar una repetición.',
+ 'El Coach decide el momento. Vos hacé la serie.',
+ 'Si hoy toca fallo, llegá con técnica.',
+ 'Si hoy no toca fallo, frenarte también es disciplina.',
+ 'El estímulo efectivo no necesita heroísmo.',
+ 'El músculo no sabe cuánto sufriste. Responde al trabajo que recibió.',
+ 'Más ardor no siempre significa más crecimiento.',
+ 'Más control casi siempre mejora la calidad del trabajo.',
+ 'El bombeo se disfruta. El progreso se mide.',
+ 'Usá las sensaciones. No seas esclavo de ellas.',
+ 'Tu mejor herramienta sigue siendo ejecutar bien.',
+ 'Cada vez conocés mejor tus cargas.',
+ 'Cada sesión hace más precisa la siguiente.',
+ 'Hoy entrenás con más información que ayer.',
+ 'Tu rutina ya no es genérica. Se está convirtiendo en tuya.',
+ 'Cuanto más la usás, más te conoce.',
+ 'Cada respuesta que das mejora la próxima decisión.',
+ 'Marcá lo que sentiste. El Coach aprende.',
+ 'Si una máquina no existe, la próxima ya no te molesta.',
+ 'Si un ejercicio no te gusta, el sistema lo recuerda.',
+ 'Tu gimnasio también forma parte del plan.',
+ 'Una buena app desaparece mientras vos entrenás.',
+ 'Menos pensar. Más ejecutar.',
+ 'Entrá, mirá lo que toca y hacelo.',
+ 'El entrenamiento no debería sentirse complicado.',
+ 'Simple de usar. Difícil de ejecutar.',
+ 'Tu cabeza queda libre para levantar.',
+ 'Hoy solo necesitás concentrarte en la próxima serie.',
+ 'No pienses en toda la rutina. Pensá en lo que sigue.',
+ 'Una serie a la vez.',
+ 'Un ejercicio a la vez.',
+ 'Un entrenamiento a la vez.',
+ 'Una semana a la vez.',
+ 'El físico llega después.',
+ 'Hoy construimos.',
+ 'Hoy sumamos.',
+ 'Hoy cumplimos.',
+ 'Hoy toca avanzar.',
+ 'Hoy toca hacerlo bien.',
+ 'Hoy no negociamos con la pereza.',
+ 'Hoy el objetivo es salir orgulloso del trabajo.',
+ 'Hoy puede aparecer una nueva marca.',
+ 'Hoy puede aparecer una nueva referencia.',
+ 'Hoy puede ser el día en que algo empiece a subir.',
+ 'Entrá al gimnasio con un objetivo claro.',
+ 'Salí con datos nuevos.',
+ 'Que la sesión hable por vos.',
+ 'El progreso real no necesita exageración.',
+ 'Cuando mires atrás, vas a agradecer no haber faltado hoy.',
+ 'Tu yo de dentro de seis meses está mirando esta decisión.',
+ 'Hoy es una de esas sesiones que después cuentan.',
+ 'No subestimes un entrenamiento normal bien hecho.',
+ 'Los grandes cambios se esconden dentro de días normales.',
+ 'Tu cuerpo no sabe qué día es. Solo sabe si entrenaste.',
+ 'El calendario avanza igual. Aprovechalo.',
+ 'Una hora bien usada cambia mucho con el tiempo.',
+ 'El mejor momento para sumar una sesión es hoy.',
+ 'Tu físico futuro se construye con decisiones presentes.',
+ 'Seguí poniendo ladrillos.',
+ 'El resultado se construye antes de verse.',
+ 'Lo invisible de hoy se vuelve visible después.',
+ 'El progreso empieza mucho antes del espejo.',
+ 'Entrená para el proceso. Disfrutá el resultado.',
+ 'Que la motivación sea consecuencia del progreso, no requisito.',
+ 'Primero hacé. Después llegan las ganas.',
+ 'El orgullo de terminar dura más que la pereza de empezar.',
+ 'Una buena sesión cambia el humor de todo el día.',
+ 'Terminá sabiendo que hiciste lo que correspondía.',
+ 'Cada check verde vale.',
+ 'Cada ejercicio terminado te acerca.',
+ 'Cada semana cumplida cambia la tendencia.',
+ 'Cada mes sostenido cambia el cuerpo.',
+ 'No necesitás más secretos. Necesitás repetir lo que funciona.',
+ 'Lo básico sigue funcionando cuando se hace bien.',
+ 'Progresión, técnica, descanso y paciencia.',
+ 'El resto es ruido.',
+ 'Hoy entrenamos sin ruido.'
+]
+const MOTIVATION_HISTORY_KEY='ironCoachMotivationHistory';
+function motivationHistory(){
+ try{const x=JSON.parse(localStorage.getItem(MOTIVATION_HISTORY_KEY)||'[]');return Array.isArray(x)?x:[]}catch(e){return []}
+}
+function nextOpenMotivation(){
+ const recent=motivationHistory(),blocked=new Set(recent.slice(-18)),available=OPEN_MOTIVATION.filter((_,i)=>!blocked.has(i));
+ const pool=available.length?available:OPEN_MOTIVATION;
+ const phrase=pool[Math.floor(Math.random()*pool.length)];
+ const idx=OPEN_MOTIVATION.indexOf(phrase),next=[...recent,idx].slice(-24);
+ try{localStorage.setItem(MOTIVATION_HISTORY_KEY,JSON.stringify(next))}catch(e){}
+ return phrase
+}
+
 let welcomeShown=false,welcomeAction='close';
 function daysSinceWeight(){
  const arr=db.bodyweightLogs||[];if(!arr.length)return 999;
@@ -2372,7 +2655,9 @@ function closeWelcome(){$('welcomeModal').classList.remove('show')}
 function showSmartWelcome(){
  if(welcomeShown||!db.onboarded||!$('onboarding').classList.contains('hidden'))return;
  if(document.querySelector('.modal.show,.feedbackModal.show,.recapModal.show,.confirmModal.show')){setTimeout(showSmartWelcome,1200);return}
- welcomeShown=true;$('welcomeQuick').classList.add('hidden');$('welcomeWeightBox').classList.add('hidden');$('welcomeSecondary').classList.add('hidden');
+ welcomeShown=true;
+ const quote=nextOpenMotivation();$('welcomeQuote').textContent=quote;
+ $('welcomeQuick').classList.add('hidden');$('welcomeWeightBox').classList.add('hidden');$('welcomeSecondary').classList.add('hidden');
  const weightDue=daysSinceWeight()>=7;
  if(!checkinCurrent()){
    welcomeAction='checkin';$('welcomeIcon').textContent='⚡';$('welcomeEyebrow').textContent='ANTES DE ENTRENAR';$('welcomeTitle').textContent='¿Cómo llegás hoy?';$('welcomeText').textContent='Un toque y el Coach ajusta la sesión.';
@@ -2382,8 +2667,7 @@ function showSmartWelcome(){
    welcomeAction='weight';$('welcomeIcon').textContent='⚖️';$('welcomeEyebrow').textContent='SEGUIMIENTO';$('welcomeTitle').textContent='Registrá tu peso';$('welcomeText').textContent='Un dato semanal alcanza para ver una tendencia útil.';
    $('welcomeWeightBox').classList.remove('hidden');$('welcomeWeight').value=(+db.profile.weight||75).toFixed(1);$('welcomePrimary').textContent='GUARDAR PESO';$('welcomePrimary').disabled=false;$('welcomeSecondary').classList.remove('hidden');$('welcomeSecondary').textContent='Hoy no'
  }else{
-   welcomeAction='motivation';const msg=OPEN_MOTIVATION[(db.logs.length+new Date().getDate())%OPEN_MOTIVATION.length];
-   $('welcomeIcon').textContent='◆';$('welcomeEyebrow').textContent='IRON COACH';$('welcomeTitle').textContent='Vamos.';$('welcomeText').textContent=msg;$('welcomePrimary').textContent='ENTENDIDO';$('welcomePrimary').disabled=false
+   welcomeAction='motivation';$('welcomeIcon').textContent='◆';$('welcomeEyebrow').textContent='HOY';$('welcomeTitle').textContent='Vamos.';$('welcomeText').textContent='Iron Coach ya tiene el plan. Vos hacé la próxima serie cuando estés listo.';$('welcomePrimary').textContent='ENTENDIDO';$('welcomePrimary').disabled=false
  }
  $('welcomeModal').classList.add('show')
 }
@@ -2410,11 +2694,11 @@ async function checkFreshBuild(){try{const r=await fetch('./index.html?buildchec
 cleanupLegacy();window.addEventListener('pageshow',()=>setTimeout(checkFreshBuild,700));document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(checkFreshBuild,500)});
 
 $('skipPriorMarks').addEventListener('click',skipPriorMarksNow);['priorBenchW','priorSquatW','priorDeadliftW','priorOhpW','priorBenchR','priorSquatR','priorDeadliftR','priorOhpR'].forEach(id=>$(id).addEventListener('input',()=>{if(obStep===3)showOb()}));$('prefLater').addEventListener('click',()=>closeExercisePreference(true));$('exercisePrefModal').addEventListener('click',e=>{if(e.target===$('exercisePrefModal'))closeExercisePreference(true)});document.querySelectorAll('[data-ex-pref]').forEach(b=>b.addEventListener('click',()=>setExercisePreference(b.dataset.exPref)));document.querySelectorAll('[data-page-jump]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.pageJump)));$('rewardStrip').addEventListener('click',()=>go('trophies'));$('rewardStrip').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go('trophies')}});$('closeAchievementDetail').addEventListener('click',closeAchievementDetail);$('achievementDetailModal').addEventListener('click',e=>{if(e.target===$('achievementDetailModal'))closeAchievementDetail()});$('feedbackCancel').addEventListener('click',closeSetFeedback);$('saveSetFeedback').addEventListener('click',()=>{if(!pendingFeel){toast('Elegí primero cuánto te quedaba.');return}applySetFeedback(pendingFeel)});$('burnSensation').addEventListener('click',toggleBurnSensation);$('sharpPain').addEventListener('click',applySharpPain);$('setFeedback').addEventListener('click',e=>{if(e.target===$('setFeedback'))closeSetFeedback()});$('openTutorial').addEventListener('click',()=>openTutorial(0));$('showTutorialSettings').addEventListener('click',()=>{$('settingsModal').classList.remove('show');openTutorial(0)});$('tutorialSkip').addEventListener('click',()=>closeTutorial(true));$('tutorialNext').addEventListener('click',nextTutorial);$('tutorialModal').addEventListener('click',e=>{if(e.target===$('tutorialModal'))closeTutorial(true)});$('rirQuickHelp').addEventListener('click',rirHelp);$('whyPlanBtn').addEventListener('click',()=>{const x=$('whyPlanLong'),open=x.classList.contains('hidden');x.classList.toggle('hidden',!open);$('whyPlanBtn').textContent=open?'Ocultar':'Ver'});
-$('recapClose').addEventListener('click',closeRecap);$('recapNext').addEventListener('click',nextRecap);$('recapPrev').addEventListener('click',prevRecap);$('recapModal').addEventListener('click',e=>{if(e.target===$('recapModal'))closeRecap()});$('monthlyRecapBtn').addEventListener('click',openCurrentMonthRecap);$('closeWelcome').addEventListener('click',closeWelcome);$('welcomeSecondary').addEventListener('click',closeWelcome);$('welcomePrimary').addEventListener('click',welcomePrimaryAction);$('welcomeModal').addEventListener('click',e=>{if(e.target===$('welcomeModal'))closeWelcome()});$('closePlanPreview').addEventListener('click',closePlanPreview);$('startPlanPreview').addEventListener('click',startPlanPreviewWorkout);$('planPreviewModal').addEventListener('click',e=>{if(e.target===$('planPreviewModal'))closePlanPreview()});$('cancelTrain').addEventListener('click',closeTrainConfirm);$('confirmTrain').addEventListener('click',enterTrainingFromConfirm);$('trainConfirm').addEventListener('click',e=>{if(e.target===$('trainConfirm'))closeTrainConfirm()});$('homeTrain').addEventListener('click',()=>{if(!checkinCurrent()){toast('Elegí cómo te sentís y arrancamos.');document.querySelector('.quickCheck').scrollIntoView({behavior:'smooth',block:'center'});return}go('train')});
+$('recapClose').addEventListener('click',closeRecap);$('recapNext').addEventListener('click',nextRecap);$('recapPrev').addEventListener('click',prevRecap);$('recapModal').addEventListener('click',e=>{if(e.target===$('recapModal'))closeRecap()});$('monthlyRecapBtn').addEventListener('click',openCurrentMonthRecap);$('closeReplacement').addEventListener('click',closeReplacementModal);$('replacementModal').addEventListener('click',e=>{if(e.target===$('replacementModal'))closeReplacementModal()});$('closeWelcome').addEventListener('click',closeWelcome);$('welcomeSecondary').addEventListener('click',closeWelcome);$('welcomePrimary').addEventListener('click',welcomePrimaryAction);$('welcomeModal').addEventListener('click',e=>{if(e.target===$('welcomeModal'))closeWelcome()});$('closePlanPreview').addEventListener('click',closePlanPreview);$('startPlanPreview').addEventListener('click',startPlanPreviewWorkout);$('planPreviewModal').addEventListener('click',e=>{if(e.target===$('planPreviewModal'))closePlanPreview()});$('cancelTrain').addEventListener('click',closeTrainConfirm);$('confirmTrain').addEventListener('click',enterTrainingFromConfirm);$('trainConfirm').addEventListener('click',e=>{if(e.target===$('trainConfirm'))closeTrainConfirm()});$('homeTrain').addEventListener('click',()=>{if(!checkinCurrent()){toast('Elegí cómo te sentís y arrancamos.');document.querySelector('.quickCheck').scrollIntoView({behavior:'smooth',block:'center'});return}go('train')});
 $('saveCheckin').addEventListener('click',saveCheckinNow);document.querySelectorAll('.quickBtn').forEach(b=>b.addEventListener('click',()=>setQuick(b.dataset.quick)));
 $('cycleRoutine').addEventListener('click',()=>{manualRoutine=(currentRoutineIndex()+1)%plan().length;sessionOverrides={};clearDraft();renderTrain(false)});$('finishWorkout').addEventListener('click',finishWorkoutNow);$('finishEarly').addEventListener('click',abortWorkout);$('chartExercise').addEventListener('change',drawStrengthChart);$('addBW').addEventListener('click',addBodyweight);$('openSettings').addEventListener('click',()=>{renderSettings();$('settingsModal').classList.add('show')});$('closeSettings').addEventListener('click',()=>$('settingsModal').classList.remove('show'));$('settingsModal').addEventListener('click',e=>{if(e.target===$('settingsModal'))$('settingsModal').classList.remove('show')});$('saveProfile').addEventListener('click',saveProfileNow);$('exportData').addEventListener('click',exportBackup);$('importFile').addEventListener('change',importBackup);$('restartOnboarding').addEventListener('click',()=>{$('settingsModal').classList.remove('show');startOnboarding()});$('resetData').addEventListener('click',resetAll);$('timerToggle').addEventListener('click',()=>{db.profile.timerEnabled=!db.profile.timerEnabled;$('timerToggle').classList.toggle('on',db.profile.timerEnabled);save();toast(db.profile.timerEnabled?'Timer activado':'Timer apagado')});$('restPlus').addEventListener('click',()=>{restEnd+=30000;tickRest()});$('restSkip').addEventListener('click',()=>{clearInterval(restInt);$('restBar').classList.add('hidden')});$('resumeDraft').addEventListener('click',()=>{const d=draft();if(d){manualRoutine=d.routineIndex;sessionOverrides=d.overrides||{};go('train')}});$('discardDraft').addEventListener('click',()=>{if(confirm('¿Descartar la sesión en curso?')){clearDraft();sessionStarted=0;sessionOverrides={};renderHome()}});$('obNext').addEventListener('click',nextOb);$('obBack').addEventListener('click',backOb);$('obExperience').addEventListener('change',()=>{updateReturnNote();updateObRec()});$('obLayoff').addEventListener('change',()=>{updateReturnNote();updateObRec()});$('obAvailability').addEventListener('change',updateObRec);$('pDob').addEventListener('input',()=>{maskARDateInput($('pDob'));const iso=arDateToISO($('pDob').value);$('pAge').textContent=iso?(ageFromDOB(iso)??'—'):'—'});$('obDob').addEventListener('input',()=>maskARDateInput($('obDob')));
 document.querySelectorAll('#goalChoices button').forEach(b=>b.addEventListener('click',()=>{obGoal=b.dataset.goal;document.querySelectorAll('#goalChoices button').forEach(x=>x.classList.toggle('selected',x===b));updateObRec()}));document.querySelectorAll('#priorityChoices button').forEach(b=>b.addEventListener('click',()=>{obPriority=b.dataset.priority;document.querySelectorAll('#priorityChoices button').forEach(x=>x.classList.toggle('selected',x===b))}));document.querySelectorAll('#limitationChoices button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.limit==='none'){document.querySelectorAll('#limitationChoices button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')}else{document.querySelector('#limitationChoices [data-limit="none"]').classList.remove('selected');b.classList.toggle('selected');if(!document.querySelector('#limitationChoices button.selected'))document.querySelector('#limitationChoices [data-limit="none"]').classList.add('selected')}}));
-document.addEventListener('click',e=>{const wc=e.target.closest('[data-welcome-checkin]');if(wc){setQuick(wc.dataset.welcomeCheckin);document.querySelectorAll('[data-welcome-checkin]').forEach(b=>b.classList.toggle('selected',b===wc));$('welcomePrimary').disabled=false;return}const nav=e.target.closest('.navbtn');if(nav){if(nav.dataset.page==='train'&&!document.querySelector('#train.active')){openTrainConfirm();return}go(nav.dataset.page);return}const done=e.target.closest('.donebtn');if(done){const row=done.closest('.setrow'),card=done.closest('.exercise');if(done.classList.contains('on'))return;if(!validateSet(card,row))return;openSetFeedback(card,row);return}const feel=e.target.closest('[data-feel]');if(feel&&feel.closest('#setFeedback')){selectSetEffort(feel.dataset.feel);return}const defer=e.target.closest('[data-defer-exercise]');if(defer){deferExercise(defer.closest('.exercise'));return}const skip=e.target.closest('[data-skip-exercise]');if(skip){skipCurrentExercise(skip.closest('.exercise'));return}const pp=e.target.closest('[data-plan-preview]');if(pp){openPlanPreview(+pp.dataset.planPreview);return}const ach=e.target.closest('[data-achievement-id]');if(ach){openAchievementDetail(ach.dataset.achievementId);return}const unavailable=e.target.closest('[data-unavailable-exercise]');if(unavailable){unavailableCurrentExercise(unavailable.closest('.exercise'));return}const sub=e.target.closest('[data-substitute]');if(sub){const original=sub.dataset.substitute,card=sub.closest('.exercise');if(card.querySelector('.donebtn.on')){toast('Desmarcá las series antes de cambiar este ejercicio.');return}const current=card.dataset.id,candidates=exerciseCandidates(current).filter(id=>id!==current),alt=candidates.find(id=>exercisePref(id)?.rating!=='avoid')||candidates[0];if(!alt){toast('No encontré otra variante equivalente disponible.');return}sessionOverrides[original]=alt;saveDraft();renderTrain(true);toast(`Listo. Por hoy: ${EX[alt].name}`);return}const rr=e.target.closest('[data-rest-now]');if(rr){const x=EX[rr.dataset.restNow];startRest(x.rest,x.name);return}const restore=e.target.closest('[data-restore-availability]');if(restore){restoreExerciseAvailability(restore.dataset.restoreAvailability);return}const del=e.target.closest('[data-delete-log]');if(del){deleteLog(del.dataset.deleteLog);return}const day=e.target.closest('.daybtn');if(day&&day.closest('#schedulePicker')){const d=+day.dataset.day,arr=[...db.profile.scheduleDays];if(arr.includes(d)){if(arr.length<=1){toast('Dejá al menos un día.');return}db.profile.scheduleDays=arr.filter(x=>x!==d)}else{if(arr.length>=db.profile.days){toast(`Tu plan usa ${db.profile.days} días. Desmarcá uno primero.`);return}db.profile.scheduleDays=[...arr,d].sort((a,b)=>a-b)}renderSchedulePicker();return}});
+document.addEventListener('click',e=>{const wc=e.target.closest('[data-welcome-checkin]');if(wc){setQuick(wc.dataset.welcomeCheckin);document.querySelectorAll('[data-welcome-checkin]').forEach(b=>b.classList.toggle('selected',b===wc));$('welcomePrimary').disabled=false;return}const nav=e.target.closest('.navbtn');if(nav){if(nav.dataset.page==='train'&&!document.querySelector('#train.active')){openTrainConfirm();return}go(nav.dataset.page);return}const done=e.target.closest('.donebtn');if(done){const row=done.closest('.setrow'),card=done.closest('.exercise');if(done.classList.contains('on'))return;if(!validateSet(card,row))return;openSetFeedback(card,row);return}const feel=e.target.closest('[data-feel]');if(feel&&feel.closest('#setFeedback')){selectSetEffort(feel.dataset.feel);return}const defer=e.target.closest('[data-defer-exercise]');if(defer){deferExercise(defer.closest('.exercise'));return}const skip=e.target.closest('[data-skip-exercise]');if(skip){skipCurrentExercise(skip.closest('.exercise'));return}const pp=e.target.closest('[data-plan-preview]');if(pp){openPlanPreview(+pp.dataset.planPreview);return}const rep=e.target.closest('[data-replacement-id]');if(rep){chooseReplacement(rep.dataset.replacementId);return}const ach=e.target.closest('[data-achievement-id]');if(ach){openAchievementDetail(ach.dataset.achievementId);return}const unavailable=e.target.closest('[data-unavailable-exercise]');if(unavailable){unavailableCurrentExercise(unavailable.closest('.exercise'));return}const sub=e.target.closest('[data-substitute]');if(sub){const original=sub.dataset.substitute,card=sub.closest('.exercise');if(card.querySelector('.donebtn.on')){toast('Desmarcá las series antes de cambiar este ejercicio.');return}openReplacementModal(original,card.dataset.id);return}const rr=e.target.closest('[data-rest-now]');if(rr){const x=EX[rr.dataset.restNow];startRest(x.rest,x.name);return}const restore=e.target.closest('[data-restore-availability]');if(restore){restoreExerciseAvailability(restore.dataset.restoreAvailability);return}const del=e.target.closest('[data-delete-log]');if(del){deleteLog(del.dataset.deleteLog);return}const day=e.target.closest('.daybtn');if(day&&day.closest('#schedulePicker')){const d=+day.dataset.day,arr=[...db.profile.scheduleDays];if(arr.includes(d)){if(arr.length<=1){toast('Dejá al menos un día.');return}db.profile.scheduleDays=arr.filter(x=>x!==d)}else{if(arr.length>=db.profile.days){toast(`Tu plan usa ${db.profile.days} días. Desmarcá uno primero.`);return}db.profile.scheduleDays=[...arr,d].sort((a,b)=>a-b)}renderSchedulePicker();return}});
 document.addEventListener('input',e=>{if(e.target.matches('.w,.reps,.rir')){setAutosave('Guardando…');clearTimeout(window._draftT);window._draftT=setTimeout(saveDraft,250)}if(e.target.classList.contains('w')){const row=e.target.closest('.setrow'),card=e.target.closest('.exercise'),rows=[...card.querySelectorAll('.setrow')];if(rows[0]===row){const v=e.target.value;rows.slice(1).forEach(r=>{const f=r.querySelector('.w');if(!f.value)f.value=v})}}});
 window.addEventListener('pagehide',()=>{saveDraft();save(true)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){saveDraft();save(true)}else if(!$('restBar').classList.contains('hidden'))tickRest()});
 
