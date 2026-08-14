@@ -1292,7 +1292,7 @@ details>summary{font-size:16px!important}
   </div></details>
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">💾</span><div><b>Ayuda y datos</b><small>Tutorial, copia y reinicio</small></div></summary><div class="settingFoldBody">
    <div class="dataButtons"><button id="showTutorialSettings" class="btn ghost">❔ Tutorial</button><button id="exportData" class="btn secondary">↓ Guardar copia</button><label class="btn secondary fileBtn">↑ Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">↻ Rehacer configuración</button><button id="resetData" class="btn red">🗑 Borrar todo</button></div>
-   <p class="buildNote"><b>IRON COACH 6.3.2 RECOVERY FIX</b> · guardado local</p>
+   <p class="buildNote"><b>IRON COACH 6.3.3 BRIDGE FIX</b> · guardado local</p>
   </div></details>
  </div>
  <button id="saveProfile" class="btn full saveProfileBig">GUARDAR CAMBIOS</button>
@@ -1302,7 +1302,7 @@ details>summary{font-size:16px!important}
 
 <script>
 'use strict';
-const BUILD='6.3.2 RECOVERY FIX · 2026.08.14';
+const BUILD='6.3.3 BRIDGE FIX · 2026.08.14';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=12;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -1433,7 +1433,7 @@ if(!['regular','irregular','unknown'].includes(d.profile.cycleRegularity))d.prof
 d.profile.cycleLength=Math.max(21,Math.min(40,+d.profile.cycleLength||28));
 if(typeof d.profile.lastPeriod!=='string')d.profile.lastPeriod='';
 if(!['none','mild','moderate','strong'].includes(d.checkin.cycleSymptoms))d.checkin.cycleSymptoms='none';
-d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=69;return d}
+d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=70;return d}
 function dataScore(x){
  if(!x||typeof x!=='object')return -1;
  const logs=Array.isArray(x.logs)?x.logs.length:0,bw=Array.isArray(x.bodyweightLogs)?x.bodyweightLogs.length:0,prs=x.prs&&typeof x.prs==='object'?Object.keys(x.prs).length:0,profile=x.profile?.name?5:0,onboard=x.onboarded?10:0;
@@ -1463,8 +1463,26 @@ if(navigator.storage?.persist)navigator.storage.persist().catch(()=>{});
 function bridgeRequired(){return (db.profile.layoff||'active')!=='active'}
 function bridgeNeedFor(l=db.profile.layoff||'active'){return l==='active'?0:l==='2-4w'?2:l==='1-3m'?3:l==='3-6m'?4:6}
 function returnWindowSessions(){const l=db.profile.layoff||'active',d=db.profile.days||3;if(l==='active')return 0;if(l==='2-4w')return Math.max(2,d);if(l==='1-3m')return d*2;if(l==='3-6m')return d*3;return d*4}
-function returnLogs(){const start=Math.max(0,+db.profile.bridgeStartLogCount||0);return db.logs.slice(start).filter(l=>(l.completionRate===undefined?1:+l.completionRate)>=.60)}
-function bridgeDone(){return returnLogs().length}
+function isBridgeLog(l){
+ if(!l)return false;
+ return l.phase==='READAPTACIÓN'||BRIDGE.some(s=>s.id===l.sessionId)||/^Vuelta\s+[A-F]/i.test(l.sessionName||'')
+}
+function qualifyingReturnLog(l){return (l?.completionRate===undefined?1:+l.completionRate)>=.60}
+function explicitRecentBridgeLogs(){
+ const need=bridgeNeedFor(),cut=Date.now()-45*86400000;
+ const arr=db.logs.filter(l=>isBridgeLog(l)&&qualifyingReturnLog(l)&&new Date(l.date).getTime()>=cut);
+ return arr.slice(-Math.max(need,6))
+}
+function returnLogs(){
+ const start=Math.max(0,+db.profile.bridgeStartLogCount||0);
+ const indexed=db.logs.slice(start).filter(qualifyingReturnLog);
+ if(!bridgeRequired())return indexed;
+ const explicit=explicitRecentBridgeLogs();
+ // Las sesiones guardadas explícitamente como Vuelta/READAPTACIÓN mandan.
+ // Esto repara contadores de inicio desfasados por migraciones antiguas sin borrar historial.
+ return explicit.length>indexed.length?explicit:indexed
+}
+function bridgeDone(){return Math.min(returnLogs().length,Math.max(bridgeNeedFor(),returnWindowSessions()))}
 function returnProgress(){const total=returnWindowSessions();return total?Math.max(0,Math.min(1,bridgeDone()/total)):1}
 
 const GOAL_ENGINE={
@@ -1551,7 +1569,7 @@ function goalStrategyCopy(){
 function buildPlan(){const n=db.profile.days||3;if(n===1)return BUILD1;if(n===2)return BUILD2;if(n===3)return db.profile.experience==='beginner'?BUILD3_BEGINNER:BUILD3_ADV;if(n===4)return BUILD4;if(n===5)return BUILD5;return BUILD6}
 function phaseInfo(){
  const done=bridgeDone(),need=bridgeNeedFor();
- if(bridgeRequired()&&done<need)return {kind:'bridge',name:'READAPTACIÓN',short:`${done+1}/${need}`,index:done,need,reason:`${need} sesiones de puente para recalibrar cargas y tolerancia sin tratarte como principiante. Después cambia automáticamente al split principal.`,next:`Después: ${buildPlan().map(x=>x.name).join(' · ')}`,week:0,cycle:0};
+ if(bridgeRequired()&&done<need)return {kind:'bridge',name:'READAPTACIÓN',short:`${done+1}/${need}`,index:done,need,reason:`${done}/${need} sesiones completadas. Este puente recalibra cargas y tolerancia; al guardar la sesión ${need} cambia inmediatamente al plan principal de ${goalEngine().label.toLowerCase()}.`,next:`Después: ${buildPlan().map(x=>x.name).join(' · ')}`,week:0,cycle:0};
  const offset=bridgeRequired()?need:0,buildSessions=Math.max(0,done-offset),days=db.profile.days||3,week=(Math.floor(buildSessions/days)%6)+1,cycle=Math.floor(buildSessions/(days*6))+1,ret=returnProgress();
  let name='BASE',reason=ret<1?'El split principal ya empezó, pero todavía estás en rampa de vuelta: progresamos sin saltar directamente a tu tolerancia histórica.':'Volumen completo con margen suficiente para acumular trabajo de calidad.';
  if(week>=3&&week<=4){name='PROGRESIÓN';reason='Mantenemos volumen y buscamos ganar repeticiones o carga cuando el historial lo permite.'}
@@ -2699,7 +2717,7 @@ function startPlanPreviewWorkout(){
 
 function renderPlan(){
  const ph=phaseInfo(),mins=+db.profile.sessionMinutes||75;
- $('planSummary').textContent=(ph.kind==='bridge'?`Primero ${bridgeNeedFor()} entrenamientos para volver bien.`:`${db.profile.days} entrenamientos por semana · ${mins} min aprox.`)+(db.profile.goal==='fatloss'?' · + cardio opcional':'')+(advancedMethodsReady()?' · métodos avanzados automáticos':'');
+ $('planSummary').textContent=(ph.kind==='bridge'?`Readaptación: ${Math.min(bridgeDone(),bridgeNeedFor())}/${bridgeNeedFor()} completados. Después pasa solo a ${goalEngine().label}.`:`${db.profile.days} entrenamientos por semana · ${mins} min aprox.`)+(db.profile.goal==='fatloss'?' · + cardio opcional':'')+(advancedMethodsReady()?' · métodos avanzados automáticos':'');
  const ge=goalEngine();$('goalStrategyEyebrow').textContent='MOTOR DEL OBJETIVO';$('goalStrategyTitle').textContent=ge.label;$('goalStrategyText').textContent=goalStrategyCopy();$('goalStrategyIcon').textContent=ge.icon;
  renderWeek($('planWeek'));$('planPhaseTitle').textContent=simplePhaseName(ph)+(ph.kind==='build'?` · semana ${ph.week}/6`:'');$('planPhaseText').textContent=simplePhaseReason(ph);renderPhaseTrack($('planPhaseTrack'));$('planSessions').innerHTML='';
  plan().forEach((raw,idx)=>{
