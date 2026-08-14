@@ -917,6 +917,12 @@ details>summary{font-size:16px!important}
  .trainMotivationBanner,.achievementBurst.show,.achievementHalo,.achievementCard,.achievementIcon,.achievementParticle,.achievementBurst::before{animation:none!important;transition:none!important}
 }
 
+
+/* 6.3.1 DATA SAFE */
+.dataSafeStatus{margin:8px 2px 11px;padding:10px 12px;border-radius:15px;background:#0d211b;border:1px solid #245746;display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center;transition:opacity .45s ease}
+.dataSafeStatus.fade{opacity:.55}.dataSafeStatus>span{width:29px;height:29px;border-radius:10px;background:#17382e;display:grid;place-items:center;color:#75e5bd;font-weight:950}
+.dataSafeStatus b{display:block;font-size:13px;color:#d9fff0}.dataSafeStatus small{display:block;font-size:11px;color:#8fc8b2;margin-top:2px}
+
 </style>
 </head>
 <body>
@@ -1050,6 +1056,7 @@ details>summary{font-size:16px!important}
 
    <div id="rewardStrip" class="rewardStrip rewardStripClean" role="button" tabindex="0" aria-label="Ver trofeos"><div class="rewardMetric"><span>🔥</span><div><b id="streakHome">0</b><small>racha</small></div></div><div class="rewardMetric"><span>🏆</span><div><b id="achHome">0/0</b><small>trofeos</small></div></div><div class="rewardNext"><small>PRÓXIMO</small><b id="nextAchHome">Primera sesión</b></div></div>
 <div id="momentumBand" class="momentumBand"><span>◆</span><div><small>MOMENTUM</small><b id="momentumText">Empezá la próxima sesión</b></div></div>
+<div id="dataSafeStatus" class="dataSafeStatus hidden"></div>
 <div id="weeklyCoachCard" class="card weeklyCoachCard">
  <div class="row spread"><div><div class="eyebrow">COACH SEMANAL</div><h2 id="weeklyCoachTitle">Esta semana</h2></div><span id="weeklyCoachIcon" class="weeklyCoachIcon">🧠</span></div>
  <div id="weeklyCoachStats" class="weeklyCoachStats"></div>
@@ -1285,7 +1292,7 @@ details>summary{font-size:16px!important}
   </div></details>
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">💾</span><div><b>Ayuda y datos</b><small>Tutorial, copia y reinicio</small></div></summary><div class="settingFoldBody">
    <div class="dataButtons"><button id="showTutorialSettings" class="btn ghost">❔ Tutorial</button><button id="exportData" class="btn secondary">↓ Guardar copia</button><label class="btn secondary fileBtn">↑ Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">↻ Rehacer configuración</button><button id="resetData" class="btn red">🗑 Borrar todo</button></div>
-   <p class="buildNote"><b>IRON COACH 6.3 GYM SIMPLE</b> · guardado local</p>
+   <p class="buildNote"><b>IRON COACH 6.3.1 DATA SAFE</b> · guardado local</p>
   </div></details>
  </div>
  <button id="saveProfile" class="btn full saveProfileBig">GUARDAR CAMBIOS</button>
@@ -1295,7 +1302,7 @@ details>summary{font-size:16px!important}
 
 <script>
 'use strict';
-const BUILD='6.3 GYM SIMPLE · 2026.08.14';
+const BUILD='6.3.1 DATA SAFE · 2026.08.14';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=12;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -1393,7 +1400,7 @@ const BUILD6=[
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
 
-const fresh={version:67,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'muscle',experience:'intermediate',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[1,3,5],timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large'},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0};
+const fresh={version:68,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'muscle',experience:'intermediate',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[1,3,5],timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large'},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const dk=(d=new Date())=>{const z=new Date(d);return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0')};
 const fmtDate=s=>new Date(s).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'});
@@ -1426,11 +1433,28 @@ if(!['regular','irregular','unknown'].includes(d.profile.cycleRegularity))d.prof
 d.profile.cycleLength=Math.max(21,Math.min(40,+d.profile.cycleLength||28));
 if(typeof d.profile.lastPeriod!=='string')d.profile.lastPeriod='';
 if(!['none','mild','moderate','strong'].includes(d.checkin.cycleSymptoms))d.checkin.cycleSymptoms='none';
-d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';d.version=67;return d}
-function load(){for(const k of [DBKEY,AUTOKEY]){try{const raw=localStorage.getItem(k);if(raw)return migrate(JSON.parse(raw))}catch(e){}}return clone(fresh)}
+d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=68;return d}
+function dataScore(x){
+ if(!x||typeof x!=='object')return -1;
+ const logs=Array.isArray(x.logs)?x.logs.length:0,bw=Array.isArray(x.bodyweightLogs)?x.bodyweightLogs.length:0,prs=x.prs&&typeof x.prs==='object'?Object.keys(x.prs).length:0,profile=x.profile?.name?5:0,onboard=x.onboarded?10:0;
+ return logs*1000+bw*20+prs*10+profile+onboard
+}
+function load(){
+ const candidates=[];
+ for(const k of [DBKEY,AUTOKEY]){try{const raw=localStorage.getItem(k);if(raw){const parsed=JSON.parse(raw);candidates.push({key:k,data:parsed,score:dataScore(parsed)})}}catch(e){}}
+ if(candidates.length){candidates.sort((a,b)=>b.score-a.score);return migrate(candidates[0].data)}
+ return clone(fresh)
+}
 let db=load();
 function idbWrite(data){try{const req=indexedDB.open('IronCoachSafe',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('store'))req.result.createObjectStore('store')};req.onsuccess=()=>req.result.transaction('store','readwrite').objectStore('store').put(clone(data),'db')}catch(e){}}
-async function idbRestoreIfNeeded(){if(localStorage.getItem(DBKEY)||localStorage.getItem(AUTOKEY))return;try{const data=await new Promise(resolve=>{const req=indexedDB.open('IronCoachSafe',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('store'))req.result.createObjectStore('store')};req.onsuccess=()=>{const g=req.result.transaction('store').objectStore('store').get('db');g.onsuccess=()=>resolve(g.result||null);g.onerror=()=>resolve(null)};req.onerror=()=>resolve(null)});if(data){db=migrate(data);save();renderAll();toast('Progreso recuperado')}}catch(e){}}
+async function idbRestoreIfNeeded(){
+ try{
+  const data=await new Promise(resolve=>{const req=indexedDB.open('IronCoachSafe',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('store'))req.result.createObjectStore('store')};req.onsuccess=()=>{const g=req.result.transaction('store').objectStore('store').get('db');g.onsuccess=()=>resolve(g.result||null);g.onerror=()=>resolve(null)};req.onerror=()=>resolve(null)});
+  if(!data)return;
+  const migrated=migrate(data),idbScore=dataScore(migrated),activeScore=dataScore(db);
+  if(idbScore>activeScore){db=migrated;if(db.logs.length>0)db.onboarded=true;save();$('onboarding').classList.add('hidden');renderAll();toast(`Datos recuperados · ${db.logs.length} entrenamientos`)}
+ }catch(e){}
+}
 function save(silent=false){try{db.profile.age=ageFromDOB(db.profile.dob)||db.profile.age||'';const s=JSON.stringify(db);localStorage.setItem(DBKEY,s);localStorage.setItem(AUTOKEY,s);idbWrite(db);if(!silent)setAutosave('Guardado');return true}catch(e){if(!silent)toast('No pude guardar. Exportá un backup antes de cerrar.');return false}}
 function toast(t){const e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(toast._t);toast._t=setTimeout(()=>e.style.display='none',2500)}
 function setAutosave(t){const e=$('autosaveState');if(e)e.textContent=t}
@@ -2247,6 +2271,10 @@ function renderNutrition(){
  $('nutritionCoachText').textContent=n.text;$('nutritionWeightTrend').textContent=n.trendText;$('nutritionGoalIcon').textContent=n.icon
 }
 
+function renderDataSafeStatus(){
+ const el=$('dataSafeStatus');if(!el)return;
+ if((db.logs?.length||0)>0){el.classList.remove('hidden');el.innerHTML=`<span>✓</span><div><b>Historial cargado</b><small>${db.logs.length} entrenamiento${db.logs.length===1?'':'s'} guardado${db.logs.length===1?'':'s'} en este iPhone.</small></div>`;setTimeout(()=>el.classList.add('fade'),4500)}else el.classList.add('hidden')
+}
 function renderWeeklyCoach(){const w=weeklyCoachData();if(!$('weeklyCoachCard'))return;$('weeklyCoachTitle').textContent=w.title;$('weeklyCoachIcon').textContent=w.remaining===0?'✓':w.state.key==='push'?'↗':'🧠';$('weeklyCoachStats').innerHTML=`<div><strong>${w.logs.length}/${w.goal}</strong><span>entrenos</span></div><div><strong>${w.sets}</strong><span>series</span></div><div><strong>${w.changes.length}</strong><span>mejoras</span></div>`;$('weeklyCoachText').textContent=w.txt;const best=w.changes[0];$('weeklyCoachNext').innerHTML=`<span>LO QUE SIGUE</span><b>${w.next}</b>${best?`<small>Mejor cambio: ${best.name} · ${best.headline}</small>`:''}`}
 function renderHome(){
  const r=rankInfo(),sess=currentSession(),week=logsThisWeek(),st=coachState(),ph=phaseInfo(),extra=isExtraWorkout();
@@ -2262,7 +2290,7 @@ function renderHome(){
  if(!$('todayStatus').classList.contains('hidden'))$('todayStatus').textContent=completedToday()?'Ya entrenaste hoy. Si tenés ganas de hacer otra sesión, podés empezar igual.':week.length>=db.profile.days?`Ya cumpliste tus ${db.profile.days} sesiones habituales. Si querés una extra, sigo con la próxima.`:'Hoy no era uno de tus días habituales. Si querés entrenar, empezá igual.';
  renderMuscleRecovery();renderWhyPlan();$('previewTitle').textContent=sess.name;$('previewSubtitle').textContent=`${sess.items.length} ejercicios · ${db.profile.sessionMinutes||75} min`;
  const visible=sess.items.slice(0,3);$('todayTargets').innerHTML=visible.map((it,idx)=>{const q=recommendation(it,idx,sess),x=EX[q.id],target=q.weight?(q.mode==='RECALIBRAR'?`~${formatWeight(q.id,q.weight)}`:formatWeight(q.id,q.weight)):'Peso a probar';return `<div class="previewItem"><div class="row spread"><div class="previewName">${x.name}</div><div style="text-align:right"><div class="target">${target}</div><div class="tiny muted">${q.sets}×${q.min}–${q.max}</div></div></div></div>`}).join('')+(sess.items.length>3?`<div class="simpleMore">+ ${sess.items.length-3} más</div>`:'');
- renderWeek($('homeWeek'));$('weekCaption').textContent=`Tus ${db.profile.days} días son una guía. Si querés meter otro, podés.`;renderRewardStrip();renderDraftCard();renderWeeklyCoach();renderCycleToday();renderNutrition()
+ renderWeek($('homeWeek'));$('weekCaption').textContent=`Tus ${db.profile.days} días son una guía. Si querés meter otro, podés.`;renderRewardStrip();renderDraftCard();renderDataSafeStatus();renderWeeklyCoach();renderCycleToday();renderNutrition()
 }
 function priorityLabel(p){return ({balanced:'equilibrada',cardio:'cardio',chest:'pecho',back:'espalda',shoulders:'hombros',arms:'brazos',legs:'piernas'})[p]||'equilibrada'}
 function goalLabel(g){return ({muscle:'ganar músculo',strength:'ser más fuerte',recomp:'ganar músculo y mejorar el físico',general:'un poco de todo',fatloss:'bajar de peso cuidando músculo'})[g]||'progresar'}
@@ -2709,7 +2737,7 @@ function selectedLimits(){return [...document.querySelectorAll('#limitationChoic
 function nextOb(){if(obStep===0){const dob=arDateToISO($('obDob').value),age=ageFromDOB(dob);if(!$('obName').value.trim()||!dob||age===null||age<13||age>100||!+$('obWeight').value){toast('Completá nombre, fecha (día/mes/año) y peso.');return}}if(obStep<7){obStep++;showOb();return}const oldLogs=db.logs.length;db.profile={...db.profile,name:$('obName').value.trim(),dob:arDateToISO($('obDob').value),height:$('obHeight').value,weight:+$('obWeight').value||75,email:db.profile.email||'',sex:$('obSex').value||'unspecified',cycleTracking:$('obSex').value==='female'&&$('obCycleTracking').checked,cycleRegularity:$('obCycleRegularity').value||'regular',cycleLength:Math.max(21,Math.min(40,+$('obCycleLength').value||28)),lastPeriod:arDateToISO($('obLastPeriod').value),goal:obGoal,experience:$('obExperience').value,layoff:$('obLayoff').value,limitations:selectedLimits(),priorMarks:collectPrior(),priority:obPriority,intakeVersion:INTAKE_VERSION,availability:+$('obAvailability').value||3,sessionMinutes:+$('obSessionMinutes').value||75,time:$('obTime').value||'18:30',barWeight:0,timerEnabled:false,bridgeStartLogCount:oldLogs};db.profile.age=ageFromDOB(db.profile.dob);db.profile.days=recommendedDays(db.profile);db.profile.scheduleDays=scheduleFor(db.profile.days);db.onboarded=true;if(!db.bodyweightLogs.length)db.bodyweightLogs.push({date:new Date().toISOString(),weight:db.profile.weight});save();$('onboarding').classList.add('hidden');manualRoutine=null;renderAll();toast(`Programa creado · ${db.profile.days} días`);setTimeout(()=>openTutorial(0),350)}
 function backOb(){if(obStep>0){obStep--;showOb()}}
 
-function renderAll(){applyTextScale();renderDate();$('sleep').value=db.checkin.sleep||4;$('energy').value=db.checkin.energy||4;$('stress').value=db.checkin.stress||2;$('soreness').value=db.checkin.soreness||2;renderHome();renderPlan();renderProgress();renderRank();save(true)}
+function renderAll(){applyTextScale();renderDate();$('sleep').value=db.checkin.sleep||4;$('energy').value=db.checkin.energy||4;$('stress').value=db.checkin.stress||2;$('soreness').value=db.checkin.soreness||2;renderHome();renderPlan();renderProgress();renderRank()}
 function openTrainConfirm(index=null){
  pendingRoutineIndex=index===null?null:+index;
  const s=index===null?currentSession():timeAdjustedSession(plan()[pendingRoutineIndex]),d=index===null?draft():null;
@@ -3036,6 +3064,14 @@ document.addEventListener('click',e=>{const wc=e.target.closest('[data-welcome-c
 document.addEventListener('input',e=>{if(e.target.matches('.w,.reps,.rir')){setAutosave('Guardando…');clearTimeout(window._draftT);window._draftT=setTimeout(saveDraft,250)}if(e.target.classList.contains('w')){const row=e.target.closest('.setrow'),card=e.target.closest('.exercise'),rows=[...card.querySelectorAll('.setrow')];if(rows[0]===row){const v=e.target.value;rows.slice(1).forEach(r=>{const f=r.querySelector('.w');if(!f.value)f.value=v})}updateActiveSetInstruction(card,row)}});
 window.addEventListener('pagehide',()=>{saveDraft();save(true)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){saveDraft();save(true)}else if(!$('restBar').classList.contains('hidden'))tickRest()});
 
-const needsIntake=!db.onboarded||(db.profile.intakeVersion||0)<INTAKE_VERSION||!db.profile.dob;if(needsIntake)startOnboarding();seedAchievements();renderAll();idbRestoreIfNeeded();if(!needsIntake&&(db.profile.tutorialVersion||0)<TUTORIAL_VERSION)setTimeout(()=>openTutorial(0),450);if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelcome,1900)};
+// DATA SAFE STARTUP: a version update must never hide an existing history behind onboarding.
+const hasExistingHistory=(db.logs?.length||0)>0||!!db.profile?.name||!!db.profile?.dob;
+if((db.logs?.length||0)>0)db.onboarded=true;
+if(db.onboarded)db.profile.intakeVersion=Math.max(+db.profile.intakeVersion||0,INTAKE_VERSION);
+const needsIntake=!db.onboarded&&!hasExistingHistory;
+if(needsIntake)startOnboarding();else $('onboarding').classList.add('hidden');
+seedAchievements();renderAll();idbRestoreIfNeeded();
+if(!needsIntake&&(db.profile.tutorialVersion||0)<TUTORIAL_VERSION)setTimeout(()=>openTutorial(0),450);
+if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelcome,1900)};
 </script>
 </body></html>
