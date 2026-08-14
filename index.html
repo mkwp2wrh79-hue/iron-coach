@@ -1292,7 +1292,7 @@ details>summary{font-size:16px!important}
   </div></details>
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">💾</span><div><b>Ayuda y datos</b><small>Tutorial, copia y reinicio</small></div></summary><div class="settingFoldBody">
    <div class="dataButtons"><button id="showTutorialSettings" class="btn ghost">❔ Tutorial</button><button id="exportData" class="btn secondary">↓ Guardar copia</button><label class="btn secondary fileBtn">↑ Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">↻ Rehacer configuración</button><button id="resetData" class="btn red">🗑 Borrar todo</button></div>
-   <p class="buildNote"><b>IRON COACH 6.3.1 DATA SAFE</b> · guardado local</p>
+   <p class="buildNote"><b>IRON COACH 6.3.2 RECOVERY FIX</b> · guardado local</p>
   </div></details>
  </div>
  <button id="saveProfile" class="btn full saveProfileBig">GUARDAR CAMBIOS</button>
@@ -1302,7 +1302,7 @@ details>summary{font-size:16px!important}
 
 <script>
 'use strict';
-const BUILD='6.3.1 DATA SAFE · 2026.08.14';
+const BUILD='6.3.2 RECOVERY FIX · 2026.08.14';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=12;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -1433,7 +1433,7 @@ if(!['regular','irregular','unknown'].includes(d.profile.cycleRegularity))d.prof
 d.profile.cycleLength=Math.max(21,Math.min(40,+d.profile.cycleLength||28));
 if(typeof d.profile.lastPeriod!=='string')d.profile.lastPeriod='';
 if(!['none','mild','moderate','strong'].includes(d.checkin.cycleSymptoms))d.checkin.cycleSymptoms='none';
-d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=68;return d}
+d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=69;return d}
 function dataScore(x){
  if(!x||typeof x!=='object')return -1;
  const logs=Array.isArray(x.logs)?x.logs.length:0,bw=Array.isArray(x.bodyweightLogs)?x.bodyweightLogs.length:0,prs=x.prs&&typeof x.prs==='object'?Object.keys(x.prs).length:0,profile=x.profile?.name?5:0,onboard=x.onboarded?10:0;
@@ -2037,6 +2037,108 @@ function adherence(){if(!db.logs.length)return 0;const weeks=new Set(db.logs.map
 function consistency30d(){const since=Date.now()-30*86400000,n=db.logs.filter(l=>new Date(l.date).getTime()>=since).length,expected=Math.max(1,Math.round((db.profile.days||3)*30/7));return Math.min(100,Math.round(n/expected*100))}
 function progressPoints(){let pts=0;for(const id of ['bench','squat','deadlift','ohp']){const cur=db.prs[id]?.e1rm,base=db.baselinePrs[id]?.e1rm;if(cur&&base&&cur>base)pts+=Math.min(90,Math.round((cur/base-1)*300))}return Math.min(300,pts)}
 
+let recapState={slides:[],index:0,onClose:null};
+
+function bestSetE1RM(exercise){
+ const valid=(exercise?.sets||[]).filter(s=>s.done&&+s.weight>0&&+s.reps>0&&s.feel!=='pain'&&s.sensation!=='sharp'&&s.technique!=='drop');
+ if(!valid.length)return null;
+ const best=valid.reduce((a,s)=>e1rm(+s.weight,+s.reps)>e1rm(+a.weight,+a.reps)?s:a,valid[0]);
+ return {value:e1rm(+best.weight,+best.reps),weight:+best.weight,reps:+best.reps}
+}
+function priorBestE1RM(id,beforeDate,excludeId=null){
+ let best=0;
+ for(const l of db.logs){
+  if(excludeId&&String(l.id)===String(excludeId))continue;
+  if(beforeDate&&new Date(l.date)>=beforeDate)continue;
+  const e=(l.exercises||[]).find(x=>x.id===id);
+  const b=bestSetE1RM(e);if(b&&b.value>best)best=b.value
+ }
+ return best
+}
+function previousExerciseExposure(id,beforeDate,excludeId=null){const matches=db.logs.filter(l=>(!excludeId||String(l.id)!==String(excludeId))&&new Date(l.date)<beforeDate&&(l.exercises||[]).some(e=>e.id===id));const l=matches.at(-1);return l?(l.exercises||[]).find(e=>e.id===id):null}
+function exactExerciseImprovement(ex,log){const cur=bestSetE1RM(ex);if(!cur)return null;const prevEx=previousExerciseExposure(ex.id,new Date(log.date),log.id),prev=bestSetE1RM(prevEx);if(!prev)return {name:ex.name,type:'base',headline:'Nueva referencia',detail:`${formatWeight(ex.id,cur.weight)} × ${cur.reps} reps`};if(cur.value<=prev.value*1.005)return null;const dw=cur.weight-prev.weight,dr=cur.reps-prev.reps,pct=(cur.value/prev.value-1)*100;if(dw>0)return {name:ex.name,type:'weight',headline:`${formatWeightDelta(ex.id,dw)} más`,detail:`${formatWeight(ex.id,cur.weight)} × ${cur.reps} reps`,pct};if(Math.abs(dw)<.001&&dr>0)return {name:ex.name,type:'reps',headline:`+${dr} rep${dr===1?'':'s'}`,detail:`con ${formatWeight(ex.id,cur.weight)}`,pct};return {name:ex.name,type:'estimate',headline:`+${pct.toFixed(1)}% de rendimiento`,detail:`${formatWeight(ex.id,cur.weight)} × ${cur.reps} reps`,pct}}
+function sessionQuality(log){let total=0,inRange=0,max=0,hard=0,easy=0;for(const e of log.exercises||[])for(const s of e.sets||[]){if(!s.done||!s.weight||!s.reps)continue;total++;if(s.technique==='drop'||!e.min||!e.max||(s.reps>=e.min&&s.reps<=e.max))inRange++;if(s.feel==='max')max++;if(s.feel==='hard')hard++;if(s.feel==='easy')easy++}const pct=total?Math.round(inRange/total*100):0;let verdict='Buena sesión.';if(total&&pct>=85&&max<=Math.max(1,total*.25))verdict='Muy buena sesión: casi todo cayó donde quería.';else if(total&&pct<65)verdict='Varias series quedaron fuera del rango. Voy a ajustar cargas.';else if(total&&max>total*.35)verdict='Fuiste bastante al límite. La próxima voy a cuidar más la fatiga.';else if(total&&easy>total*.4)verdict='Te sobró bastante. Hay margen para progresar.';return {total,inRange,pct,max,hard,easy,verdict}}
+function sessionRecapData(log,newAch=[],beforeRank='',afterRank=''){
+ const exact=(log.exercises||[]).map(e=>exactExerciseImprovement(e,log)).filter(Boolean),realImproved=exact.filter(x=>x.type!=='base').sort((a,b)=>(b.pct||0)-(a.pct||0)),bases=exact.filter(x=>x.type==='base');return {exactImproved:realImproved,bases,newAch,quality:sessionQuality(log),rankUp:beforeRank&&afterRank&&beforeRank!==afterRank?afterRank:'',sets:log.completedSets||0,duration:log.durationMin||0,volume:+log.volume||0,weekCount:logsThisWeek().length,weekGoal:db.profile.days||3,streak:weeklyStreak()}
+}
+function sessionRecapSlides(log,data){
+ const volumeT=(data.volume/1000).toFixed(1),q=data.quality,imps=data.exactImproved,bases=data.bases,next=currentSession(),bestHTML=imps.length?imps.slice(0,3).map(x=>`<div class="recapImprovement"><span>${x.name}</span><strong>${x.headline}</strong><small>${x.detail}</small></div>`).join(''):bases.length?`<div class="recapImprovement"><span>CALIBRANDO</span><strong>${bases.length} referencia${bases.length===1?'':'s'} nueva${bases.length===1?'':'s'}</strong><small>Ya tengo datos reales para la próxima.</small></div>`:`<div class="recapImprovement"><span>HOY</span><strong>Sumaste una sesión</strong><small>No necesitás romper un récord cada vez para progresar.</small></div>`;const rewardItems=[];if(data.rankUp)rewardItems.push(`◆ ${data.rankUp}`);data.newAch.slice(0,2).forEach(a=>rewardItems.push(`🏆 ${a.name}`));return [
+ {tone:'purple',eyebrow:'SESIÓN COMPLETA',icon:'✓',title:log.sessionName,html:`<div class="recapBigGrid"><div><strong>${data.sets}</strong><span>series</span></div><div><strong>${data.duration}</strong><span>min</span></div><div><strong>${volumeT}</strong><span>t movidas</span></div></div><div class="recapPunch">${pickMsg('finish')}</div>`},
+ {tone:'blue',eyebrow:'LO MEJOR DE HOY',icon:'↗',title:imps.length?'Progresaste':'Sesión sumada',html:`<div class="recapImprovementList">${bestHTML}</div>`},
+ {tone:'green',eyebrow:'LECTURA DEL COACH',icon:'◆',title:q.verdict,html:`<div class="recapBigGrid two"><div><strong>${q.pct}%</strong><span>series en rango</span></div><div><strong>${q.max}</strong><span>al límite</span></div></div><div class="recapPunch">${data.weekCount}/${data.weekGoal} entrenos esta semana · racha ${data.streak}</div>`},
+ {tone:'gold',eyebrow:rewardItems.length?'RECOMPENSAS':'LO QUE SIGUE',icon:'🏆',title:rewardItems.length?'Te llevaste esto':next.name,html:`${rewardItems.length?`<div class="recapRewards">${rewardItems.map(x=>`<div class="recapReward">${x}</div>`).join('')}</div><div class="recapPunch">Próximo: ${next.name}</div>`:`<div class="recapNextSession">${next.items.length} ejercicios</div><div class="recapPunch">Ya recalculé pesos, reps y trabajo para la próxima.</div>`}`}
+ ]
+}
+function monthKey(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`}
+function monthRange(d=new Date()){
+ const start=new Date(d.getFullYear(),d.getMonth(),1),end=new Date(d.getFullYear(),d.getMonth()+1,1);
+ return {start,end}
+}
+function monthLogs(d=new Date()){const {start,end}=monthRange(d);return db.logs.filter(l=>{const x=new Date(l.date);return x>=start&&x<end})}
+function monthName(d=new Date()){return d.toLocaleDateString('es-AR',{month:'long',year:'numeric'}).toUpperCase()}
+function monthStats(d=new Date()){
+ const logs=monthLogs(d),{start}=monthRange(d),minutes=logs.reduce((a,l)=>a+(+l.durationMin||0),0),volume=logs.reduce((a,l)=>a+(+l.volume||0),0);
+ const ids=new Set(),improved=[],firstRefs=[];
+ for(const l of logs)for(const e of l.exercises||[])ids.add(e.id);
+ for(const id of ids){
+  let monthBest=null,name=EX[id]?.name||id;
+  for(const l of logs){
+   const e=(l.exercises||[]).find(x=>x.id===id),b=bestSetE1RM(e);
+   if(b&&(!monthBest||b.value>monthBest.value))monthBest={...b,name,id}
+  }
+  if(!monthBest)continue;
+  const prev=priorBestE1RM(id,start);
+  if(!prev)firstRefs.push(monthBest);
+  else if(monthBest.value>prev*1.005)improved.push({...monthBest,pct:(monthBest.value/prev-1)*100})
+ }
+ improved.sort((a,b)=>b.pct-a.pct);
+ const weekKeys=[...new Set(logs.map(l=>weekKey(new Date(l.date))))];
+ const completeWeeks=weekKeys.filter(k=>distinctDaysInWeek(k)>=(db.profile.days||3)).length;
+ const extra=logs.filter(l=>l.extraSession).length;
+ const bwLogs=(db.bodyweightLogs||[]).filter(x=>{const z=new Date(x.date);return z>=start&&z<end}),weightChange=bwLogs.length>=2?(+bwLogs.at(-1).weight-(+bwLogs[0].weight)):null;return {logs,sessions:logs.length,minutes,volume,improved,firstRefs,completeWeeks,extra,weightChange}
+}
+function monthlyRecapSlides(d=new Date(),complete=false){
+ const s=monthStats(d),name=monthName(d),volumeT=(s.volume/1000).toFixed(1),hours=(s.minutes/60).toFixed(1);
+ const progress=s.improved.length?`${s.improved.length} ejercicio${s.improved.length===1?'':'s'} mejorado${s.improved.length===1?'':'s'}`:s.firstRefs.length?`${s.firstRefs.length} referencias nuevas`:'Base acumulada';
+ const best=s.improved[0];
+ const monthLabel=complete?'TU MES':'HASTA HOY';
+ return [
+  {tone:'purple',eyebrow:monthLabel,icon:'✦',title:name,html:`<div class="recapBigGrid"><div><strong>${s.sessions}</strong><span>sesiones</span></div><div><strong>${hours}</strong><span>horas</span></div><div><strong>${volumeT}</strong><span>t movidas</span></div></div>`},
+  {tone:'blue',eyebrow:'PROGRESO',icon:'↗',title:progress,html:best?`<div class="recapHeroStat huge"><strong>+${best.pct.toFixed(1)}%</strong><span>${best.name}</span></div><div class="recapPunch">${formatWeight(best.id||'',best.weight)} × ${best.reps} en tu mejor serie.</div>`:`<div class="recapPunch">Seguí registrando: el resumen se vuelve más preciso a medida que acumulás sesiones.</div>`},
+  {tone:'gold',eyebrow:db.profile.goal==='fatloss'?'PESO + CONSTANCIA':'CONSTANCIA',icon:'🔥',title:db.profile.goal==='fatloss'&&s.weightChange!==null?`${s.weightChange>=0?'+':''}${s.weightChange.toFixed(1)} kg en el mes`:`${s.completeWeeks} semana${s.completeWeeks===1?'':'s'} completa${s.completeWeeks===1?'':'s'}`,html:`<div class="recapBigGrid two"><div><strong>${s.completeWeeks}</strong><span>semanas completas</span></div><div><strong>${weeklyStreak()}</strong><span>racha actual</span></div></div>`},
+  {tone:'green',eyebrow:'MES EN UNA FRASE',icon:'🏆',title:s.sessions?`${s.sessions} sesiones. ${s.improved.length} mejoras.`:'El mes recién empieza.',html:`<div class="recapPunch">${s.sessions?`Seguiste apareciendo. Ahora toca construir sobre esto.`:`Cuando completes sesiones, acá vas a ver tu historia del mes.`}</div>`}
+ ]
+}
+function renderRecapSlide(){
+ const s=recapState.slides[recapState.index];if(!s)return;
+ $('recapProgress').innerHTML=recapState.slides.map((_,i)=>`<i class="${i<=recapState.index?'on':''}"></i>`).join('');
+ $('recapSlide').className=`recapSlide ${s.tone||'purple'}`;
+ $('recapSlide').innerHTML=`<div class="recapCenter"><div class="recapIcon">${s.icon||'✦'}</div><div class="recapEyebrow">${s.eyebrow||''}</div><h1>${s.title||''}</h1>${s.html||''}</div>`;
+ $('recapPrev').classList.toggle('invisible',recapState.index===0);
+ $('recapNext').textContent=recapState.index===recapState.slides.length-1?'Listo':'Siguiente'
+}
+function openRecap(slides,onClose=null){
+ recapState={slides,index:0,onClose};
+ renderRecapSlide();$('recapModal').classList.add('show')
+}
+function closeRecap(){
+ $('recapModal').classList.remove('show');
+ const cb=recapState.onClose;recapState={slides:[],index:0,onClose:null};if(cb)cb()
+}
+function nextRecap(){
+ if(recapState.index<recapState.slides.length-1){recapState.index++;renderRecapSlide()}else closeRecap()
+}
+function prevRecap(){if(recapState.index>0){recapState.index--;renderRecapSlide()}}
+function openCurrentMonthRecap(){openRecap(monthlyRecapSlides(new Date(),false))}
+function previousMonthDate(){const d=new Date();return new Date(d.getFullYear(),d.getMonth()-1,1)}
+function maybeAutoMonthlyRecap(){
+ if(!db.onboarded||$('onboarding')?.classList.contains('hidden')===false)return;
+ const d=previousMonthDate(),key=monthKey(d),logs=monthLogs(d);
+ if(!logs.length||db.profile.lastMonthlyRecap===key)return;
+ db.profile.lastMonthlyRecap=key;save(true);
+ openRecap(monthlyRecapSlides(d,true))
+}
+
 let achievementTimer=null,livePrCelebrated=new Set(),allDoneRewardShown=false;
 let focusExerciseIndex=0,pendingFeedback=null,pendingSensation="",pendingFeel="";
 let microRewardTimer=null;
@@ -2298,6 +2400,7 @@ function planReasonCopy(){
  const d=db.profile.days||3,mins=db.profile.sessionMinutes||75,g=goalEngine();
  return {short:`${g.label}: ${g.summary}`,long:`Objetivo actual: ${goalLabel(db.profile.goal)}. ${g.summary} Los ${d} días son tu frecuencia habitual, no una obligación. El motor cambia rangos de repeticiones, cantidad de series, uso de fallo y técnicas avanzadas según este objetivo. Tiempo por entrenamiento: aproximadamente ${mins} minutos.`}
 }
+function renderWhyPlan(){const c=planReasonCopy();$('whyPlanShort').textContent=c.short;$('whyPlanLong').textContent=c.long}
 function renderRewardStrip(){const all=achievementCatalog(),unlocked=all.filter(a=>a.unlocked).length,next=nextLockedAchievement();if($('streakHome'))$('streakHome').textContent=weeklyStreak();if($('achHome'))$('achHome').textContent=`${unlocked}/${all.length}`;if($('nextAchHome'))$('nextAchHome').textContent=next?`${next.name} · ${Math.round(next.pct*100)}%`:'Todos desbloqueados';$('rewardStrip')?.classList.toggle('progressing',!!next);const m=$('momentumText');if(m){const imp=improvedExerciseCount(),str=weeklyStreak();m.textContent=completedToday()?'Hoy ya sumaste. Recuperá y volvemos a progresar.':imp>=3?`${imp} ejercicios ya mejoraron respecto de tu base.`:str>=2?`${str} semanas cumpliendo. No cortes ahora.`:db.logs.length?`${db.logs.length} sesiones construyendo tu historial.`:'Tu primera sesión empieza el historial.'}}
 function renderAchievements(){
  if(!$('achievementGrid'))return;
@@ -3066,9 +3169,8 @@ window.addEventListener('pagehide',()=>{saveDraft();save(true)});document.addEve
 
 // DATA SAFE STARTUP: a version update must never hide an existing history behind onboarding.
 const hasExistingHistory=(db.logs?.length||0)>0||!!db.profile?.name||!!db.profile?.dob;
-if((db.logs?.length||0)>0)db.onboarded=true;
-if(db.onboarded)db.profile.intakeVersion=Math.max(+db.profile.intakeVersion||0,INTAKE_VERSION);
-const needsIntake=!db.onboarded&&!hasExistingHistory;
+if(hasExistingHistory){db.onboarded=true;db.profile.intakeVersion=Math.max(+db.profile.intakeVersion||0,INTAKE_VERSION)}
+const needsIntake=!hasExistingHistory&&!db.onboarded;
 if(needsIntake)startOnboarding();else $('onboarding').classList.add('hidden');
 seedAchievements();renderAll();idbRestoreIfNeeded();
 if(!needsIntake&&(db.profile.tutorialVersion||0)<TUTORIAL_VERSION)setTimeout(()=>openTutorial(0),450);
