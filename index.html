@@ -1072,7 +1072,7 @@ body{letter-spacing:-.01em}
 .day.today:not(.done){border-color:#50458a!important;background:#111020!important}
 
 /* ============================================================
-   IRON COACH 7.2 ROTATION + TECHNIQUE
+   IRON COACH 7.3 MOVEMENT ATLAS
    A calmer commercial mobile design layer.
    ============================================================ */
 :root{
@@ -1952,6 +1952,50 @@ input,select{background:#080a0c!important;border-color:#24292f!important}
 }
 @media(prefers-reduced-motion:reduce){.techPath i{animation:none!important}}
 
+
+/* ===== 7.3 MOVEMENT ATLAS ===== */
+.techniqueDemo{height:100%;display:grid;grid-template-rows:auto minmax(168px,1fr) auto;background:linear-gradient(180deg,#090b0e,#0e1115);border-radius:14px;overflow:hidden}
+.motionTop{display:flex;gap:6px;padding:8px 10px 0;flex-wrap:wrap}.motionChip{display:inline-flex;align-items:center;min-height:24px;padding:4px 8px;border-radius:999px;background:#18140e;border:1px solid #4a3d25;color:#d2b677;font-size:8px;font-weight:900;letter-spacing:.5px}.motionChip.alt{background:#101419;border-color:#2a3038;color:#97a2b0}
+.motionMain{display:grid;grid-template-columns:1.12fr .88fr;gap:8px;padding:8px 10px 10px;align-items:stretch}
+.motionLoopCard,.muscleMapWrap{border-radius:14px;border:1px solid #1f252c;background:linear-gradient(180deg,#111519,#090b0d)}
+.motionLoopCard{padding:9px}
+.motionLoopTitle{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#c8ae72;font-weight:900;margin-bottom:8px}
+.motionLoop{display:grid;grid-template-columns:1fr 50px 1fr;gap:4px;align-items:center;min-height:132px}
+.motionFrame{position:relative;height:122px;border-radius:12px;border:1px solid #20252b;background:radial-gradient(circle at 50% 10%,#131920 0,#0a0d10 72%);overflow:hidden}
+.motionFrame small{position:absolute;left:8px;top:7px;font-size:7px;letter-spacing:1px;color:#7d8794;font-weight:900;text-transform:uppercase;z-index:2}
+.motionFrame.start{animation:startPulse 1.8s ease-in-out infinite}.motionFrame.finish{animation:endPulse 1.8s ease-in-out infinite}
+@keyframes startPulse{0%,38%,100%{border-color:#4c4027;box-shadow:0 0 0 rgba(210,182,115,0)}45%,60%{border-color:#d2b673;box-shadow:0 0 18px rgba(210,182,115,.15)}}
+@keyframes endPulse{0%,52%,100%{border-color:#20252b;box-shadow:0 0 0 rgba(210,182,115,0)}60%,82%{border-color:#d2b673;box-shadow:0 0 18px rgba(210,182,115,.18)}}
+.motionTrack{position:relative;height:100px;display:grid;place-items:center}.motionTrack b{position:absolute;top:4px;font-size:6px;letter-spacing:.9px;color:#8d7a55;text-transform:uppercase}.motionTrack i{display:block;position:relative;width:3px;height:58px;border-radius:99px;background:linear-gradient(#5d4b28,#e0c57a,#5d4b28);opacity:.55}.motionTrack i::after{content:'';position:absolute;left:50%;bottom:-5px;width:10px;height:10px;border-right:2px solid #d9bd75;border-bottom:2px solid #d9bd75;transform:translateX(-50%) rotate(45deg)}
+.motionTrack span{position:absolute;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff9d9 0,#dfc270 45%,#7f6630 100%);box-shadow:0 0 16px rgba(223,194,112,.45);animation:trackMove 1.8s ease-in-out infinite}
+.path-diagonal i{transform:rotate(33deg);height:52px}.path-arc i{transform:rotate(-28deg);height:48px}.path-wide i{transform:rotate(90deg);height:44px}.path-down i::after{top:-5px;bottom:auto;transform:translateX(-50%) rotate(-135deg)}
+@keyframes trackMove{0%{transform:translateY(22px)}50%{transform:translateY(-22px)}100%{transform:translateY(22px)}}
+.path-diagonal span{animation-name:trackDiag}@keyframes trackDiag{0%{transform:translate(-9px,17px)}50%{transform:translate(9px,-17px)}100%{transform:translate(-9px,17px)}}
+.path-arc span{animation-name:trackArc}@keyframes trackArc{0%{transform:translate(-10px,12px)}50%{transform:translate(10px,-12px)}100%{transform:translate(-10px,12px)}}
+.path-wide span{animation-name:trackWide}@keyframes trackWide{0%{transform:translate(-18px,0)}50%{transform:translate(18px,0)}100%{transform:translate(-18px,0)}}
+.motionNotes{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.motionNotes span{min-height:36px;padding:7px 8px;border-radius:11px;background:#0d1116;border:1px solid #1f252d;color:#a4aebb;font-size:8px;line-height:1.3;font-weight:800}
+
+.muscleMapWrap{padding:8px;display:grid;grid-template-rows:auto auto;align-items:center}.muscleMap{width:100%;height:134px;display:block}.bodyBase>*{fill:url(#bodyFade);opacity:.88}.bodyBase.back>*{opacity:.55}.muscleLabel{font-size:6px;letter-spacing:1px;text-transform:uppercase;fill:#6e7783;font-weight:900;text-anchor:middle}.musc{opacity:.96;filter:drop-shadow(0 0 5px rgba(247,191,74,.18));animation:musclePulse 1.8s ease-in-out infinite}.musc.main{fill:#f0c45e}.musc.secondary{fill:#8f62ff}@keyframes musclePulse{0%,100%{opacity:.72}50%{opacity:1}}
+.muscleLegend{display:grid;grid-template-columns:auto 1fr;gap:4px 8px;margin-top:4px;padding:7px;border-radius:12px;background:#0b0e12;border:1px solid #1b2127}.muscleLegend b{font-size:7px;letter-spacing:.8px;color:#cdb273;text-transform:uppercase}.muscleLegend span{font-size:8px;color:#a8b0bc;font-weight:800;line-height:1.28}
+
+.techPose{position:absolute;left:50%;top:57%;width:82px;height:105px;transform:translate(-50%,-50%);transform-origin:50% 85%}.techPose i{position:absolute;display:block;background:#e6e1d4;border-radius:99px;transform-origin:50% 0}.techPose .tpHead{width:18px;height:18px;border-radius:50%;left:32px;top:1px;background:#d6b26b}.techPose .tpTorso{width:5px;height:42px;left:39px;top:21px}.techPose .tpArm,.techPose .tpFore,.techPose .tpLeg,.techPose .tpShin{width:4px}.techPose .tpArm.a1{height:31px;left:39px;top:30px;transform:rotate(55deg)}.techPose .tpArm.a2{height:31px;left:40px;top:30px;transform:rotate(-55deg)}.techPose .tpFore.f1{height:27px;left:63px;top:49px;transform:rotate(145deg)}.techPose .tpFore.f2{height:27px;left:16px;top:49px;transform:rotate(-145deg)}.techPose .tpLeg.l1{height:35px;left:39px;top:60px;transform:rotate(25deg)}.techPose .tpLeg.l2{height:35px;left:40px;top:60px;transform:rotate(-25deg)}.techPose .tpShin.s1{height:29px;left:53px;top:88px;transform:rotate(10deg)}.techPose .tpShin.s2{height:29px;left:25px;top:88px;transform:rotate(-10deg)}
+.pose-press.finish .tpArm.a1{transform:rotate(20deg);height:36px}.pose-press.finish .tpArm.a2{transform:rotate(-20deg);height:36px}.pose-press.finish .tpFore.f1{transform:rotate(178deg);top:61px}.pose-press.finish .tpFore.f2{transform:rotate(-178deg);top:61px}
+.pose-pull.finish .tpArm.a1{transform:rotate(80deg)}.pose-pull.finish .tpArm.a2{transform:rotate(-80deg)}.pose-pull.finish .tpFore.f1{transform:rotate(115deg);left:57px}.pose-pull.finish .tpFore.f2{transform:rotate(-115deg);left:22px}
+.pose-squat.finish{transform:translate(-50%,-35%) scaleY(.78)}.pose-squat.finish .tpLeg.l1{transform:rotate(55deg)}.pose-squat.finish .tpLeg.l2{transform:rotate(-55deg)}.pose-squat.finish .tpShin.s1{transform:rotate(-18deg);left:63px;top:82px}.pose-squat.finish .tpShin.s2{transform:rotate(18deg);left:16px;top:82px}
+.pose-hinge.finish{transform:translate(-50%,-45%) rotate(24deg)}.pose-hinge.finish .tpLeg.l1{transform:rotate(12deg)}.pose-hinge.finish .tpLeg.l2{transform:rotate(-12deg)}
+.pose-arm.finish .tpFore.f1{transform:rotate(205deg);top:45px}.pose-arm.finish .tpFore.f2{transform:rotate(-205deg);top:45px}
+.pose-leg.finish .tpShin.s1{transform:rotate(65deg);left:54px;top:87px}.pose-leg.finish .tpShin.s2{transform:rotate(-65deg);left:25px;top:87px}
+.pose-isolation.finish .tpArm.a1{transform:rotate(92deg)}.pose-isolation.finish .tpArm.a2{transform:rotate(-92deg)}
+.pose-core.finish{transform:translate(-50%,-48%) rotate(17deg)}.pose-calf.finish{transform:translate(-50%,-60%)}
+
+.techSteps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 10px 10px}.techStep{min-height:72px;padding:8px;border-radius:12px;border:1px solid #1f252d;background:#0d1014;display:grid;grid-template-columns:18px 1fr;gap:6px;align-items:start}.techStep>span{width:18px;height:18px;border-radius:6px;background:#18140e;border:1px solid #4a3d25;color:#d2b677;display:grid;place-items:center;font-size:7px;font-weight:900}.techStep b{display:block;font-size:7px;letter-spacing:.8px;color:#cdb273;margin-bottom:2px}.techStep small{display:block;font-size:7.5px;line-height:1.35;color:#94a0ae}.techStep.s3{border-color:#47272d;background:#130d0f}.techStep.s3>span{background:#261216;border-color:#74424d;color:#ef9aa5}.techStep.s3 b{color:#e58d99}
+.detailTechniqueSteps{display:grid;gap:8px;margin-top:8px}.detailTechniqueSteps>div{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:10px;border-radius:12px;background:#0d0f12;border:1px solid #20262d}.detailTechniqueSteps>div>span{width:25px;height:25px;border-radius:8px;display:grid;place-items:center;background:#18140e;border:1px solid #4a3d25;color:#d2b677;font-size:9px;font-weight:950}.detailTechniqueSteps p{margin:0;font-size:10px;line-height:1.42;color:#aab2bd}.detailTechniqueSteps p b{display:block;font-size:8px;color:#cdb273;letter-spacing:.75px;margin-bottom:2px}.detailTechniqueSteps .danger{border-color:#47272d;background:#130d0f}.detailTechniqueSteps .danger>span{background:#261216;border-color:#74424d;color:#ef9aa5}.detailTechniqueSteps .danger p b{color:#e58d99}
+
+.libraryMini{height:98px;border-radius:14px;overflow:hidden;background:#090b0d}.libraryMini .techniqueDemo{height:98px;grid-template-rows:auto 1fr}.libraryMini .motionTop{padding:5px 6px 0}.libraryMini .motionChip{min-height:18px;padding:3px 6px;font-size:6px}.libraryMini .motionChip.alt{display:none}.libraryMini .motionMain{grid-template-columns:1fr .78fr;gap:4px;padding:4px 6px 6px}.libraryMini .motionLoopCard,.libraryMini .muscleMapWrap{border-radius:10px;padding:5px}.libraryMini .motionLoopTitle,.libraryMini .motionNotes,.libraryMini .techSteps,.libraryMini .muscleLegend{display:none}.libraryMini .motionLoop{min-height:58px;height:58px;grid-template-columns:1fr 22px 1fr}.libraryMini .motionFrame{height:56px;border-radius:8px}.libraryMini .motionFrame small{font-size:5.5px;left:5px;top:4px}.libraryMini .motionTrack{height:56px}.libraryMini .motionTrack b{display:none}.libraryMini .motionTrack i{height:28px;width:2px}.libraryMini .motionTrack i::after{width:7px;height:7px}.libraryMini .motionTrack span{width:9px;height:9px}.libraryMini .techPose{transform:translate(-50%,-50%) scale(.42);top:54%}.libraryMini .muscleMap{height:54px}.libraryMini .muscleLabel{display:none}
+
+@media(max-width:430px){.motionMain{grid-template-columns:1fr}.muscleMapWrap{order:2}.techSteps{grid-template-columns:1fr 1fr}.libraryMini{height:110px}.libraryMini .motionMain{grid-template-columns:1fr .85fr}}
+@media(prefers-reduced-motion:reduce){.motionTrack span,.motionFrame.start,.motionFrame.finish,.musc{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -2368,11 +2412,11 @@ input,select{background:#080a0c!important;border-color:#24292f!important}
 </div></div>
 
 <div id="exerciseDetailModal" class="modal exerciseDetailModal"><div class="sheet exerciseDetailSheet">
- <div class="sheethead"><div><div class="eyebrow">TÉCNICA DEL EJERCICIO</div><h2 id="exerciseDetailTitle">Ejercicio</h2></div><button id="closeExerciseDetail" class="iconbtn closeBig">✕</button></div>
+ <div class="sheethead"><div><div class="eyebrow">MOVIMIENTO Y MÚSCULOS</div><h2 id="exerciseDetailTitle">Ejercicio</h2></div><button id="closeExerciseDetail" class="iconbtn closeBig">✕</button></div>
  <div id="exerciseAnimation" class="exerciseAnimation"></div>
  <div id="exerciseDetailMeta" class="exerciseDetailMeta"></div>
  <div id="exerciseDetailCues" class="exerciseDetailCues"></div>
- <div class="exerciseAnimDisclaimer">Guía técnica ilustrada. Usá el recorrido que puedas controlar y adaptá la posición a la máquina y a tu anatomía. Si aparece dolor articular o punzante, no lo fuerces.</div>
+ <div class="exerciseAnimDisclaimer">Demostración animada del recorrido y mapa muscular. Si aparece dolor articular o punzante, frená y ajustá la técnica o el ejercicio.</div>
 </div></div>
 
 <div id="evidenceModal" class="modal evidenceModal"><div class="sheet evidenceSheet">
@@ -2458,7 +2502,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='7.2 ROTATION + TECHNIQUE · 2026.08.20';
+const BUILD='7.3 MOVEMENT ATLAS · 2026.08.20';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -2566,7 +2610,7 @@ const BUILD6=[
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
 
-const fresh={version:80,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided',targetWeight:'',targetDate:'',soundEnabled:false},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0,rotationStateVersion:2};
+const fresh={version:81,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided',targetWeight:'',targetDate:'',soundEnabled:false},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0,rotationStateVersion:2};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const dk=(d=new Date())=>{const z=new Date(d);return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0')};
 const fmtDate=s=>new Date(s).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'});
@@ -2599,7 +2643,7 @@ if(!['regular','irregular','unknown'].includes(d.profile.cycleRegularity))d.prof
 d.profile.cycleLength=Math.max(21,Math.min(40,+d.profile.cycleLength||28));
 if(typeof d.profile.lastPeriod!=='string')d.profile.lastPeriod='';
 if(!['none','mild','moderate','strong'].includes(d.checkin.cycleSymptoms))d.checkin.cycleSymptoms='none';
-d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=80;return d}
+d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=81;return d}
 function dataScore(x){
  if(!x||typeof x!=='object')return -1;
  const logs=Array.isArray(x.logs)?x.logs.length:0,bw=Array.isArray(x.bodyweightLogs)?x.bodyweightLogs.length:0,prs=x.prs&&typeof x.prs==='object'?Object.keys(x.prs).length:0,profile=x.profile?.name?5:0,onboard=x.onboarded?10:0;
@@ -3218,15 +3262,15 @@ function exerciseMotionKind(id){
  return 'press'
 }
 const TECH_PATTERN={
- press:{zone:'Pecho / hombro',labels:['Escápulas estables','Bajá con control','Empujá sin perder posición'],arrow:'vertical'},
- pull:{zone:'Espalda',labels:['Torso estable','Guiá con los codos','Controlá el regreso'],arrow:'down'},
+ press:{zone:'Pecho / hombro',labels:['Escápulas firmes','Bajá con control','Empujá sin perder la posición'],arrow:'vertical'},
+ pull:{zone:'Espalda',labels:['Torso estable','Guiá con codos','Volvé controlado'],arrow:'down'},
  squat:{zone:'Piernas',labels:['Pies firmes','Rodillas siguen los pies','Subí empujando el piso'],arrow:'vertical'},
- hinge:{zone:'Posterior',labels:['Cadera hacia atrás','Columna estable','Terminá con la cadera'],arrow:'diagonal'},
- arm:{zone:'Brazos',labels:['Codo quieto','Mové el antebrazo','Sin balancear el torso'],arrow:'arc'},
+ hinge:{zone:'Posterior',labels:['Cadera atrás','Columna firme','Cerrá con glúteos'],arrow:'diagonal'},
+ arm:{zone:'Brazos',labels:['Codo quieto','Mové el antebrazo','Sin balanceo'],arrow:'arc'},
  leg:{zone:'Piernas',labels:['Alineá la articulación','Recorrido controlado','Sin impulso'],arrow:'arc'},
- isolation:{zone:'Aislamiento',labels:['Articulación estable','Tensión continua','No uses impulso'],arrow:'wide'},
- core:{zone:'Core',labels:['Pelvis estable','Mové el tronco con control','No tires con brazos'],arrow:'arc'},
- calf:{zone:'Gemelos',labels:['Pie estable','Subí controlado','Bajá sin rebote'],arrow:'vertical'}
+ isolation:{zone:'Aislamiento',labels:['Articulación estable','Tensión continua','Sin envión'],arrow:'wide'},
+ core:{zone:'Core',labels:['Pelvis firme','Mové el tronco','No tires con brazos'],arrow:'arc'},
+ calf:{zone:'Gemelos',labels:['Recorrido completo','Subí controlado','Bajá sin rebote'],arrow:'vertical'}
 };
 function techniqueSteps(id){
  const x=EX[id],c=x?.cues||[],p=TECH_PATTERN[exerciseMotionKind(id)]||TECH_PATTERN.press;
@@ -3246,16 +3290,92 @@ function poseFigure(kind,finish=false){
    <i class="tpShin s1"></i><i class="tpShin s2"></i>
  </div>`
 }
+function activationProfile(id){
+ const g=directGroup(id)||EX[id]?.group||'';
+ if(['bench','chestpress','incline','machineincline','fly','cablefly','pecdeck'].includes(id)||g==='pecho')return {main:['chest'],secondary:['frontShoulder','triceps']};
+ if(['ohp','shoulderpress','lateral','cablelateral','rearfly','facepull'].includes(id)||g==='hombros')return {main:['shoulders'],secondary:['triceps','upperback']};
+ if(['pulldown','assistedpull','row','chestrow','tbarrow','pullover'].includes(id)||g==='espalda')return {main:['lats','upperback'],secondary:['biceps','rearShoulder']};
+ if(['squat','smithsquat','hack','legpress','legext','bulgarian'].includes(id)||g==='piernas')return {main:['quads'],secondary:['glutes','calves']};
+ if(['deadlift','rdl','legcurl'].includes(id)||g==='posterior')return {main:['hamstrings','glutes'],secondary:['lats','upperback']};
+ if(['hip','glutekickback','hipabduction'].includes(id)||g==='gluteos')return {main:['glutes'],secondary:['hamstrings']};
+ if(['curl','cablecurl','preacher','hammercurl'].includes(id))return {main:['biceps'],secondary:['forearms']};
+ if(['triceps','overheadtri','skullcrusher'].includes(id))return {main:['triceps'],secondary:['frontShoulder']};
+ if(['cablecrunch','abmachine','pallof'].includes(id)||g==='core')return {main:['abs'],secondary:['obliques']};
+ if(id==='calves'||g==='pantorrillas')return {main:['calves'],secondary:[]};
+ return {main:['chest'],secondary:['shoulders']}
+}
+function activationLegend(id){
+ const x=activationProfile(id),labels={
+  chest:'Pecho',frontShoulder:'Hombro frontal',shoulders:'Hombros',rearShoulder:'Hombro posterior',
+  triceps:'Tríceps',biceps:'Bíceps',forearms:'Antebrazos',lats:'Dorsales',upperback:'Espalda alta',
+  abs:'Abdominales',obliques:'Oblicuos',quads:'Cuádriceps',glutes:'Glúteos',hamstrings:'Isquios',calves:'Gemelos'
+ };
+ return {
+  main:x.main.map(k=>labels[k]).join(' · '),
+  secondary:x.secondary.map(k=>labels[k]).join(' · ')
+ }
+}
+function muscleShape(key,type){
+ const on=type==='main'?'main':'secondary';
+ const cls=`musc ${key} ${on}`;
+ const S=[];
+ if(key==='chest'){S.push(`<path class="${cls}" d="M38 38c5-6 11-8 18-8s13 2 18 8l-6 12H44z"/>`)}
+ if(key==='frontShoulder'){S.push(`<circle class="${cls}" cx="35" cy="39" r="6"/><circle class="${cls}" cx="77" cy="39" r="6"/>`)}
+ if(key==='shoulders'){S.push(`<circle class="${cls}" cx="35" cy="39" r="7"/><circle class="${cls}" cx="77" cy="39" r="7"/>`)}
+ if(key==='rearShoulder'){S.push(`<circle class="${cls}" cx="35" cy="39" r="6"/><circle class="${cls}" cx="77" cy="39" r="6"/>`)}
+ if(key==='triceps'){S.push(`<rect class="${cls}" x="24" y="42" width="7" height="18" rx="3"/><rect class="${cls}" x="81" y="42" width="7" height="18" rx="3"/>`)}
+ if(key==='biceps'){S.push(`<rect class="${cls}" x="24" y="42" width="7" height="15" rx="3"/><rect class="${cls}" x="81" y="42" width="7" height="15" rx="3"/>`)}
+ if(key==='forearms'){S.push(`<rect class="${cls}" x="21" y="58" width="6" height="16" rx="3"/><rect class="${cls}" x="85" y="58" width="6" height="16" rx="3"/>`)}
+ if(key==='abs'){S.push(`<rect class="${cls}" x="47" y="48" width="18" height="26" rx="6"/>`)}
+ if(key==='obliques'){S.push(`<path class="${cls}" d="M42 50l5 1v20l-8-2z"/><path class="${cls}" d="M70 50l-5 1v20l8-2z"/>`)}
+ if(key==='quads'){S.push(`<rect class="${cls}" x="44" y="81" width="11" height="28" rx="5"/><rect class="${cls}" x="57" y="81" width="11" height="28" rx="5"/>`)}
+ if(key==='glutes'){S.push(`<path class="${cls}" d="M44 72c5 4 11 4 18 0l4 12c-7 4-19 4-26 0z"/>`)}
+ if(key==='hamstrings'){S.push(`<rect class="${cls}" x="44" y="84" width="11" height="24" rx="5"/><rect class="${cls}" x="57" y="84" width="11" height="24" rx="5"/>`)}
+ if(key==='calves'){S.push(`<rect class="${cls}" x="46" y="110" width="9" height="23" rx="4"/><rect class="${cls}" x="58" y="110" width="9" height="23" rx="4"/>`)}
+ if(key==='lats'){S.push(`<path class="${cls}" d="M39 42c7-5 29-5 36 0l-6 28c-7 4-17 4-24 0z"/>`)}
+ if(key==='upperback'){S.push(`<path class="${cls}" d="M42 34c8-5 22-5 30 0l-4 16H46z"/>`)}
+ return S.join('')
+}
+function muscleMapSVG(id){
+ const act=activationProfile(id),legend=activationLegend(id),all=[...act.main.map(k=>[k,'main']),...act.secondary.map(k=>[k,'secondary'])];
+ const shapes=all.map(([k,t])=>muscleShape(k,t)).join('');
+ return `<div class="muscleMapWrap">
+   <svg class="muscleMap" viewBox="0 0 132 150" aria-hidden="true">
+    <defs><linearGradient id="bodyFade" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2b2f35"/><stop offset="1" stop-color="#191d22"/></linearGradient></defs>
+    <g class="bodyBase">
+      <circle cx="57" cy="15" r="10"/><rect x="49" y="25" width="16" height="11" rx="6"/><rect x="44" y="36" width="26" height="40" rx="13"/>
+      <rect x="28" y="38" width="10" height="35" rx="5"/><rect x="76" y="38" width="10" height="35" rx="5"/>
+      <rect x="48" y="74" width="18" height="9" rx="5"/><rect x="46" y="82" width="10" height="30" rx="5"/><rect x="58" y="82" width="10" height="30" rx="5"/>
+      <rect x="47" y="110" width="8" height="24" rx="4"/><rect x="59" y="110" width="8" height="24" rx="4"/>
+    </g>
+    <g class="bodyBase back" transform="translate(72 0) scale(.74)">
+      <circle cx="57" cy="15" r="10"/><rect x="49" y="25" width="16" height="11" rx="6"/><rect x="44" y="36" width="26" height="40" rx="13"/>
+      <rect x="28" y="38" width="10" height="35" rx="5"/><rect x="76" y="38" width="10" height="35" rx="5"/>
+      <rect x="48" y="74" width="18" height="9" rx="5"/><rect x="46" y="82" width="10" height="30" rx="5"/><rect x="58" y="82" width="10" height="30" rx="5"/>
+      <rect x="47" y="110" width="8" height="24" rx="4"/><rect x="59" y="110" width="8" height="24" rx="4"/>
+    </g>
+    <g>${shapes}</g>
+    <text x="57" y="146" class="muscleLabel">Activa</text>
+    <text x="108" y="146" class="muscleLabel">Mapa</text>
+   </svg>
+   <div class="muscleLegend"><b>Principal</b><span>${legend.main||'General'}</span>${legend.secondary?`<b>Secundario</b><span>${legend.secondary}</span>`:''}</div>
+  </div>`
+}
 function exerciseAnimationSVG(id){
  const kind=exerciseMotionKind(id),x=EX[id],p=TECH_PATTERN[kind]||TECH_PATTERN.press,steps=techniqueSteps(id);
  return `<div class="techniqueDemo technique-${kind}">
-   <div class="motionLabel">${x?.muscle||''}</div>
-   <div class="techStage">
-    <div class="techPanel"><small>INICIO</small>${poseFigure(kind,false)}</div>
-    <div class="techPath path-${p.arrow}"><i></i><b>RECORRIDO</b></div>
-    <div class="techPanel"><small>FINAL</small>${poseFigure(kind,true)}</div>
-    <div class="techCallout calloutA">${p.labels[0]}</div>
-    <div class="techCallout calloutB">${p.labels[1]}</div>
+   <div class="motionTop"><span class="motionChip">Movimiento</span><span class="motionChip alt">${x?.muscle||''}</span></div>
+   <div class="motionMain">
+     <div class="motionLoopCard">
+       <div class="motionLoopTitle">Cómo se mueve</div>
+       <div class="motionLoop">
+         <div class="motionFrame start"><small>Inicio</small>${poseFigure(kind,false)}</div>
+         <div class="motionTrack path-${p.arrow}"><b>${p.zone}</b><i></i><span></span></div>
+         <div class="motionFrame finish"><small>Final</small>${poseFigure(kind,true)}</div>
+       </div>
+       <div class="motionNotes"><span>${steps[0].t}</span><span>${steps[2].t}</span></div>
+     </div>
+     ${muscleMapSVG(id)}
    </div>
    <div class="techSteps">${steps.map((s,i)=>`<div class="techStep s${i}"><span>${i+1}</span><div><b>${s.k}</b><small>${s.t}</small></div></div>`).join('')}</div>
  </div>`
@@ -4074,7 +4194,7 @@ function renderTrain(restore=true){
   <div class="setHistory"></div><div class="liveDecision"></div><div class="sets"></div>
   <div class="painActions"><b>Dolor raro registrado.</b><div class="safeNote">No sigas cargando este movimiento hoy.</div><div class="row"><button class="btn ghost" data-skip-exercise="1">Saltar ejercicio</button></div></div>
   <details class="gymOptions"><summary>Necesito cambiar algo</summary><div class="gymOptionButtons"><button class="btn ghost slim occupiedBtn" data-defer-exercise="1">Máquina ocupada</button><button class="btn ghost slim unavailableBtn" data-unavailable-exercise="1">No está disponible</button>${exerciseCandidates(q.id).length?`<button class="btn ghost slim" data-substitute="${originalId}">Cambiar ejercicio</button>`:''}</div></details>
-  <details class="detailsBox gymTechnique"><summary>Ver cómo hacer el ejercicio</summary><button class="techDemoBtn" type="button" data-exercise-demo="${q.id}">VER TÉCNICA</button><ul class="cues">${x.cues.map(c=>`<li>${c}</li>`).join('')}<li><b>Calentamiento:</b> ${warmupPlan(q.id,q.weight)}</li></ul></details>`;
+  <details class="detailsBox gymTechnique"><summary>Ver cómo hacer el ejercicio</summary><button class="techDemoBtn" type="button" data-exercise-demo="${q.id}">VER MOVIMIENTO</button><ul class="cues">${x.cues.map(c=>`<li>${c}</li>`).join('')}<li><b>Calentamiento:</b> ${warmupPlan(q.id,q.weight)}</li></ul></details>`;
 
   const box=card.querySelector('.sets');
   for(let j=0;j<q.sets;j++){
