@@ -1072,7 +1072,7 @@ body{letter-spacing:-.01em}
 .day.today:not(.done){border-color:#50458a!important;background:#111020!important}
 
 /* ============================================================
-   IRON COACH 7.3 MOVEMENT ATLAS
+   IRON COACH 7.4 ADAPTIVE COACH
    A calmer commercial mobile design layer.
    ============================================================ */
 :root{
@@ -1996,6 +1996,183 @@ input,select{background:#080a0c!important;border-color:#24292f!important}
 @media(max-width:430px){.motionMain{grid-template-columns:1fr}.muscleMapWrap{order:2}.techSteps{grid-template-columns:1fr 1fr}.libraryMini{height:110px}.libraryMini .motionMain{grid-template-columns:1fr .85fr}}
 @media(prefers-reduced-motion:reduce){.motionTrack span,.motionFrame.start,.motionFrame.finish,.musc{animation:none!important}}
 
+
+/* ============================================================
+   7.3.1 CLEAN LIBRARY
+   Remove generic animation system from the user experience.
+   ============================================================ */
+.libraryMini,.motionTop,.motionMain,.motionLoopCard,.muscleMapWrap,.techniqueDemo>.techSteps{display:none!important}
+
+.cleanLibraryExercise{
+ grid-template-columns:46px 1fr 20px!important;
+ min-height:72px!important;
+ padding:10px!important
+}
+.libraryExerciseIcon{
+ width:42px;height:42px;border-radius:13px;
+ display:grid;place-items:center;
+ background:#15130e;border:1px solid #463a25;
+ color:#d2b677;font-size:9px;font-weight:1000;letter-spacing:.4px
+}
+.cleanLibraryExercise b{font-size:13px!important}
+.cleanLibraryExercise span{font-size:10px!important}
+.cleanLibraryExercise small{font-size:9px!important}
+
+.exerciseAnimation{
+ height:auto!important;min-height:0!important;
+ background:transparent!important;border:0!important;overflow:visible!important
+}
+.cleanTechniqueCard{
+ display:grid;gap:10px
+}
+.cleanTechniqueMuscles{
+ display:grid;grid-template-columns:1fr 1fr;gap:7px
+}
+.cleanTechniqueMuscles>div{
+ padding:12px;border-radius:14px;background:#0d1014;border:1px solid #22272d
+}
+.cleanTechniqueMuscles span{
+ display:block;font-size:7px;letter-spacing:1px;color:#7b8490;font-weight:950
+}
+.cleanTechniqueMuscles b{
+ display:block;margin-top:5px;font-size:12px;color:#e5e0d5;line-height:1.3
+}
+.cleanTechniqueSteps{
+ display:grid;gap:7px
+}
+.cleanTechniqueSteps>div{
+ display:grid;grid-template-columns:28px 1fr;gap:8px;
+ padding:10px;border-radius:13px;background:#0d1014;border:1px solid #22272d
+}
+.cleanTechniqueSteps>div>span{
+ width:27px;height:27px;border-radius:8px;display:grid;place-items:center;
+ background:#18140e;border:1px solid #4a3d25;color:#d2b677;font-size:9px;font-weight:950
+}
+.cleanTechniqueSteps p{margin:0;font-size:10px;line-height:1.45;color:#aab2bd}
+.cleanTechniqueSteps p b{display:block;font-size:8px;letter-spacing:.7px;color:#cdb273;margin-bottom:2px}
+.cleanTechniqueSteps .danger{border-color:#47272d;background:#130d0f}
+.cleanTechniqueSteps .danger>span{background:#261216;border-color:#74424d;color:#ef9aa5}
+.cleanTechniqueSteps .danger p b{color:#e58d99}
+
+.exerciseAnimDisclaimer{
+ margin-top:12px!important;padding:10px!important;border-radius:12px!important;
+ background:#0b0d10!important;border:1px solid #1f242a!important;
+ color:#707985!important
+}
+@media(max-width:390px){
+ .cleanTechniqueMuscles{grid-template-columns:1fr}
+}
+
+
+/* ============================================================
+   7.4 ADAPTIVE COACH — simple premium progress
+   ============================================================ */
+.premiumProgressPage{padding-top:3px}
+.progressVerdictCard{
+ padding:22px!important;
+ background:
+ radial-gradient(420px 190px at 110% -20%,rgba(199,169,107,.10),transparent 68%),
+ linear-gradient(180deg,rgba(255,255,255,.018),transparent 50%),#0d0f12!important;
+ border-color:#302c22!important
+}
+.progressVerdictTop{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
+.progressVerdictTop h1{font-size:34px;line-height:1.02;letter-spacing:-1px;margin:7px 0 8px;max-width:540px}
+.progressVerdictCard>p{margin:0;color:#9ba3ae;font-size:13px;line-height:1.5;max-width:590px}
+.progressVerdictBadge{
+ min-height:35px;display:inline-flex;align-items:center;padding:7px 10px;border-radius:11px;
+ border:1px solid #343942;background:#11151a;color:#929ba7;font-size:8px;font-weight:950;letter-spacing:1px
+}
+.progressVerdictBadge.good{border-color:#315848;background:#0d1a15;color:#83d8b7}
+.progressVerdictBadge.recover{border-color:#5b3e24;background:#18110a;color:#e0b46a}
+.progressVerdictBadge.steady{border-color:#4e4329;background:#15130e;color:#d0b675}
+.progressVerdictBadge.learn{border-color:#343942;background:#11151a;color:#929ba7}
+
+.progressSimpleSignals{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:17px}
+.simpleSignal{padding:12px;border-radius:15px;background:#090b0e;border:1px solid #20252b}
+.simpleSignal>span{display:block;font-size:7px;letter-spacing:1.1px;color:#6f7884;font-weight:950}
+.simpleSignal>b{display:block;font-size:18px;color:#ece8df;margin-top:6px}
+.simpleSignal>small{display:block;font-size:8.5px;line-height:1.35;color:#737d89;margin-top:4px}
+.simpleSignal.good{border-color:#29483c}.simpleSignal.warn{border-color:#563925}
+
+.coachBrainCard{
+ padding:19px!important;
+ background:radial-gradient(330px 160px at 0 0,rgba(118,104,255,.055),transparent 72%),#0d0f12!important
+}
+.coachBrainHeader{display:grid;grid-template-columns:45px 1fr auto;gap:11px;align-items:center}
+.coachBrainOrb{
+ width:44px;height:44px;border-radius:15px;display:grid;place-items:center;
+ background:radial-gradient(circle at 38% 32%,#e7d093,#a88745 52%,#443619 100%);
+ box-shadow:0 0 0 1px rgba(255,235,188,.18) inset,0 10px 24px rgba(0,0,0,.25)
+}
+.coachBrainOrb i{width:15px;height:15px;border:2px solid #141007;border-radius:50%;position:relative}
+.coachBrainOrb i::after{content:"";position:absolute;inset:3px;border-radius:50%;background:#141007;animation:brainPulse 2.2s ease-in-out infinite}
+@keyframes brainPulse{50%{transform:scale(.45);opacity:.45}}
+.coachBrainHeader h2{font-size:18px;margin:2px 0 0}
+.coachBrainData{font-size:7px;letter-spacing:1px;color:#94845f;border:1px solid #3b3322;background:#12100d;padding:6px 8px;border-radius:9px;font-weight:950}
+.coachBrainCard>p{font-size:11.5px;line-height:1.5;color:#8f98a4;margin:12px 0}
+.coachBrainActions{display:grid;gap:6px}
+.brainAction{display:grid;grid-template-columns:32px 1fr;gap:9px;padding:10px;border-radius:13px;background:#090b0e;border:1px solid #1f242a}
+.brainAction>span{width:31px;height:31px;border-radius:10px;background:#15130e;border:1px solid #403620;color:#c9ae72;display:grid;place-items:center;font-size:15px;font-weight:900}
+.brainAction b{display:block;font-size:11px;color:#e3dfd6}.brainAction small{display:block;font-size:9px;line-height:1.4;color:#77818e;margin-top:3px}
+.coachBrainNext{margin-top:8px;padding:11px;border-radius:13px;background:#11100d;border:1px solid #332c1d}
+.coachBrainNext span{display:block;font-size:7px;letter-spacing:1px;color:#8e7d58;font-weight:950}
+.coachBrainNext b{display:block;font-size:10px;line-height:1.45;color:#d0c4a8;margin-top:4px}
+
+.currentBlockCard{padding:18px!important}
+.currentBlockCard h2{font-size:21px;margin:3px 0}
+.currentBlockCard>p{font-size:11px;line-height:1.48;color:#9099a5;margin:10px 0}
+.currentBlockTrack{height:7px;border-radius:99px;background:#1a1e23;overflow:hidden}
+.currentBlockTrack i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#826b39,#d2b675);transition:width .35s ease}
+.currentBlockLearn{margin-top:11px;padding:10px;border-radius:12px;background:#090b0e;border:1px solid #1f242a}
+.currentBlockLearn span{display:block;font-size:7px;letter-spacing:1px;color:#737c87;font-weight:950}
+.currentBlockLearn b{display:block;font-size:10px;line-height:1.4;color:#beb6a5;margin-top:4px}
+
+.premiumBlockReview{
+ overflow:hidden;padding:0!important;border-color:#3b3322!important;
+ background:radial-gradient(420px 180px at 100% 0,rgba(199,169,107,.10),transparent 70%),#0d0f12!important
+}
+.blockReviewHero{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:19px 19px 8px}
+.blockReviewHero h2{font-size:27px;letter-spacing:-.6px;margin:4px 0}
+.blockReviewGrade{
+ width:55px;height:55px;border-radius:17px;display:grid;place-items:center;
+ background:linear-gradient(145deg,#dfc989,#9e7e3f);color:#0c0905;font-size:20px;font-weight:1000;
+ box-shadow:0 12px 28px rgba(101,78,37,.22)
+}
+.premiumBlockReview>#blockReviewText{padding:0 19px;color:#989faa;font-size:12px;line-height:1.48}
+.simpleBlockStats{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:6px!important;padding:5px 19px 12px!important}
+.simpleBlockStats>div{padding:11px!important;background:#090b0e!important;border:1px solid #20252b!important;border-radius:13px!important;text-align:left!important}
+.simpleBlockStats strong{display:block!important;font-size:17px!important}.simpleBlockStats span{display:block!important;font-size:8px!important;color:#737c87!important;margin-top:3px!important}
+.blockReviewBest{padding:0 19px 12px}
+.blockWinsTitle{font-size:7px;letter-spacing:1.1px;color:#8a7956;font-weight:950;margin:3px 0 7px}
+.blockWin{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid #1c2025}
+.blockWin>span{width:25px;height:25px;border-radius:8px;display:grid;place-items:center;background:#15130e;border:1px solid #453a24;color:#c8ad71;font-size:8px;font-weight:950}
+.blockWin b{display:block;font-size:11px}.blockWin small{display:block;font-size:9px;color:#7e8793;margin-top:2px}
+.blockNoWin{padding:11px;border-radius:13px;background:#0a0c0f;border:1px solid #20252b}
+.blockNoWin b{display:block;font-size:10px;color:#c9c3b7}.blockNoWin span{display:block;font-size:9px;color:#727c88;line-height:1.4;margin-top:4px}
+.premiumBlockReview .blockReviewDecision{margin:0 19px 10px!important}
+.blockDecisionList{display:grid;gap:6px;margin-top:8px}
+.blockDecisionList>div{padding:8px;border-radius:10px;background:#0b0d10;border:1px solid #25231d}
+.blockDecisionList b{display:block;font-size:7px;letter-spacing:.8px;color:#c6aa70}.blockDecisionList small{display:block;font-size:9px;line-height:1.4;color:#9199a4;margin-top:3px}
+.premiumBlockReview .blockReviewNext{margin:0!important;padding:13px 19px calc(15px + 1px)!important;border-radius:0!important;border:0!important;border-top:1px solid #242119!important;background:#0b0c0e!important}
+
+.premiumProgressFold{background:#0b0d10!important;border-color:#1f242a!important;box-shadow:none!important}
+.premiumProgressFold>summary{min-height:65px!important;display:grid!important;grid-template-columns:36px 1fr auto!important;gap:10px!important;align-items:center!important}
+.progressFoldNum{width:34px;height:34px;border-radius:11px;background:#12140f;border:1px solid #3a3221;color:#c7aa6c;display:grid;place-items:center;font-size:8px!important;font-weight:950}
+.premiumProgressFold>summary b{font-size:13px}.premiumProgressFold>summary small{font-size:9px;color:#707a86;margin-top:3px}
+.advancedDataNotice{padding:10px;border-radius:12px;background:#11100d;border:1px solid #30291c;color:#817557;font-size:9px;line-height:1.4;margin-bottom:12px}
+
+.monthRecapCard{box-shadow:none!important}
+.progressKpis,.progressCoachCard{display:none!important}
+
+@media(max-width:430px){
+ .progressVerdictTop{grid-template-columns:1fr}.progressVerdictBadge{justify-self:start}
+ .progressVerdictTop h1{font-size:31px}
+ .progressSimpleSignals{grid-template-columns:1fr 1fr}.simpleSignal:last-child{grid-column:1/-1}
+ .coachBrainHeader{grid-template-columns:42px 1fr}.coachBrainData{grid-column:2;justify-self:start}
+ .simpleBlockStats{grid-template-columns:1fr 1fr!important}.simpleBlockStats>div:last-child{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){.coachBrainOrb i::after{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -2244,28 +2421,84 @@ input,select{background:#080a0c!important;border-color:#24292f!important}
    <div id="planSessions"></div>
   </section>
 
-  <section id="progress" class="page">
-   <div class="card hero progressHero"><div class="eyebrow">PROGRESO</div><h1 class="title">Tu evolución</h1><div class="signatureUnderline"></div><div class="grid3 progressKpis"><div class="kpi"><strong id="totalSessions">0</strong><span>Entrenos</span></div><div class="kpi"><strong id="adherenceKpi">0%</strong><span>Constancia</span></div><div class="kpi"><strong id="totalVolume">0</strong><span>Toneladas</span></div></div></div>
-   <div id="physicalGoalCard" class="card physicalGoalCard hidden">
- <div class="row spread"><div><div class="eyebrow">OBJETIVO FÍSICO</div><h2 id="physicalGoalTitle">Tu dirección</h2></div><span class="physicalGoalIcon">◎</span></div>
- <div id="physicalGoalNumbers" class="physicalGoalNumbers"></div>
- <div class="physicalGoalTrack"><i id="physicalGoalFill"></i></div>
- <p id="physicalGoalText"></p>
-</div>
-   <div class="card progressCoachCard"><div class="row spread"><div><div class="eyebrow">ANÁLISIS DEL COACH</div><h2 id="progressCoachTitle">Armando tu base</h2></div><span class="progressPulse">↗</span></div><p id="progressCoachText"></p><div id="progressInsightGrid" class="progressInsightGrid"></div><div id="progressBestMove" class="progressBestMove hidden"></div></div>
-   <div id="blockReviewCard" class="card blockReviewCard hidden">
- <div class="row spread"><div><div class="eyebrow">REVISIÓN DE BLOQUE</div><h2 id="blockReviewTitle">Bloque terminado</h2></div><span class="blockReviewIcon">✦</span></div>
- <p id="blockReviewText"></p>
- <div id="blockReviewStats" class="blockReviewStats"></div>
- <div id="blockReviewBest" class="blockReviewBest"></div>
- <div id="blockReviewDecision" class="blockReviewDecision"></div><div id="blockReviewNext" class="blockReviewNext"></div>
-</div>
-<button id="monthlyRecapBtn" class="card monthRecapCard" type="button"><div class="monthRecapIcon">✦</div><div><span>RESUMEN DEL MES</span><b id="monthlyRecapLabel">Este mes</b></div><div class="monthRecapArrow">›</div></button>
+  <section id="progress" class="page premiumProgressPage">
+   <div class="card progressVerdictCard">
+    <div class="progressVerdictTop">
+     <div><div class="eyebrow">TU PROGRESO</div><h1 id="progressVerdictTitle">Estoy aprendiendo de tus entrenamientos.</h1></div>
+     <span id="progressVerdictBadge" class="progressVerdictBadge">CALIBRANDO</span>
+    </div>
+    <p id="progressVerdictText">Cuanto más registrás, mejor puedo distinguir progreso real de un buen o mal día aislado.</p>
+    <div id="progressSimpleSignals" class="progressSimpleSignals"></div>
+   </div>
 
-   <details class="card progressFold easyProgressFold"><summary><span>💪</span><div><b>Fuerza y marcas</b><small>Pesos y récords</small></div></summary><div class="progressInside"><div id="comebackList"></div><div class="divider"></div><select id="chartExercise"></select><canvas id="chart" width="700" height="250"></canvas><div class="divider"></div><div id="prsList"></div></div></details>
-   <details class="card progressFold easyProgressFold"><summary><span>⚖️</span><div><b>Peso corporal</b><small>Cómo viene cambiando</small></div></summary><div class="progressInside"><div class="row spread"><b>Hoy</b><span id="currentBW" class="pill"></span></div><div class="row weightAdd"><input id="newBW" type="number" inputmode="decimal" step="0.1" placeholder="kg"><button id="addBW" class="btn">Guardar</button></div><div id="bwTrend" class="small muted"></div><canvas id="bwChart" class="miniCanvas" width="700" height="220"></canvas></div></details>
-   <details class="card progressFold easyProgressFold"><summary><span>📊</span><div><b>Más datos</b><small>Gráficos y músculos</small></div></summary><div class="progressInside"><h3>Trabajo por músculo</h3><canvas id="muscleChart" class="miniCanvas" width="700" height="300"></canvas><h3>Peso movido por semana</h3><canvas id="volumeChart" class="miniCanvas" width="700" height="220"></canvas><h3>Cómo llegaste a entrenar</h3><canvas id="readinessChart" class="miniCanvas" width="700" height="220"></canvas></div></details>
-   <details class="card progressFold easyProgressFold"><summary><span>🗓️</span><div><b>Historial</b><small>Entrenamientos anteriores</small></div></summary><div id="historyList" class="progressInside"></div></details>
+   <div class="card coachBrainCard">
+    <div class="coachBrainHeader">
+     <div class="coachBrainOrb"><i></i></div>
+     <div><div class="eyebrow">COACH INTELLIGENCE</div><h2 id="coachBrainTitle">Qué estoy haciendo con tu plan</h2></div>
+     <span id="coachBrainData" class="coachBrainData">APRENDIENDO</span>
+    </div>
+    <p id="coachBrainText"></p>
+    <div id="coachBrainActions" class="coachBrainActions"></div>
+    <div id="coachBrainNext" class="coachBrainNext"></div>
+   </div>
+
+   <div id="currentBlockCard" class="card currentBlockCard">
+    <div class="row spread"><div><div class="eyebrow">BLOQUE ACTUAL</div><h2 id="currentBlockTitle">Bloque en curso</h2></div><span id="currentBlockWeek" class="pill accent">—</span></div>
+    <p id="currentBlockText"></p>
+    <div class="currentBlockTrack"><i id="currentBlockFill"></i></div>
+    <div id="currentBlockLearn" class="currentBlockLearn"></div>
+   </div>
+
+   <div id="physicalGoalCard" class="card physicalGoalCard hidden">
+    <div class="row spread"><div><div class="eyebrow">OBJETIVO FÍSICO</div><h2 id="physicalGoalTitle">Tu dirección</h2></div><span class="physicalGoalIcon">◎</span></div>
+    <div id="physicalGoalNumbers" class="physicalGoalNumbers"></div>
+    <div class="physicalGoalTrack"><i id="physicalGoalFill"></i></div>
+    <p id="physicalGoalText"></p>
+   </div>
+
+   <div id="blockReviewCard" class="card premiumBlockReview hidden">
+    <div class="blockReviewHero">
+     <div><div class="eyebrow">REVISIÓN AUTOMÁTICA</div><h2 id="blockReviewTitle">Bloque terminado</h2></div>
+     <div id="blockReviewGrade" class="blockReviewGrade">✓</div>
+    </div>
+    <p id="blockReviewText"></p>
+    <div id="blockReviewStats" class="blockReviewStats simpleBlockStats"></div>
+    <div id="blockReviewBest" class="blockReviewBest"></div>
+    <div id="blockReviewDecision" class="blockReviewDecision"></div>
+    <div id="blockReviewNext" class="blockReviewNext"></div>
+   </div>
+
+   <button id="monthlyRecapBtn" class="card monthRecapCard" type="button"><div class="monthRecapIcon">✦</div><div><span>RESUMEN DEL MES</span><b id="monthlyRecapLabel">Este mes</b></div><div class="monthRecapArrow">›</div></button>
+
+   <details class="card progressFold premiumProgressFold">
+    <summary><span class="progressFoldNum">01</span><div><b>Fuerza y mejores marcas</b><small>Solo si querés ver el detalle</small></div></summary>
+    <div class="progressInside"><div id="comebackList"></div><div class="divider"></div><select id="chartExercise"></select><canvas id="chart" width="700" height="250"></canvas><div class="divider"></div><div id="prsList"></div></div>
+   </details>
+
+   <details class="card progressFold premiumProgressFold">
+    <summary><span class="progressFoldNum">02</span><div><b>Peso corporal</b><small>Tendencia simple, no diagnóstico</small></div></summary>
+    <div class="progressInside"><div class="row spread"><b>Hoy</b><span id="currentBW" class="pill"></span></div><div class="row weightAdd"><input id="newBW" type="number" inputmode="decimal" step="0.1" placeholder="kg"><button id="addBW" class="btn">Guardar</button></div><div id="bwTrend" class="small muted"></div><canvas id="bwChart" class="miniCanvas" width="700" height="220"></canvas></div>
+   </details>
+
+   <details class="card progressFold premiumProgressFold advancedProgressFold">
+    <summary><span class="progressFoldNum">03</span><div><b>Datos avanzados</b><small>Volumen, músculos y recuperación</small></div></summary>
+    <div class="progressInside">
+     <div class="advancedDataNotice">Estos datos ayudan al Coach a tomar decisiones. No necesitás entenderlos para usar Iron Coach.</div>
+     <div class="legacyKpis hidden"><strong id="totalSessions">0</strong><strong id="adherenceKpi">0%</strong><strong id="totalVolume">0</strong></div>
+     <h3>Trabajo por músculo</h3><canvas id="muscleChart" class="miniCanvas" width="700" height="300"></canvas>
+     <h3>Peso movido por semana</h3><canvas id="volumeChart" class="miniCanvas" width="700" height="220"></canvas>
+     <h3>Cómo llegaste a entrenar</h3><canvas id="readinessChart" class="miniCanvas" width="700" height="220"></canvas>
+    </div>
+   </details>
+
+   <details class="card progressFold premiumProgressFold">
+    <summary><span class="progressFoldNum">04</span><div><b>Historial</b><small>Qué entrenaste y cuándo</small></div></summary>
+    <div id="historyList" class="progressInside"></div>
+   </details>
+
+   <div class="hidden">
+    <h2 id="progressCoachTitle"></h2><p id="progressCoachText"></p><div id="progressInsightGrid"></div><div id="progressBestMove"></div>
+   </div>
   </section>
 
   <section id="trophies" class="page">
@@ -2412,11 +2645,11 @@ input,select{background:#080a0c!important;border-color:#24292f!important}
 </div></div>
 
 <div id="exerciseDetailModal" class="modal exerciseDetailModal"><div class="sheet exerciseDetailSheet">
- <div class="sheethead"><div><div class="eyebrow">MOVIMIENTO Y MÚSCULOS</div><h2 id="exerciseDetailTitle">Ejercicio</h2></div><button id="closeExerciseDetail" class="iconbtn closeBig">✕</button></div>
+ <div class="sheethead"><div><div class="eyebrow">TÉCNICA DEL EJERCICIO</div><h2 id="exerciseDetailTitle">Ejercicio</h2></div><button id="closeExerciseDetail" class="iconbtn closeBig">✕</button></div>
  <div id="exerciseAnimation" class="exerciseAnimation"></div>
  <div id="exerciseDetailMeta" class="exerciseDetailMeta"></div>
  <div id="exerciseDetailCues" class="exerciseDetailCues"></div>
- <div class="exerciseAnimDisclaimer">Demostración animada del recorrido y mapa muscular. Si aparece dolor articular o punzante, frená y ajustá la técnica o el ejercicio.</div>
+ <div class="exerciseAnimDisclaimer">Guía técnica resumida. Si aparece dolor articular o punzante, frená y ajustá la técnica o el ejercicio.</div>
 </div></div>
 
 <div id="evidenceModal" class="modal evidenceModal"><div class="sheet evidenceSheet">
@@ -2502,7 +2735,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='7.3 MOVEMENT ATLAS · 2026.08.20';
+const BUILD='7.4 ADAPTIVE COACH · 2026.08.20';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -2610,7 +2843,7 @@ const BUILD6=[
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
 
-const fresh={version:81,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided',targetWeight:'',targetDate:'',soundEnabled:false},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0,rotationStateVersion:2};
+const fresh={version:83,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided',targetWeight:'',targetDate:'',soundEnabled:false},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0,rotationStateVersion:2};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const dk=(d=new Date())=>{const z=new Date(d);return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0')};
 const fmtDate=s=>new Date(s).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'});
@@ -2643,7 +2876,7 @@ if(!['regular','irregular','unknown'].includes(d.profile.cycleRegularity))d.prof
 d.profile.cycleLength=Math.max(21,Math.min(40,+d.profile.cycleLength||28));
 if(typeof d.profile.lastPeriod!=='string')d.profile.lastPeriod='';
 if(!['none','mild','moderate','strong'].includes(d.checkin.cycleSymptoms))d.checkin.cycleSymptoms='none';
-d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=81;return d}
+d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=83;return d}
 function dataScore(x){
  if(!x||typeof x!=='object')return -1;
  const logs=Array.isArray(x.logs)?x.logs.length:0,bw=Array.isArray(x.bodyweightLogs)?x.bodyweightLogs.length:0,prs=x.prs&&typeof x.prs==='object'?Object.keys(x.prs).length:0,profile=x.profile?.name?5:0,onboard=x.onboarded?10:0;
@@ -2920,11 +3153,12 @@ function adaptiveVolumeSignal(id,idx=0,sess=currentSession()){
  const ph=phaseInfo();if(ph.kind!=='build'||db.logs.length<6||ph.week<3||ph.week>5)return 'hold';
  const g=directGroup(id);if(!g||!ALL_GROUPS.includes(g))return 'hold';
  const eq=weeklySetCounts()[g]||0,rec=muscleRecovery()[g]??100,tr=groupTrend(g),[lo,hi]=volumeRange(g);
- if(rec<42||tr<-3||eq>hi+2)return 'cut';
- if(rec>76&&tr<=.5&&eq<hi){
-   // Como máximo un +1 automático por músculo dentro de una misma sesión.
+ // Recortar requiere una señal clara de fatiga, caída de rendimiento o dosis ya alta.
+ if((rec<45&&eq>=lo)||(tr<-2.5&&rec<65)||eq>hi+1)return 'cut';
+ // Agregar solo ante estancamiento REAL, buena recuperación y sin caída de rendimiento.
+ if(rec>=78&&tr>=-.5&&tr<=.75&&eq>=lo-1&&eq<hi){
    const first=sess.items.findIndex(it=>directGroup(it[0])===g&&!EX[it[0]]?.primary);
-   if(first===idx)return 'add';
+   if(first===idx)return 'add'
  }
  return 'hold'
 }
@@ -3361,24 +3595,23 @@ function muscleMapSVG(id){
    <div class="muscleLegend"><b>Principal</b><span>${legend.main||'General'}</span>${legend.secondary?`<b>Secundario</b><span>${legend.secondary}</span>`:''}</div>
   </div>`
 }
-function exerciseAnimationSVG(id){
- const kind=exerciseMotionKind(id),x=EX[id],p=TECH_PATTERN[kind]||TECH_PATTERN.press,steps=techniqueSteps(id);
- return `<div class="techniqueDemo technique-${kind}">
-   <div class="motionTop"><span class="motionChip">Movimiento</span><span class="motionChip alt">${x?.muscle||''}</span></div>
-   <div class="motionMain">
-     <div class="motionLoopCard">
-       <div class="motionLoopTitle">Cómo se mueve</div>
-       <div class="motionLoop">
-         <div class="motionFrame start"><small>Inicio</small>${poseFigure(kind,false)}</div>
-         <div class="motionTrack path-${p.arrow}"><b>${p.zone}</b><i></i><span></span></div>
-         <div class="motionFrame finish"><small>Final</small>${poseFigure(kind,true)}</div>
-       </div>
-       <div class="motionNotes"><span>${steps[0].t}</span><span>${steps[2].t}</span></div>
-     </div>
-     ${muscleMapSVG(id)}
+function exerciseTechniqueCard(id){
+ const x=EX[id];if(!x)return '';
+ const steps=techniqueSteps(id),legend=activationLegend(id);
+ return `<div class="cleanTechniqueCard">
+   <div class="cleanTechniqueMuscles">
+     <div><span>PRINCIPAL</span><b>${legend.main||x.muscle||'—'}</b></div>
+     ${legend.secondary?`<div><span>SECUNDARIOS</span><b>${legend.secondary}</b></div>`:''}
    </div>
-   <div class="techSteps">${steps.map((s,i)=>`<div class="techStep s${i}"><span>${i+1}</span><div><b>${s.k}</b><small>${s.t}</small></div></div>`).join('')}</div>
+   <div class="cleanTechniqueSteps">
+     ${steps.map((s,i)=>`<div class="${i===3?'danger':''}"><span>${i+1}</span><p><b>${s.k}</b>${s.t}</p></div>`).join('')}
+   </div>
  </div>`
+}
+function exerciseAnimationSVG(id){return exerciseTechniqueCard(id)}
+
+function groupIcon(g){
+ return ({pecho:'P',espalda:'E',hombros:'H',piernas:'Q',posterior:'PST',gluteos:'G',brazos:'B',core:'C',pantorrillas:'GM'})[g]||'IC'
 }
 function renderExerciseLibrary(){
  if(!$('exerciseLibraryList'))return;
@@ -3389,7 +3622,7 @@ function renderExerciseLibrary(){
    const searchOk=!q||`${x.name} ${x.muscle} ${x.group}`.toLowerCase().includes(q);
    return groupOk&&searchOk
  }).sort((a,b)=>a[1].name.localeCompare(b[1].name));
- $('exerciseLibraryList').innerHTML=rows.length?rows.map(([id,x])=>`<button type="button" class="libraryExercise" data-exercise-demo="${id}"><div class="libraryMini">${exerciseAnimationSVG(id)}</div><div><b>${x.name}</b><span>${x.muscle}</span><small>${equipmentKind(id)} · ${x.tempo||'controlado'}</small></div><em>›</em></button>`).join(''):'<div class="libraryEmpty">No encontré ejercicios con ese filtro.</div>'
+ $('exerciseLibraryList').innerHTML=rows.length?rows.map(([id,x])=>`<button type="button" class="libraryExercise cleanLibraryExercise" data-exercise-demo="${id}"><div class="libraryExerciseIcon">${groupIcon(directGroup(id)||x.group)}</div><div><b>${x.name}</b><span>${x.muscle}</span><small>${equipmentKind(id)} · ${x.tempo||'controlado'}</small></div><em>›</em></button>`).join(''):'<div class="libraryEmpty">No encontré ejercicios con ese filtro.</div>'
 }
 function openExerciseLibrary(){
  libraryGroup='all';if($('exerciseLibrarySearch'))$('exerciseLibrarySearch').value='';
@@ -3398,9 +3631,9 @@ function openExerciseLibrary(){
 function closeExerciseLibrary(){$('exerciseLibraryModal').classList.remove('show')}
 function openExerciseDetail(id){
  const x=EX[id];if(!x)return;
- $('exerciseDetailTitle').textContent=x.name;$('exerciseAnimation').innerHTML=exerciseAnimationSVG(id);
+ $('exerciseDetailTitle').textContent=x.name;$('exerciseAnimation').innerHTML=exerciseTechniqueCard(id);
  $('exerciseDetailMeta').innerHTML=`<span>${x.muscle}</span><span>Tempo ${x.tempo||'controlado'}</span><span>Descanso ~${fmtRest(x.rest||60)}</span>`;
- const steps=techniqueSteps(id);$('exerciseDetailCues').innerHTML=`<h3>Qué tenés que mirar</h3><div class="detailTechniqueSteps">${steps.map((s,i)=>`<div class="${i===3?'danger':''}"><span>${i+1}</span><p><b>${s.k}</b>${s.t}</p></div>`).join('')}</div><div class="exerciseWarm"><b>Entrada en calor</b><span>${x.warm||'Progresiva y sin fatigar.'}</span></div>`;
+ $('exerciseDetailCues').innerHTML=`<div class="exerciseWarm"><b>Entrada en calor</b><span>${x.warm||'Progresiva y sin fatigar.'}</span></div><div class="exerciseWarm"><b>Descanso orientativo</b><span>${fmtRest(x.rest||60)}</span></div>`;
  $('exerciseDetailModal').classList.add('show')
 }
 function closeExerciseDetail(){$('exerciseDetailModal').classList.remove('show')}
@@ -3508,17 +3741,28 @@ function advanceAfterExercise(card){
 }
 let manualRoutine=null,sessionOverrides={};
 function currentRoutineIndex(){return manualRoutine===null?nextRoutineIndex():Math.min(manualRoutine,plan().length-1)}
+function shouldRotateAccessory(id){
+ const x=EX[id],pref=exercisePref(id),g=directGroup(id);
+ if(!x||x.primary||logsFor(id).length<3||!plateau(id)||!g)return false;
+ if(recentSharpPain(id)||limitationConflict(id))return true;
+ // Si el usuario ama el ejercicio, le damos más margen antes de cambiarlo.
+ if(pref?.rating==='love'&&logsFor(id).length<6)return false;
+ // No cambiamos un ejercicio porque el usuario esté cansado: primero recuperamos.
+ if(localRecoveryFor(id)<62)return false;
+ // Rotación por estancamiento, no por una tendencia que ya está mejorando.
+ return groupTrend(g)<=.75
+}
 function blockAdjustedSession(s){
  if(!s||phaseInfo().kind!=='build'||phaseInfo().cycle<=1||s.smartExtra)return s;
- let changed=false;
+ let changed=false,rotationFrom='',rotationTo='';
  const items=s.items.map(it=>{
-  const id=it[0],x=EX[id];
-  if(changed||!x||x.primary||logsFor(id).length<3||!plateau(id))return [...it];
-  const alt=exerciseCandidates(id).find(c=>!EX[c]?.primary&&directGroup(c)===directGroup(id)&&stimulusSimilarity(id,c)>=.58&&exercisePref(c)?.rating!=='avoid');
+  const id=it[0];
+  if(changed||!shouldRotateAccessory(id))return [...it];
+  const alt=exerciseCandidates(id).find(c=>!EX[c]?.primary&&directGroup(c)===directGroup(id)&&stimulusSimilarity(id,c)>=.62&&exercisePref(c)?.rating!=='avoid');
   if(!alt)return [...it];
-  changed=true;return [alt,it[1],it[2],it[3]]
+  changed=true;rotationFrom=id;rotationTo=alt;return [alt,it[1],it[2],it[3]]
  });
- return {...s,items,blockRotation:changed}
+ return {...s,items,blockRotation:changed,rotationFrom,rotationTo}
 }
 function timeAdjustedSession(s){
  const mins=+db.profile.sessionMinutes||75,base=blockAdjustedSession(s),items=base.items.map(it=>[...it]);
@@ -4194,7 +4438,7 @@ function renderTrain(restore=true){
   <div class="setHistory"></div><div class="liveDecision"></div><div class="sets"></div>
   <div class="painActions"><b>Dolor raro registrado.</b><div class="safeNote">No sigas cargando este movimiento hoy.</div><div class="row"><button class="btn ghost" data-skip-exercise="1">Saltar ejercicio</button></div></div>
   <details class="gymOptions"><summary>Necesito cambiar algo</summary><div class="gymOptionButtons"><button class="btn ghost slim occupiedBtn" data-defer-exercise="1">Máquina ocupada</button><button class="btn ghost slim unavailableBtn" data-unavailable-exercise="1">No está disponible</button>${exerciseCandidates(q.id).length?`<button class="btn ghost slim" data-substitute="${originalId}">Cambiar ejercicio</button>`:''}</div></details>
-  <details class="detailsBox gymTechnique"><summary>Ver cómo hacer el ejercicio</summary><button class="techDemoBtn" type="button" data-exercise-demo="${q.id}">VER MOVIMIENTO</button><ul class="cues">${x.cues.map(c=>`<li>${c}</li>`).join('')}<li><b>Calentamiento:</b> ${warmupPlan(q.id,q.weight)}</li></ul></details>`;
+  <details class="detailsBox gymTechnique"><summary>Ver cómo hacer el ejercicio</summary><button class="techDemoBtn" type="button" data-exercise-demo="${q.id}">VER TÉCNICA</button><ul class="cues">${x.cues.map(c=>`<li>${c}</li>`).join('')}<li><b>Calentamiento:</b> ${warmupPlan(q.id,q.weight)}</li></ul></details>`;
 
   const box=card.querySelector('.sets');
   for(let j=0;j<q.sets;j++){
@@ -4386,13 +4630,154 @@ function drawBWChart(){drawLine($('bwChart').getContext('2d'),$('bwChart'),db.bo
 function drawMuscleChart(){const cv=$('muscleChart'),ctx=cv.getContext('2d'),d=weeklySetCounts(),entries=ALL_GROUPS.map(g=>[GROUP_LABEL[g],d[g]]),max=Math.max(1,...entries.map(x=>x[1]));ctx.clearRect(0,0,cv.width,cv.height);ctx.font='12px sans-serif';entries.forEach(([n,v],i)=>{const y=14+i*27,w=(cv.width-165)*v/max;ctx.fillStyle='#8f99a8';ctx.fillText(n,12,y+10);ctx.fillStyle='#171d27';ctx.fillRect(100,y,cv.width-125,10);ctx.fillStyle='#7b61ff';ctx.fillRect(100,y,w,10);ctx.fillStyle='#dfe3e9';ctx.fillText(Number(v).toFixed(v%1?1:0),cv.width-28,y+10)})}
 function bodyweightChangeDays(days=30){const since=Date.now()-days*86400000,logs=(db.bodyweightLogs||[]).filter(x=>new Date(x.date).getTime()>=since);if(logs.length>=2)return +logs.at(-1).weight-(+logs[0].weight);const all=db.bodyweightLogs||[];return all.length>=2?+all.at(-1).weight-(+all[0].weight):null}
 function progress30d(){const since=new Date(Date.now()-30*86400000),logs=db.logs.filter(l=>new Date(l.date)>=since),ids=[...new Set(logs.flatMap(l=>(l.exercises||[]).map(e=>e.id)))],improved=[];for(const id of ids){const seq=logsFor(id).filter(z=>new Date(z.log.date)>=since),last=seq.at(-1);if(!last)continue;const prevAll=logsFor(id).filter(z=>new Date(z.log.date)<new Date(last.log.date));if(prevAll.length<1)continue;const cur=bestSetE1RM(last.ex),prev=bestSetE1RM(prevAll.at(-1).ex);if(!cur||!prev||cur.value<=prev.value*1.005)continue;const dw=cur.weight-prev.weight,dr=cur.reps-prev.reps,pct=(cur.value/prev.value-1)*100,headline=dw>0?`${formatWeightDelta(id,dw)} más`:Math.abs(dw)<.001&&dr>0?`+${dr} reps`:`+${pct.toFixed(1)}%`;improved.push({id,name:EX[id]?.name||id,headline,detail:`${formatWeight(id,cur.weight)} × ${cur.reps} reps`,pct})}improved.sort((a,b)=>b.pct-a.pct);const expected=Math.max(1,Math.round((db.profile.days||3)*30/7)),consistency=Math.min(100,Math.round(logs.length/expected*100)),bw=bodyweightChangeDays(30);return {logs,improved,consistency,bw}}
-function renderProgressCoach(){const p=progress30d(),goal=db.profile.goal||'muscle',best=p.improved[0];let title='Estamos armando tu base.',txt='Seguí registrando entrenos y te voy a mostrar tendencias reales.';if(p.logs.length>=2){if(goal==='fatloss'&&p.bw!==null&&p.bw<-.2&&p.improved.length)title='Bajando peso sin regalar rendimiento.';else if(p.improved.length>=3)title='Vas para arriba.';else if(p.consistency>=80)title='La constancia está muy bien.';else if(p.improved.length)title='Ya hay progreso medible.';else title='Todavía consolidando.';txt=p.improved.length?`${p.improved.length} ejercicio${p.improved.length===1?'':'s'} mejoró en los últimos 30 días.`:'Todavía no hay suficientes mejoras comparables; sigo juntando datos.'}$('progressCoachTitle').textContent=title;$('progressCoachText').textContent=txt;$('progressInsightGrid').innerHTML=`<div><span>30 DÍAS</span><strong>${p.logs.length}</strong><small>entrenos</small></div><div><span>CONSTANCIA</span><strong>${p.consistency}%</strong><small>del plan</small></div><div><span>${goal==='fatloss'?'PESO':'MEJORAS'}</span><strong>${goal==='fatloss'?(p.bw===null?'—':`${p.bw>=0?'+':''}${p.bw.toFixed(1)} kg`):p.improved.length}</strong><small>${goal==='fatloss'?'30 días':'ejercicios'}</small></div>`;const bm=$('progressBestMove');if(best){bm.classList.remove('hidden');bm.innerHTML=`<span>MEJOR CAMBIO</span><b>${best.name}</b><strong>${best.headline}</strong><small>${best.detail}</small>`}else bm.classList.add('hidden')}
+function humanReadinessLabel(v){
+ if(v>=76)return 'Muy buena';
+ if(v>=62)return 'Bien';
+ if(v>=52)return 'Algo baja';
+ return 'Baja'
+}
+function recentSessionQuality(){
+ const real=db.logs.filter(l=>!l.manualCompletion&&(l.exercises||[]).length).slice(-4);
+ if(!real.length)return {label:'Sin datos',good:0,bad:0};
+ let good=0,bad=0;
+ for(const l of real){
+  for(const e of l.exercises||[])for(const s of e.sets||[]){
+   if(!s.done)continue;
+   if(['ideal','easy'].includes(s.feel))good++;
+   if(s.feel==='max'||s.sensation==='sharp'||s.feel==='pain')bad++
+  }
+ }
+ return {label:bad>good*.35?'Muy exigente':good?'Controlada':'Aprendiendo',good,bad}
+}
+function currentPlanAdaptations(){
+ const sess=currentSession(),rows=sess.items.map((it,i)=>recommendation(it,i,sess));
+ const up=rows.filter(x=>x.mode==='SUBIR'),down=rows.filter(x=>['MODERAR','RECUPERACIÓN','DESCARGA','FATIGA LOCAL'].includes(x.mode));
+ const add=rows.filter(x=>x.volumeSignal==='add'),cut=rows.filter(x=>x.volumeSignal==='cut');
+ return {sess,rows,up,down,add,cut}
+}
+function stalledAccessories(){
+ return Object.keys(EX).filter(id=>!EX[id].primary&&logsFor(id).length>=3&&plateau(id)&&!recentSharpPain(id)).slice(0,5)
+}
+function adaptiveCoachData(){
+ const p=progress30d(),st=coachState(),ph=phaseInfo(),audit=programAuditData(),adapt=currentPlanAdaptations(),quality=recentSessionQuality(),read=avgRecentReadiness(4),stalled=stalledAccessories();
+ const dataLevel=db.logs.length<3?'CALIBRANDO':db.logs.length<8?'APRENDIENDO':'ADAPTANDO';
+ let verdict='Estoy aprendiendo de tus entrenamientos.',badge='CALIBRANDO',tone='learn',why='Todavía necesito más sesiones comparables para separar una tendencia real de un día aislado.';
+ if(p.logs.length>=3){
+   if(st.key==='deload'){verdict='Necesitás aflojar para volver a rendir.',badge='RECUPERAR',tone='recover',why='La recuperación viene baja en varias sesiones y el rendimiento también mostró señales de caída.'}
+   else if(st.key==='recover'){verdict='Vas bien, pero hoy conviene moderar.',badge='CONTROL',tone='steady',why='El progreso sigue en pie; solamente reduzco fatiga mientras recuperás.'}
+   else if(p.improved.length>=3&&p.consistency>=75){verdict='Vas muy bien.',badge='PROGRESANDO',tone='good',why=`Tenés mejoras medibles en ${p.improved.length} ejercicios y venís sosteniendo el plan.`}
+   else if(p.improved.length>=1){verdict='Estás progresando.',badge='EN CAMINO',tone='good',why=`Ya hay ${p.improved.length} mejora${p.improved.length===1?'':'s'} comparable${p.improved.length===1?'':'s'} en los últimos 30 días.`}
+   else if(p.consistency>=75){verdict='La base está sólida. Falta que aparezca la mejora.',badge='CONSOLIDANDO',tone='steady',why='La constancia es buena, pero todavía no veo suficiente mejora comparable como para cambiar todo el programa.'}
+   else{verdict='Primero necesitamos más continuidad.',badge='CONSTRUIR',tone='steady',why='Antes de tocar demasiado la rutina quiero más sesiones consistentes para aprender de tu respuesta real.'}
+ }
+ const expected=Math.max(1,Math.round((db.profile.days||3)*30/7));
+ const strengthLabel=p.improved.length>=3?'Subiendo':p.improved.length?'Mejorando':globalTrend()<-2?'Bajando':'Estable';
+ const consistencyLabel=p.consistency>=85?'Excelente':p.consistency>=70?'Buena':p.consistency>=50?'Irregular':'Baja';
+ const recoveryLabel=humanReadinessLabel(read);
+ const signals=[
+  {label:'CONSTANCIA',value:consistencyLabel,sub:`${p.logs.length} de ~${expected} sesiones en 30 días`,kind:p.consistency>=70?'good':'neutral'},
+  {label:'RENDIMIENTO',value:strengthLabel,sub:p.improved.length?`${p.improved.length} ejercicio${p.improved.length===1?'':'s'} mejorando`:'Todavía sin tendencia clara',kind:p.improved.length?'good':'neutral'},
+  {label:'RECUPERACIÓN',value:recoveryLabel,sub:quality.label==='Muy exigente'?'Las últimas series fueron muy exigentes':'Últimas sesiones bajo control',kind:read<58?'warn':'neutral'}
+ ];
+ const actions=[];
+ if(st.key==='deload')actions.push({icon:'↓',title:'Bajo la exigencia',text:'Recorto carga y series temporalmente para recuperar rendimiento.'});
+ else if(st.key==='recover')actions.push({icon:'≈',title:'Modero hoy',text:'Mantengo el estímulo, pero reduzco fatiga en la sesión actual.'});
+ else if(adapt.up.length)actions.push({icon:'↑',title:`Subo ${adapt.up.length} carga${adapt.up.length===1?'':'s'}`,text:`El rendimiento ganó el derecho a progresar en ${adapt.up.slice(0,2).map(x=>EX[x.id]?.name).join(' · ')}.`});
+ else actions.push({icon:'→',title:'No fuerzo una subida',text:'Mantengo cargas hasta que las repeticiones y el margen indiquen que conviene progresar.'});
+ if(adapt.cut.length)actions.push({icon:'−',title:'Recorto volumen',text:`Hay grupos donde la dosis o la recuperación no justifican más series.`});
+ else if(adapt.add.length)actions.push({icon:'+',title:'Añado volumen selectivo',text:`Solo agrego una serie donde hay estancamiento, buena recuperación y margen semanal.`});
+ else actions.push({icon:'=',title:'Mantengo el volumen',text:'No agrego series solo porque sí. Espero una señal útil antes de cambiar la dosis.'});
+ const rotated=adapt.sess?.blockRotation;
+ if(rotated)actions.push({icon:'↻',title:'Cambio un accesorio estancado',text:`Mantengo los ejercicios principales y roto ${EX[adapt.sess.rotationFrom]?.name||'un accesorio'} por ${EX[adapt.sess.rotationTo]?.name||'una variante equivalente'}.`});
+ else if(stalled.length)actions.push({icon:'⌁',title:'Vigilo un estancamiento',text:`${EX[stalled[0]]?.name||'Un accesorio'} está estable. Solo lo cambiaré si recuperación y contexto lo justifican.`});
+ else actions.push({icon:'✓',title:'Mantengo los ejercicios',text:'No cambio movimientos que siguen dando progreso medible.'});
+ let next=`Próxima sesión: ${adapt.sess.name}. `;
+ if(adapt.up.length)next+=`Hay ${adapt.up.length} progresión${adapt.up.length===1?'':'es'} de carga preparada${adapt.up.length===1?'':'s'}.`;
+ else if(st.key==='recover'||st.key==='deload')next+='La prioridad es salir mejor de la sesión, no demostrar fuerza.';
+ else next+='La prioridad es sumar repeticiones limpias y dejar que el historial decida la próxima subida.';
+ return {p,st,ph,audit,adapt,dataLevel,verdict,badge,tone,why,signals,actions,next,recovery:read}
+}
+function renderProgressCoach(){
+ const d=adaptiveCoachData(),best=d.p.improved[0];
+ $('progressVerdictTitle').textContent=d.verdict;
+ $('progressVerdictBadge').textContent=d.badge;
+ $('progressVerdictBadge').className=`progressVerdictBadge ${d.tone}`;
+ $('progressVerdictText').textContent=d.why;
+ $('progressSimpleSignals').innerHTML=d.signals.map(s=>`<div class="simpleSignal ${s.kind}"><span>${s.label}</span><b>${s.value}</b><small>${s.sub}</small></div>`).join('');
+ $('coachBrainData').textContent=d.dataLevel;
+ $('coachBrainTitle').textContent=d.dataLevel==='CALIBRANDO'?'Estoy construyendo tu referencia':d.st.key==='deload'?'Estoy protegiendo tu próximo progreso':'Estoy ajustando el plan con tu historial';
+ $('coachBrainText').textContent=d.dataLevel==='CALIBRANDO'?'Todavía hago pocos cambios automáticos porque prefiero aprender primero tus cargas y respuesta real.':'No cambio la rutina por novedad: cada ajuste necesita una señal de rendimiento, recuperación o dosis.';
+ $('coachBrainActions').innerHTML=d.actions.slice(0,3).map(a=>`<div class="brainAction"><span>${a.icon}</span><div><b>${a.title}</b><small>${a.text}</small></div></div>`).join('');
+ $('coachBrainNext').innerHTML=`<span>PRÓXIMA DECISIÓN</span><b>${d.next}</b>`;
+ // Compatibilidad con elementos internos anteriores.
+ $('progressCoachTitle').textContent=d.verdict;$('progressCoachText').textContent=d.why;
+ $('progressInsightGrid').innerHTML='';$('progressBestMove').innerHTML=best?`${best.name} · ${best.headline}`:'';
+}
+function renderCurrentBlock(){
+ const ph=phaseInfo(),card=$('currentBlockCard');if(!card)return;
+ if(ph.kind==='bridge'){
+   const done=bridgeDone(),need=bridgeNeedFor(),pct=need?done/need:0;
+   $('currentBlockTitle').textContent='Readaptación';
+   $('currentBlockWeek').textContent=`${done}/${need}`;
+   $('currentBlockText').textContent='Primero recupero tolerancia y calibro tus cargas actuales. No tiene sentido apurarte al bloque principal.';
+   $('currentBlockFill').style.width=`${Math.max(4,Math.round(pct*100))}%`;
+   $('currentBlockLearn').innerHTML=`<span>QUÉ ESTOY APRENDIENDO</span><b>Cargas actuales · tolerancia · respuesta al esfuerzo</b>`;
+   return
+ }
+ const week=ph.week,pct=week/6,d=adaptiveCoachData();
+ $('currentBlockTitle').textContent=`Bloque ${ph.cycle} · ${simplePhaseName(ph)}`;
+ $('currentBlockWeek').textContent=`SEMANA ${week}/6`;
+ $('currentBlockText').textContent=simplePhaseReason(ph);
+ $('currentBlockFill').style.width=`${Math.round(pct*100)}%`;
+ let learn='Cómo respondés a la dosis actual.';
+ if(d.p.improved.length>=2)learn='Qué ejercicios están produciendo las mejores mejoras.';
+ else if(d.st.key==='recover'||d.st.key==='deload')learn='Cuánta fatiga podés tolerar sin perder rendimiento.';
+ else if(stalledAccessories().length)learn='Si el estancamiento necesita más tiempo, menos fatiga o una variante nueva.';
+ $('currentBlockLearn').innerHTML=`<span>QUÉ ESTÁ EVALUANDO EL COACH</span><b>${learn}</b>`
+}
+
 function buildPhaseLogs(){const all=returnLogs(),skip=bridgeRequired()?bridgeNeedFor():0;return all.slice(skip)}
 function completedCycles(){const size=Math.max(1,(db.profile.days||3)*6);return Math.floor(buildPhaseLogs().length/size)}
 function cycleLogs(cycle){const size=Math.max(1,(db.profile.days||3)*6),all=buildPhaseLogs(),start=(cycle-1)*size;return all.slice(start,start+size)}
 function cycleExerciseImprovements(logs){const ids=[...new Set(logs.flatMap(l=>(l.exercises||[]).map(e=>e.id)))],out=[];for(const id of ids){const exp=logs.map(l=>({l,e:(l.exercises||[]).find(e=>e.id===id)})).filter(x=>x.e);if(exp.length<2)continue;const first=bestSetE1RM(exp[0].e),last=bestSetE1RM(exp.at(-1).e);if(!first||!last||last.value<=first.value*1.005)continue;const pct=(last.value/first.value-1)*100,dw=last.weight-first.weight,dr=last.reps-first.reps,headline=dw>0?formatWeightDelta(id,dw):Math.abs(dw)<.001&&dr>0?`+${dr} reps`:`+${pct.toFixed(1)}%`;out.push({id,name:EX[id]?.name||id,headline,pct,detail:`${formatWeight(id,last.weight)} × ${last.reps}`})}return out.sort((a,b)=>b.pct-a.pct)}
 function blockReviewData(){const cycle=completedCycles();if(cycle<1)return null;const logs=cycleLogs(cycle),changes=cycleExerciseImprovements(logs),sets=logs.reduce((a,l)=>a+(+l.completedSets||0),0),volume=logs.reduce((a,l)=>a+(+l.volume||calcLogVolume(l)),0);return {cycle,logs,changes,sets,volume}}
-function renderBlockReview(){const card=$('blockReviewCard'),b=blockReviewData();if(!card)return;if(!b){card.classList.add('hidden');return}card.classList.remove('hidden');$('blockReviewTitle').textContent=`Bloque ${b.cycle} terminado`;$('blockReviewText').textContent=b.changes.length?`Cerraste seis semanas con ${b.changes.length} mejora${b.changes.length===1?'':'s'} medible${b.changes.length===1?'':'s'}.`:'Cerraste las seis semanas. El próximo bloque sigue usando tus cargas y respuestas reales.';$('blockReviewStats').innerHTML=`<div><strong>${b.logs.length}</strong><span>sesiones</span></div><div><strong>${b.sets}</strong><span>series</span></div><div><strong>${(b.volume/1000).toFixed(1)}</strong><span>toneladas</span></div>`;$('blockReviewBest').innerHTML=b.changes.length?b.changes.slice(0,3).map((x,i)=>`<div><span>${i===0?'MEJOR CAMBIO':'MEJORA'}</span><b>${x.name}</b><strong>${x.headline}</strong><small>${x.detail}</small></div>`).join(''):`<div><span>LECTURA</span><b>Consolidación</b><small>No todos los bloques necesitan récords para haber servido.</small></div>`;const ph=phaseInfo(),st=coachState(),decision=b.changes.length>=3?'Mantengo la estructura principal: hubo progreso medible y no conviene cambiar por entretenimiento.':st.key==='recover'||st.key==='deload'?'El próximo bloque empieza más conservador: la recuperación reciente pesa más que agregar volumen.':b.changes.length===0?'No hubo una mejora clara en las métricas principales. Mantengo los básicos y permito rotación selectiva de accesorios estancados.':'Hubo progreso parcial. Mantengo los ejercicios ancla y ajusto carga/volumen antes de cambiar movimientos.';$('blockReviewDecision').innerHTML=`<span>DECISIÓN DEL COACH</span><b>${decision}</b>`;$('blockReviewNext').innerHTML=`<span>SIGUIENTE BLOQUE</span><b>${ph.kind==='build'?`Bloque ${ph.cycle} · ${ph.name}`:'Después de la vuelta empieza tu bloque principal.'}</b><small>Iron Coach continúa automáticamente con tu historial. No necesitás reconstruir la rutina.</small>`}
+function blockAdherence(logs){
+ const expected=Math.max(1,(db.profile.days||3)*6);
+ return Math.min(100,Math.round(logs.filter(l=>!l.extraSession).length/expected*100))
+}
+function blockAverageReadiness(logs){
+ const vals=logs.map(l=>+l.readiness).filter(Boolean);
+ return vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:70
+}
+function blockDecisionData(b){
+ const consistency=blockAdherence(b.logs),read=blockAverageReadiness(b.logs),changes=b.changes.length,stalled=stalledAccessories();
+ let result='CONSOLIDASTE',grade='B',summary='El bloque sirvió para construir una base más estable.';
+ if(changes>=3&&consistency>=75){result='PROGRESASTE',grade='A',summary='Hubo progreso medible y suficiente continuidad. No conviene cambiar lo que está funcionando.'}
+ else if(changes>=1){result='AVANZASTE',grade='B+',summary='Hubo progreso parcial. Mantengo los pilares y ajusto solo donde hace falta.'}
+ else if(read<60){result='ACUMULASTE FATIGA',grade='C',summary='No veo una mejora clara y la recuperación fue baja. El próximo bloque empieza más conservador.'}
+ else if(consistency<55){result='FALTÓ CONTINUIDAD',grade='C',summary='No hay suficientes exposiciones consistentes para juzgar el programa con confianza.'}
+ let keep='Mantengo ejercicios principales y la estructura general.';
+ let adjust='Mantengo la dosis actual mientras el rendimiento sea estable.';
+ let rotate='No cambio ejercicios por aburrimiento.';
+ if(read<60)adjust='Empiezo con menos fatiga y vuelvo a subir cuando el rendimiento se recupere.';
+ else if(changes===0&&consistency>=65)adjust='Antes de sumar volumen, reviso qué grupos están estancados y bien recuperados.';
+ if(stalled.length&&changes<3)rotate=`Puedo rotar un accesorio estancado como ${EX[stalled[0]]?.name||'una variante'}, pero mantengo los básicos.`;
+ return {consistency,read,result,grade,summary,keep,adjust,rotate}
+}
+function renderBlockReview(){
+ const card=$('blockReviewCard'),b=blockReviewData();if(!card)return;
+ if(!b){card.classList.add('hidden');return}
+ card.classList.remove('hidden');
+ const d=blockDecisionData(b);
+ $('blockReviewTitle').textContent=`Bloque ${b.cycle} · ${d.result}`;
+ $('blockReviewGrade').textContent=d.grade;
+ $('blockReviewText').textContent=d.summary;
+ $('blockReviewStats').innerHTML=`<div><strong>${d.consistency}%</strong><span>constancia</span></div><div><strong>${b.changes.length}</strong><span>mejoras claras</span></div><div><strong>${humanReadinessLabel(d.read)}</strong><span>recuperación</span></div>`;
+ $('blockReviewBest').innerHTML=b.changes.length?`<div class="blockWinsTitle">LO MEJOR DEL BLOQUE</div>${b.changes.slice(0,3).map((x,i)=>`<div class="blockWin"><span>${i+1}</span><div><b>${x.name}</b><small>${x.headline} · ${x.detail}</small></div></div>`).join('')}`:`<div class="blockNoWin"><b>No hubo una mejora lo bastante clara como para venderte humo.</b><span>Eso no significa que el bloque haya sido inútil: ahora el Coach tiene más información para decidir.</span></div>`;
+ $('blockReviewDecision').innerHTML=`<span>DECISIÓN DEL COACH</span><div class="blockDecisionList"><div><b>MANTENGO</b><small>${d.keep}</small></div><div><b>AJUSTO</b><small>${d.adjust}</small></div><div><b>CAMBIO SOLO SI SUMA</b><small>${d.rotate}</small></div></div>`;
+ const ph=phaseInfo();
+ $('blockReviewNext').innerHTML=`<span>SIGUIENTE BLOQUE</span><b>${ph.kind==='build'?`Bloque ${ph.cycle} · ${simplePhaseName(ph)}`:'Plan principal'}</b><small>Las cargas, preferencias y respuestas que aprendí quedan guardadas. El siguiente bloque no empieza de cero.</small>`
+}
 
 function bodyweightTrend21(){
  const rows=(db.bodyweightLogs||[]).filter(x=>Date.now()-new Date(x.date).getTime()<=21*86400000);
@@ -4414,7 +4799,7 @@ function renderPhysicalGoal(){
  $('physicalGoalText').textContent=days!==null&&days<0?'La fecha objetivo ya pasó. Podés actualizarla en Configuración.':trend===null?'Necesito más registros de peso para leer una tendencia.':`Tendencia reciente: ${trend>0?'+':''}${trend.toFixed(2)} kg/semana aprox. La balanza es una tendencia, no una medición directa de músculo.`
 }
 
-function renderProgress(){renderPhysicalGoal();if($('monthlyRecapLabel'))$('monthlyRecapLabel').textContent=new Date().toLocaleDateString('es-AR',{month:'long'});$('totalSessions').textContent=db.logs.length;$('adherenceKpi').textContent=adherence()+'%';$('totalVolume').textContent=(calcTotalVolume()/1000).toFixed(1);renderProgressCoach();renderBlockReview();$('currentBW').textContent=(+db.profile.weight||75).toFixed(1)+' kg';const bw=db.bodyweightLogs;if(bw.length>=2){const d=bw.at(-1).weight-bw[0].weight;$('bwTrend').textContent=`Cambio total: ${d>=0?'+':''}${d.toFixed(1)} kg.`}else $('bwTrend').textContent='Sumá registros para ver tendencia.';const prev=$('chartExercise').value;$('chartExercise').innerHTML=Object.entries(EX).map(([id,x])=>`<option value="${id}">${x.name}</option>`).join('');if(prev&&EX[prev])$('chartExercise').value=prev;renderComeback();drawStrengthChart();drawMuscleChart();drawVolumeChart();drawReadinessChart();drawBWChart();const ps=Object.entries(db.prs).sort((a,b)=>(b[1].e1rm||0)-(a[1].e1rm||0));$('prsList').innerHTML=ps.length?ps.slice(0,12).map(([id,p])=>`<div class="history usefulHistory"><div><b>${p.name}</b><strong>${formatWeight(id,p.weight)} × ${p.reps}</strong></div><span>${fmtDate(p.date)}</span></div>`).join(''):'Todavía no hay mejores marcas.';$('historyList').innerHTML=db.logs.length?[...db.logs].sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,20).map(l=>`<div class="history usefulHistory${l.manualCompletion?' manualHistory':''}"><div><b>${l.sessionName}</b><strong>${l.manualCompletion?'Marcada como hecha · sin cargas registradas':`${l.completedSets||0} series · ${l.durationMin||0} min`}</strong></div><span>${fmtDate(l.date)} · ${l.manualCompletion?'registro manual':(l.readiness?readinessLabelFromScore(l.readiness):'—')}</span><button class="btn ghost slim" data-delete-log="${l.id}">Corregir</button></div>`).join(''):'Sin entrenamientos registrados.'}
+function renderProgress(){renderPhysicalGoal();renderCurrentBlock();if($('monthlyRecapLabel'))$('monthlyRecapLabel').textContent=new Date().toLocaleDateString('es-AR',{month:'long'});$('totalSessions').textContent=db.logs.length;$('adherenceKpi').textContent=adherence()+'%';$('totalVolume').textContent=(calcTotalVolume()/1000).toFixed(1);renderProgressCoach();renderBlockReview();$('currentBW').textContent=(+db.profile.weight||75).toFixed(1)+' kg';const bw=db.bodyweightLogs;if(bw.length>=2){const d=bw.at(-1).weight-bw[0].weight;$('bwTrend').textContent=`Cambio total: ${d>=0?'+':''}${d.toFixed(1)} kg.`}else $('bwTrend').textContent='Sumá registros para ver tendencia.';const prev=$('chartExercise').value;$('chartExercise').innerHTML=Object.entries(EX).map(([id,x])=>`<option value="${id}">${x.name}</option>`).join('');if(prev&&EX[prev])$('chartExercise').value=prev;renderComeback();drawStrengthChart();drawMuscleChart();drawVolumeChart();drawReadinessChart();drawBWChart();const ps=Object.entries(db.prs).sort((a,b)=>(b[1].e1rm||0)-(a[1].e1rm||0));$('prsList').innerHTML=ps.length?ps.slice(0,12).map(([id,p])=>`<div class="history usefulHistory"><div><b>${p.name}</b><strong>${formatWeight(id,p.weight)} × ${p.reps}</strong></div><span>${fmtDate(p.date)}</span></div>`).join(''):'Todavía no hay mejores marcas.';$('historyList').innerHTML=db.logs.length?[...db.logs].sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,20).map(l=>`<div class="history usefulHistory${l.manualCompletion?' manualHistory':''}"><div><b>${l.sessionName}</b><strong>${l.manualCompletion?'Marcada como hecha · sin cargas registradas':`${l.completedSets||0} series · ${l.durationMin||0} min`}</strong></div><span>${fmtDate(l.date)} · ${l.manualCompletion?'registro manual':(l.readiness?readinessLabelFromScore(l.readiness):'—')}</span><button class="btn ghost slim" data-delete-log="${l.id}">Corregir</button></div>`).join(''):'Sin entrenamientos registrados.'}
 
 
 let crestSeq=0;
