@@ -1070,6 +1070,491 @@ body{letter-spacing:-.01em}
 .day:not(.done){background:#090d12!important;border-color:#202733!important}
 .day:not(.done) span{color:#687485!important}
 .day.today:not(.done){border-color:#50458a!important;background:#111020!important}
+
+/* ============================================================
+   IRON COACH 6.9 SIGNATURE UI
+   A calmer commercial mobile design layer.
+   ============================================================ */
+:root{
+ --bg:#090a0d;
+ --panel:#111318;
+ --panel2:#151820;
+ --line:#242934;
+ --text:#f5f6f8;
+ --muted:#8d96a5;
+ --soft:#bec4ce;
+ --accent:#7668ff;
+ --accent2:#9b91ff;
+ --green:#56cfa2;
+ --amber:#dfb45e;
+ --red:#f07688;
+ --premiumRadius:20px;
+}
+html{background:var(--bg)}
+body{
+ background:linear-gradient(180deg,#090a0d 0,#0a0b0e 100%)!important;
+ font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",sans-serif!important;
+ letter-spacing:-.012em;
+}
+.app{max-width:680px!important;padding-left:16px!important;padding-right:16px!important;padding-bottom:calc(104px + var(--safeBottom))!important}
+.simpleTop{min-height:58px!important;padding:3px 1px 13px!important}
+.productBrand{display:flex!important;align-items:center!important;gap:9px!important;font-size:15px!important;letter-spacing:.25px!important}
+.brandMark{width:27px;height:27px;border-radius:9px;background:#f1f2f5;color:#0b0c0f;display:grid;place-items:center;font-size:12px;font-weight:1000;box-shadow:0 1px 0 rgba(255,255,255,.35) inset}
+.productBrand b{color:#a69dff!important}
+.profileTopBtn,.helpbtn{
+ width:40px!important;height:40px!important;min-height:40px!important;border:1px solid #242933!important;
+ background:#111318!important;border-radius:14px!important;color:#c5cad3!important;box-shadow:none!important
+}
+
+.card{
+ border-radius:20px!important;
+ background:#111318!important;
+ border:1px solid #222731!important;
+ box-shadow:0 8px 24px rgba(0,0,0,.12)!important;
+ padding:17px!important;
+ margin:10px 0!important
+}
+.hero{background:#12151b!important}
+.eyebrow{font-size:9px!important;letter-spacing:1.35px!important;color:#818b9a!important}
+.title{letter-spacing:-.75px!important}
+
+/* HOME: one clear decision */
+.premiumHomeHero{
+ padding:19px!important;
+ border:1px solid #2b303c!important;
+ background:
+ linear-gradient(180deg,rgba(118,104,255,.075),transparent 42%),
+ #111318!important;
+ box-shadow:0 16px 42px rgba(0,0,0,.18)!important
+}
+.homeTopLine{margin-bottom:20px!important}
+.premiumHomeHero .pill{background:#161922!important;border-color:#292e39!important;color:#aeb6c3!important}
+.homeEyebrow{color:#988cff!important}
+.premiumHomeHero .homeTitle{font-size:35px!important;line-height:1.01!important;margin:8px 0 10px!important;max-width:570px!important}
+.premiumHomeHero .homeCoachLine{font-size:14px!important;line-height:1.46!important;color:#9ca5b3!important;margin-bottom:17px!important}
+.homeReadyInline{
+ margin:0!important;padding:13px!important;border-radius:17px!important;
+ background:#0c0e12!important;border:1px solid #20242d!important
+}
+.readyInlineHead small{color:#727c8b!important}
+.readyInlineHead b{font-size:14px!important}
+.premiumQuick{gap:7px!important}
+.premiumQuick .quickBtn{
+ min-height:52px!important;border-radius:13px!important;
+ background:#12151b!important;border:1px solid #272c36!important;
+ font-size:13px!important;color:#bec5cf!important
+}
+.premiumQuick .quickBtn i{font-size:13px!important}
+.premiumQuick .quickBtn.selected{
+ background:#1b1830!important;border-color:#5e54b8!important;color:#fff!important;
+ box-shadow:0 0 0 1px rgba(118,104,255,.12) inset!important
+}
+.premiumReadinessMore>summary{font-size:11px!important;min-height:37px!important}
+.productMiniStats{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;margin:11px 0!important}
+.productMiniStats>div{
+ padding:10px 12px!important;border-radius:14px!important;
+ background:#0c0e12!important;border:1px solid #20242d!important
+}
+.productMiniStats span{font-size:8px!important;letter-spacing:1px!important;color:#6e7887!important}
+.productMiniStats strong{font-size:18px!important;color:#eceef2!important}
+.trainNowBtn{
+ display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+ min-height:67px!important;border-radius:16px!important;
+ background:#7869ff!important;box-shadow:0 12px 28px rgba(92,77,211,.25)!important
+}
+.trainNowBtn span{font-size:17px!important;font-weight:950!important}
+.trainNowBtn small{display:block!important;font-size:9px!important;font-weight:750!important;opacity:.72!important;margin-top:2px!important}
+
+.productTrustCard,.premiumCoachNow,.frequencySignalCard{box-shadow:none!important}
+.productTrustCard>summary{min-height:54px!important}
+.productTrustIcon{background:#171923!important;border-color:#292e3a!important}
+.productTrustGrid{grid-template-columns:1fr!important;gap:5px!important}
+.productTrustGrid>div{background:#0c0e12!important;border-color:#20242c!important;padding:9px 11px!important}
+
+.premiumCoachNow{padding:15px!important}
+.premiumCoachNow h2{font-size:20px!important}
+.premiumCoachNow .weeklyCoachStats>div{background:#0c0e12!important;border:1px solid #20242d!important}
+.premiumCoachNow .weeklyCoachNext{background:#0c0e12!important;border-color:#20242d!important}
+
+.premiumMoreHome{
+ border-radius:18px!important;background:#0d0f13!important;border-color:#20242c!important
+}
+.premiumMoreHome>summary{min-height:62px!important}
+.premiumMoreHome>summary small{color:#687383!important}
+.premiumMoreHome>summary b{font-size:14px!important}
+.premiumMoreInside{padding:0 7px 7px!important}
+.premiumMoreInside>.card{background:#101217!important;border-color:#20242c!important;box-shadow:none!important}
+.foldIcon{font-size:9px!important;letter-spacing:.6px!important;color:#9288e8!important;background:#171823!important;border:1px solid #292c39!important}
+
+/* Floating commercial navigation */
+.bottom{
+ left:10px!important;right:10px!important;bottom:calc(8px + var(--safeBottom))!important;
+ background:rgba(17,19,24,.94)!important;border:1px solid #262b35!important;
+ border-radius:22px!important;padding:6px!important;box-shadow:0 18px 45px rgba(0,0,0,.42)!important;
+ backdrop-filter:blur(22px)!important
+}
+.bottomIn{grid-template-columns:1fr 1fr 1.18fr 1fr 1fr!important;gap:2px!important}
+.navbtn{min-height:55px!important;padding:6px 1px!important;border-radius:15px!important;font-size:9px!important;color:#727c8b!important}
+.navbtn span{font-size:17px!important}
+.navbtn.active{background:#1a1d24!important;color:#f0f2f5!important;box-shadow:none!important}
+.trainNav{
+ margin:-15px 3px 3px!important;min-height:65px!important;border-radius:19px!important;
+ background:#7668ff!important;color:#fff!important;
+ border:5px solid #0b0c0f!important;box-shadow:0 12px 27px rgba(89,76,208,.30)!important
+}
+.trainNav.active{background:#7668ff!important;color:#fff!important;box-shadow:0 12px 27px rgba(89,76,208,.30)!important}
+.trainNav span{font-size:19px!important}
+
+/* Immersive workout: the workout itself becomes the app */
+body.trainingMode .simpleTop,
+body.trainingMode .bottom{display:none!important}
+body.trainingMode .app{
+ max-width:650px!important;
+ padding-top:calc(10px + var(--safeTop))!important;
+ padding-bottom:calc(24px + var(--safeBottom))!important
+}
+body.trainingMode #train{min-height:calc(100vh - var(--safeTop) - var(--safeBottom))}
+.productTrainHero{
+ position:sticky!important;top:calc(6px + var(--safeTop))!important;z-index:18!important;
+ padding:12px 13px!important;margin:0 0 8px!important;
+ border-radius:16px!important;background:rgba(15,17,22,.94)!important;
+ backdrop-filter:blur(18px)!important;box-shadow:0 10px 28px rgba(0,0,0,.22)!important
+}
+.productTrainHero .title{font-size:19px!important;margin:3px 0!important}
+.productTrainHero .eyebrow{font-size:8px!important}
+.productTrainHero .timePill{font-size:9px!important;padding:5px 8px!important}
+.trainExit{min-height:36px!important;padding:7px 10px!important;border-radius:11px!important;font-size:10px!important}
+
+#gymProgress{
+ border:0!important;background:transparent!important;padding:7px 2px 10px!important;margin:0!important
+}
+#gymProgressText{font-size:12px!important}
+#gymProgressSub{font-size:10px!important;color:#7e8998!important}
+#gymProgress .bar{height:4px!important;border:0!important;background:#1b1e25!important}
+#gymProgress .bar i{background:#7668ff!important}
+#gymProgress .rirHelp{min-height:32px!important;border-radius:10px!important;background:#111318!important;border:1px solid #252a34!important}
+
+.gymSimpleExercise{
+ margin:0!important;padding:17px!important;border-radius:22px!important;
+ border:1px solid #282d37!important;background:#111318!important;
+ box-shadow:0 18px 46px rgba(0,0,0,.20)!important
+}
+.simpleExerciseHead{margin-bottom:14px!important}
+.simpleExerciseHead .muscle{font-size:9px!important;color:#727c8a!important;letter-spacing:1.1px!important}
+.simpleExerciseHead .exname{font-size:29px!important;line-height:1.03!important;letter-spacing:-.7px!important}
+.simpleMethodBadge{background:#171522!important;border-color:#302b46!important;color:#aaa0d9!important}
+.doNowBox{
+ padding:15px!important;border-radius:17px!important;margin:5px 0 13px!important;
+ background:#0c0e12!important;border:1px solid #232832!important
+}
+.nowSetKicker{font-size:9px!important;color:#9288e8!important}
+.nowSetMain{font-size:24px!important;margin-top:6px!important}
+.nowSetSub{font-size:12px!important;color:#8f99a7!important;margin-top:5px!important}
+.unknownWeightNote{
+ background:#17140d!important;border-color:#3c321c!important;color:#ccb77d!important;
+ font-size:10px!important;padding:9px 10px!important
+}
+.simpleSetFields{gap:8px!important}
+.simpleSetFields .setField label{
+ min-height:31px!important;font-size:10px!important;color:#8f99a7!important;letter-spacing:.5px!important
+}
+.simpleSetFields .setField label small{font-size:8px!important}
+.simpleSetFields .setField input{
+ min-height:76px!important;font-size:32px!important;border-radius:15px!important;
+ background:#090b0f!important;border:1px solid #292e38!important
+}
+.gymSimpleExercise .donebtn{
+ min-height:64px!important;border-radius:16px!important;font-size:16px!important;
+ background:#7668ff!important;box-shadow:0 10px 24px rgba(89,76,208,.22)!important
+}
+.oneSetRule{font-size:10px!important;color:#6f7988!important}
+.gymOptions,.gymTechnique{border-color:#222731!important;background:#0d0f13!important;border-radius:14px!important}
+.gymOptions summary,.gymTechnique summary{min-height:44px!important;font-size:11px!important;color:#828d9b!important}
+
+/* Feedback = a clean decision sheet */
+.feedbackModal{background:rgba(0,0,0,.72)!important;backdrop-filter:blur(7px)!important}
+.premiumFeedbackPanel{
+ background:#111318!important;border:1px solid #292e38!important;
+ border-radius:24px 24px 0 0!important;padding:19px 16px calc(20px + var(--safeBottom))!important
+}
+.feedbackTitle{font-size:15px!important;color:#8994a2!important}
+.premiumFeedbackQuestion b{font-size:22px!important;letter-spacing:-.3px!important}
+.premiumFeedbackQuestion small{color:#7f8998!important}
+.premiumRirGrid{gap:6px!important}
+.premiumRirGrid .feelBtn{
+ border-radius:15px!important;min-height:82px!important;background:#0c0e12!important;border:1px solid #252a34!important
+}
+.premiumRirGrid .feelBtn strong{font-size:28px!important}
+.premiumRirGrid .feelBtn.selected{background:#1b1830!important;border-color:#6258c0!important;box-shadow:none!important}
+.feedbackOptional{background:#0c0e12!important;border-color:#222731!important}
+.premiumFeedbackPanel .saveSetFeedback{background:#7668ff!important;box-shadow:none!important}
+
+/* Plan and progress become readable documents, not dashboards */
+.planHero,.progressHero,.trophyHero,.rankHero{
+ background:#111318!important;border-color:#252a34!important;padding:18px!important
+}
+.planHero .title,.progressHero .title{font-size:31px!important}
+.progressKpis{gap:6px!important}
+.progressKpis .kpi{
+ background:#0c0e12!important;border:1px solid #222731!important;border-radius:14px!important;
+ padding:11px!important
+}
+.progressKpis .kpi strong{font-size:20px!important}
+.progressKpis .kpi span{font-size:9px!important;color:#737e8d!important}
+.progressCoachCard,.blockReviewCard,.monthRecapCard{box-shadow:none!important}
+.progressFold,.planFold{box-shadow:none!important}
+.progressFold>summary,.planFold>summary{min-height:58px!important}
+
+/* Settings = premium preferences sheet */
+.sheet{
+ background:#0e1014!important;border-color:#292e38!important
+}
+.profileSheet{border-radius:25px 25px 0 0!important}
+.settingsOverview{
+ background:#111318!important;border:1px solid #252a34!important;border-radius:18px!important;padding:13px!important
+}
+.profileAvatar{
+ width:44px!important;height:44px!important;border-radius:14px!important;background:#f0f1f4!important;
+ color:#0c0d10!important;font-size:11px!important;font-weight:1000!important
+}
+.settingsDaysBadge{background:#0c0e12!important;border-color:#242934!important}
+.settingFold{
+ background:#111318!important;border:1px solid #232832!important;border-radius:16px!important;margin:7px 0!important
+}
+.settingFold>summary{min-height:61px!important;padding:0 13px!important}
+.settingIcon{
+ width:34px!important;height:34px!important;border-radius:11px!important;background:#171a21!important;
+ border:1px solid #292e38!important;color:#9489e5!important;font-size:9px!important
+}
+.settingFoldBody{padding:1px 13px 13px!important}
+.settingbox{background:#0c0e12!important;border-color:#222731!important;border-radius:14px!important}
+input,select{background:#090b0f!important;border-color:#282d37!important;border-radius:13px!important}
+
+/* Onboarding = product, not presentation deck */
+.onboarding{background:#090a0d!important}
+.obwrap{max-width:580px!important;padding-left:18px!important;padding-right:18px!important}
+.welcomeIntro{text-align:left!important}
+.welcomeBadge{font-size:10px!important;letter-spacing:1.3px!important;color:#9a91ef!important}
+.productIntroVisual{
+ height:120px!important;margin:18px 0!important;border-radius:22px!important;
+ background:#111318!important;border:1px solid #252a34!important;overflow:hidden!important
+}
+.productIntroVisual .introGlow,.productIntroVisual .floatChip{display:none!important}
+.productIntroVisual .introPhone{
+ transform:scale(.73)!important;box-shadow:none!important;border-color:#303641!important;background:#090b0f!important
+}
+.welcomeTitleBig{font-size:37px!important;line-height:1!important;max-width:520px!important}
+.welcomeLead{font-size:14px!important;line-height:1.5!important;max-width:520px!important}
+.welcomeFeatureGrid{grid-template-columns:1fr!important;gap:6px!important}
+.welcomeFeature{background:#111318!important;border-color:#252a34!important;border-radius:15px!important;padding:11px 12px!important}
+.obstep .title{font-size:32px!important}
+.choiceGrid button,.priorityGrid button{
+ border-radius:15px!important;background:#111318!important;border-color:#252a34!important;min-height:66px!important
+}
+.choiceGrid button.selected,.priorityGrid button.selected{
+ background:#1b1830!important;border-color:#6258c0!important;box-shadow:none!important
+}
+.obnav .btn{min-height:58px!important;border-radius:16px!important}
+
+/* Accessibility / interaction polish */
+button,input,select,summary{outline:none}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{
+ box-shadow:0 0 0 3px rgba(118,104,255,.28)!important;border-color:#7668ff!important
+}
+button{min-width:44px}
+@media(max-width:390px){
+ .app{padding-left:12px!important;padding-right:12px!important}
+ .premiumHomeHero .homeTitle{font-size:31px!important}
+ .simpleExerciseHead .exname{font-size:26px!important}
+ .bottom{left:7px!important;right:7px!important}
+ .navbtn{font-size:8px!important}
+ .productIntroVisual{height:105px!important}
+ .welcomeTitleBig{font-size:33px!important}
+}
+
+
+/* ============================================================
+   6.9 SIGNATURE UI — titanium black + champagne
+   ============================================================ */
+:root{
+ --bg:#070809;--panel:#0d0f12;--panel2:#12151a;--panel3:#171b21;
+ --line:#252a31;--lineSoft:#1b1f25;--text:#f4f1ea;--muted:#8f969f;
+ --soft:#c5c7ca;--accent:#c7a96b;--accent2:#e3cf9d;--accentDim:#6a5938;
+ --green:#68d5aa;--amber:#dcb76b;--red:#ef7788;--violet:#8b7bff;
+}
+html,body{background:#070809!important}
+body{
+ background:
+ radial-gradient(800px 480px at 50% -280px,rgba(199,169,107,.10),transparent 68%),
+ linear-gradient(180deg,#070809,#090a0c 42%,#070809)!important;
+ color:var(--text)!important;
+}
+body::before{
+ content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+ background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+ background-size:34px 34px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 72%);
+}
+body::after{
+ content:"";position:fixed;z-index:-1;pointer-events:none;width:420px;height:420px;border-radius:50%;
+ left:50%;top:-300px;transform:translateX(-50%);
+ background:radial-gradient(circle,rgba(215,185,121,.14),rgba(215,185,121,.025) 43%,transparent 72%);
+ filter:blur(14px);
+}
+.app{max-width:690px!important}
+
+/* Brand */
+.productBrand{gap:10px!important}
+.brandMark{
+ position:relative!important;width:30px!important;height:30px!important;border-radius:10px!important;
+ background:linear-gradient(145deg,#f4e7c6 0%,#c6a667 42%,#92773f 100%)!important;
+ box-shadow:0 0 0 1px rgba(255,238,195,.22) inset,0 6px 16px rgba(0,0,0,.30)!important
+}
+.brandMark::before{content:"";position:absolute;inset:1px;border-radius:9px;background:linear-gradient(145deg,rgba(255,255,255,.28),transparent 44%)}
+.brandMark i{width:8px;height:13px;border-radius:2px;border-left:2px solid #16130d;border-right:2px solid #16130d;transform:skew(-7deg)}
+.brandWords{display:flex;flex-direction:column;line-height:1;font-size:14px!important;letter-spacing:.7px!important}
+.brandWords b{color:#d9bd7f!important}
+.brandWords small{font-size:6.5px!important;letter-spacing:1.65px!important;color:#5f646c!important;margin-top:4px!important;font-weight:800!important}
+.profileTopBtn,.helpbtn{border-color:#24282e!important;background:rgba(14,16,19,.86)!important;color:#d1c7b1!important;box-shadow:0 7px 18px rgba(0,0,0,.20)!important}
+
+/* Surfaces */
+.card{
+ background:linear-gradient(180deg,rgba(255,255,255,.018),transparent 40%),#0d0f12!important;
+ border:1px solid #22272d!important;
+ box-shadow:0 16px 36px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.018)!important
+}
+.card::before{
+ content:"";position:absolute;left:18px;right:18px;top:0;height:1px;
+ background:linear-gradient(90deg,transparent,rgba(227,207,157,.20),transparent);
+ opacity:.7;pointer-events:none
+}
+.eyebrow{color:#8f969f!important}
+.pill{background:#12151a!important;border-color:#282d34!important;color:#a9afb7!important}
+.pill.accent{color:#d7c18d!important;border-color:#4d422a!important;background:linear-gradient(180deg,#18150f,#12100c)!important}
+.pill.good{color:#8dddbb!important;border-color:#2a5444!important;background:#0d1b16!important}
+
+/* Signature details */
+.signatureLine,.coachSectionLabel{display:flex;align-items:center;gap:9px;margin:0 0 12px}
+.signatureLine span,.coachSectionLabel span{height:1px;flex:1;background:linear-gradient(90deg,transparent,#4c4028)}
+.signatureLine span:last-child,.coachSectionLabel span:last-child{background:linear-gradient(90deg,#4c4028,transparent)}
+.signatureLine b,.coachSectionLabel b{font-size:7px;letter-spacing:2px;color:#7f704f;font-weight:900;white-space:nowrap}
+.coachSectionLabel{margin:17px 2px 7px}
+.signatureUnderline{width:46px;height:2px;border-radius:99px;margin:12px 0 1px;background:linear-gradient(90deg,#c7a96b,#6d5b37)}
+
+/* Home */
+.premiumHomeHero{
+ overflow:hidden!important;padding:21px!important;border-color:#2a2d31!important;
+ background:radial-gradient(460px 220px at 115% -20%,rgba(199,169,107,.13),transparent 68%),linear-gradient(180deg,rgba(255,255,255,.016),transparent 50%),#0e1013!important;
+ box-shadow:0 22px 58px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.026)!important
+}
+.premiumHomeHero::after{
+ content:"";position:absolute;right:-92px;top:-118px;width:245px;height:245px;border-radius:50%;
+ border:1px solid rgba(218,190,129,.08);box-shadow:0 0 0 22px rgba(218,190,129,.018),0 0 0 47px rgba(218,190,129,.010);pointer-events:none
+}
+.homeEyebrow{color:#bca36d!important}
+.premiumHomeHero .homeTitle{color:#f4f1ea!important;font-size:37px!important;font-weight:820!important;letter-spacing:-1.15px!important}
+.premiumHomeHero .homeCoachLine{color:#939aa3!important;font-size:13.5px!important}
+.homeReadyInline{background:linear-gradient(180deg,#0a0c0f,#090b0d)!important;border-color:#20242a!important}
+.premiumQuick .quickBtn{background:#101317!important;border-color:#24292f!important;color:#aab1b9!important;transition:transform .14s ease,border-color .14s ease,background .14s ease!important}
+.premiumQuick .quickBtn:active{transform:scale(.975)!important}
+.premiumQuick .quickBtn.selected{background:linear-gradient(180deg,rgba(199,169,107,.085),transparent),#15130e!important;border-color:#6e5c36!important;color:#e3d3ad!important}
+.productMiniStats>div{background:#0a0c0f!important;border-color:#20242a!important}
+.productMiniStats span{color:#696f78!important}
+.productMiniStats strong{color:#eae6dc!important}
+
+/* CTA */
+.trainNowBtn{
+ position:relative!important;overflow:hidden!important;
+ background:linear-gradient(115deg,#93763f 0%,#d0b574 46%,#f0dca8 50%,#c3a461 57%,#8d713b 100%)!important;
+ color:#0c0b08!important;
+ box-shadow:0 16px 34px rgba(113,88,43,.27),inset 0 1px 0 rgba(255,255,255,.50)!important;
+ border:1px solid rgba(255,232,181,.48)!important
+}
+.trainNowBtn::before{
+ content:"";position:absolute;top:-30%;bottom:-30%;width:56px;left:-90px;
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);
+ animation:signatureSweep 5.8s ease-in-out infinite
+}
+@keyframes signatureSweep{
+ 0%,72%{left:-90px;opacity:0}76%{opacity:.55}88%{left:115%;opacity:.25}100%{left:115%;opacity:0}
+}
+.trainNowBtn span{font-weight:1000!important;letter-spacing:.25px!important}
+.trainNowBtn small{color:#45391f!important;opacity:.78!important}
+
+/* Coach / details */
+.premiumCoachNow{background:linear-gradient(180deg,rgba(199,169,107,.025),transparent 44%),#0d0f12!important}
+.premiumCoachNow .weeklyCoachIcon{color:#d0b574!important;background:#16130e!important;border-color:#443a26!important}
+.premiumCoachNow .weeklyCoachStats>div{background:#090b0d!important;border-color:#1f2329!important}
+.premiumCoachNow .weeklyCoachNext{background:#0a0c0f!important;border-color:#20242a!important}
+.productTrustCard,.premiumMoreHome{background:#0b0d10!important;border-color:#1f2329!important}
+.productTrustIcon,.foldIcon{background:#12140f!important;border-color:#3a3221!important;color:#c8ae72!important}
+.productTrustGrid>div{background:#090b0d!important;border-color:#1c2025!important}
+.premiumMoreHome>summary>span{color:#9d895a!important}
+
+/* Bottom nav */
+.bottom{
+ background:rgba(11,13,16,.92)!important;border-color:#252a30!important;
+ box-shadow:0 22px 55px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.02)!important
+}
+.navbtn{color:#747b84!important}
+.navbtn.active{background:#171a1f!important;color:#eee9dd!important}
+.trainNav{background:linear-gradient(145deg,#d1b777,#9d8046)!important;color:#0a0907!important;border-color:#090a0c!important;box-shadow:0 16px 34px rgba(110,87,46,.29)!important}
+.trainNav.active{background:linear-gradient(145deg,#d8bd7a,#9c7e43)!important;color:#090805!important}
+
+/* Training */
+body.trainingMode{background:radial-gradient(720px 370px at 50% -180px,rgba(199,169,107,.08),transparent 70%),#070809!important}
+.productTrainHero{border-color:#252a2f!important;background:rgba(11,13,16,.94)!important;box-shadow:0 12px 32px rgba(0,0,0,.31),inset 0 1px 0 rgba(255,255,255,.018)!important}
+.trainSignatureLabel{color:#9f8a5b!important}
+.gymSimpleExercise{background:linear-gradient(180deg,rgba(255,255,255,.016),transparent 42%),#0d0f12!important;border-color:#24292f!important;box-shadow:0 24px 58px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.018)!important}
+.simpleExerciseHead .exname{color:#f3efe6!important;font-weight:850!important}
+.simpleMethodBadge{color:#cab57f!important;border-color:#463c28!important;background:#15130e!important}
+.doNowBox{background:#090b0d!important;border-color:#20242a!important}
+.nowSetKicker{color:#b39a63!important}
+.nowSetMain{color:#f2eee5!important}
+.simpleSetFields .setField input{background:#080a0c!important;border-color:#252a30!important;color:#f5f1e7!important}
+.gymSimpleExercise .donebtn{background:linear-gradient(145deg,#c8aa68,#9e8146)!important;color:#0b0906!important;box-shadow:0 14px 27px rgba(100,78,40,.22),inset 0 1px 0 rgba(255,255,255,.28)!important}
+.gymOptions,.gymTechnique{background:#0a0c0f!important;border-color:#1f242a!important}
+
+/* Feedback */
+.premiumFeedbackPanel{background:linear-gradient(180deg,rgba(199,169,107,.02),transparent 40%),#0d0f12!important;border-color:#2b2f34!important}
+.premiumRirGrid .feelBtn{background:#090b0d!important;border-color:#22272d!important;color:#d5d1c9!important}
+.premiumRirGrid .feelBtn.selected{background:#17130d!important;border-color:#735f36!important;color:#e6d4a8!important}
+.premiumFeedbackPanel .saveSetFeedback{background:linear-gradient(145deg,#c8aa68,#987a40)!important;color:#0b0906!important}
+
+/* Plan / Progress */
+.planHero,.progressHero,.trophyHero,.rankHero{background:radial-gradient(360px 180px at 100% 0,rgba(199,169,107,.055),transparent 70%),#0d0f12!important}
+.progressKpis .kpi{background:#090b0d!important;border-color:#1f242a!important}
+.progressKpis .kpi strong{color:#eee9de!important}
+.progressCoachCard,.blockReviewCard,.monthRecapCard,.progressFold,.planFold{background:#0d0f12!important}
+canvas{background:#090b0d!important;border-color:#20252b!important}
+
+/* Settings */
+.sheet{background:#0a0c0f!important;border-color:#272c32!important}
+.settingsOverview{background:#0d0f12!important;border-color:#22272d!important}
+.profileAvatar{background:linear-gradient(145deg,#e7d6ad,#a98a4c)!important;color:#0b0905!important}
+.settingFold{background:#0d0f12!important;border-color:#22272d!important}
+.settingIcon{background:#14120e!important;border-color:#3a3121!important;color:#cbb173!important}
+.settingbox{background:#090b0d!important;border-color:#20252b!important}
+input,select{background:#080a0c!important;border-color:#24292f!important}
+
+/* Onboarding */
+.onboarding{background:radial-gradient(620px 330px at 50% -150px,rgba(199,169,107,.095),transparent 68%),#070809!important}
+.welcomeBadge{color:#b69d66!important}
+.productIntroVisual{background:radial-gradient(260px 120px at 50% 10%,rgba(199,169,107,.065),transparent 70%),#0d0f12!important;border-color:#24292f!important}
+.welcomeFeature,.choiceGrid button,.priorityGrid button{background:#0d0f12!important;border-color:#22272d!important}
+.choiceGrid button.selected,.priorityGrid button.selected{background:#17130d!important;border-color:#735f36!important}
+.obnav .btn{background:linear-gradient(145deg,#c9aa68,#987a40)!important;color:#0b0906!important}
+
+/* Motion */
+.card,.premiumHomeHero,.gymSimpleExercise,.productTrainHero{transition:transform .18s ease,border-color .18s ease,background .18s ease}
+@media(hover:hover){.premiumHomeHero:hover,.premiumCoachNow:hover{border-color:#34302a!important}}
+@media(prefers-reduced-motion:reduce){.trainNowBtn::before{animation:none!important}}
+@media(max-width:390px){
+ .premiumHomeHero{padding:17px!important}
+ .premiumHomeHero .homeTitle{font-size:32px!important}
+ .brandWords small{display:none!important}
+ .signatureLine b,.coachSectionLabel b{font-size:6.5px!important}
+}
+
 </style>
 </head>
 <body>
@@ -1080,7 +1565,7 @@ body{letter-spacing:-.01em}
   <button type="button" onclick="location.reload()">RECARGAR</button>
  </div>
 </div>
-<div id="toast" class="toast"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="microReward" class="microReward" aria-live="polite"><span id="microRewardIcon">✓</span><div><b id="microRewardTitle">Serie sumada</b><small id="microRewardSub"></small></div></div>
 <div id="achievementBurst" class="achievementBurst" aria-live="polite">
   <div class="achievementHalo"></div><div id="achievementParticles" class="achievementParticles"></div>
@@ -1098,15 +1583,15 @@ body{letter-spacing:-.01em}
   <div id="obDots" class="steps"></div>
   <section class="obstep active" data-ob="0">
    <div class="welcomeIntro">
-    <div class="welcomeBadge">BIENVENIDO A IRON COACH</div>
-    <div class="introVisual">
+    <div class="welcomeBadge">IRON COACH</div>
+    <div class="introVisual productIntroVisual">
      <div class="introGlow"></div>
      <div class="introPhone">
       <div class="introPhoneTop"></div>
       <div class="introScreen">
-       <div class="miniPhase">COACH EN VIVO</div>
-       <div class="miniBig">Tu rutina se adapta a vos.</div>
-       <div class="miniStatRow"><span>📈 Progreso</span><span>🧠 Ajustes</span><span>🏆 Rangos</span></div>
+       <div class="miniPhase">PLAN ADAPTATIVO</div>
+       <div class="miniBig">Entrenamiento con dirección.</div>
+       <div class="miniStatRow"><span>Progreso</span><span>Ajustes</span><span>Constancia</span></div>
        <div class="miniBars"><i></i><i></i><i></i></div>
       </div>
      </div>
@@ -1117,8 +1602,8 @@ body{letter-spacing:-.01em}
     <h1 class="title welcomeTitleBig">Entrená con un plan que se adapta a vos.</h1>
     <p class="subtitle welcomeLead">Iron Coach organiza tu entrenamiento, registra lo que hacés y ajusta el plan con tus resultados para que no dependas de una rutina genérica.</p>
     <div class="welcomeFeatureGrid">
-      <div class="welcomeFeature"><span>🎯</span><div><b>Para qué sirve</b><small>Para entrenar con una guía clara y medir progreso real.</small></div></div>
-      <div class="welcomeFeature"><span>🧠</span><div><b>Qué hace</b><small>Te recomienda ejercicios, series, repeticiones, cargas y ajustes.</small></div></div>
+      <div class="welcomeFeature"><span>🎯</span><div><b>Para qué sirve</b><small>Para que sepas qué hacer, cuánto hacer y cómo progresar.</small></div></div>
+      <div class="welcomeFeature"><span>🧠</span><div><b>Qué hace</b><small>Organiza ejercicios, series, repeticiones, cargas y ajustes.</small></div></div>
       <div class="welcomeFeature"><span>🏁</span><div><b>Objetivo</b><small>Que mejores fuerza, músculo o físico con constancia y datos.</small></div></div>
     </div>
     <div class="welcomeMicroNote">Esta versión está pensada para entrenar en un gimnasio con pesas y máquinas. Completá estos datos y armamos tu punto de partida.</div>
@@ -1133,7 +1618,7 @@ body{letter-spacing:-.01em}
       <label class="cycleToggleLabel"><input id="obCycleTracking" type="checkbox"> Quiero que el Coach lo tenga en cuenta</label>
       <div id="obCycleDetails" class="cycleDetails hidden">
        <label>¿Tu ciclo suele ser regular?</label><select id="obCycleRegularity"><option value="regular">Sí, bastante regular</option><option value="irregular">Es irregular</option><option value="unknown">No estoy segura</option></select>
-       <div class="profilePair"><div><label>Última menstruación</label><input id="obLastPeriod" class="dobInput" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA"></div><div><label>Duración habitual</label><div class="unitInput"><input id="obCycleLength" type="number" min="21" max="40" value="28"><span>días</span></div></div></div>
+       <div class="profilePair"><div><label>Última menstruación</label><input id="obLastPeriod" class="dobInput" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA"></div><div><label>Duración habitual</label><div class="unitInput"><input id="obCycleLength" type="number" min="21" max="40" value="28"><span>sesiones</span></div></div></div>
        <div class="cycleEvidenceNote">Iron Coach no baja ni sube automáticamente el entrenamiento por una “fase”. Primero mira tus síntomas, recuperación y rendimiento real.</div>
       </div>
     </div>
@@ -1197,12 +1682,12 @@ body{letter-spacing:-.01em}
 </div>
 
 <div class="app">
- <header class="top simpleTop"><div class="brand">IRON <b>COACH</b></div><div class="topright"><div id="dateBadge" class="datechip hidden"></div><button id="openTutorial" class="helpbtn topHelp hidden" aria-label="Tutorial">?</button><button id="openSettings" class="profileTopBtn" aria-label="Mi perfil">👤</button></div></header>
+ <header class="top simpleTop"><div class="brand productBrand"><span class="brandMark"><i></i></span><span class="brandWords">IRON <b>COACH</b><small>ADAPTIVE TRAINING</small></span></div><div class="topright"><div id="dateBadge" class="datechip hidden"></div><button id="openTutorial" class="helpbtn topHelp hidden" aria-label="Ayuda">?</button><button id="openSettings" class="profileTopBtn" aria-label="Perfil">◎</button></div></header>
  <main>
   <section id="home" class="page active">
    <div class="card hero homeHero premiumHomeHero">
     <div class="row spread homeTopLine"><span id="phaseMini" class="pill accent"></span><span id="homeRank" class="pill">HIERRO IV</span></div>
-    <div class="eyebrow">HOY</div>
+    <div class="signatureLine"><span></span><b>IRON COACH</b><span></span></div><div class="eyebrow homeEyebrow">PRÓXIMA SESIÓN</div>
     <h1 id="greeting" class="title homeTitle">Tu entrenamiento está listo.</h1>
     <p id="coachSummary" class="subtitle homeCoachLine"></p>
 
@@ -1226,17 +1711,17 @@ body{letter-spacing:-.01em}
       </div>
     </div>
 
-    <div class="homeMiniStats"><div><span>RECUPERACIÓN</span><strong id="rdKpi">—</strong></div><div><span>SEMANA</span><strong id="weekKpi">0/3</strong></div></div>
+    <div class="homeMiniStats productMiniStats"><div><span>ESTADO</span><strong id="rdKpi">—</strong></div><div><span>FRECUENCIA</span><strong id="weekKpi">0/3</strong></div></div>
     <span id="rpKpi" class="hidden">0</span>
-    <button id="homeTrain" class="btn full trainNowBtn">EMPEZAR ENTRENAMIENTO</button>
+    <button id="homeTrain" class="btn full trainNowBtn"><span>EMPEZAR SESIÓN</span><small>Tu próxima decisión ya está tomada</small></button>
    </div>
 
    <div id="draftCard" class="card hidden premiumDraft"><div class="row spread"><div><div class="eyebrow">SESIÓN EN CURSO</div><h2 class="cleanH2">Continuar entrenamiento</h2><p id="draftText" class="small muted" style="margin:0"></p></div><span class="pill good">GUARDADO</span></div><div class="row" style="margin-top:12px"><button id="resumeDraft" class="btn full">CONTINUAR</button><button id="discardDraft" class="btn ghost">Descartar</button></div></div>
 
    <div id="todayStatus" class="notice hidden"></div>
 
-   <details class="card productTrustCard"><summary><span class="productTrustIcon">◎</span><div><small>CÓMO FUNCIONA</small><b>No es una rutina fija</b></div><span>＋</span></summary><div class="productTrustGrid"><div><b>1 · Entrenás</b><span>Registrás peso, reps y esfuerzo.</span></div><div><b>2 · Aprende</b><span>Compara rendimiento y recuperación.</span></div><div><b>3 · Ajusta</b><span>Decide progresión, volumen y próximos pasos.</span></div><div><b>Semana flexible</b><span>Elegís frecuencia, no días fijos. Entrenás cuando vos decidís.</span></div></div></details>
-   <div id="weeklyCoachCard" class="card weeklyCoachCard premiumCoachNow">
+   <details id="productTrustCard" class="card productTrustCard"><summary><span class="productTrustIcon">◎</span><div><small>CÓMO FUNCIONA</small><b>No es una rutina fija</b></div><span>＋</span></summary><div class="productTrustGrid"><div><b>1 · Entrenás</b><span>Registrás peso, reps y esfuerzo.</span></div><div><b>2 · Aprende</b><span>Compara rendimiento y recuperación.</span></div><div><b>3 · Ajusta</b><span>Decide progresión, volumen y próximos pasos.</span></div><div><b>Semana flexible</b><span>Elegís frecuencia, no días fijos. Entrenás cuando vos decidís.</span></div></div></details>
+   <div class="coachSectionLabel"><span></span><b>COACH INTELLIGENCE</b><span></span></div><div id="weeklyCoachCard" class="card weeklyCoachCard premiumCoachNow">
     <div class="row spread"><div><div class="eyebrow">COACH</div><h2 id="weeklyCoachTitle">Esta semana</h2></div><span id="weeklyCoachIcon" class="weeklyCoachIcon">◎</span></div>
     <div id="weeklyCoachStats" class="weeklyCoachStats"></div>
     <p id="weeklyCoachText"></p>
@@ -1250,10 +1735,10 @@ body{letter-spacing:-.01em}
    </div>
 
    <details class="premiumMoreHome">
-    <summary><div><small>PROGRESO Y DETALLES</small><b>Ver más</b></div><span>＋</span></summary>
+    <summary><div><small>MÁS INFORMACIÓN</small><b>Tu plan y tus datos</b></div><span>＋</span></summary>
     <div class="premiumMoreInside">
 
-      <details class="card homeFold homePreviewFold"><summary><span class="foldIcon">▶</span><div><small>ENTRENAMIENTO DE HOY</small><b id="previewTitle">Rutina</b></div><span id="previewSubtitle" class="pill"></span></summary><div id="todayTargets" class="todayTargetsClean foldBody"></div></details>
+      <details class="card homeFold homePreviewFold"><summary><span class="foldIcon">01</span><div><small>ENTRENAMIENTO DE HOY</small><b id="previewTitle">Rutina</b></div><span id="previewSubtitle" class="pill"></span></summary><div id="todayTargets" class="todayTargetsClean foldBody"></div></details>
 
       <div id="rewardStrip" class="rewardStrip rewardStripClean" role="button" tabindex="0" aria-label="Ver trofeos"><div class="rewardMetric"><span>↟</span><div><b id="streakHome">0</b><small>racha</small></div></div><div class="rewardMetric"><span>◇</span><div><b id="achHome">0/0</b><small>logros</small></div></div><div class="rewardNext"><small>PRÓXIMO</small><b id="nextAchHome">Primera sesión</b></div></div>
 
@@ -1278,7 +1763,7 @@ body{letter-spacing:-.01em}
       </div>
 
       <details class="card homeFold nutritionCard">
-       <summary><span class="foldIcon">○</span><div><small>NUTRICIÓN</small><b>Comer para tu objetivo</b></div><span id="proteinHome" class="pill accent">—</span></summary>
+       <summary><span class="foldIcon">02</span><div><small>NUTRICIÓN</small><b>Comer para tu objetivo</b></div><span id="proteinHome" class="pill accent">—</span></summary>
        <div class="nutritionInside">
         <div class="nutritionHero"><div><span>PROTEÍNA ORIENTATIVA</span><strong id="nutritionProtein">—</strong><small id="nutritionProteinSub">por día</small></div><div class="nutritionGoalIcon" id="nutritionGoalIcon">●</div></div>
         <p id="nutritionCoachText"></p>
@@ -1288,7 +1773,7 @@ body{letter-spacing:-.01em}
        </div>
       </details>
 
-      <details class="card homeFold"><summary><span class="foldIcon">◎</span><b>Cómo está pensando el Coach</b></summary><div class="homeCoachInner">
+      <details class="card homeFold"><summary><span class="foldIcon">03</span><b>Cómo está pensando el Coach</b></summary><div class="homeCoachInner">
        <div class="row spread" style="margin-top:12px"><div><div class="eyebrow">BLOQUE</div><div id="phaseTitle" class="phaseTitle"></div></div><span id="phaseCount" class="pill accent"></span></div>
        <p id="phaseReason" class="note"></p><div id="phaseTrack" class="phaseTrack"></div><div id="phaseNext" class="phaseNext"></div>
        <div class="divider"></div><div class="row spread"><b>Por qué esta rutina</b><button class="btn ghost slim" id="whyPlanBtn">Ver</button></div>
@@ -1296,13 +1781,13 @@ body{letter-spacing:-.01em}
        <div class="divider"></div><b>Recuperación estimada</b><div id="muscleRecovery" class="muscleGrid" style="margin-top:10px"></div>
       </div></details>
 
-      <details class="card homeFold"><summary><span class="foldIcon">□</span><b>Mi semana</b></summary><div id="homeWeek" class="week" style="margin-top:14px"></div><p id="weekCaption" class="note"></p></details>
+      <details class="card homeFold"><summary><span class="foldIcon">04</span><b>Mi semana</b></summary><div id="homeWeek" class="week" style="margin-top:14px"></div><p id="weekCaption" class="note"></p></details>
     </div>
    </details>
   </section>
 
   <section id="train" class="page">
-   <div class="card hero trainHero"><div class="row spread"><div><div class="eyebrow">ENTRENANDO</div><h1 id="routineTitle" class="title"></h1><div class="trainMeta"><span id="sessionDuration" class="pill timePill">00:00</span><span id="trainReadiness" class="hidden"></span><span id="sessionProtocol" class="hidden"></span><span id="autosaveState" class="hidden">Guardado</span></div></div><button id="finishEarly" class="btn ghost slim">Salir</button><button id="cycleRoutine" class="btn secondary slim hidden">Otra</button></div><p id="sessionCoach" class="hidden"></p></div>
+   <div class="card hero trainHero productTrainHero"><div class="row spread"><div><div class="eyebrow trainSignatureLabel">IRON COACH · SESIÓN EN CURSO</div><h1 id="routineTitle" class="title"></h1><div class="trainMeta"><span id="sessionDuration" class="pill timePill">00:00</span><span id="trainReadiness" class="hidden"></span><span id="sessionProtocol" class="hidden"></span><span id="autosaveState" class="hidden">Guardado</span></div></div><button id="finishEarly" class="btn ghost slim trainExit">Salir</button><button id="cycleRoutine" class="btn secondary slim hidden">Otra</button></div><p id="sessionCoach" class="hidden"></p></div>
    <div id="trainMotivationBanner" class="trainMotivationBanner hidden"><span>⚡</span><b id="trainMotivationText"></b></div>
    <div id="gymProgress" class="gymProgress"><div class="row spread"><div><strong id="gymProgressText">0/0 series</strong><div id="gymProgressSub" class="gymSub"></div></div><button id="rirQuickHelp" class="rirHelp">Ayuda</button></div><div class="bar"><i id="gymProgressFill"></i></div></div>
    <div id="exerciseList"></div>
@@ -1311,15 +1796,15 @@ body{letter-spacing:-.01em}
   </section>
 
   <section id="plan" class="page">
-   <div class="card hero planHero"><div class="eyebrow">TU RUTINA</div><h1 class="title">Entrenamientos</h1><p id="planSummary" class="subtitle"></p></div>
+   <div class="card hero planHero"><div class="eyebrow">PLAN</div><h1 class="title">Tu programa</h1><div class="signatureUnderline"></div><p id="planSummary" class="subtitle"></p></div>
    <div id="goalStrategyCard" class="goalStrategyCard"><div><span id="goalStrategyEyebrow">OBJETIVO</span><h2 id="goalStrategyTitle">Hipertrofia</h2><p id="goalStrategyText"></p></div><div id="goalStrategyIcon">💪</div></div>
    <details class="card planFold"><summary>Ver semana y bloque</summary><div id="planWeek" class="week" style="margin-top:14px"></div><div class="divider"></div><div><div class="eyebrow">BLOQUE ACTUAL</div><h2 id="planPhaseTitle" class="cleanH2"></h2></div><p id="planPhaseText" class="note"></p><div id="planPhaseTrack" class="phaseTrack"></div></details>
    <div id="planSessions"></div>
   </section>
 
   <section id="progress" class="page">
-   <div class="card hero progressHero"><div class="eyebrow">TU PROGRESO</div><h1 class="title">Cómo venís</h1><div class="grid3 progressKpis"><div class="kpi"><strong id="totalSessions">0</strong><span>Entrenos</span></div><div class="kpi"><strong id="adherenceKpi">0%</strong><span>Constancia</span></div><div class="kpi"><strong id="totalVolume">0</strong><span>Toneladas</span></div></div></div>
-   <div class="card progressCoachCard"><div class="row spread"><div><div class="eyebrow">LECTURA DEL COACH</div><h2 id="progressCoachTitle">Armando tu base</h2></div><span class="progressPulse">↗</span></div><p id="progressCoachText"></p><div id="progressInsightGrid" class="progressInsightGrid"></div><div id="progressBestMove" class="progressBestMove hidden"></div></div>
+   <div class="card hero progressHero"><div class="eyebrow">PROGRESO</div><h1 class="title">Tu evolución</h1><div class="signatureUnderline"></div><div class="grid3 progressKpis"><div class="kpi"><strong id="totalSessions">0</strong><span>Entrenos</span></div><div class="kpi"><strong id="adherenceKpi">0%</strong><span>Constancia</span></div><div class="kpi"><strong id="totalVolume">0</strong><span>Toneladas</span></div></div></div>
+   <div class="card progressCoachCard"><div class="row spread"><div><div class="eyebrow">ANÁLISIS DEL COACH</div><h2 id="progressCoachTitle">Armando tu base</h2></div><span class="progressPulse">↗</span></div><p id="progressCoachText"></p><div id="progressInsightGrid" class="progressInsightGrid"></div><div id="progressBestMove" class="progressBestMove hidden"></div></div>
    <div id="blockReviewCard" class="card blockReviewCard hidden">
  <div class="row spread"><div><div class="eyebrow">REVISIÓN DE BLOQUE</div><h2 id="blockReviewTitle">Bloque terminado</h2></div><span class="blockReviewIcon">✦</span></div>
  <p id="blockReviewText"></p>
@@ -1454,12 +1939,12 @@ body{letter-spacing:-.01em}
 <div id="settingsModal" class="modal"><div class="sheet profileSheet easyProfileSheet">
  <div class="sheethead"><div><div class="eyebrow">CONFIGURACIÓN</div><h2 class="profileSheetTitle">Mi perfil</h2></div><button id="closeSettings" class="iconbtn closeBig">✕</button></div>
  <div class="settingsOverview">
-  <div class="profileAvatar">👤</div>
+  <div class="profileAvatar">IC</div>
   <div><strong id="settingsNameSummary">Perfil</strong><span id="settingsGoalSummary">Objetivo</span></div>
   <div class="settingsDaysBadge"><b id="settingsDaysSummary">3</b><span>días</span></div>
  </div>
  <div class="settingsMenu">
-  <details class="settingFold easySettingFold"><summary><span class="settingIcon">👤</span><div><b>Datos personales</b><small>Nombre, fecha, altura y peso</small></div></summary><div class="settingFoldBody">
+  <details class="settingFold easySettingFold"><summary><span class="settingIcon">01</span><div><b>Datos personales</b><small>Nombre, fecha, altura y peso</small></div></summary><div class="settingFoldBody">
    <label>Nombre</label><input id="pName" autocomplete="name">
    <label>Fecha de nacimiento</label><input id="pDob" class="dobInput" type="text" inputmode="numeric" maxlength="10" placeholder="DD/MM/AAAA" autocomplete="bday">
    <div class="profileAgeLine">Edad: <b id="pAge">—</b></div>
@@ -1483,24 +1968,24 @@ body{letter-spacing:-.01em}
    <label>Horario habitual · opcional</label><input id="pTime" type="time">
    <div class="flexWeekSetting"><span>↻</span><div><b>Semana flexible</b><small>No elegís días fijos. Cuando decidís entrenar, Iron Coach continúa con la sesión que corresponde.</small></div></div>
   </div></details>
-  <details class="settingFold easySettingFold"><summary><span class="settingIcon">❤️</span><div><b>Molestias</b><small>Qué movimientos tengo que cuidar</small></div></summary><div class="settingFoldBody"><div id="pLimitations" class="daysel"></div></div></details>
-  <details class="settingFold easySettingFold"><summary><span class="settingIcon">⭐</span><div><b>Preferencias</b><small>Ejercicios, descanso y marcas</small></div></summary><div class="settingFoldBody">
+  <details class="settingFold easySettingFold"><summary><span class="settingIcon">03</span><div><b>Molestias</b><small>Qué movimientos tengo que cuidar</small></div></summary><div class="settingFoldBody"><div id="pLimitations" class="daysel"></div></div></details>
+  <details class="settingFold easySettingFold"><summary><span class="settingIcon">04</span><div><b>Preferencias</b><small>Ejercicios, descanso y marcas</small></div></summary><div class="settingFoldBody">
    <div class="settingbox"><div class="row spread"><b>Cronómetro de descanso</b><button id="timerToggle" class="switch" type="button"><i></i></button></div></div>
    <div class="settingbox textSizeSetting"><label for="pTextScale">Tamaño de letra</label><select id="pTextScale"><option value="large">Grande</option><option value="xl">Muy grande</option></select><div class="small muted">“Muy grande” está pensado para leer cómodo sin acercar el teléfono.</div></div><div class="settingbox"><label for="pTrainingConfidence">Nivel de explicación</label><select id="pTrainingConfidence"><option value="guided">Explicame simple</option><option value="technical">Ya conozco entrenamiento</option></select><div class="small muted">Cambia el lenguaje, no el motor de entrenamiento.</div></div>
    <div class="settingbox"><div class="row spread"><div><b>Ejercicios que aprendí</b><div id="exercisePrefsStatus" class="small muted">Todavía estoy aprendiendo.</div></div><span id="exercisePrefsCount" class="pill">0</span></div><div id="exercisePrefsSummary" class="prefsSummary"></div></div>
    <div class="settingbox unavailableSetting"><div class="row spread"><div><b>🚫 No existe en mi gimnasio</b><div class="small muted">No te los recomiendo más.</div></div><span id="unavailableExercisesCount" class="pill">0</span></div><div id="unavailableExercisesSummary" class="unavailableExercisesSummary"></div></div>
    <details class="nestedSettings"><summary>Marcas anteriores · opcional</summary><div class="markGrid"><div><label>Banca · kg</label><input id="pPriorBenchW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorBenchR" type="number"></div><div><label>Sentadilla · kg</label><input id="pPriorSquatW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorSquatR" type="number"></div><div><label>Peso muerto · kg</label><input id="pPriorDeadliftW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorDeadliftR" type="number"></div><div><label>Press militar · kg</label><input id="pPriorOhpW" type="number" step="0.5"></div><div><label>Reps</label><input id="pPriorOhpR" type="number"></div></div></details>
   </div></details>
-  <details class="settingFold easySettingFold"><summary><span class="settingIcon">💾</span><div><b>Ayuda y seguridad</b><small>Tutorial, copia y recuperación</small></div></summary><div class="settingFoldBody">
+  <details class="settingFold easySettingFold"><summary><span class="settingIcon">05</span><div><b>Ayuda y seguridad</b><small>Tutorial, copia y recuperación</small></div></summary><div class="settingFoldBody">
    <div class="settingbox productPrivacyBox"><div class="row spread"><div><b>Privacidad de esta versión</b><div class="small muted">Tus entrenamientos se guardan localmente en este dispositivo.</div></div><span class="pill good">LOCAL</span></div><div class="small muted" style="margin-top:7px;line-height:1.45">Si se agrega cuenta o nube, la app deberá explicarlo y actualizar su política de privacidad.</div></div>
    <div class="dataButtons"><button id="showTutorialSettings" class="btn ghost">❔ Tutorial</button><button id="exportData" class="btn secondary">↓ Guardar copia</button><label class="btn secondary fileBtn">↑ Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">↻ Rehacer configuración</button><button id="resetData" class="btn red">🗑 Borrar todo</button></div>
-   <p class="buildNote"><b>IRON COACH 6.7 FLEX WEEK</b> · guardado local</p>
+   <p class="buildNote"><b>IRON COACH 6.8 PRODUCT UI</b> · guardado local</p>
   </div></details>
  </div>
  <button id="saveProfile" class="btn full saveProfileBig">GUARDAR CAMBIOS</button>
 </div></div>
 
-<nav class="bottom"><div class="bottomIn easyNav"><button class="navbtn active" data-page="home"><span>⌂</span>Hoy</button><button class="navbtn trainNav" data-page="train"><span>▶</span>Entrenar</button><button class="navbtn" data-page="plan"><span>≡</span>Rutina</button><button class="navbtn" data-page="progress"><span>↗</span>Progreso</button><button class="navbtn" data-page="trophies"><span>🏆</span>Logros</button></div></nav>
+<nav class="bottom"><div class="bottomIn easyNav"><button class="navbtn active" data-page="home"><span>⌂</span>Hoy</button><button class="navbtn" data-page="plan"><span>≡</span>Plan</button><button class="navbtn trainNav" data-page="train"><span>▶</span>Entrenar</button><button class="navbtn" data-page="progress"><span>↗</span>Progreso</button><button class="navbtn" data-page="trophies"><span>◇</span>Logros</button></div></nav>
 
 <script>
 'use strict';
@@ -1512,7 +1997,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='6.7 FLEX WEEK · 2026.08.19';
+const BUILD='6.9 SIGNATURE UI · 2026.08.20';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=12;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -1610,7 +2095,7 @@ const BUILD6=[
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
 
-const fresh={version:74,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided'},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0};
+const fresh={version:76,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided'},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const dk=(d=new Date())=>{const z=new Date(d);return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0')};
 const fmtDate=s=>new Date(s).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'});
@@ -1643,7 +2128,7 @@ if(!['regular','irregular','unknown'].includes(d.profile.cycleRegularity))d.prof
 d.profile.cycleLength=Math.max(21,Math.min(40,+d.profile.cycleLength||28));
 if(typeof d.profile.lastPeriod!=='string')d.profile.lastPeriod='';
 if(!['none','mild','moderate','strong'].includes(d.checkin.cycleSymptoms))d.checkin.cycleSymptoms='none';
-d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=74;return d}
+d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=76;return d}
 function dataScore(x){
  if(!x||typeof x!=='object')return -1;
  const logs=Array.isArray(x.logs)?x.logs.length:0,bw=Array.isArray(x.bodyweightLogs)?x.bodyweightLogs.length:0,prs=x.prs&&typeof x.prs==='object'?Object.keys(x.prs).length:0,profile=x.profile?.name?5:0,onboard=x.onboarded?10:0;
@@ -2760,7 +3245,7 @@ function renderDataSafeStatus(){
  if((db.logs?.length||0)>0){el.classList.remove('hidden');el.innerHTML=`<span>✓</span><div><b>Historial cargado</b><small>${db.logs.length} entrenamiento${db.logs.length===1?'':'s'} guardado${db.logs.length===1?'':'s'} en este iPhone.</small></div>`;setTimeout(()=>el.classList.add('fade'),4500)}else el.classList.add('hidden')
 }
 function renderWeeklyCoach(){const w=weeklyCoachData();if(!$('weeklyCoachCard'))return;$('weeklyCoachTitle').textContent=w.title;$('weeklyCoachIcon').textContent=w.remaining===0?'✓':w.state.key==='push'?'↗':'🧠';$('weeklyCoachStats').innerHTML=`<div><strong>${w.logs.length}/${w.goal}</strong><span>principales</span></div><div><strong>${w.sets}</strong><span>series totales</span></div><div><strong>${w.extras.length}</strong><span>extras útiles</span></div>`;$('weeklyCoachText').textContent=w.txt;const best=w.changes[0];$('weeklyCoachNext').innerHTML=`<span>LO QUE SIGUE</span><b>${w.next}</b>${best?`<small>Mejor cambio: ${best.name} · ${best.headline}</small>`:''}`}
-function renderHome(){
+function renderHome(){const trust=$('productTrustCard');if(trust)trust.classList.toggle('hidden',(db.logs?.length||0)>0);
  const r=rankInfo(),sess=currentSession(),week=logsThisWeek(),planned=plannedLogsThisWeek(),st=coachState(),ph=phaseInfo(),extra=isExtraWorkout(),extraDecision=smartExtraDecision();
  $('homeRank').textContent=r.display;$('rdKpi').textContent=readinessLabel();
  $('weekKpi').textContent=`${Math.min(planned.length,db.profile.days)}/${db.profile.days}`;$('rpKpi').textContent=r.rp;
@@ -2945,7 +3430,7 @@ function renderTrain(restore=true){
   card.innerHTML=`<div class="simpleExerciseHead"><div><div class="muscle">EJERCICIO ${idx+1}/${sess.items.length}</div><h3 class="exname">${x.name}</h3></div>${methodLine?`<span class="simpleMethodBadge">${methodLine}</span>`:''}</div>
   <div class="setHistory"></div><div class="liveDecision"></div><div class="sets"></div>
   <div class="painActions"><b>Dolor raro registrado.</b><div class="safeNote">No sigas cargando este movimiento hoy.</div><div class="row"><button class="btn ghost" data-skip-exercise="1">Saltar ejercicio</button></div></div>
-  <details class="gymOptions"><summary>Necesito cambiar algo</summary><div class="gymOptionButtons"><button class="btn ghost slim occupiedBtn" data-defer-exercise="1">⏱ Máquina ocupada</button><button class="btn ghost slim unavailableBtn" data-unavailable-exercise="1">🚫 No existe acá</button>${exerciseCandidates(q.id).length?`<button class="btn ghost slim" data-substitute="${originalId}">↻ Cambiar ejercicio</button>`:''}</div></details>
+  <details class="gymOptions"><summary>Necesito cambiar algo</summary><div class="gymOptionButtons"><button class="btn ghost slim occupiedBtn" data-defer-exercise="1">Máquina ocupada</button><button class="btn ghost slim unavailableBtn" data-unavailable-exercise="1">No está disponible</button>${exerciseCandidates(q.id).length?`<button class="btn ghost slim" data-substitute="${originalId}">Cambiar ejercicio</button>`:''}</div></details>
   <details class="detailsBox gymTechnique"><summary>Ver cómo hacer el ejercicio</summary><ul class="cues">${x.cues.map(c=>`<li>${c}</li>`).join('')}<li><b>Calentamiento:</b> ${warmupPlan(q.id,q.weight)}</li></ul></details>`;
 
   const box=card.querySelector('.sets');
@@ -3263,7 +3748,14 @@ function showTrainingMotivationOnce(){
  setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.classList.add('hidden'),250)},4300)
 }
 
-function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===page));const navPage=page==='rank'?'trophies':page;document.querySelectorAll('.navbtn').forEach(x=>x.classList.toggle('active',x.dataset.page===navPage));if(page==='train'){renderTrain();setTimeout(showTrainingMotivationOnce,180)}if(page==='plan')renderPlan();if(page==='progress')renderProgress();if(page==='trophies')renderAchievements();if(page==='rank')renderRank();window.scrollTo({top:0,behavior:'smooth'})}
+function go(page){
+ document.body.classList.toggle('trainingMode',page==='train');
+ document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===page));
+ const navPage=page==='rank'?'trophies':page;document.querySelectorAll('.navbtn').forEach(x=>x.classList.toggle('active',x.dataset.page===navPage));
+ if(page==='train'){renderTrain();setTimeout(showTrainingMotivationOnce,180)}
+ if(page==='plan')renderPlan();if(page==='progress')renderProgress();if(page==='trophies')renderAchievements();if(page==='rank')renderRank();
+ window.scrollTo({top:0,behavior:'smooth'})
+}
 function setQuick(kind){const m={strong:{sleep:4,energy:4,stress:2,soreness:1},normal:{sleep:3,energy:3,stress:3,soreness:2},tired:{sleep:2,energy:2,stress:4,soreness:3}}[kind];if(!m)return;db.checkin={...m,cycleSymptoms:db.checkin.cycleSymptoms||'none',date:dk()};save();document.querySelectorAll('.quickBtn').forEach(b=>b.classList.toggle('selected',b.dataset.quick===kind));renderHome();toast(`Estado ${kind==='strong'?'fuerte':kind==='normal'?'normal':'cansado'} guardado`)}
 function saveCheckinNow(){db.checkin={sleep:+$('sleep').value||3,energy:+$('energy').value||3,stress:+$('stress').value||3,soreness:+$('soreness').value||3,cycleSymptoms:db.checkin.cycleSymptoms||'none',date:dk()};save();renderHome();toast('Estado guardado')}
 
