@@ -1072,7 +1072,7 @@ body{letter-spacing:-.01em}
 .day.today:not(.done){border-color:#50458a!important;background:#111020!important}
 
 /* ============================================================
-   IRON COACH 7.1 PUBLIC EXPERIENCE
+   IRON COACH 7.1.1 ANIMATION FIX
    A calmer commercial mobile design layer.
    ============================================================ */
 :root{
@@ -1665,6 +1665,218 @@ input,select{background:#080a0c!important;border-color:#24292f!important}
  .tutorialScene *, .exerciseMotion *{animation:none!important}
 }
 
+
+/* ============================================================
+   7.1.1 ANIMATION FIX
+   HTML/CSS animation fallback — no SVG dependency.
+   ============================================================ */
+
+/* ---------- Tutorial scenes ---------- */
+.cssTutorialScene{
+ position:relative;width:100%;height:100%;min-height:185px;overflow:hidden;
+ background:
+   radial-gradient(220px 100px at 50% 25%,rgba(199,169,107,.08),transparent 70%),
+   linear-gradient(180deg,#0d1014,#090b0d);
+}
+.cssTutorialScene::before{
+ content:"";position:absolute;inset:14px;border:1px solid #242930;border-radius:19px;pointer-events:none
+}
+.cssTutorialScene>small{
+ position:absolute;left:0;right:0;bottom:23px;text-align:center;
+ font-size:8px;letter-spacing:1.25px;font-weight:900;color:#767f8b;text-transform:uppercase
+}
+.cssDots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:4px}
+.cssDots i{width:3px;height:3px;border-radius:50%;background:#4f5560}
+.cssDots i:nth-child(2){background:#b3975e}
+
+.promiseOrb{
+ position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);
+ width:78px;height:78px;border-radius:50%;
+ border:2px solid #8f7848;display:grid;place-items:center;color:#e1ca94;
+ box-shadow:0 0 0 16px rgba(199,169,107,.025),0 0 0 33px rgba(199,169,107,.012);
+ animation:cssPulse 2.1s ease-in-out infinite
+}
+.promiseOrb span{font-size:32px;font-weight:900}
+.sceneWords{position:absolute;left:0;right:0;top:122px;display:flex;justify-content:center;gap:14px}
+.sceneWords b{font-size:7px;letter-spacing:1.2px;color:#727b87}
+
+.flexDays{position:absolute;left:32px;right:32px;top:52px;display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.flexDays span{
+ height:29px;border-radius:9px;border:1px solid #282e36;background:#12161b;
+ display:grid;place-items:center;font-size:8px;color:#747d88;font-weight:900
+}
+.flexDays span.hit{background:#18140e;border-color:#5f4e2c;color:#dcc58f;animation:cssDay 2.4s ease-in-out infinite}
+.flexRoute{position:absolute;left:50px;right:50px;top:106px;height:30px}
+.flexRoute::before{content:"";position:absolute;left:0;right:0;top:13px;height:2px;background:#383126;transform:skewY(-4deg)}
+.flexRoute i{position:absolute;width:10px;height:10px;border-radius:50%;background:#d2b675;top:9px;left:0;animation:cssRoute 2.6s ease-in-out infinite}
+
+.miniSetCard{
+ position:absolute;left:50%;top:31px;transform:translateX(-50%);
+ width:116px;padding:10px;border-radius:15px;background:#15130e;border:1px solid #54462b;text-align:center;
+ animation:cssSetCard 2.2s ease-in-out infinite
+}
+.miniSetCard small{display:block;font-size:7px;color:#857650;letter-spacing:1px}
+.miniSetCard strong{display:block;font-size:21px;color:#f0dfb5;margin:3px 0}
+.miniSetCard b{display:block;font-size:9px;color:#bfa875}
+.miniBar{position:absolute;left:64px;right:64px;top:123px;height:20px;display:flex;align-items:center}
+.miniBar span{height:4px;background:#c8ab6d;flex:1;border-radius:99px}
+.miniBar i{width:12px;height:28px;border-radius:3px;background:#7e693e}
+.miniBar{animation:cssBarFloat 2.2s ease-in-out infinite}
+
+.feedbackBubbles{position:absolute;left:38px;right:38px;top:55px;display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.feedbackBubbles span{
+ aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
+ background:#11151a;border:1px solid #303640;color:#929aa5;font-size:13px;font-weight:900
+}
+.feedbackBubbles span.active{background:#19150f;border-color:#715d34;color:#e1c88d;animation:cssChoice 1.9s ease-in-out infinite}
+.feedbackMeter{position:absolute;left:66px;right:66px;top:118px;height:4px;border-radius:99px;background:#262b31}
+.feedbackMeter i{position:absolute;left:0;top:-4px;width:12px;height:12px;border-radius:50%;background:#d0b574;animation:cssMeter 2.2s ease-in-out infinite}
+
+.learnGraph{position:absolute;left:42px;right:42px;top:43px;height:92px}
+.learnGraph::before{
+ content:"";position:absolute;left:4px;right:4px;bottom:8px;height:1px;background:#262b31
+}
+.learnGraph span{
+ position:absolute;left:12px;right:12px;bottom:18px;height:3px;border-radius:99px;background:linear-gradient(90deg,#564a31,#c5a869);
+ transform:rotate(-16deg);transform-origin:left center
+}
+.learnGraph i{position:absolute;width:11px;height:11px;border-radius:50%;background:#d1b675;box-shadow:0 0 0 4px rgba(209,182,117,.06);animation:cssLearn 2.5s ease-in-out infinite}
+.learnGraph .p1{left:10px;bottom:12px}.learnGraph .p2{left:31%;bottom:29px}.learnGraph .p3{left:61%;bottom:47px}.learnGraph .p4{right:8px;bottom:67px}
+
+.libraryDemoCard{
+ position:absolute;left:45px;top:38px;width:98px;height:100px;border-radius:17px;background:#11151a;border:1px solid #29303a;overflow:hidden
+}
+.libraryDemoCard.second{left:auto;right:45px;display:grid;place-items:center}
+.libraryDemoCard.second b{font-size:34px;color:#a78d59;font-weight:300}
+.smallPerson{transform:scale(.55);transform-origin:50% 75%;left:16px!important;top:3px!important}
+
+/* ---------- Exercise demonstration ---------- */
+.cssExerciseDemo{position:relative;width:100%;height:100%;min-height:210px;background:#080a0c;overflow:hidden}
+.cssDemoStage{position:absolute;inset:0 0 42px 0}
+.cssFloor{position:absolute;left:16%;right:16%;bottom:19px;height:1px;background:#2b3036}
+.cssPerson{
+ position:absolute;left:50%;top:50%;width:120px;height:145px;
+ transform:translate(-50%,-48%);transform-origin:50% 86%;
+}
+.cssPerson i{display:block;position:absolute;background:#ddd8cf;border-radius:99px;transform-origin:50% 0}
+.cssPerson .head{
+ width:25px;height:25px;border-radius:50%;left:48px;top:5px;
+ background:linear-gradient(145deg,#d6bd82,#a98b4e);
+ box-shadow:0 0 0 1px rgba(255,255,255,.08) inset
+}
+.cssPerson .body{width:6px;height:58px;left:57px;top:31px}
+.cssPerson .arm,.cssPerson .forearm,.cssPerson .leg,.cssPerson .shin{width:5px}
+.cssPerson .a1{height:43px;left:57px;top:42px;transform:rotate(56deg)}
+.cssPerson .a2{height:43px;left:58px;top:42px;transform:rotate(-56deg)}
+.cssPerson .f1{height:37px;left:91px;top:67px;transform:rotate(145deg)}
+.cssPerson .f2{height:37px;left:25px;top:67px;transform:rotate(-145deg)}
+.cssPerson .l1{height:48px;left:57px;top:85px;transform:rotate(26deg)}
+.cssPerson .l2{height:48px;left:58px;top:85px;transform:rotate(-26deg)}
+.cssPerson .s1{height:39px;left:76px;top:124px;transform:rotate(12deg)}
+.cssPerson .s2{height:39px;left:39px;top:124px;transform:rotate(-12deg)}
+
+.cssBar{
+ position:absolute;left:50%;top:47%;width:170px;height:32px;transform:translate(-50%,-50%);
+ display:flex;align-items:center;z-index:1
+}
+.cssBar span{height:4px;flex:1;border-radius:99px;background:#b99d62}
+.cssBar i{width:13px;height:31px;border-radius:3px;background:#79663f}
+.cssCable{position:absolute;right:44px;top:23px;bottom:32px;width:32px}
+.cssCable::before{content:"";position:absolute;right:13px;top:0;bottom:10px;width:2px;background:#6f603d}
+.cssCable i{position:absolute;right:7px;top:0;width:14px;height:14px;border-radius:50%;background:#a88d53}
+.cssCable b{position:absolute;right:4px;bottom:4px;width:20px;height:7px;border-radius:99px;background:#b99d62}
+.cssMachinePad{position:absolute;left:50%;bottom:35px;width:108px;height:13px;border-radius:7px;background:#343a42;transform:translateX(-50%)}
+
+.cssMotionCaption{
+ position:absolute;left:0;right:0;bottom:0;height:42px;padding:7px 12px;
+ background:linear-gradient(180deg,rgba(8,10,12,.15),#080a0c);
+ border-top:1px solid #1f242a
+}
+.cssMotionCaption b{display:block;font-size:9px;color:#c7b995;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cssMotionCaption span{display:block;font-size:7.5px;color:#666f7a;margin-top:2px}
+
+.motionGhost{
+ position:absolute;width:64px;height:64px;border-radius:50%;left:50%;top:50%;
+ transform:translate(-50%,-50%);border:1px solid rgba(199,169,107,.06);
+ box-shadow:0 0 0 18px rgba(199,169,107,.018),0 0 0 36px rgba(199,169,107,.008);
+ animation:cssGhost 2.4s ease-in-out infinite
+}
+
+/* movement patterns */
+.demo-press .cssPerson{animation:cssPressBody 2.2s ease-in-out infinite}
+.demo-press .cssBar{animation:cssPressBar 2.2s ease-in-out infinite}
+
+.demo-pull .cssPerson .a1,.demo-pull .cssPerson .a2{animation:cssPullArm 2.2s ease-in-out infinite}
+.demo-pull .cssCable b{animation:cssCableHandle 2.2s ease-in-out infinite}
+
+.demo-squat .cssPerson{animation:cssSquatBody 2.5s ease-in-out infinite}
+.demo-squat .cssBar{top:38%;animation:cssSquatBar 2.5s ease-in-out infinite}
+
+.demo-hinge .cssPerson{animation:cssHingeBody 2.4s ease-in-out infinite}
+.demo-hinge .cssBar{top:58%;animation:cssHingeBar 2.4s ease-in-out infinite}
+
+.demo-arm .cssPerson .f1,.demo-arm .cssPerson .f2{animation:cssCurlForearm 2s ease-in-out infinite}
+
+.demo-leg .cssPerson .s1,.demo-leg .cssPerson .s2{animation:cssLegExtend 2.1s ease-in-out infinite}
+
+.demo-isolation .cssPerson .a1{animation:cssIsoArm1 2.2s ease-in-out infinite}
+.demo-isolation .cssPerson .a2{animation:cssIsoArm2 2.2s ease-in-out infinite}
+
+.demo-core .cssPerson{animation:cssCoreBody 2.2s ease-in-out infinite}
+
+.demo-calf .cssPerson{animation:cssCalfBody 1.9s ease-in-out infinite}
+
+@keyframes cssPulse{50%{transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes cssDay{50%{filter:brightness(1.35)}}
+@keyframes cssRoute{0%,100%{left:0}50%{left:calc(100% - 10px)}}
+@keyframes cssSetCard{50%{transform:translateX(-50%) translateY(5px)}}
+@keyframes cssBarFloat{50%{transform:translateY(-8px)}}
+@keyframes cssChoice{50%{transform:scale(1.12)}}
+@keyframes cssMeter{0%,100%{left:8%}50%{left:68%}}
+@keyframes cssLearn{50%{filter:brightness(1.55);transform:scale(1.12)}}
+@keyframes cssGhost{50%{transform:translate(-50%,-50%) scale(1.12);opacity:.55}}
+
+@keyframes cssPressBody{0%,100%{transform:translate(-50%,-48%)}50%{transform:translate(-50%,-55%)}}
+@keyframes cssPressBar{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,-130%)}}
+@keyframes cssPullArm{0%,100%{filter:none}50%{transform:rotate(78deg)}}
+@keyframes cssCableHandle{0%,100%{bottom:4px}50%{bottom:64px}}
+@keyframes cssSquatBody{0%,100%{transform:translate(-50%,-48%) scaleY(1)}50%{transform:translate(-50%,-31%) scaleY(.78)}}
+@keyframes cssSquatBar{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,45%)}}
+@keyframes cssHingeBody{0%,100%{transform:translate(-50%,-48%) rotate(0deg)}50%{transform:translate(-50%,-43%) rotate(25deg)}}
+@keyframes cssHingeBar{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,75%)}}
+@keyframes cssCurlForearm{0%,100%{filter:none}50%{transform:rotate(205deg)}}
+@keyframes cssLegExtend{0%,100%{filter:none}50%{transform:rotate(65deg)}}
+@keyframes cssIsoArm1{0%,100%{transform:rotate(56deg)}50%{transform:rotate(102deg)}}
+@keyframes cssIsoArm2{0%,100%{transform:rotate(-56deg)}50%{transform:rotate(-102deg)}}
+@keyframes cssCoreBody{0%,100%{transform:translate(-50%,-48%) rotate(0)}50%{transform:translate(-50%,-45%) rotate(17deg)}}
+@keyframes cssCalfBody{0%,100%{transform:translate(-50%,-48%)}50%{transform:translate(-50%,-55%)}}
+
+/* mini library cards must always show the figure */
+.libraryMini .cssExerciseDemo{min-height:66px;height:66px}
+.libraryMini .cssDemoStage{inset:0}
+.libraryMini .cssPerson{transform:translate(-50%,-50%) scale(.42);top:50%}
+.libraryMini .cssFloor{bottom:6px}
+.libraryMini .cssBar{transform:translate(-50%,-50%) scale(.45)}
+.libraryMini .cssCable{transform:scale(.45);transform-origin:top right;right:5px;top:4px}
+.libraryMini .cssMotionCaption,.libraryMini .motionLabel,.libraryMini .motionGhost{display:none!important}
+.libraryMini .cssPerson{animation-name:none!important}
+.libraryMini .cssPerson *, .libraryMini .cssBar, .libraryMini .cssCable b{animation:none!important}
+
+/* detail box */
+.exerciseAnimation>div{width:100%;height:100%}
+
+/* Safari-safe: force paint layers */
+.cssPerson,.cssBar,.cssCable,.cssTutorialScene,.cssExerciseDemo{
+ -webkit-transform-style:preserve-3d;
+ backface-visibility:hidden;
+ -webkit-backface-visibility:hidden;
+}
+
+/* reduced motion */
+@media(prefers-reduced-motion:reduce){
+ .cssTutorialScene *, .cssExerciseDemo *{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -2171,7 +2383,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='7.1 PUBLIC EXPERIENCE · 2026.08.20';
+const BUILD='7.1.1 ANIMATION FIX · 2026.08.20';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -2279,7 +2491,7 @@ const BUILD6=[
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
 
-const fresh={version:78,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided',targetWeight:'',targetDate:'',soundEnabled:false},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0};
+const fresh={version:79,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:false,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided',targetWeight:'',targetDate:'',soundEnabled:false},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0};
 const clone=x=>JSON.parse(JSON.stringify(x));
 const dk=(d=new Date())=>{const z=new Date(d);return z.getFullYear()+'-'+String(z.getMonth()+1).padStart(2,'0')+'-'+String(z.getDate()).padStart(2,'0')};
 const fmtDate=s=>new Date(s).toLocaleDateString('es-AR',{day:'2-digit',month:'short',year:'numeric'});
@@ -2312,7 +2524,7 @@ if(!['regular','irregular','unknown'].includes(d.profile.cycleRegularity))d.prof
 d.profile.cycleLength=Math.max(21,Math.min(40,+d.profile.cycleLength||28));
 if(typeof d.profile.lastPeriod!=='string')d.profile.lastPeriod='';
 if(!['none','mild','moderate','strong'].includes(d.checkin.cycleSymptoms))d.checkin.cycleSymptoms='none';
-d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=78;return d}
+d.profile.age=ageFromDOB(d.profile.dob)||d.profile.age||'';if(d.onboarded)d.profile.intakeVersion=Math.max(+d.profile.intakeVersion||0,INTAKE_VERSION);d.version=79;return d}
 function dataScore(x){
  if(!x||typeof x!=='object')return -1;
  const logs=Array.isArray(x.logs)?x.logs.length:0,bw=Array.isArray(x.bodyweightLogs)?x.bodyweightLogs.length:0,prs=x.prs&&typeof x.prs==='object'?Object.keys(x.prs).length:0,profile=x.profile?.name?5:0,onboard=x.onboarded?10:0;
@@ -2903,18 +3115,26 @@ function exerciseMotionKind(id){
 }
 function exerciseAnimationSVG(id){
  const kind=exerciseMotionKind(id),x=EX[id];
- return `<div class="motionLabel">${x?.muscle||''}</div><svg class="exerciseMotion motion-${kind}" viewBox="0 0 320 210" aria-hidden="true">
- <rect x="18" y="15" width="284" height="178" rx="25" class="motionStage"/>
- <line x1="45" y1="169" x2="275" y2="169" class="motionFloor"/>
- <g class="motionBody">
-   <circle cx="160" cy="62" r="13" class="motionHead"/>
-   <line x1="160" y1="75" x2="160" y2="119" class="motionTorso"/>
-   <g class="motionArms"><line x1="160" y1="84" x2="126" y2="104"/><line x1="160" y1="84" x2="194" y2="104"/><line x1="126" y1="104" x2="111" y2="86"/><line x1="194" y1="104" x2="209" y2="86"/></g>
-   <g class="motionLegs"><line x1="160" y1="119" x2="137" y2="148"/><line x1="160" y1="119" x2="183" y2="148"/><line x1="137" y1="148" x2="126" y2="169"/><line x1="183" y1="148" x2="194" y2="169"/></g>
- </g>
- <g class="motionEquipment"><line x1="103" y1="86" x2="217" y2="86" class="motionBar"/><rect x="94" y="75" width="8" height="22" rx="2"/><rect x="218" y="75" width="8" height="22" rx="2"/></g>
- <path d="M273 52v78" class="motionCable"/><circle cx="273" cy="48" r="6" class="motionPulley"/>
- </svg>`
+ const equipment=kind==='pull'?`<div class="cssCable"><i></i><b></b></div>`:
+   ['press','squat','hinge'].includes(kind)?`<div class="cssBar"><i></i><span></span><i></i></div>`:
+   kind==='leg'?`<div class="cssMachinePad"></div>`:'';
+ return `<div class="cssExerciseDemo demo-${kind}">
+   <div class="motionLabel">${x?.muscle||''}</div>
+   <div class="cssDemoStage">
+    <div class="cssFloor"></div>
+    ${equipment}
+    <div class="cssPerson">
+      <i class="head"></i>
+      <i class="body"></i>
+      <i class="arm a1"></i><i class="arm a2"></i>
+      <i class="forearm f1"></i><i class="forearm f2"></i>
+      <i class="leg l1"></i><i class="leg l2"></i>
+      <i class="shin s1"></i><i class="shin s2"></i>
+    </div>
+    <div class="motionGhost"></div>
+   </div>
+   <div class="cssMotionCaption"><b>${x?.name||''}</b><span>Guía animada orientativa</span></div>
+ </div>`
 }
 function renderExerciseLibrary(){
  if(!$('exerciseLibraryList'))return;
@@ -4393,13 +4613,13 @@ function welcomePrimaryAction(){
 }
 
 function tutorialVisual(kind){
- const common=`<svg viewBox="0 0 320 170" aria-hidden="true"><rect class="tvFrame" x="18" y="12" width="284" height="146" rx="24"/>`;
- if(kind==='promise')return common+`<g class="tvPulse"><circle cx="160" cy="80" r="33" class="tvRing"/><path d="M144 81l11 11 24-28" class="tvCheck"/></g><text x="160" y="137" text-anchor="middle" class="tvText">PLAN · DATOS · PROGRESO</text></svg>`;
- if(kind==='flex')return common+`<g class="tvCalendar">${[0,1,2,3,4,5,6].map(i=>`<rect x="${43+i*34}" y="52" width="24" height="24" rx="7" class="tvDay d${i}"/>`).join('')}</g><path d="M70 112 C125 82, 190 140, 250 101" class="tvPath"/><circle cx="250" cy="101" r="7" class="tvDot"/></svg>`;
- if(kind==='set')return common+`<g class="tvBar"><line x1="78" y1="91" x2="242" y2="91" class="tvBarLine"/><rect x="64" y="74" width="13" height="34" rx="3"/><rect x="243" y="74" width="13" height="34" rx="3"/></g><g class="tvSetCard"><rect x="111" y="38" width="98" height="40" rx="12"/><text x="160" y="62" text-anchor="middle">35 KG · 10 REPS</text></g><text x="160" y="132" text-anchor="middle" class="tvText">UNA SERIE A LA VEZ</text></svg>`;
- if(kind==='feedback')return common+`<g class="tvChoice">${[3,2,1,0].map((n,i)=>`<g transform="translate(${61+i*52} 62)"><circle r="19" class="tvChoiceCircle c${i}"/><text y="5" text-anchor="middle">${n}</text></g>`).join('')}</g><path d="M78 119h164" class="tvPath"/><circle cx="186" cy="119" r="7" class="tvDot"/></svg>`;
- if(kind==='learn')return common+`<path d="M48 124 C80 113,98 91,125 97 S170 74,196 83 S235 48,268 53" class="tvGraph"/><g class="tvLearn"><circle cx="125" cy="97" r="6"/><circle cx="196" cy="83" r="6"/><circle cx="268" cy="53" r="7"/></g><text x="160" y="144" text-anchor="middle" class="tvText">APRENDE DE TUS SESIONES</text></svg>`;
- return common+`<g class="tvLibrary"><rect x="54" y="39" width="92" height="91" rx="16"/><rect x="174" y="39" width="92" height="91" rx="16"/><circle cx="100" cy="72" r="10"/><path d="M100 83v27m-18-12 18-12 18 12m-18 12-14 15m14-15 14 15" class="tvPerson"/><path d="M194 105h52m-26-38v52" class="tvPlus"/></g></svg>`
+ const dots=`<div class="cssDots"><i></i><i></i><i></i></div>`;
+ if(kind==='promise')return `<div class="cssTutorialScene scenePromise"><div class="promiseOrb"><span>✓</span></div><div class="sceneWords"><b>PLAN</b><b>DATOS</b><b>PROGRESO</b></div>${dots}</div>`;
+ if(kind==='flex')return `<div class="cssTutorialScene sceneFlex"><div class="flexDays">${['L','M','X','J','V','S','D'].map((d,i)=>`<span class="${[1,3,5].includes(i)?'hit':''}">${d}</span>`).join('')}</div><div class="flexRoute"><i></i></div><small>Entrená cuando puedas</small>${dots}</div>`;
+ if(kind==='set')return `<div class="cssTutorialScene sceneSet"><div class="miniSetCard"><small>SERIE 1</small><strong>35 KG</strong><b>10 REPS</b></div><div class="miniBar"><i></i><span></span><i></i></div><small>Una serie a la vez</small>${dots}</div>`;
+ if(kind==='feedback')return `<div class="cssTutorialScene sceneFeedback"><div class="feedbackBubbles">${[3,2,1,0].map((n,i)=>`<span class="${i===1?'active':''}">${n}</span>`).join('')}</div><div class="feedbackMeter"><i></i></div><small>¿Cuánto te quedaba?</small>${dots}</div>`;
+ if(kind==='learn')return `<div class="cssTutorialScene sceneLearn"><div class="learnGraph"><i class="p1"></i><i class="p2"></i><i class="p3"></i><i class="p4"></i><span></span></div><small>El historial cambia el plan</small>${dots}</div>`;
+ return `<div class="cssTutorialScene sceneLibrary"><div class="libraryDemoCard"><div class="cssPerson smallPerson"><i class="head"></i><i class="body"></i><i class="arm a1"></i><i class="arm a2"></i><i class="leg l1"></i><i class="leg l2"></i></div></div><div class="libraryDemoCard second"><b>＋</b></div><small>Aprendé dentro de la app</small>${dots}</div>`
 }
 const TUTORIAL=[
  {visual:'promise',title:'No es una lista de ejercicios',text:'Iron Coach está diseñado para organizar el entrenamiento completo: qué toca, cuánto hacer y cómo progresar.',demo:'<b>Principiantes y avanzados usan el mismo motor, con distinta profundidad.</b>'},
