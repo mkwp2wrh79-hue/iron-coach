@@ -1072,7 +1072,7 @@ body{letter-spacing:-.01em}
 .day.today:not(.done){border-color:#50458a!important;background:#111020!important}
 
 /* ============================================================
-   IRON COACH 8.2 NIGHT READY
+   IRON COACH 8.3 CLEAN
    A calmer commercial mobile design layer.
    ============================================================ */
 :root{
@@ -2869,7 +2869,7 @@ details>summary{cursor:pointer}
 
 
 /* ============================================================
-   8.2 NIGHT READY — one-tap sets, fewer interruptions, no automatic tutorial
+   8.3 CLEAN — one action at a time, minimal copy, same coach engine
    ============================================================ */
 :root{
  --bg:#090b0d!important;--surface:#111417!important;--surface2:#171b1f!important;--separator:#282d32!important;
@@ -2956,6 +2956,158 @@ body::before,body::after,.hero::after{display:none!important}
 .premiumRirGrid .feelBtn strong{display:block;font-size:16px!important;letter-spacing:.2px}
 .premiumRirGrid .feelBtn span{font-size:11px!important;margin-top:5px!important}
 .feedbackOptional{margin-top:12px!important}
+
+
+/* =========================================================
+   8.3 CLEAN — QUIET UI
+   La inteligencia sigue activa; la interfaz deja de narrarla.
+   ========================================================= */
+
+/* General: less chrome, less explanation */
+.humanKicker,.eyebrow{letter-spacing:1.1px!important}
+.humanScreenHead p,.screenActionBtn{font-size:12px!important}
+.card{box-shadow:none!important}
+
+/* HOY: one decision, one action */
+#home .homeScreenHead{margin-bottom:14px!important}
+#home #coachSummary,
+#home .homeContext,
+#home .homePrimaryMeta,
+#home #homeMarkDone,
+#home #weeklyCoachCard,
+#home .homeDetailsHub{display:none!important}
+#home .homeScreenHead h1{max-width:520px;margin-bottom:0!important}
+#home .readinessStrip{margin-top:6px!important;padding:16px!important}
+#home .readinessStripHead>div>span{display:none!important}
+#home .readinessStripHead b{font-size:17px!important}
+#home .quickCheck{margin-top:12px!important}
+#home .quickBtn{min-height:58px!important;font-size:14px!important}
+#home .readinessDetails{margin-top:7px!important;opacity:.76}
+#home .readinessDetails>summary{font-size:10px!important;color:#77818a!important}
+#home .homePrimaryAction{margin-top:12px!important;padding:0!important;background:transparent!important;border:0!important}
+#home .humanPrimaryButton{min-height:68px!important;font-size:18px!important;border-radius:16px!important}
+#home #returnReadyText{display:none!important}
+#home .returnReadyCard{padding:13px!important}
+#home .returnReadyCard h2{font-size:18px!important;margin:4px 0 8px!important}
+#home .gymCalibrationLine span{display:none!important}
+#home #todayStatus{font-size:12px!important;line-height:1.35!important}
+
+/* TRAIN: show only what the person needs right now */
+#train .trainSignatureLabel,
+#train #gymProgressSub,
+#train #rirQuickHelp,
+#train .oneSetRule,
+#train .nowSetSub,
+#train .unknownWeightNote{display:none!important}
+#train .productTrainHero{padding:10px 4px 12px!important;margin-bottom:5px!important}
+#train #routineTitle{font-size:20px!important;margin:0!important}
+#train #sessionDuration{font-size:10px!important;opacity:.65}
+#train .gymProgress{padding:9px 11px!important;margin:6px 0 8px!important;border-radius:12px!important}
+#train .gymProgress strong{font-size:12px!important}
+#train .exercise{min-height:auto!important;padding:9px 2px 18px!important;margin:0!important}
+#train .simpleExerciseHead{margin-bottom:8px!important}
+#train .simpleExerciseHead .muscle{font-size:9px!important;color:#6f7881!important;letter-spacing:.8px}
+#train .exname{font-size:27px!important;line-height:1.05!important;margin:2px 0!important}
+#train .simpleMethodBadge{font-size:9px!important;padding:5px 7px!important;max-width:46%;line-height:1.2!important}
+#train .doNowBox{padding:12px!important;margin:6px 0 10px!important;border-radius:13px!important}
+#train .nowSetKicker{font-size:9px!important;opacity:.7}
+#train .nowSetMain{font-size:22px!important;margin-top:4px!important;line-height:1.15!important}
+#train .simpleSetFields{gap:8px!important}
+#train .setField label{font-size:10px!important;letter-spacing:.8px!important;color:#828b93!important}
+#train .setField label small{display:none!important}
+#train .setField input{min-height:68px!important;font-size:31px!important;border-radius:14px!important}
+#train .donebtn{height:60px!important;margin-top:10px!important;border-radius:14px!important;font-size:16px!important}
+#train .setHistory{margin:6px 0!important}
+#train .setChip{font-size:10px!important;padding:5px 7px!important}
+#train .liveDecision{font-size:11px!important;line-height:1.3!important;padding:8px 10px!important;margin:5px 0!important}
+#train .gymOptions,#train .gymTechnique{margin-top:7px!important;padding:0 2px!important;background:transparent!important;border:0!important}
+#train .gymOptions>summary,#train .gymTechnique>summary{font-size:10px!important;color:#737c84!important;min-height:30px!important}
+#train .gymOptions:not([open]) .gymOptionButtons,#train .gymTechnique:not([open])>*:not(summary){display:none!important}
+#train .allDoneMotivation{display:none!important}
+
+/* Feedback: four big answers, nothing else competing */
+#setFeedback .feedbackTop,
+#setFeedback #feedbackEffortHelp,
+#setFeedback .feelBtn span{display:none!important}
+#setFeedback .premiumFeedbackPanel{padding:20px 14px calc(22px + var(--safeBottom))!important}
+#setFeedback .premiumFeedbackQuestion{text-align:center;margin:0 0 14px!important}
+#setFeedback .premiumFeedbackQuestion b{font-size:24px!important}
+#setFeedback .premiumRirGrid{gap:8px!important;margin-top:0!important}
+#setFeedback .premiumRirGrid .feelBtn{min-height:74px!important;border-radius:14px!important}
+#setFeedback .premiumRirGrid .feelBtn strong{font-size:15px!important}
+#setFeedback .feedbackOptional{margin-top:9px!important;border:0!important;background:transparent!important;padding:0!important}
+#setFeedback .feedbackOptional>summary{justify-content:center;min-height:34px!important;font-size:10px!important;color:#737c84!important}
+#setFeedback .premiumSensationGrid{gap:6px!important;padding-bottom:0!important}
+#setFeedback .sensationBtn{min-height:42px!important}
+#setFeedback .feedbackResult .feedbackWhy,
+#setFeedback .feedbackResult .feedbackCoach{display:none!important}
+
+/* PLAN: names and order first; explanations only on demand elsewhere */
+#plan #planSummary,
+#plan #goalStrategyCard details,
+#plan .planContextRow,
+#plan .timelineMain>p,
+#plan .sessionExercises,
+#plan .timelineSetNext{display:none!important}
+#plan .humanScreenHead{margin-bottom:12px!important}
+#plan .planObjectiveBar{min-height:auto!important;padding:11px 13px!important;margin-bottom:8px!important}
+#plan .planObjectiveBar span{font-size:8px!important}
+#plan .planObjectiveBar b{font-size:14px!important}
+#plan .timelineSession{padding:13px 8px!important;gap:9px!important}
+#plan .timelineMeta{font-size:8px!important}
+#plan .timelineMain h2{font-size:18px!important;margin:2px 0!important}
+#plan .timelineIndex{width:30px!important;height:30px!important;font-size:11px!important}
+#plan .timelineOpen{width:40px!important;height:40px!important}
+#plan .nextDot{font-size:8px!important}
+
+/* PROGRESO: conclusion first. Deep analytics stay folded. */
+#progress .progressVerdictCard>p,
+#progress .coachBrainCard,
+#progress #currentBlockText,
+#progress #currentBlockLearn,
+#progress .currentBlockTrack{display:none!important}
+#progress .progressVerdictCard{padding:15px!important}
+#progress .progressVerdictTop{gap:8px!important}
+#progress .progressVerdictTop h1{font-size:25px!important;line-height:1.08!important}
+#progress .progressVerdictBadge{font-size:8px!important;padding:5px 7px!important}
+#progress .progressSimpleSignals{margin-top:11px!important;gap:6px!important}
+#progress .simpleSignal{padding:9px!important}
+#progress .simpleSignal span,#progress .simpleSignal small{font-size:9px!important}
+#progress .simpleSignal b{font-size:16px!important}
+#progress .currentBlockCard{padding:12px 14px!important}
+#progress .currentBlockCard h2{font-size:17px!important;margin:2px 0!important}
+#progress .monthRecapCard{min-height:54px!important;padding:10px 13px!important}
+#progress .monthRecapIcon{display:none!important}
+#progress .premiumProgressFold{margin:7px 0!important}
+#progress .premiumProgressFold>summary{min-height:53px!important;padding:10px 12px!important}
+#progress .premiumProgressFold>summary small{display:none!important}
+#progress .progressFoldNum{font-size:9px!important;opacity:.55}
+
+/* PROFILE: list, not brochure */
+#profile #profilePageGoal,
+#profile .humanListRow small,
+#profile .profileLocalNote{display:none!important}
+#profile .humanScreenHead{margin-bottom:12px!important}
+#profile .profileSnapshot{gap:5px!important;margin-bottom:12px!important}
+#profile .profileSnapshot>div{padding:10px 7px!important}
+#profile .profileSnapshot span{font-size:8px!important}
+#profile .profileSnapshot b{font-size:15px!important}
+#profile .humanListGroup{margin-top:10px!important}
+#profile .humanListGroup h2{font-size:10px!important;color:#747e87!important;margin:8px 4px!important;text-transform:uppercase;letter-spacing:1px}
+#profile .humanListRow{min-height:54px!important;padding:9px 10px!important}
+#profile .humanListRow b{font-size:14px!important}
+#profile .rowGlyph{font-size:8px!important;width:27px!important;height:27px!important}
+
+/* Bottom navigation stays obvious but quieter */
+.bottom{background:rgba(8,10,12,.96)!important}
+.navbtn{min-height:52px!important;font-size:9px!important;padding:5px 2px!important}
+.navbtn span{font-size:17px!important;margin-bottom:1px!important}
+
+@media(max-width:430px){
+ #home .homeScreenHead h1{font-size:32px!important;line-height:1.03!important}
+ #train .exname{font-size:25px!important}
+ #progress .progressVerdictTop h1{font-size:23px!important}
+}
 </style>
 </head>
 <body data-page="home">
@@ -3458,10 +3610,10 @@ body::before,body::after,.hero::after{display:none!important}
   </div>
 
   <details class="feedbackOptional">
-   <summary>¿Sentiste algo que querés registrar?</summary>
+   <summary>Dolor / molestia</summary>
    <div class="sensationGrid dualSensationGrid premiumSensationGrid">
-    <button id="burnSensation" class="sensationBtn burnIndependent" type="button">Ardor / bombeo<span>solo lo registro</span></button>
-    <button id="sharpPain" class="sensationBtn danger" type="button">Dolor raro<span>articulación o pinchazo</span></button>
+    <button id="burnSensation" class="sensationBtn burnIndependent" type="button">Bombeo</button>
+    <button id="sharpPain" class="sensationBtn danger" type="button">Dolor raro</button>
    </div>
   </details>
   <button id="saveSetFeedback" class="btn full saveSetFeedback" type="button" disabled>SEGUIR</button>
@@ -3581,7 +3733,7 @@ body::before,body::after,.hero::after{display:none!important}
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">05</span><div><b>Ayuda y seguridad</b><small>Tutorial, copia y recuperación</small></div></summary><div class="settingFoldBody">
    <div class="settingbox productPrivacyBox"><div class="row spread"><div><b>Privacidad de esta versión</b><div class="small muted">Tus entrenamientos se guardan localmente en este dispositivo.</div></div><span class="pill good">LOCAL</span></div><div class="small muted" style="margin-top:7px;line-height:1.45">Si se agrega cuenta o nube, la app deberá explicarlo y actualizar su política de privacidad.</div></div>
    <div class="dataButtons"><button id="checkUpdateNow" class="btn ghost">Buscar actualización</button><button id="showTutorialSettings" class="btn ghost">Tutorial</button><button id="exportData" class="btn secondary">↓ Guardar copia</button><label class="btn secondary fileBtn">↑ Recuperar copia<input id="importFile" class="hidden" type="file" accept="application/json,.json"></label><button id="restartOnboarding" class="btn ghost">↻ Rehacer configuración</button><button id="resetData" class="btn red">Borrar todo</button></div>
-   <p class="buildNote"><b>IRON COACH 8.2 NIGHT READY</b> · guardado local</p>
+   <p class="buildNote"><b>IRON COACH 8.3 CLEAN</b> · guardado local</p>
   </div></details>
  </div>
  <button id="saveProfile" class="btn full saveProfileBig">GUARDAR CAMBIOS</button>
@@ -3604,7 +3756,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='8.2 NIGHT READY · 2026.09.28';
+const BUILD='8.3 CLEAN · 2026.09.28';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -5445,25 +5597,25 @@ function renderTrain(restore=true){
   card.innerHTML=`<div class="simpleExerciseHead"><div><div class="muscle">EJERCICIO ${idx+1}/${sess.items.length}</div><h3 class="exname">${x.name}</h3></div>${methodLine?`<span class="simpleMethodBadge">${methodLine}</span>`:''}</div>
   <div class="setHistory"></div><div class="liveDecision"></div><div class="sets"></div>
   <div class="painActions"><b>Dolor raro registrado.</b><div class="safeNote">No sigas cargando este movimiento hoy.</div><div class="row"><button class="btn ghost" data-skip-exercise="1">Saltar ejercicio</button></div></div>
-  <details class="gymOptions"><summary>Necesito cambiar algo</summary><div class="gymOptionButtons"><button class="btn ghost slim occupiedBtn" data-defer-exercise="1">Máquina ocupada</button><button class="btn ghost slim unavailableBtn" data-unavailable-exercise="1">No está disponible</button>${exerciseCandidates(q.id).length?`<button class="btn ghost slim" data-substitute="${originalId}">Cambiar ejercicio</button>`:''}</div></details>
-  <details class="detailsBox gymTechnique"><summary>Ver cómo hacer el ejercicio</summary><button class="techDemoBtn" type="button" data-exercise-demo="${q.id}">VER TÉCNICA</button><ul class="cues">${(x.cues||[]).map(c=>`<li>${c}</li>`).join('')}<li><b>Calentamiento:</b> ${warmupPlan(q.id,q.weight)}</li></ul></details>`;
+  <details class="gymOptions"><summary>Opciones</summary><div class="gymOptionButtons"><button class="btn ghost slim occupiedBtn" data-defer-exercise="1">Máquina ocupada</button><button class="btn ghost slim unavailableBtn" data-unavailable-exercise="1">No está disponible</button>${exerciseCandidates(q.id).length?`<button class="btn ghost slim" data-substitute="${originalId}">Cambiar ejercicio</button>`:''}</div></details>
+  <details class="detailsBox gymTechnique"><summary>Técnica</summary><button class="techDemoBtn" type="button" data-exercise-demo="${q.id}">VER TÉCNICA</button><ul class="cues">${(x.cues||[]).map(c=>`<li>${c}</li>`).join('')}<li><b>Calentamiento:</b> ${warmupPlan(q.id,q.weight)}</li></ul></details>`;
 
   const box=card.querySelector('.sets');
   for(let j=0;j<q.sets;j++){
    const row=document.createElement('div');row.className='setrow';row.dataset.target=q.targets[j];
    if(techPair&&j<techPair.rounds)row.dataset.technique=techPair.kind==='BI-SERIE'?'biset':'superset';
    row.innerHTML=`<div class="doNowBox"><div class="nowSetKicker">SERIE ${j+1} DE ${q.sets} · AHORA</div><div class="nowSetMain"></div><div class="nowSetSub"></div><div class="unknownWeightNote ${q.weight?'hidden':''}">${q.mode==='NUEVO GYM'?'NUEVO GYM · Esta máquina puede sentirse distinta. Elegí una carga controlable y registrá la real.':'El peso lo elegís físicamente en el gimnasio. Después lo escribís abajo.'}</div></div>
-   <div class="setFields simpleSetFields"><div class="setField"><label>PESO QUE USÉ <small>${shortUnitHint(q.id)}</small></label><input class="w" type="number" inputmode="decimal" step="0.5" value="${q.weight||''}" placeholder="kg"></div><div class="setField"><label>REPS QUE HICE</label><input class="reps" type="number" inputmode="numeric" placeholder="${q.targets[j]}"></div></div>
+   <div class="setFields simpleSetFields"><div class="setField"><label>PESO <small>${shortUnitHint(q.id)}</small></label><input class="w" type="number" inputmode="decimal" step="0.5" value="${q.weight||''}" placeholder="kg"></div><div class="setField"><label>REPS</label><input class="reps" type="number" inputmode="numeric" placeholder="${q.targets[j]}"></div></div>
    <input class="rir" type="hidden" value="${q.protocol==='HIT SELECTIVO'&&j===q.sets-1?'1':(ph.kind==='bridge'?'3':'2')}"><input class="feel" type="hidden" value=""><input class="sensation" type="hidden" value="">
-   <button class="donebtn" type="button">GUARDAR ESTA SERIE</button><div class="oneSetRule">Guardala ahora. Recién después aparece la siguiente serie.</div>`;
+   <button class="donebtn" type="button">SERIE LISTA</button><div class="oneSetRule"></div>`;
    box.appendChild(row)
   }
   if(hasDrop){
     const drop=document.createElement('div');drop.className='setrow dropSetRow';drop.dataset.target=12;drop.dataset.technique='drop';
     const dw=q.weight?roundTo(q.weight*.75,x.inc):'';
     drop.innerHTML=`<div class="doNowBox dropNowBox"><div class="nowSetKicker">DROP SET · AHORA</div><div class="nowSetMain"></div><div class="nowSetSub"></div></div>
-    <div class="setFields simpleSetFields"><div class="setField"><label>PESO QUE USÉ <small>${shortUnitHint(q.id)}</small></label><input class="w" type="number" inputmode="decimal" step="0.5" value="${dw}" placeholder="kg"></div><div class="setField"><label>REPS QUE HICE</label><input class="reps" type="number" inputmode="numeric" placeholder="8–15"></div></div>
-    <input class="rir" type="hidden" value="1"><input class="feel" type="hidden" value=""><input class="sensation" type="hidden" value=""><button class="donebtn dropDoneBtn" type="button">GUARDAR DROP SET</button><div class="oneSetRule">Registralo apenas terminás.</div>`;
+    <div class="setFields simpleSetFields"><div class="setField"><label>PESO <small>${shortUnitHint(q.id)}</small></label><input class="w" type="number" inputmode="decimal" step="0.5" value="${dw}" placeholder="kg"></div><div class="setField"><label>REPS</label><input class="reps" type="number" inputmode="numeric" placeholder="8–15"></div></div>
+    <input class="rir" type="hidden" value="1"><input class="feel" type="hidden" value=""><input class="sensation" type="hidden" value=""><button class="donebtn dropDoneBtn" type="button">DROP LISTO</button><div class="oneSetRule"></div>`;
     box.appendChild(drop)
   }
   $('exerciseList').appendChild(card)
