@@ -7,6 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Iron Coach">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -3393,6 +3397,27 @@ body{overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){#icAmbientField::after,.ultraLevelCard::before,.ultraReadiness::before,.ultraNextReward::before,.ultraRing::after,.ultraRewardIcon,.ultraTrainBtn::before,#icEasyGuide .joyPulse::after,#icJoyDots i.current,#train .donebtn::before{animation:none!important}}
 </style>
 
+
+<style>
+/* 8.9 · prioridad glúteos */
+.priorityHint{margin-top:12px;padding:12px 13px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);color:#aeb8cf;font-size:12px;line-height:1.45}
+#priorityChoices [data-priority="glutes"]{position:relative;overflow:hidden}
+#priorityChoices [data-priority="glutes"].selected{border-color:rgba(244,114,182,.68)!important;background:linear-gradient(180deg,rgba(126,34,206,.34),rgba(236,72,153,.13))!important;box-shadow:0 0 0 2px rgba(236,72,153,.10),0 15px 34px rgba(139,92,246,.17)!important}
+.glutePriorityPill{display:inline-flex;align-items:center;gap:6px;margin:8px 0 0;padding:7px 10px;border-radius:999px;background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(236,72,153,.14));border:1px solid rgba(236,72,153,.22);font-size:11px;font-weight:850;color:#f5e9ff;letter-spacing:.03em}
+</style>
+
+
+<style id="installShareStyle">
+#icInstallShare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.icInstallBtn{min-height:62px;border-radius:20px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(145deg,rgba(139,92,246,.18),rgba(34,211,238,.08));color:#f7f9ff;padding:12px 13px;text-align:left;font-weight:900;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.icInstallBtn b{display:block;font-size:14px}.icInstallBtn small{display:block;color:#91a0b8;font-size:10px;margin-top:4px;font-weight:700}
+.icInstallBtn.primary{background:linear-gradient(135deg,#7c3aed,#2563eb 54%,#06b6d4);border-color:rgba(125,211,252,.28);box-shadow:0 12px 28px rgba(79,70,229,.20)}
+#icInstallModal{position:fixed;inset:0;z-index:10050;background:rgba(3,5,10,.78);backdrop-filter:blur(16px);display:none;align-items:flex-end;justify-content:center}
+#icInstallModal.show{display:flex}.icInstallSheet{width:min(620px,100%);border-radius:28px 28px 0 0;background:linear-gradient(180deg,#121827,#090d16);border:1px solid rgba(255,255,255,.10);padding:18px 16px calc(24px + env(safe-area-inset-bottom,0px));box-shadow:0 -28px 80px rgba(0,0,0,.55)}
+.icInstallSheet h2{margin:5px 0 8px;font-size:26px}.icInstallSheet p{color:#93a0b6;font-size:12px;line-height:1.45}.icInstallSteps{display:grid;gap:9px;margin:15px 0}.icInstallStep{display:flex;gap:11px;align-items:center;padding:12px;border-radius:17px;background:#0b101a;border:1px solid rgba(255,255,255,.07)}.icInstallStep i{width:29px;height:29px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#7c3aed,#06b6d4);font-style:normal;font-weight:950}.icInstallStep b{font-size:13px}.icInstallStep span{display:block;color:#8290a7;font-size:10px;margin-top:2px}.icInstallClose{width:100%;min-height:48px;border:0;border-radius:15px;background:#171e2c;color:white;font-weight:900}
+@media(max-width:430px){#icInstallShare{grid-template-columns:1fr}.icInstallBtn{min-height:58px}}
+</style>
+
 </head>
 <body data-page="home">
 <div id="appCrash" class="appCrash">
@@ -3495,7 +3520,7 @@ body{overflow-x:hidden}
 <button type="button" data-priority="shoulders"><span class="choiceIcon">🦾</span><b>Hombros</b></button>
 <button type="button" data-priority="arms"><span class="choiceIcon">💪</span><b>Brazos</b></button>
 <button type="button" data-priority="legs"><span class="choiceIcon">🦵</span><b>Piernas</b></button><button type="button" data-priority="glutes"><span class="choiceIcon">🍑</span><b>Glúteos</b></button>
-</div></section>
+</div><div id="priorityHint" class="priorityHint">Elegí una prioridad si querés que la rutina le dé más lugar a una zona concreta.</div></section>
   <section class="obstep" data-ob="5">
    <div class="eyebrow">Tu semana</div><h1 class="title">¿Cuántos días solés ir?</h1>
    <p class="subtitle">Si después querés meter un día extra, entrenás igual.</p>
@@ -3997,7 +4022,7 @@ body{overflow-x:hidden}
   <details class="settingFold easySettingFold"><summary><span class="settingIcon">02</span><div><b>Entrenamiento</b><small>Objetivo, frecuencia y nivel</small></div></summary><div class="settingFoldBody">
    <label>Objetivo</label><select id="pGoal"><option value="muscle">Ganar músculo</option><option value="strength">Ser más fuerte</option><option value="recomp">Mejorar el físico</option><option value="general">Un poco de todo</option><option value="fatloss">Bajar de peso</option></select>
    <div id="physicalGoalSettings" class="settingbox physicalGoalSettings"><div class="row spread"><div><b>Objetivo físico · opcional</b><div class="small muted">Una dirección, no una promesa de composición corporal.</div></div><span class="pill">META</span></div><div class="grid2"><div><label>Peso objetivo</label><div class="unitInput"><input id="pTargetWeight" type="number" step="0.1" inputmode="decimal" placeholder="ej. 75"><span>kg</span></div></div><div><label>Fecha objetivo</label><input id="pTargetDate" type="date"></div></div></div>
-   <label>Qué querés priorizar</label><select id="pPriority"><option value="balanced">Equilibrado</option><option value="cardio">Cardio</option><option value="chest">Pecho</option><option value="back">Espalda</option><option value="shoulders">Hombros</option><option value="arms">Brazos</option><option value="legs">Piernas</option><option value="glutes">Glúteos</option></select>
+   <label>Qué querés priorizar</label><select id="pPriority"><option value="balanced">Equilibrado</option><option value="cardio">Cardio</option><option value="chest">Pecho</option><option value="back">Espalda</option><option value="shoulders">Hombros</option><option value="arms">Brazos</option><option value="legs">Piernas</option><option value="glutes">Glúteos</option></select><div id="pPriorityHint" class="fieldHint">La prioridad cambia la distribución de la rutina, no elimina el resto del cuerpo.</div>
    <div class="grid2"><div><label>Veces por semana</label><select id="pAvailability"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><div class="fieldHint">Es una frecuencia. Podés entrenar cualquier día.</div></div><div><label>Tiempo por sesión</label><select id="pSessionMinutes"><option value="45">45 min</option><option value="60">60 min</option><option value="75">75 min</option><option value="90">90+ min</option></select></div></div>
    <div class="grid2"><div><label>Experiencia</label><select id="pExperience"><option value="beginner">Principiante</option><option value="intermediate">Intermedio</option><option value="advanced">Avanzado</option></select></div><div><label>Pausa manual · opcional</label><select id="pLayoff"><option value="active">Entrenando seguido</option><option value="2-4w">Paré 2–4 semanas</option><option value="1-3m">Paré 1–3 meses</option><option value="3-6m">Paré 3–6 meses</option><option value="6m+">Paré más de 6 meses</option></select><div class="fieldHint">Las pausas reales también se detectan automáticamente por tu historial.</div></div></div>
    <button id="settingsGymBtn" class="settingInlineAction" type="button"><b>Gimnasio y máquinas</b><span>Recalibrar si cambiaste de gimnasio ›</span></button>
@@ -4040,7 +4065,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='8.7 EASY JOY · 2026.09.29';
+const BUILD='9.0 INSTALLABLE · 2026.09.29';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -4147,6 +4172,44 @@ const BUILD6=[
  {id:'pullB',name:'Espalda B',focus:'Volumen de espalda + bíceps',items:[['pulldown',3,8,12],['row',3,8,12],['chestrow',2,10,12],['facepull',3,12,15],['preacher',3,10,15],['cablecurl',2,10,15]]},
  {id:'legsB',name:'Piernas B',focus:'Posterior + volumen de piernas + core',items:[['rdl',3,6,10],['hack',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['calves',3,10,15],['abmachine',3,10,15]]}
 ];
+
+/* Programa específico cuando la prioridad elegida es Glúteos.
+   Mantiene el resto del cuerpo, pero reparte 2–3 estímulos de glúteos según la frecuencia semanal. */
+const GLUTE1=[
+ {id:'glute1',name:'Cuerpo completo · Glúteos',focus:'Glúteos prioritarios + cuerpo completo',items:[['hip',3,8,12],['legpress',3,8,12],['rdl',2,8,12],['chestpress',2,8,12],['pulldown',2,8,12],['hipabduction',2,12,20],['lateral',2,12,15]]}
+];
+const GLUTE2=[
+ {id:'glute2A',name:'Glúteos + cuerpo completo A',focus:'Glúteos · cuádriceps · torso',items:[['hip',3,8,12],['legpress',3,8,12],['bulgarian',2,8,12],['chestpress',3,8,12],['pulldown',3,8,12],['hipabduction',2,12,20]]},
+ {id:'glute2B',name:'Glúteos + cuerpo completo B',focus:'Glúteos · posterior · torso',items:[['rdl',3,8,12],['hip',2,10,15],['row',3,8,12],['incline',3,8,12],['legcurl',2,10,15],['glutekickback',2,12,20]]}
+];
+const GLUTE3=[
+ {id:'glute3A',name:'Glúteos A',focus:'Glúteos + cuádriceps',items:[['hip',3,8,12],['legpress',3,8,12],['bulgarian',2,8,12],['hipabduction',2,12,20],['legext',2,10,15],['calves',2,10,15]]},
+ {id:'glute3U',name:'Torso',focus:'Espalda · pecho · hombros · brazos',items:[['pulldown',3,8,12],['chestpress',3,8,12],['row',3,8,12],['shoulderpress',2,8,12],['lateral',2,12,15],['curl',2,10,15],['triceps',2,10,15]]},
+ {id:'glute3B',name:'Glúteos B',focus:'Glúteos + parte posterior',items:[['rdl',3,8,12],['hip',3,8,12],['hack',2,8,12],['legcurl',2,10,15],['hipabduction',2,12,20],['glutekickback',2,12,20]]}
+];
+const GLUTE4=[
+ {id:'glute4A',name:'Glúteos A',focus:'Glúteos + cuádriceps',items:[['hip',3,8,12],['legpress',3,8,12],['bulgarian',2,8,12],['hipabduction',2,12,20],['legext',2,10,15]]},
+ {id:'glute4UA',name:'Torso A',focus:'Espalda · pecho · hombros',items:[['pulldown',3,8,12],['chestpress',3,8,12],['row',3,8,12],['lateral',3,12,15],['triceps',2,10,15]]},
+ {id:'glute4B',name:'Glúteos B',focus:'Glúteos + posterior',items:[['rdl',3,8,12],['hip',3,8,12],['hack',2,8,12],['legcurl',3,10,15],['glutekickback',2,12,20],['hipabduction',2,12,20]]},
+ {id:'glute4UB',name:'Torso B',focus:'Espalda · pecho · brazos',items:[['incline',3,8,12],['chestrow',3,8,12],['shoulderpress',2,8,12],['rearfly',2,12,15],['curl',2,10,15],['overheadtri',2,10,15]]}
+];
+const GLUTE5=[
+ {id:'glute5A',name:'Glúteos A',focus:'Glúteos + cuádriceps',items:[['hip',3,8,12],['legpress',3,8,12],['bulgarian',2,8,12],['hipabduction',2,12,20],['legext',2,10,15]]},
+ {id:'glute5Push',name:'Torso · empuje',focus:'Pecho · hombros · tríceps',items:[['chestpress',3,8,12],['incline',3,8,12],['shoulderpress',2,8,12],['lateral',3,12,15],['triceps',2,10,15]]},
+ {id:'glute5B',name:'Glúteos B',focus:'Glúteos + posterior',items:[['rdl',3,8,12],['hip',3,8,12],['legcurl',3,10,15],['glutekickback',2,12,20],['hipabduction',2,12,20]]},
+ {id:'glute5Pull',name:'Torso · tirón',focus:'Espalda · bíceps',items:[['pulldown',3,8,12],['row',3,8,12],['chestrow',2,10,12],['rearfly',2,12,15],['curl',3,10,15]]},
+ {id:'glute5C',name:'Glúteos C',focus:'Glúteos · estímulo ligero',items:[['hack',2,10,15],['hip',2,10,15],['hipabduction',2,15,20],['glutekickback',2,12,20],['calves',2,10,15],['abmachine',2,10,15]]}
+];
+const GLUTE6=[
+ {id:'glute6A',name:'Glúteos A',focus:'Glúteos + cuádriceps',items:[['hip',3,8,12],['legpress',3,8,12],['bulgarian',2,8,12],['hipabduction',2,12,20]]},
+ {id:'glute6Push',name:'Torso · empuje',focus:'Pecho · hombros · tríceps',items:[['chestpress',3,8,12],['incline',3,8,12],['shoulderpress',2,8,12],['lateral',2,12,15],['triceps',2,10,15]]},
+ {id:'glute6B',name:'Glúteos B',focus:'Glúteos + posterior',items:[['rdl',3,8,12],['hip',3,8,12],['legcurl',2,10,15],['glutekickback',2,12,20]]},
+ {id:'glute6Pull',name:'Torso · tirón',focus:'Espalda · bíceps',items:[['pulldown',3,8,12],['row',3,8,12],['chestrow',2,10,12],['rearfly',2,12,15],['curl',2,10,15]]},
+ {id:'glute6C',name:'Glúteos C',focus:'Glúteos · estímulo moderado',items:[['hack',2,10,15],['hip',2,10,15],['hipabduction',2,15,20],['glutekickback',2,12,20],['calves',2,10,15]]},
+ {id:'glute6Upper',name:'Torso completo',focus:'Torso · mantenimiento y progreso',items:[['incline',2,8,12],['pulldown',2,8,12],['row',2,8,12],['lateral',2,12,15],['overheadtri',2,10,15],['preacher',2,10,15],['abmachine',2,10,15]]}
+];
+function glutePlanForDays(n){return n===1?GLUTE1:n===2?GLUTE2:n===3?GLUTE3:n===4?GLUTE4:n===5?GLUTE5:GLUTE6}
+
 
 const fresh={version:89,onboarded:false,profile:{name:'',dob:'',age:'',height:'',weight:75,email:'',sex:'unspecified',cycleTracking:false,cycleRegularity:'regular',cycleLength:28,lastPeriod:'',goal:'general',experience:'beginner',layoff:'active',limitations:[],priorMarks:{},priority:'balanced',intakeVersion:0,availability:3,days:3,sessionMinutes:75,time:'18:30',barWeight:0,scheduleDays:[],flexibleWeek:true,timerEnabled:true,restAlarmEnabled:true,keepAwake:true,bridgeStartLogCount:0,tutorialVersion:0,seenAchievements:[],achievementsInitialized:false,exercisePrefs:{},unavailableExercises:{},lastMonthlyRecap:'',textScale:'large',trainingConfidence:'guided',targetWeight:'',targetDate:'',soundEnabled:false,autoLayoff:'active',returnGapDays:0,returnAnchorLogId:'',returnDetectedAt:'',gymGeneration:0,gymCalibrationActive:false,gymCalibrationStartLogCount:0,gymChangeDate:'',gymPromptPending:false},logs:[],prs:{},baselinePrs:{},bodyweightLogs:[],checkin:{sleep:4,energy:4,stress:2,soreness:2,cycleSymptoms:'none',date:''},routineCursor:0,rotationStateVersion:2};
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -4331,6 +4394,8 @@ function applyGoalRepPolicy(id,min,max){
 }
 function applyGoalSetPolicy(id,sets){
  const goal=db.profile.goal||'muscle',x=EX[id],mins=+db.profile.sessionMinutes||75,days=+db.profile.days||3;if(phaseInfo().kind!=='build')return sets;
+ // En prioridad glúteos, respetamos la dosis diseñada del plan en lugar de inflar todas las aislaciones automáticamente.
+ if((db.profile.priority||'balanced')==='glutes'&&directGroup(id)==='gluteos')return Math.max(2,Math.min(4,sets));
  if(goal==='muscle'){
    if(x.primary)return Math.max(3,Math.min(4,sets));
    if(mins>=60&&days>=3)return Math.max(3,Math.min(4,sets));
@@ -4365,6 +4430,10 @@ function beginnerizedPlan(base){
 }
 function buildPlan(){
  const n=db.profile.days||3,beginner=db.profile.experience==='beginner';
+ if((db.profile.priority||'balanced')==='glutes'){
+   const gluteBase=glutePlanForDays(n);
+   return beginner?beginnerizedPlan(gluteBase):gluteBase
+ }
  let base=n===1?BUILD1:n===2?BUILD2:n===3?(beginner?BUILD3_BEGINNER:BUILD3_ADV):n===4?BUILD4:n===5?BUILD5:BUILD6;
  return beginner&&n!==3?beginnerizedPlan(base):base
 }
@@ -4490,7 +4559,7 @@ function volumeRange(group){
  const days=db.profile.days||3;
  if(days===1){lo=Math.min(lo,6);hi=Math.min(hi,9)}
  else if(days===2){lo=Math.min(lo,8);hi=Math.min(hi,12)}
- if(priorityGroupMatch(group)){lo+=1;hi+=2}
+ if(priorityGroupMatch(group)){if((db.profile.priority||'balanced')==='glutes'&&group==='gluteos'){lo+=3;hi+=4}else{lo+=1;hi+=2}}
  return [lo,hi]
 }
 function adaptiveVolumeSignal(id,idx=0,sess=currentSession()){
@@ -5682,10 +5751,11 @@ function renderHome(){renderReturnReady();const beforeHeal=rotationAutoHealed;co
  renderWeek($('homeWeek'));$('weekCaption').textContent=`Objetivo: ${db.profile.days} sesión${db.profile.days===1?'':'es'} esta semana. Elegí vos qué días entrenar.`;renderRewardStrip();renderDraftCard();renderDataSafeStatus();renderWeeklyCoach();renderProgramAudit();renderDiscipline();renderFrequencyLearning();renderCycleToday();renderNutrition();
  if(rotationAutoHealed&&!beforeHeal){setTimeout(()=>toast(`Plan corregido · ahora sigue ${currentSession().name}`),120)}
 }
-function priorityLabel(p){return ({balanced:'equilibrada',cardio:'cardio',chest:'pecho',back:'espalda',shoulders:'hombros',arms:'brazos',legs:'piernas'})[p]||'equilibrada'}
+function priorityLabel(p){return ({balanced:'equilibrada',cardio:'cardio',chest:'pecho',back:'espalda',shoulders:'hombros',arms:'brazos',legs:'piernas',glutes:'glúteos'})[p]||'equilibrada'}
 function goalLabel(g){return ({muscle:'ganar músculo',strength:'ser más fuerte',recomp:'ganar músculo y mejorar el físico',general:'un poco de todo',fatloss:'bajar de peso cuidando músculo'})[g]||'progresar'}
 function planReasonCopy(){
  const d=db.profile.days||3,mins=db.profile.sessionMinutes||75,g=goalEngine();
+ if((db.profile.priority||'balanced')==='glutes')return {short:'Prioridad glúteos · el resto del cuerpo sigue incluido',long:`El programa reparte ${d>=5?3:d>=2?2:1} estímulo${d>=2?'s':''} de glúteos por semana y mantiene trabajo de piernas y torso. La cantidad de series se ajusta con tu recuperación y rendimiento. Tiempo por entrenamiento: aproximadamente ${mins} minutos.`};
  return {short:`${g.label}: ${g.summary}`,long:`Objetivo actual: ${goalLabel(db.profile.goal)}. ${g.summary} Los ${d} días son tu frecuencia habitual, no una obligación. El motor cambia rangos de repeticiones, cantidad de series, uso de fallo y técnicas avanzadas según este objetivo. Tiempo por entrenamiento: aproximadamente ${mins} minutos.`}
 }
 function renderWhyPlan(){const c=planReasonCopy();$('whyPlanShort').textContent=c.short;$('whyPlanLong').textContent=c.long}
@@ -6357,9 +6427,9 @@ function collectSettingsPrior(){const out={};[['Bench','bench'],['Squat','squat'
 function saveProfileNow(){
  const dob=arDateToISO($('pDob').value),age=ageFromDOB(dob);
  if(!dob||age===null||age<13||age>100){toast('Revisá la fecha. Usá día/mes/año.');return}
- const oldW=+db.profile.weight||0,newW=+$('pWeight').value||75,oldDays=db.profile.days,oldExp=db.profile.experience||'intermediate',oldLayoff=db.profile.layoff||'active';
+ const oldW=+db.profile.weight||0,newW=+$('pWeight').value||75,oldDays=db.profile.days,oldExp=db.profile.experience||'intermediate',oldPriority=db.profile.priority||'balanced',oldLayoff=db.profile.layoff||'active';
  db.profile={...db.profile,name:$('pName').value.trim(),dob,height:$('pHeight').value,weight:newW,email:db.profile.email||'',sex:$('pSex').value||'unspecified',cycleTracking:$('pSex').value==='female'&&$('pCycleTracking').checked,cycleRegularity:$('pCycleRegularity').value||'regular',cycleLength:Math.max(21,Math.min(40,+$('pCycleLength').value||28)),lastPeriod:arDateToISO($('pLastPeriod').value),goal:$('pGoal').value,experience:$('pExperience').value,layoff:$('pLayoff').value,priority:$('pPriority').value,limitations:[...$('pLimitations').querySelectorAll('.daybtn.on')].map(b=>b.dataset.limit),priorMarks:collectSettingsPrior(),availability:+$('pAvailability').value||3,sessionMinutes:+$('pSessionMinutes').value||75,time:$('pTime').value||'18:30',textScale:$('pTextScale').value||'large',trainingConfidence:$('pTrainingConfidence').value||'guided',targetWeight:+$('pTargetWeight').value||'',targetDate:$('pTargetDate').value||'',soundEnabled:!!db.profile.soundEnabled,barWeight:0};
- db.profile.age=age;db.profile.days=recommendedDays(db.profile);if(oldDays!==db.profile.days||oldExp!==db.profile.experience){db.routineCursor=0;db.rotationStateVersion=2}
+ db.profile.age=age;db.profile.days=recommendedDays(db.profile);if(oldDays!==db.profile.days||oldExp!==db.profile.experience||oldPriority!==db.profile.priority){db.routineCursor=0;db.rotationStateVersion=2;clearDraft()}
  if(db.profile.layoff!=='active'&&db.profile.layoff!==oldLayoff){db.profile.autoLayoff='active';db.profile.bridgeStartLogCount=db.logs.length;db.profile.returnGapDays=0;db.routineCursor=0}if(db.profile.layoff==='active'&&db.profile.layoff!==oldLayoff&&returnProgress()>=1)db.profile.autoLayoff='active';
  db.profile.flexibleWeek=true;db.profile.scheduleDays=[];
  if(Math.abs(newW-oldW)>=.1)db.bodyweightLogs.push({date:new Date().toISOString(),weight:newW});
@@ -6368,9 +6438,9 @@ function saveProfileNow(){
 
 let obStep=0,obGoal='general',obPriority='balanced';
 function updateReturnNote(){const l=$('obLayoff').value,n=bridgeNeedFor(l),msg=l==='active'?'Sin puente de regreso: entrás directo al bloque principal.':`Vas a hacer ${n} sesiones Full Body de readaptación. Después cambia solo al split principal; la carga sigue subiendo gradualmente durante la ventana de vuelta.`;$('returnNote').innerHTML='<b>Qué hará Iron Coach:</b><br>'+msg}
-function obTempProfile(){return {experience:$('obExperience').value,goal:obGoal,availability:+$('obAvailability').value||3}}
-function buildPlanNamesFor(p){const days=recommendedDays(p);if(days===1)return BUILD1.map(x=>x.name);if(days===2)return BUILD2.map(x=>x.name);if(days===3)return p.experience==='beginner'?BUILD3_BEGINNER.map(x=>x.name):BUILD3_ADV.map(x=>x.name);if(days===4)return BUILD4.map(x=>x.name);if(days===5)return BUILD5.map(x=>x.name);return BUILD6.map(x=>x.name)}
-function updateObRec(){const p=obTempProfile(),n=recommendedDays(p),names=buildPlanNamesFor(p),one=n===1?'Con 1 día hago una sesión de cuerpo completo para aprovecharlo al máximo.':n===2?'Con 2 días uso cuerpo completo A/B para tocar todo el cuerpo.':'',fat=p.goal==='fatloss'?' Para bajar de peso mantengo trabajo de fuerza/músculo y agrego cardio complementario.':'';$('obRecommendation').innerHTML=`<b>${n} día${n===1?'':'s'} por semana.</b><br>${one||names.join(' · ')}${fat}`}
+function obTempProfile(){return {experience:$('obExperience').value,goal:obGoal,priority:obPriority,availability:+$('obAvailability').value||3}}
+function buildPlanNamesFor(p){const days=recommendedDays(p);if((p.priority||'balanced')==='glutes')return glutePlanForDays(days).map(x=>x.name);if(days===1)return BUILD1.map(x=>x.name);if(days===2)return BUILD2.map(x=>x.name);if(days===3)return p.experience==='beginner'?BUILD3_BEGINNER.map(x=>x.name):BUILD3_ADV.map(x=>x.name);if(days===4)return BUILD4.map(x=>x.name);if(days===5)return BUILD5.map(x=>x.name);return BUILD6.map(x=>x.name)}
+function updateObRec(){const p=obTempProfile(),n=recommendedDays(p),names=buildPlanNamesFor(p),gl=p.priority==='glutes',one=gl?'':n===1?'Con 1 día hago una sesión de cuerpo completo para aprovecharlo al máximo.':n===2?'Con 2 días uso cuerpo completo A/B para tocar todo el cuerpo.':'',fat=p.goal==='fatloss'?' Para bajar de peso mantengo trabajo de fuerza/músculo y agrego cardio complementario.':'',glute=gl?' Glúteos reciben más frecuencia y selección específica; el torso y las piernas siguen incluidos.':'';$('obRecommendation').innerHTML=`<b>${n} día${n===1?'':'s'} por semana.</b><br>${one||names.join(' · ')}${glute}${fat}`}
 
 function updateObSummary(){const p=obTempProfile(),n=recommendedDays(p),lay=$('obLayoff').value,bridge=lay!=='active',bridgeN=bridgeNeedFor(lay),names=buildPlanNamesFor(p);$('obPlanPreview').innerHTML=`<b>${n} día${n===1?'':'s'} por semana</b><span class="small muted">${names.join(' → ')}</span>${bridge?`<div class="divider"></div><b>Primero: volver al ritmo</b><span class="small muted">${bridgeN} entrenamientos controlados.</span>`:''}${p.goal==='fatloss'?`<div class="divider"></div><b>Objetivo: bajar de peso</b><span class="small muted">Fuerza para cuidar músculo + cardio complementario.</span>`:''}<div class="divider"></div><b>Si querés ir un día extra</b><span class="small muted">Entrenás igual. El calendario no te bloquea.</span>`}
 
@@ -6756,7 +6826,7 @@ function openTutorial(step=0){tutStep=Math.max(0,Math.min(TUTORIAL.length-1,step
 function closeTutorial(mark=true){$('tutorialModal').classList.remove('show');if(mark){db.profile.tutorialVersion=TUTORIAL_VERSION;save(true)}}
 function nextTutorial(){if(tutStep<TUTORIAL.length-1){tutStep++;renderTutorial()}else closeTutorial(true)}
 function rirHelp(){toast('Guardarte 2 reps = terminar sintiendo que podrías hacer 2 más.')}
-async function cleanupLegacy(){try{if('serviceWorker'in navigator){for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister()}if('caches'in window){for(const k of await caches.keys())await caches.delete(k)}}catch(e){}}
+async function cleanupLegacy(){return true}
 async function checkFreshBuild(){try{await cleanupLegacy();const r=await fetch('./index.html?buildcheck='+Date.now(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}});if(!r.ok){toast('No pude consultar la versión.');return}const t=await r.text(),m=t.match(/const BUILD='([^']+)'/);if(m&&m[1]!==BUILD){toast('Nueva versión detectada. Actualizando…');setTimeout(()=>location.replace('./?v='+Date.now()),650)}else toast('Iron Coach está actualizado.')}catch(e){toast('No pude comprobar la actualización.')}}
 cleanupLegacy();window.addEventListener('pageshow',()=>setTimeout(checkFreshBuild,700));document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(checkFreshBuild,500)});
 
@@ -6767,7 +6837,7 @@ $('cycleRoutine').addEventListener('click',()=>{manualRoutine=(currentRoutineInd
 $('obLastPeriod').addEventListener('input',()=>maskARDateInput($('obLastPeriod')));$('pLastPeriod').addEventListener('input',()=>maskARDateInput($('pLastPeriod')));
 $('obSex').addEventListener('change',()=>toggleCycleSetup('ob'));$('obCycleTracking').addEventListener('change',()=>toggleCycleSetup('ob'));
 $('pSex').addEventListener('change',()=>toggleCycleSetup('p'));$('pCycleTracking').addEventListener('change',()=>toggleCycleSetup('p'));
-document.querySelectorAll('#goalChoices button').forEach(b=>b.addEventListener('click',()=>{obGoal=b.dataset.goal;document.querySelectorAll('#goalChoices button').forEach(x=>x.classList.toggle('selected',x===b));updateObRec()}));document.querySelectorAll('#priorityChoices button').forEach(b=>b.addEventListener('click',()=>{obPriority=b.dataset.priority;document.querySelectorAll('#priorityChoices button').forEach(x=>x.classList.toggle('selected',x===b))}));document.querySelectorAll('#limitationChoices button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.limit==='none'){document.querySelectorAll('#limitationChoices button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')}else{document.querySelector('#limitationChoices [data-limit="none"]').classList.remove('selected');b.classList.toggle('selected');if(!document.querySelector('#limitationChoices button.selected'))document.querySelector('#limitationChoices [data-limit="none"]').classList.add('selected')}}));
+document.querySelectorAll('#goalChoices button').forEach(b=>b.addEventListener('click',()=>{obGoal=b.dataset.goal;document.querySelectorAll('#goalChoices button').forEach(x=>x.classList.toggle('selected',x===b));updateObRec()}));document.querySelectorAll('#priorityChoices button').forEach(b=>b.addEventListener('click',()=>{obPriority=b.dataset.priority;document.querySelectorAll('#priorityChoices button').forEach(x=>x.classList.toggle('selected',x===b));updateObRec()}));document.querySelectorAll('#limitationChoices button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.limit==='none'){document.querySelectorAll('#limitationChoices button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')}else{document.querySelector('#limitationChoices [data-limit="none"]').classList.remove('selected');b.classList.toggle('selected');if(!document.querySelector('#limitationChoices button.selected'))document.querySelector('#limitationChoices [data-limit="none"]').classList.add('selected')}}));
 document.addEventListener('click',e=>{const nx=e.target.closest('[data-set-next-session]');if(nx){setNextRoutine(+nx.dataset.setNextSession);return}const demo=e.target.closest('[data-exercise-demo]');if(demo){openExerciseDetail(demo.dataset.exerciseDemo);return}const lg=e.target.closest('[data-library-group]');if(lg){libraryGroup=lg.dataset.libraryGroup;renderExerciseLibrary();return}const fc=e.target.closest('[data-frequency-change]');if(fc){applyFrequencySuggestion(+fc.dataset.frequencyChange);return}const fd=e.target.closest('[data-frequency-dismiss]');if(fd){dismissFrequencySuggestion();return}const wc=e.target.closest('[data-welcome-checkin]');if(wc){setQuick(wc.dataset.welcomeCheckin);document.querySelectorAll('[data-welcome-checkin]').forEach(b=>b.classList.toggle('selected',b===wc));$('welcomePrimary').disabled=false;return}const nav=e.target.closest('.navbtn');if(nav){if(nav.dataset.page==='train'&&!document.querySelector('#train.active')){openTrainConfirm();return}go(nav.dataset.page);return}const done=e.target.closest('.donebtn');if(done){const row=done.closest('.setrow'),card=done.closest('.exercise');if(done.classList.contains('on'))return;if(!validateSet(card,row))return;openSetFeedback(card,row);return}const feel=e.target.closest('[data-feel]');if(feel&&feel.closest('#setFeedback')){applySetFeedback(feel.dataset.feel);return}const defer=e.target.closest('[data-defer-exercise]');if(defer){deferExercise(defer.closest('.exercise'));return}const skip=e.target.closest('[data-skip-exercise]');if(skip){skipCurrentExercise(skip.closest('.exercise'));return}const pp=e.target.closest('[data-plan-preview]');if(pp){openPlanPreview(+pp.dataset.planPreview);return}const cs=e.target.closest('[data-cycle-symptom]');if(cs){setCycleSymptom(cs.dataset.cycleSymptom);return}const rep=e.target.closest('[data-replacement-id]');if(rep){chooseReplacement(rep.dataset.replacementId);return}const ach=e.target.closest('[data-achievement-id]');if(ach){openAchievementDetail(ach.dataset.achievementId);return}const unavailable=e.target.closest('[data-unavailable-exercise]');if(unavailable){unavailableCurrentExercise(unavailable.closest('.exercise'));return}const sub=e.target.closest('[data-substitute]');if(sub){const original=sub.dataset.substitute,card=sub.closest('.exercise');if(card.querySelector('.donebtn.on')){toast('Desmarcá las series antes de cambiar este ejercicio.');return}openReplacementModal(original,card.dataset.id);return}const rr=e.target.closest('[data-rest-now]');if(rr){const x=EX[rr.dataset.restNow];startRest(x.rest,x.name);return}const restore=e.target.closest('[data-restore-availability]');if(restore){restoreExerciseAvailability(restore.dataset.restoreAvailability);return}const del=e.target.closest('[data-delete-log]');if(del){deleteLog(del.dataset.deleteLog);return}});
 document.addEventListener('input',e=>{if(e.target.matches('.w,.reps,.rir')){setAutosave('Guardando…');clearTimeout(window._draftT);window._draftT=setTimeout(saveDraft,250)}if(e.target.classList.contains('w')){const row=e.target.closest('.setrow'),card=e.target.closest('.exercise'),rows=[...card.querySelectorAll('.setrow')];if(rows[0]===row){const v=e.target.value;rows.slice(1).forEach(r=>{const f=r.querySelector('.w');if(!f.value)f.value=v})}updateActiveSetInstruction(card,row)}});
 window.addEventListener('pagehide',()=>{saveDraft();save(true)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){saveDraft();save(true)}else if(!$('restBar').classList.contains('hidden'))tickRest()});
@@ -6878,7 +6948,7 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
  function refreshProgress(){ensureProgress();const x=xp(),st=streak(),wd=weekDone(),dt=daysTarget(),logs=safe(()=>db.logs,[])||[],ach=nextAch();if($u('uProgressTitle'))$u('uProgressTitle').textContent='Nivel '+x.lvl;if($u('uProgressLine'))$u('uProgressLine').textContent=x.total+' XP · '+x.next+' para el próximo nivel';if($u('uProgressFill'))$u('uProgressFill').style.width=x.pct+'%';if($u('uPSessions'))$u('uPSessions').textContent=logs.length;if($u('uPStreak'))$u('uPStreak').textContent='×'+st;if($u('uPWeek'))$u('uPWeek').textContent=wd+'/'+dt;if($u('uAchText'))$u('uAchText').textContent=ach?`Siguiente: ${ach.name}`:'Todos los hitos visibles completados'}
  function refreshMore(){ensureMore();const t=$u('uFxToggle');if(t)t.classList.toggle('on',fxOn());const nav=document.querySelector('.navbtn[data-page="profile"]');if(nav&&nav.lastChild)nav.childNodes[nav.childNodes.length-1].nodeValue='Más'}
  function simplifyTraining(){document.querySelectorAll('#train .gymOptions>summary').forEach(s=>s.setAttribute('aria-label','Opciones'));const s=sessionStats();if(s.done!==lastSessionDone){if(lastSessionDone>=0&&s.done>lastSessionDone&&s.done>0&&s.done%5===0&&s.done<s.total)moment('COMBO ×'+s.done,'5 SERIES COMPLETADAS','⚡','milestone');lastSessionDone=s.done}}
- function refresh(){ambient();ensureLab();refreshHome();refreshProgress();refreshMore();refreshLab();simplifyTraining();const note=$u('settingsModal')?.querySelector('.buildNote b');if(note)note.textContent='IRON COACH 8.7 EASY JOY'}
+ function refresh(){ambient();ensureLab();refreshHome();refreshProgress();refreshMore();refreshLab();simplifyTraining();const note=$u('settingsModal')?.querySelector('.buildNote b');if(note)note.textContent='IRON COACH 9.0 INSTALLABLE'}
  const mo=new MutationObserver(()=>{clearTimeout(refresh._t);refresh._t=setTimeout(refresh,90)});
  function init(){ambient();ensureMoment();ensureHome();ensureProgress();ensureMore();ensureLab();refresh();mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});setInterval(refresh,3500);document.addEventListener('pointerdown',e=>{const b=e.target.closest('.ultraMood,.ultraTrainBtn,.ultraMiniBtn,.ultraMoreBtn,.ultraRewardButton,.ultraToggle,.ultraLabTools button');if(b){audio();pulse(b)}},{passive:true})}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
@@ -6889,21 +6959,7 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
 <script>
 (function(){
   const HOTFIX='8.6.1 ULTRA';
-  async function purgeLegacyCachesOnce(){
-    try{
-      const key='ironCoachHotfix861';
-      if(sessionStorage.getItem(key)) return;
-      sessionStorage.setItem(key,'1');
-      if('serviceWorker' in navigator){
-        const regs=await navigator.serviceWorker.getRegistrations();
-        await Promise.all(regs.map(r=>r.unregister()));
-      }
-      if('caches' in window){
-        const keys=await caches.keys();
-        await Promise.all(keys.map(k=>caches.delete(k)));
-      }
-    }catch(e){}
-  }
+  async function purgeLegacyCachesOnce(){return true}
   function badge(){
     if(document.getElementById('build861Badge'))return;
     const b=document.createElement('div');
@@ -6988,9 +7044,289 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
 </script>
 <script id="easyJoyHotfix">
 (function(){
- async function purge(){try{const key='ironCoachHotfix870';if(sessionStorage.getItem(key))return;sessionStorage.setItem(key,'1');if('serviceWorker'in navigator){const r=await navigator.serviceWorker.getRegistrations();await Promise.all(r.map(x=>x.unregister()))}if('caches'in window){const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}}catch(e){}}
+ async function purge(){return true}
  function badge(){const old=document.getElementById('build861Badge');if(old)old.remove();let b=document.getElementById('build870Badge');if(!b){b=document.createElement('div');b.id='build870Badge';b.style.cssText='position:fixed;right:10px;top:10px;z-index:9999;padding:6px 9px;border-radius:999px;background:linear-gradient(135deg,rgba(124,58,237,.90),rgba(34,211,238,.78));border:1px solid rgba(255,255,255,.20);color:white;font:900 10px/1 system-ui,-apple-system,sans-serif;letter-spacing:.08em;backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(0,0,0,.25),0 0 20px rgba(34,211,238,.12);pointer-events:none';document.body.appendChild(b)}b.textContent='8.7 EASY JOY'}
  async function boot(){await purge();badge()}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();
+</script>
+
+
+<style id="clearStep1Style">
+/* IRON COACH 9.0 INSTALLABLE — Step 1: simple navigation + neutral language */
+#icMorePage .ultraMoreHead h1::after{display:none!important;content:''!important}
+#icMorePage{gap:14px!important}
+.ultraMoreHead{padding:8px 3px 2px!important}
+.ultraMoreHead span{display:none!important}
+.ultraMoreHead h1{font-size:36px!important;margin:0!important;letter-spacing:-1px!important}
+.ultraMoreGrid{gap:10px!important}
+.ultraMoreBtn{min-height:72px!important;border-radius:22px!important;padding:13px 15px!important}
+.ultraMoreBtn b{font-size:15px!important}
+.ultraMoreBtn small{font-size:11px!important;line-height:1.25!important}
+.ultraSoundRow{min-height:58px!important;border-radius:20px!important}
+.ultraSoundRow b{font-size:14px!important}
+
+/* One obvious way back in every secondary screen. */
+.stepBackBtn,.ultraLabClose,#closeSettings,#closeExerciseLibrary,#closeExerciseDetail,#closeEvidence,#closeGymModal{
+ width:auto!important;min-width:88px!important;height:42px!important;border-radius:14px!important;padding:0 13px!important;
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;
+ border:1px solid rgba(255,255,255,.10)!important;background:rgba(16,21,33,.92)!important;color:#eef3ff!important;
+ font-size:12px!important;font-weight:850!important;letter-spacing:0!important;
+}
+.sheethead{position:sticky!important;top:0!important;z-index:8!important;padding:4px 0 10px!important;background:linear-gradient(180deg,rgba(10,14,23,.98) 68%,rgba(10,14,23,0))!important}
+.sheethead .eyebrow{display:none!important}
+
+/* Settings is now a hub first, never a wall of controls. */
+#settingsModal .settingsHub{display:none!important}
+#settingsModal .settingsOverview{margin:3px 0 14px!important}
+#settingsModal .settingsOverview>div>span{display:none!important}
+#settingsModal .settingsOverview .settingsDaysBadge{display:none!important}
+#settingsModal .profileSheetTitle{font-size:28px!important}
+#clearSettingsHub{display:grid;gap:10px;margin-top:2px}
+.clearMenuBtn{width:100%;min-height:72px;border:1px solid rgba(255,255,255,.08);background:rgba(13,18,30,.78);border-radius:22px;color:white;padding:13px 15px;display:grid;grid-template-columns:44px 1fr 18px;align-items:center;gap:11px;text-align:left}
+.clearMenuBtn .cIcon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(139,92,246,.18),rgba(34,211,238,.07));font-size:19px}
+.clearMenuBtn b{display:block;font-size:15px}.clearMenuBtn small{display:block;color:#8390a6;font-size:11px;margin-top:3px}.clearMenuBtn em{font-style:normal;color:#657087;font-size:18px}
+#clearSettingsBack{display:none;width:max-content;margin:2px 0 12px;border:0;background:transparent;color:#b9c5db;font-weight:850;font-size:13px;padding:6px 2px}
+#settingsModal:not(.clearSectionOpen) .settingsMenu,#settingsModal:not(.clearSectionOpen) #saveProfile{display:none!important}
+#settingsModal.clearSectionOpen #clearSettingsHub{display:none!important}
+#settingsModal.clearSectionOpen #clearSettingsBack{display:inline-flex!important;align-items:center;gap:7px}
+#settingsModal.clearSectionOpen .settingsMenu{display:block!important}
+#settingsModal.clearSectionOpen .easySettingFold{display:none;margin:0 0 10px!important;padding:14px!important;border-radius:20px!important;background:rgba(12,17,28,.72)!important}
+#settingsModal.clearSectionOpen .easySettingFold.clearShow{display:block!important}
+#settingsModal.clearSectionOpen .easySettingFold>summary{display:none!important}
+#settingsModal.clearSectionOpen .settingFoldBody{padding:0!important}
+#settingsModal.clearSectionOpen #saveProfile{display:block!important;margin-top:12px!important}
+#settingsModal .fieldHint,#settingsModal .cycleEvidenceNote,#settingsModal .flexWeekSetting small,#settingsModal .settingbox .small.muted{font-size:10px!important;line-height:1.3!important;color:#768298!important}
+#settingsModal .settingbox{padding:12px!important;border-radius:16px!important}
+#settingsModal .nestedSettings>summary{font-size:12px!important;color:#9aa6ba!important}
+#settingsModal .productPrivacyBox .small[style]{display:none!important}
+#settingsModal .saveProfileBig{min-height:58px!important}
+
+/* Preferences that are useful but too technical for the normal path stay out of sight. */
+#settingsModal .unavailableSetting,#settingsModal .prefsSummary,#settingsModal .nestedSettings{display:none!important}
+
+/* Technical page: compact, neutral, obvious back. */
+#icCoachLab{align-items:stretch!important;background:#080b12!important;backdrop-filter:none!important}
+.ultraLabSheet{width:100%!important;max-width:760px!important;max-height:none!important;height:100%!important;margin:auto!important;border-radius:0!important;border:0!important;padding:calc(12px + var(--safeTop)) 15px calc(24px + var(--safeBottom))!important;background:linear-gradient(180deg,#0d1220,#090d16)!important}
+.ultraLabHead{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#0d1220 76%,transparent);padding:4px 0 14px;margin:0!important}
+.ultraLabHead>div>span{display:none!important}.ultraLabHead h2{font-size:30px!important;margin:0!important}
+.ultraLabIntro{display:none!important}
+.ultraLabCard{padding:14px!important;margin:9px 0!important;border-radius:20px!important}
+.ultraLabCard>span{font-size:9px!important}.ultraLabCard>b{font-size:17px!important;margin:5px 0 0!important}
+.ultraLabCard p{display:none!important}
+.ultraLabKpis{margin-top:12px!important}.ultraLabKpis div{padding:11px 7px!important}.ultraLabKpis strong{font-size:18px!important}.ultraLabKpis small{font-size:8px!important}
+.ultraLabTools{grid-template-columns:1fr!important;gap:8px!important;margin-top:12px!important}
+.ultraLabTools button{min-height:56px!important;text-align:left!important;padding:0 15px!important;border-radius:17px!important;font-size:12px!important;position:relative!important}
+.ultraLabTools button::after{content:'›';position:absolute;right:16px;color:#68758d;font-size:20px}
+
+/* Main workout stays quiet. Detailed coaching is available elsewhere. */
+#train .liveDecision,#train .liveCoachNudge{display:none!important}
+#feedbackResult .feedbackWhy,#feedbackResult .feedbackCoach{display:none!important}
+#feedbackResult .feedbackBig{margin-bottom:4px!important}
+
+/* Evidence/help can remain detailed, but no wall of text on entry. */
+#evidenceModal .evidenceLead{font-size:12px!important;line-height:1.35!important;margin:0 0 12px!important;color:#8d98ad!important}
+#evidenceModal .evidenceStack details:not([open]) p{display:none!important}
+#gymModal .gymExplain p{font-size:11px!important;line-height:1.35!important}
+
+@media(max-width:430px){
+ .ultraMoreHead h1{font-size:33px!important}
+ .clearMenuBtn{min-height:68px;padding:11px 13px}.clearMenuBtn b{font-size:14px}.clearMenuBtn small{font-size:10px}
+ #settingsModal .profileSheetTitle{font-size:26px!important}
+}
+</style>
+
+
+<script id="clearStep1Script">
+(function(){
+ const $c=id=>document.getElementById(id);
+ const safe=(fn,f)=>{try{return fn()}catch(e){return f}};
+ const put=(el,text)=>{if(el&&el.textContent!==text)el.textContent=text};
+ const SECTIONS={profile:[0],training:[1,2],experience:[3],data:[4]};
+ let settingsWasOpen=false;
+
+ function setBackButtons(){
+   const map=[
+    ['closeSettings','← Volver'],['closeExerciseLibrary','← Volver'],['closeExerciseDetail','← Volver'],
+    ['closeEvidence','← Volver'],['closeGymModal','← Volver']
+   ];
+   map.forEach(([id,label])=>{const b=$c(id);if(b){put(b,label);b.setAttribute('aria-label','Volver')}});
+   const lb=$c('uLabClose');if(lb){put(lb,'← Volver');lb.setAttribute('aria-label','Volver')}
+ }
+
+ function rebuildMore(){
+   const x=$c('icMorePage');if(!x)return;
+   const current=$c('uFxToggle')?.classList.contains('on');
+   x.innerHTML=`
+    <div class="ultraMoreHead"><h1>Más</h1></div>
+    <div class="ultraMoreGrid">
+      <button class="ultraMoreBtn" id="uSettings"><span class="glyph">⚙</span><div><b>Ajustes</b><small>Perfil, entrenamiento y experiencia</small></div><em>›</em></button>
+      <button class="ultraMoreBtn" id="uLab"><span class="glyph">⌁</span><div><b>Parte técnica</b><small>Plan, estado y métricas</small></div><em>›</em></button>
+      <button class="ultraMoreBtn" id="uLibrary"><span class="glyph">⌗</span><div><b>Ejercicios</b><small>Técnica y alternativas</small></div><em>›</em></button>
+      <button class="ultraMoreBtn" id="uAchievementsM"><span class="glyph">🏆</span><div><b>Logros</b><small>Hitos y rango</small></div><em>›</em></button>
+    </div>
+    <div class="ultraSoundRow"><b>Sonidos y efectos</b><button id="uFxToggle" class="ultraToggle${current?' on':''}" aria-label="Activar sonidos"></button></div>`;
+ }
+
+ function rebuildLab(){
+   const m=$c('icCoachLab');if(!m)return;
+   m.innerHTML=`<div class="ultraLabSheet">
+    <div class="ultraLabHead"><div><h2>Parte técnica</h2></div><button class="ultraLabClose" id="uLabClose">← Volver</button></div>
+    <div class="ultraLabCard"><span>PLAN</span><b id="uLabPlan">—</b><p id="uLabPlanText">—</p><div class="ultraLabKpis"><div><strong id="uLabDays">3</strong><small>DÍAS/SEM</small></div><div><strong id="uLabWeek">0/3</strong><small>SEMANA</small></div><div><strong id="uLabReadiness">—</strong><small>ESTADO</small></div></div></div>
+    <div class="ultraLabCard"><span>AJUSTE ACTUAL</span><b id="uLabDecision">Plan normal</b><p id="uLabDecisionText"></p></div>
+    <div class="ultraLabCard" id="uLabHistoryCard"><span>HISTORIAL</span><b id="uLabHistoryTitle">Sesiones guardadas</b><p id="uLabHistoryText">—</p></div>
+    <div class="ultraLabTools"><button id="uLabConfig">Ajustes</button><button id="uLabEvidence">Cómo funciona</button><button id="uLabLibrary">Ejercicios</button><button id="uLabGym">Gimnasio</button></div>
+   </div>`;
+ }
+
+ function ensureSettingsHub(){
+   const modal=$c('settingsModal'), sheet=modal?.querySelector('.profileSheet');if(!modal||!sheet||$c('clearSettingsHub'))return;
+   const menu=sheet.querySelector('.settingsMenu');if(!menu)return;
+   const hub=document.createElement('div');hub.id='clearSettingsHub';hub.innerHTML=`
+    <button class="clearMenuBtn" data-clear-section="profile"><span class="cIcon">○</span><div><b>Perfil</b><small>Datos personales</small></div><em>›</em></button>
+    <button class="clearMenuBtn" data-clear-section="training"><span class="cIcon">↗</span><div><b>Entrenamiento</b><small>Objetivo, frecuencia y molestias</small></div><em>›</em></button>
+    <button class="clearMenuBtn" data-clear-section="experience"><span class="cIcon">✦</span><div><b>Experiencia</b><small>Sonido, pantalla y ayuda visual</small></div><em>›</em></button>
+    <button class="clearMenuBtn" data-clear-section="data"><span class="cIcon">⋯</span><div><b>Datos y ayuda</b><small>Copias, actualización y reinicio</small></div><em>›</em></button>`;
+   const back=document.createElement('button');back.id='clearSettingsBack';back.type='button';back.innerHTML='← <span>Ajustes</span>';
+   menu.before(hub);menu.before(back);
+   hub.addEventListener('click',e=>{const b=e.target.closest('[data-clear-section]');if(b)showSettingsSection(b.dataset.clearSection)});
+   back.addEventListener('click',showSettingsHub);
+ }
+
+ function settingsFolds(){return [...($c('settingsModal')?.querySelectorAll('.easySettingFold')||[])]}
+ function showSettingsHub(){
+   const modal=$c('settingsModal');if(!modal)return;
+   modal.classList.remove('clearSectionOpen');modal.removeAttribute('data-clear-section');
+   settingsFolds().forEach(d=>{d.classList.remove('clearShow');d.open=false});
+   const title=modal.querySelector('.profileSheetTitle');put(title,'Ajustes');
+ }
+ function showSettingsSection(name){
+   const modal=$c('settingsModal');if(!modal)return;
+   const idxs=SECTIONS[name]||[];modal.classList.add('clearSectionOpen');modal.dataset.clearSection=name;
+   settingsFolds().forEach((d,i)=>{const on=idxs.includes(i);d.classList.toggle('clearShow',on);d.open=on});
+   const titles={profile:'Perfil',training:'Entrenamiento',experience:'Experiencia',data:'Datos y ayuda'};
+   const title=modal.querySelector('.profileSheetTitle');put(title,titles[name]||'Ajustes');
+   modal.querySelector('.profileSheet')?.scrollTo({top:0,behavior:'instant'});
+ }
+
+ function neutralLab(){
+   const st=safe(()=>coachState(),{key:'build'})||{};
+   const labels={recover:'Sesión moderada',deload:'Carga reducida',build:'Plan normal'};
+   const d=$c('uLabDecision');put(d,labels[st.key]||'Plan normal');
+   const dt=$c('uLabDecisionText');put(dt,'');
+   const logs=safe(()=>db.logs,[])||[];
+   const ht=$c('uLabHistoryTitle');put(ht,logs.length?`${logs.length} sesiones`:'Sin sesiones todavía');
+   const h=$c('uLabHistoryText');put(h,'');
+ }
+
+ function neutralCopy(){
+   const today=$c('uTodaySub');if(today&&!$c('uResume')?.offsetParent)put(today,'Elegí cómo te sentís y empezá.');
+   const sub=$c('uTrainSub');put(sub,$c('uTrainLabel')?.textContent==='ENTRENAR'?'Todo listo para empezar':'Elegí una opción arriba');
+   const help=$c('feedbackEffortHelp');put(help,'Tocá una opción.');
+   const ft=document.querySelector('#setFeedback .feedbackTitle');put(ft,'¿Cómo fue?');
+   const prefEye=document.querySelector('#exercisePrefModal .eyebrow');put(prefEye,'PREFERENCIAS');
+   const prefTitle=document.querySelector('#exercisePrefModal .feedbackTitle');put(prefTitle,'¿Querés repetir este ejercicio?');
+   const prefHint=document.querySelector('#exercisePrefModal .feedbackHint');put(prefHint,'Podés cambiar esta preferencia más adelante.');
+   const evTitle=$c('evidenceModal')?.querySelector('h2');put(evTitle,'Cómo funciona');
+   const evLead=$c('evidenceModal')?.querySelector('.evidenceLead');put(evLead,'Detalles sobre los criterios que usa la app para organizar el entrenamiento.');
+   const gymWhy=$c('gymModal')?.querySelector('.gymExplain b');put(gymWhy,'Por qué se recalibra');
+   const gymP=$c('gymModal')?.querySelector('.gymExplain p');put(gymP,'Las máquinas pueden sentirse distintas aunque indiquen el mismo peso.');
+   const guideSub=$c('joyGuideSub');if(guideSub&&/Iron Coach arma/i.test(guideSub.textContent))put(guideSub,'La sesión se organiza automáticamente.');
+   document.querySelectorAll('.icRewardToast').forEach(t=>{if(/COACH AJUSTADO/i.test(t.textContent))put(t,'LISTO')});
+   document.querySelectorAll('.liveCoachNudge').forEach(n=>{put(n,n.textContent.replace(/^Coach\s*[·:]\s*/i,''))});
+   const build=$c('settingsModal')?.querySelector('.buildNote b');put(build,'IRON COACH 9.0 INSTALLABLE');
+ }
+
+ function refresh(){setBackButtons();ensureSettingsHub();neutralCopy();neutralLab()}
+
+ document.addEventListener('click',e=>{
+   const close=e.target.closest('#closeSettings');
+   if(close&&$c('settingsModal')?.classList.contains('clearSectionOpen')){e.preventDefault();e.stopImmediatePropagation();showSettingsHub();return}
+ },true);
+
+ const mo=new MutationObserver(()=>{clearTimeout(refresh._t);refresh._t=setTimeout(()=>{
+   refresh();
+   const open=$c('settingsModal')?.classList.contains('show');
+   if(open&&!settingsWasOpen){settingsWasOpen=true;showSettingsHub()}
+   if(!open)settingsWasOpen=false;
+ },40)});
+ function boot(){
+   const old=$c('build861Badge');if(old)old.remove();const old87=$c('build870Badge');if(old87)old87.remove();
+   rebuildMore();rebuildLab();ensureSettingsHub();showSettingsHub();refresh();
+   const b=document.createElement('div');b.id='build890Badge';b.textContent='9.0 APP';b.style.cssText='position:fixed;right:10px;top:10px;z-index:9999;padding:6px 9px;border-radius:999px;background:rgba(10,14,24,.78);border:1px solid rgba(255,255,255,.12);color:#dfe9ff;font:850 10px/1 system-ui,-apple-system,sans-serif;letter-spacing:.08em;backdrop-filter:blur(10px);pointer-events:none';document.body.appendChild(b);
+   mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+   setInterval(refresh,2200);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();
+</script>
+
+
+<script>
+(function(){
+ function $(id){return document.getElementById(id)}
+ function isGlute(){try{return (window.db?.profile?.priority||'balanced')==='glutes'}catch(e){return false}}
+ function priorityCopy(v){
+   if(v==='glutes')return 'Más trabajo de glúteos, repartido durante la semana. Piernas y torso siguen incluidos.';
+   if(v==='legs')return 'La rutina da más lugar a piernas, sin dejar de entrenar el resto del cuerpo.';
+   if(v==='balanced')return 'Distribución equilibrada entre los principales grupos musculares.';
+   return 'La prioridad recibe más atención, sin eliminar el resto del cuerpo.';
+ }
+ function refreshPriorityUI(){
+   const hint=$('priorityHint'); if(hint){const sel=document.querySelector('#priorityChoices button.selected'); hint.textContent=priorityCopy(sel?.dataset.priority||'balanced')}
+   const ph=$('pPriorityHint'); if(ph&&$('pPriority'))ph.textContent=priorityCopy($('pPriority').value);
+   const hero=document.querySelector('#home .hero,#home .homeHero,.page#home .card.hero');
+   if(hero){let b=hero.querySelector('.glutePriorityPill');if(isGlute()){if(!b){b=document.createElement('div');b.className='glutePriorityPill';hero.appendChild(b)}b.textContent='Prioridad · Glúteos'}else b?.remove()}
+ }
+ document.addEventListener('click',e=>{if(e.target.closest('#priorityChoices [data-priority]'))setTimeout(refreshPriorityUI,0)});
+ document.addEventListener('change',e=>{if(e.target?.id==='pPriority')refreshPriorityUI()});
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',refreshPriorityUI,{once:true});else refreshPriorityUI();
+ const ro=new MutationObserver(()=>refreshPriorityUI());
+ const home=$('home');if(home)ro.observe(home,{attributes:true,subtree:false});
+ setInterval(refreshPriorityUI,2500);
+})();
+</script>
+
+
+<script id="installShareScript">
+(function(){
+ let deferredInstall=null;
+ const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+ const standalone=()=>window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+ function canonicalUrl(){return location.origin+location.pathname}
+ function toastSafe(t){try{if(typeof toast==='function')return toast(t)}catch(e){} alert(t)}
+ function ensureModal(){
+  if(document.getElementById('icInstallModal'))return;
+  const m=document.createElement('div');m.id='icInstallModal';m.innerHTML=`<div class="icInstallSheet"><div class="eyebrow">INSTALAR IRON COACH</div><h2>Guardalo como una app</h2><p id="icInstallIntro">Queda en tu pantalla de inicio con el ícono de Iron Coach.</p><div class="icInstallSteps" id="icInstallSteps"></div><button class="icInstallClose" id="icInstallClose">ENTENDIDO</button></div>`;document.body.appendChild(m);
+  document.getElementById('icInstallClose').onclick=()=>m.classList.remove('show');m.onclick=e=>{if(e.target===m)m.classList.remove('show')};
+ }
+ function showInstructions(){
+  ensureModal();const box=document.getElementById('icInstallSteps');
+  if(isIOS){box.innerHTML=`<div class="icInstallStep"><i>1</i><div><b>Abrí este link en Safari</b><span>Es la forma más directa en iPhone.</span></div></div><div class="icInstallStep"><i>2</i><div><b>Tocá Compartir</b><span>El cuadrado con la flecha hacia arriba.</span></div></div><div class="icInstallStep"><i>3</i><div><b>Agregar a pantalla de inicio</b><span>Confirmá “Agregar”. Va a aparecer con el ícono de Iron Coach.</span></div></div>`}
+  else{box.innerHTML=`<div class="icInstallStep"><i>1</i><div><b>Abrí Iron Coach en Chrome</b><span>Usá el link que te compartieron.</span></div></div><div class="icInstallStep"><i>2</i><div><b>Menú ⋮</b><span>Elegí “Instalar app” o “Agregar a pantalla principal”.</span></div></div><div class="icInstallStep"><i>3</i><div><b>Confirmá</b><span>Iron Coach queda como una app en el celular.</span></div></div>`}
+  document.getElementById('icInstallModal').classList.add('show');
+ }
+ function ensureCard(){
+  const more=document.getElementById('icMorePage');if(!more||document.getElementById('icInstallShare'))return;
+  const wrap=document.createElement('div');wrap.id='icInstallShare';wrap.innerHTML=`<button id="icInstallApp" class="icInstallBtn primary"><b>↓ Instalar app</b><small>Agregar Iron Coach al celular</small></button><button id="icShareApp" class="icInstallBtn"><b>↗ Compartir</b><small>Enviar el link a un amigo</small></button>`;more.appendChild(wrap);
+  document.getElementById('icInstallApp').onclick=async()=>{
+    if(standalone()){toastSafe('Iron Coach ya está instalado.');return}
+    if(deferredInstall){deferredInstall.prompt();try{await deferredInstall.userChoice}catch(e){} deferredInstall=null;return}
+    showInstructions();
+  };
+  document.getElementById('icShareApp').onclick=async()=>{
+    const data={title:'Iron Coach',text:'Probá Iron Coach. Abrí el link y agregalo a la pantalla de inicio.',url:canonicalUrl()};
+    if(navigator.share){try{await navigator.share(data);return}catch(e){if(e?.name==='AbortError')return}}
+    try{await navigator.clipboard.writeText(data.url);toastSafe('Link copiado. Ya podés enviarlo.')}catch(e){prompt('Copiá este link:',data.url)}
+  };
+ }
+ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;ensureCard()});
+ window.addEventListener('appinstalled',()=>{deferredInstall=null;toastSafe('Iron Coach instalado.')});
+ async function boot(){
+  ensureModal();ensureCard();
+  if('serviceWorker' in navigator){try{await navigator.serviceWorker.register('./service-worker.js',{scope:'./'})}catch(e){}}
+  const observer=new MutationObserver(()=>ensureCard());observer.observe(document.body,{subtree:true,childList:true});
+ }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
 </script>
