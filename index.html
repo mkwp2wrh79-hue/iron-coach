@@ -3314,7 +3314,84 @@ body{overflow-x:hidden}
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="iron-coach-build" content="8.6.1-ULTRA">
+<meta name="iron-coach-build" content="8.7-EASY-JOY">
+
+
+<style id="easyJoyStyles">
+/* ==============================================================
+   IRON COACH 8.7 EASY JOY
+   Beginner-first: reward visible, technical detail off the path.
+   ============================================================== */
+:root{--joy-pink:#ff5fa2;--joy-purple:#8b5cf6;--joy-blue:#5b7cff;--joy-cyan:#22d3ee;--joy-green:#34d399;--joy-gold:#fbbf24}
+/* Background: more alive, still slow enough to rest the eyes. */
+#icAmbientField::after{content:'';position:absolute;inset:0;pointer-events:none;background:
+ radial-gradient(circle at 12% 18%,rgba(255,95,162,.08) 0 2px,transparent 3px),
+ radial-gradient(circle at 82% 14%,rgba(34,211,238,.10) 0 2px,transparent 3px),
+ radial-gradient(circle at 68% 72%,rgba(139,92,246,.09) 0 2px,transparent 3px),
+ radial-gradient(circle at 24% 77%,rgba(52,211,153,.08) 0 2px,transparent 3px);
+ background-size:160px 160px,210px 210px,250px 250px,190px 190px;animation:joyStars 28s linear infinite;opacity:.8}
+@keyframes joyStars{to{background-position:160px -160px,-210px 210px,250px 250px,-190px -190px}}
+/* Home gets more visual joy but no extra cognitive load. */
+#icZenHome{gap:14px!important}
+.ultraHello h1{background:linear-gradient(100deg,#fff 0%,#fff 45%,#bfefff 65%,#e9d8ff 85%);-webkit-background-clip:text;color:transparent}
+.ultraRewardDeck{position:relative}
+.ultraLevelCard,.ultraStreakCard,.ultraReadiness,.ultraNextReward{overflow:hidden}
+.ultraLevelCard::before,.ultraReadiness::before,.ultraNextReward::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(120deg,transparent 8%,rgba(139,92,246,.36),rgba(34,211,238,.28),transparent 72%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;animation:joyBorder 7s linear infinite;background-size:220% 100%}
+@keyframes joyBorder{to{background-position:220% 0}}
+.ultraRing{box-shadow:0 0 34px rgba(34,211,238,.18),0 0 60px rgba(139,92,246,.10)}
+.ultraRing::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(34,211,238,.09);animation:joyRing 2.8s ease-in-out infinite}
+@keyframes joyRing{50%{transform:scale(1.09);opacity:.35}}
+.ultraMood{transition:transform .15s ease,box-shadow .24s ease,border-color .2s ease,filter .2s ease!important}
+.ultraMood[data-u-mood="strong"]{background:linear-gradient(160deg,rgba(52,211,153,.20),rgba(8,18,22,.88))!important}.ultraMood[data-u-mood="normal"]{background:linear-gradient(160deg,rgba(34,211,238,.17),rgba(12,14,30,.88))!important}.ultraMood[data-u-mood="tired"]{background:linear-gradient(160deg,rgba(255,95,162,.13),rgba(18,11,25,.90))!important}
+.ultraMood.selected{box-shadow:0 12px 32px rgba(0,0,0,.26),0 0 26px rgba(34,211,238,.12)!important}
+.ultraTrainBtn{min-height:76px!important;font-size:19px!important;border-radius:25px!important;box-shadow:0 18px 46px rgba(91,124,255,.33),0 0 34px rgba(34,211,238,.16)!important}
+.ultraTrainBtn::before{content:'';position:absolute;width:90px;height:220%;top:-60%;left:-120px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.20),transparent);transform:rotate(18deg);animation:joyCtaSweep 3.7s ease-in-out infinite}
+@keyframes joyCtaSweep{0%,42%{left:-120px}75%,100%{left:calc(100% + 100px)}}
+.ultraNextReward{background:linear-gradient(145deg,rgba(20,25,43,.86),rgba(10,14,25,.74))!important}.ultraRewardIcon{animation:joyRewardFloat 3.3s ease-in-out infinite}@keyframes joyRewardFloat{50%{transform:translateY(-3px) rotate(5deg);filter:drop-shadow(0 7px 13px rgba(139,92,246,.30))}}
+/* Hide the old technical layers everywhere a beginner sees them. */
+#progress> :not(#icRewardProgress){display:none!important}
+#plan .planObjectiveBar,#plan .planContextRow,#plan .planScreenHead p,#plan .screenActionBtn{display:none!important}
+#plan .humanScreenHead{margin-bottom:9px!important}#plan .humanScreenHead h1{font-size:34px!important}#plan .humanKicker{color:#8c98ae!important}
+#profile> :not(#icMorePage){display:none!important}
+#train #rirQuickHelp{display:none!important}
+#train .liveDecision,#train .quickReason .proChip{font-size:11px!important}
+/* New beginner status bar. */
+#icEasyGuide{margin:0 0 10px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(13,18,31,.90),rgba(11,16,28,.78));border-radius:18px;padding:11px 13px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.20)}
+#icEasyGuide .joyPulse{width:28px;height:28px;flex:none;border-radius:10px;background:linear-gradient(145deg,var(--joy-purple),var(--joy-cyan));box-shadow:0 0 22px rgba(34,211,238,.18);position:relative}
+#icEasyGuide .joyPulse::after{content:'';position:absolute;inset:7px;border-radius:50%;background:#fff;opacity:.88;animation:joyGuidePulse 1.8s ease-in-out infinite}@keyframes joyGuidePulse{50%{transform:scale(.55);opacity:.35}}
+#icEasyGuide b{display:block;font-size:13px;color:#f6f8ff}#icEasyGuide small{display:block;font-size:10px;color:#8290a8;margin-top:2px}
+/* Series dots = simple visible progress/reward. */
+#icJoyDots{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}
+#icJoyDots i{width:9px;height:9px;border-radius:99px;background:rgba(255,255,255,.09);box-shadow:inset 0 0 0 1px rgba(255,255,255,.035);transition:transform .25s ease,background .3s ease,box-shadow .3s ease}
+#icJoyDots i.done{background:linear-gradient(135deg,var(--joy-purple),var(--joy-cyan));box-shadow:0 0 13px rgba(34,211,238,.32);transform:scale(1.12)}
+#icJoyDots i.current{background:#fff;box-shadow:0 0 0 4px rgba(139,92,246,.16),0 0 18px rgba(255,255,255,.25);animation:joyDot 1.35s ease-in-out infinite}@keyframes joyDot{50%{transform:scale(.78);opacity:.65}}
+/* Training: beginner language and one action at a time. */
+#train .exercise.focus{border-radius:30px!important}
+#train .setField label{font-size:11px!important;letter-spacing:.06em!important;text-transform:none!important;color:#9ba7bc!important}
+#train .donebtn{font-size:18px!important;min-height:70px!important;border-radius:22px!important;position:relative!important;overflow:hidden!important}
+#train .donebtn::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.17) 48%,transparent 66%);transform:translateX(-130%);animation:joyDoneSweep 3.2s ease-in-out infinite}@keyframes joyDoneSweep{0%,55%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+#train .gymOptions>summary::after{content:'MÁS OPCIONES'!important;font-size:9px!important;letter-spacing:.09em!important}
+/* Feedback: human words, colors do most of the explaining. */
+#setFeedback #feedbackEffortQuestion{font-size:27px!important}
+#setFeedback .premiumRirGrid{grid-template-columns:1fr 1fr!important}
+#setFeedback .feelBtn{min-height:94px!important;border-radius:22px!important;box-shadow:0 13px 28px rgba(0,0,0,.22)!important;position:relative!important;overflow:hidden!important}
+#setFeedback .feelBtn strong{font-size:16px!important;letter-spacing:.02em!important}
+#setFeedback .feelBtn[data-feel="easy"]{background:linear-gradient(145deg,rgba(52,211,153,.24),rgba(8,19,18,.90))!important;border-color:rgba(52,211,153,.30)!important}
+#setFeedback .feelBtn[data-feel="ideal"]{background:linear-gradient(145deg,rgba(34,211,238,.22),rgba(57,48,129,.36))!important;border-color:rgba(34,211,238,.30)!important;box-shadow:0 13px 32px rgba(34,211,238,.08)!important}
+#setFeedback .feelBtn[data-feel="hard"]{background:linear-gradient(145deg,rgba(251,191,36,.21),rgba(45,27,9,.90))!important;border-color:rgba(251,191,36,.29)!important}
+#setFeedback .feelBtn[data-feel="max"]{background:linear-gradient(145deg,rgba(255,95,162,.22),rgba(60,22,57,.74))!important;border-color:rgba(255,95,162,.28)!important}
+/* Floating XP token. */
+.joyXpFly{position:fixed;z-index:9998;pointer-events:none;padding:8px 11px;border-radius:999px;background:linear-gradient(135deg,#8b5cf6,#22d3ee);color:#fff;font:900 12px/1 system-ui,-apple-system,sans-serif;box-shadow:0 12px 30px rgba(91,124,255,.34),0 0 22px rgba(34,211,238,.20);animation:joyXpFly .95s cubic-bezier(.15,.8,.2,1) forwards}
+@keyframes joyXpFly{0%{opacity:0;transform:translate(-50%,8px) scale(.7)}15%{opacity:1;transform:translate(-50%,0) scale(1.08)}100%{opacity:0;transform:translate(-50%,-70px) scale(.92)}}
+/* More page: no jargon on primary labels. */
+#icMorePage .ultraMoreHead h1{font-size:33px!important}#icMorePage .ultraMoreHead h1::after{content:' Todo lo técnico queda acá.';display:block;color:#7f8ba3;font-size:11px;font-weight:600;letter-spacing:0;margin-top:7px}
+/* Novice-friendly navigation words. */
+.humanTabBar .navbtn[data-page="plan"]{font-size:0!important}.humanTabBar .navbtn[data-page="plan"]::after{content:'Rutina';font-size:9px}.humanTabBar .navbtn[data-page="profile"]{font-size:0!important}.humanTabBar .navbtn[data-page="profile"]::after{content:'Más';font-size:9px}
+/* Onboarding: relax the eye and keep optional/advanced feeling optional. */
+#onboarding .eyebrow{color:#8390a8!important}#onboarding .title{letter-spacing:-.5px!important}#onboarding .fieldHint{color:#79869a!important;line-height:1.35!important}.optionalMarks{opacity:.82}
+@media(max-width:420px){.ultraMood span{font-size:11px}.ultraMood i{font-size:23px}#icEasyGuide{padding:10px 11px}.ultraRewardDeck{gap:8px}.ultraTrainBtn{min-height:72px!important}}
+@media(prefers-reduced-motion:reduce){#icAmbientField::after,.ultraLevelCard::before,.ultraReadiness::before,.ultraNextReward::before,.ultraRing::after,.ultraRewardIcon,.ultraTrainBtn::before,#icEasyGuide .joyPulse::after,#icJoyDots i.current,#train .donebtn::before{animation:none!important}}
+</style>
 
 </head>
 <body data-page="home">
@@ -3963,7 +4040,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='8.6.1 ULTRA · 2026.09.29';
+const BUILD='8.7 EASY JOY · 2026.09.29';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -6801,7 +6878,7 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
  function refreshProgress(){ensureProgress();const x=xp(),st=streak(),wd=weekDone(),dt=daysTarget(),logs=safe(()=>db.logs,[])||[],ach=nextAch();if($u('uProgressTitle'))$u('uProgressTitle').textContent='Nivel '+x.lvl;if($u('uProgressLine'))$u('uProgressLine').textContent=x.total+' XP · '+x.next+' para el próximo nivel';if($u('uProgressFill'))$u('uProgressFill').style.width=x.pct+'%';if($u('uPSessions'))$u('uPSessions').textContent=logs.length;if($u('uPStreak'))$u('uPStreak').textContent='×'+st;if($u('uPWeek'))$u('uPWeek').textContent=wd+'/'+dt;if($u('uAchText'))$u('uAchText').textContent=ach?`Siguiente: ${ach.name}`:'Todos los hitos visibles completados'}
  function refreshMore(){ensureMore();const t=$u('uFxToggle');if(t)t.classList.toggle('on',fxOn());const nav=document.querySelector('.navbtn[data-page="profile"]');if(nav&&nav.lastChild)nav.childNodes[nav.childNodes.length-1].nodeValue='Más'}
  function simplifyTraining(){document.querySelectorAll('#train .gymOptions>summary').forEach(s=>s.setAttribute('aria-label','Opciones'));const s=sessionStats();if(s.done!==lastSessionDone){if(lastSessionDone>=0&&s.done>lastSessionDone&&s.done>0&&s.done%5===0&&s.done<s.total)moment('COMBO ×'+s.done,'5 SERIES COMPLETADAS','⚡','milestone');lastSessionDone=s.done}}
- function refresh(){ambient();ensureLab();refreshHome();refreshProgress();refreshMore();refreshLab();simplifyTraining();const note=$u('settingsModal')?.querySelector('.buildNote b');if(note)note.textContent='IRON COACH 8.6 ULTRA'}
+ function refresh(){ambient();ensureLab();refreshHome();refreshProgress();refreshMore();refreshLab();simplifyTraining();const note=$u('settingsModal')?.querySelector('.buildNote b');if(note)note.textContent='IRON COACH 8.7 EASY JOY'}
  const mo=new MutationObserver(()=>{clearTimeout(refresh._t);refresh._t=setTimeout(refresh,90)});
  function init(){ambient();ensureMoment();ensureHome();ensureProgress();ensureMore();ensureLab();refresh();mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});setInterval(refresh,3500);document.addEventListener('pointerdown',e=>{const b=e.target.closest('.ultraMood,.ultraTrainBtn,.ultraMiniBtn,.ultraMoreBtn,.ultraRewardButton,.ultraToggle,.ultraLabTools button');if(b){audio();pulse(b)}},{passive:true})}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
@@ -6840,6 +6917,81 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
     badge();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();
+</script>
+
+
+<script id="easyJoyScript">
+(function(){
+ const $j=id=>document.getElementById(id);
+ const safe=(fn,f)=>{try{return fn()}catch(e){return f}};
+ let lastDone=-1;
+ function stats(){const all=[...document.querySelectorAll('#train .donebtn')],done=all.filter(x=>x.classList.contains('on')).length;return{done,total:all.length}}
+ function setSimpleWords(){
+   const q=$j('feedbackEffortQuestion'); if(q) q.textContent='¿Cómo la sentiste?';
+   const labels={easy:'🙂 FÁCIL',ideal:'✓ BIEN',hard:'😮‍💨 DIFÍCIL',max:'🔥 AL LÍMITE'};
+   document.querySelectorAll('#setFeedback [data-feel]').forEach(b=>{const s=b.querySelector('strong');if(s&&labels[b.dataset.feel])s.textContent=labels[b.dataset.feel]});
+   document.querySelectorAll('#train .donebtn:not(.on)').forEach(b=>{if(!b.classList.contains('dropDoneBtn'))b.textContent='LISTO ✓'});
+   const mood={strong:['⚡','Con energía'],normal:['◎','Normal'],tired:['◌','Cansado']};
+   document.querySelectorAll('[data-u-mood]').forEach(b=>{const d=mood[b.dataset.uMood];if(!d)return;const i=b.querySelector('i'),s=b.querySelector('span');if(i)i.textContent=d[0];if(s)s.textContent=d[1]});
+   const rh=document.querySelector('.ultraReadinessHead b');if(rh)rh.textContent='¿Cómo te sentís?';
+   const rs=document.querySelector('.ultraReadinessHead>div>span');if(rs)rs.textContent='UN TOQUE';
+   const more=$j('uLab');if(more){const b=more.querySelector('b'),sm=more.querySelector('small');if(b)b.textContent='Parte técnica';if(sm)sm.textContent='Métricas y decisiones del Coach'}
+ }
+ function ensureGuide(){
+   if($j('icEasyGuide'))return;
+   const pulse=$j('icSessionPulse');if(!pulse)return;
+   const g=document.createElement('div');g.id='icEasyGuide';g.innerHTML='<div class="joyPulse"></div><div><b id="joyGuideTitle">Ahora: hacé esta serie</b><small id="joyGuideSub">Poné peso y reps. Después tocá LISTO.</small></div>';
+   pulse.insertAdjacentElement('afterend',g);
+ }
+ function ensureDots(){
+   const pulse=$j('icSessionPulse');if(!pulse)return;
+   let d=$j('icJoyDots');if(!d){d=document.createElement('div');d.id='icJoyDots';pulse.appendChild(d)}
+   const s=stats();if(d.children.length!==s.total){d.innerHTML='';for(let i=0;i<s.total;i++){const x=document.createElement('i');d.appendChild(x)}}
+   [...d.children].forEach((x,i)=>{x.classList.toggle('done',i<s.done);x.classList.toggle('current',i===s.done&&s.done<s.total)})
+ }
+ function guideText(){
+   ensureGuide();const s=stats();const t=$j('joyGuideTitle'),sub=$j('joyGuideSub');if(!t||!sub)return;
+   if(!s.total){t.textContent='Tu sesión se está preparando';sub.textContent='Iron Coach arma el orden por vos.';return}
+   if(s.done>=s.total){t.textContent='Listo. Terminaste todo.';sub.textContent='Tocá FINALIZAR y guardamos el progreso.';return}
+   const active=document.querySelector('#train .exercise.focus .active-set');
+   const w=active?.querySelector('.w'),r=active?.querySelector('.reps');
+   if(w&&r&&!w.value){t.textContent='1. Poné el peso';sub.textContent='El peso que vas a usar en esta serie.'}
+   else if(w&&r&&!r.value){t.textContent='2. Poné las repeticiones';sub.textContent='Cuántas vas a hacer.'}
+   else {t.textContent='3. Hacé la serie';sub.textContent='Cuando termines, tocá LISTO ✓.'}
+ }
+ function xpFly(el,text='+8 XP'){
+   if(!el)return;const r=el.getBoundingClientRect(),x=document.createElement('div');x.className='joyXpFly';x.textContent=text;x.style.left=(r.left+r.width/2)+'px';x.style.top=(r.top+r.height*.35)+'px';document.body.appendChild(x);setTimeout(()=>x.remove(),1000)
+ }
+ function simplePlan(){
+   const h=document.querySelector('#plan .planScreenHead h1');if(h)h.textContent='Tu rutina';
+   const k=document.querySelector('#plan .humanKicker');if(k)k.textContent='RUTINA';
+ }
+ function simpleProgress(){
+   const t=$j('uProgressLine');if(t&&/XP/.test(t.textContent)){} // reward copy already simple
+   const lab=$j('uOpenLabP');if(lab)lab.textContent='VER PARTE TÉCNICA';
+ }
+ function simpleCoachLab(){
+   const intro=document.querySelector('.ultraLabIntro');if(intro)intro.textContent='Acá están los números y decisiones. No necesitás entender esto para entrenar.';
+ }
+ function refresh(){setSimpleWords();ensureGuide();ensureDots();guideText();simplePlan();simpleProgress();simpleCoachLab();const s=stats();if(s.done!==lastDone){lastDone=s.done;ensureDots();guideText()}}
+ document.addEventListener('input',e=>{if(e.target.matches('#train .w,#train .reps'))setTimeout(guideText,0)});
+ document.addEventListener('click',e=>{
+   const feel=e.target.closest('#setFeedback [data-feel]');if(feel){xpFly(feel,feel.dataset.feel==='ideal'?'+10 XP':'+8 XP');setTimeout(refresh,180)}
+   const mood=e.target.closest('[data-u-mood]');if(mood){setTimeout(()=>{const c=document.querySelector('.ultraReadiness');if(c){c.animate([{filter:'brightness(1)'},{filter:'brightness(1.18)'},{filter:'brightness(1)'}],{duration:350,easing:'ease-out'})}},20)}
+   const nav=e.target.closest('.navbtn');if(nav)setTimeout(refresh,80);
+ },true);
+ const mo=new MutationObserver(()=>{clearTimeout(refresh._t);refresh._t=setTimeout(refresh,80)});
+ function boot(){refresh();mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});setInterval(refresh,3000)}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();
+</script>
+<script id="easyJoyHotfix">
+(function(){
+ async function purge(){try{const key='ironCoachHotfix870';if(sessionStorage.getItem(key))return;sessionStorage.setItem(key,'1');if('serviceWorker'in navigator){const r=await navigator.serviceWorker.getRegistrations();await Promise.all(r.map(x=>x.unregister()))}if('caches'in window){const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}}catch(e){}}
+ function badge(){const old=document.getElementById('build861Badge');if(old)old.remove();let b=document.getElementById('build870Badge');if(!b){b=document.createElement('div');b.id='build870Badge';b.style.cssText='position:fixed;right:10px;top:10px;z-index:9999;padding:6px 9px;border-radius:999px;background:linear-gradient(135deg,rgba(124,58,237,.90),rgba(34,211,238,.78));border:1px solid rgba(255,255,255,.20);color:white;font:900 10px/1 system-ui,-apple-system,sans-serif;letter-spacing:.08em;backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(0,0,0,.25),0 0 20px rgba(34,211,238,.12);pointer-events:none';document.body.appendChild(b)}b.textContent='8.7 EASY JOY'}
+ async function boot(){await purge();badge()}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
 </script>
 
