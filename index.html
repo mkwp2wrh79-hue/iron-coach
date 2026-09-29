@@ -3431,6 +3431,17 @@ body{overflow-x:hidden}
 @media(max-width:430px){#icInstallShare{grid-template-columns:1fr}.icInstallBtn{min-height:58px}}
 </style>
 
+
+<style id="cancelWorkoutStyle">
+#train .trainExit{
+  border-color:rgba(251,113,133,.38)!important;
+  color:#ffd7df!important;
+  background:rgba(127,29,29,.12)!important;
+  white-space:nowrap;
+}
+#train .trainExit:hover{background:rgba(190,24,93,.16)!important}
+@media(max-width:560px){#train .trainExit{font-size:11px!important;padding:9px 10px!important}}
+</style>
 </head>
 <body data-page="home">
 <div id="appCrash" class="appCrash">
@@ -3677,7 +3688,7 @@ body{overflow-x:hidden}
   </section>
 
   <section id="train" class="page">
-   <div class="card hero trainHero productTrainHero"><div class="row spread"><div><div class="eyebrow trainSignatureLabel">IRON COACH · SESIÓN EN CURSO</div><h1 id="routineTitle" class="title"></h1><div class="trainMeta"><span id="sessionDuration" class="pill timePill">00:00</span><span id="trainReadiness" class="hidden"></span><span id="sessionProtocol" class="hidden"></span><span id="autosaveState" class="hidden">Guardado</span></div></div><button id="finishEarly" class="btn ghost slim trainExit">Salir</button><button id="cycleRoutine" class="btn secondary slim hidden">Otra</button></div><p id="sessionCoach" class="hidden"></p></div>
+   <div class="card hero trainHero productTrainHero"><div class="row spread"><div><div class="eyebrow trainSignatureLabel">IRON COACH · SESIÓN EN CURSO</div><h1 id="routineTitle" class="title"></h1><div class="trainMeta"><span id="sessionDuration" class="pill timePill">00:00</span><span id="trainReadiness" class="hidden"></span><span id="sessionProtocol" class="hidden"></span><span id="autosaveState" class="hidden">Guardado</span></div></div><button id="finishEarly" class="btn ghost slim trainExit" aria-label="Cancelar rutina">Cancelar rutina</button><button id="cycleRoutine" class="btn secondary slim hidden">Otra</button></div><p id="sessionCoach" class="hidden"></p></div>
    <div id="trainMotivationBanner" class="trainMotivationBanner hidden"><span>⚡</span><b id="trainMotivationText"></b></div>
    <div id="gymProgress" class="gymProgress"><div class="row spread"><div><strong id="gymProgressText">0/0 series</strong><div id="gymProgressSub" class="gymSub"></div></div><button id="rirQuickHelp" class="rirHelp">Ayuda</button></div><div class="bar"><i id="gymProgressFill"></i></div></div>
    <div id="exerciseList"></div>
@@ -4104,7 +4115,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='9.1 PROGRESS · 2026.09.29';
+const BUILD='9.2 CANCEL · 2026.09.29';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -6502,10 +6513,13 @@ function validateSet(card,row){
 function abortWorkout(){
  const cards=[...$('exerciseList').querySelectorAll('.exercise')];
  const hasDone=cards.some(c=>c.querySelector('.donebtn.on'));
- if(hasDone&&!confirm('¿Salir y borrar lo registrado en ESTA sesión?\n\nTus entrenamientos anteriores no se borran.'))return;
+ const msg=hasDone
+  ? '¿Cancelar esta rutina?\n\nSe borrará solamente lo registrado en esta sesión. Tus entrenamientos anteriores no se modifican.'
+  : '¿Cancelar esta rutina?\n\nVolvés a Hoy y esta sesión no se guarda.';
+ if(!confirm(msg))return;
  clearInterval(sessionClockInt);skipRestTimer();releaseGymWakeLock();
  closeSetFeedback();clearDraft();sessionStarted=0;sessionOverrides={};manualRoutine=null;sessionPreferenceAsked=false;pendingFeedback=null;pendingSensation='';pendingFeel='';
- go('home');renderHome();toast('Sesión descartada. Todo quedó en cero.')
+ go('home');renderHome();toast('Rutina cancelada.')
 }
 function finishWorkoutNow(){
  const beforeRank=rankInfo().display,sess=currentSession(),cards=[...$('exerciseList').querySelectorAll('.exercise')],exs=[];let incomplete=0;
@@ -7065,7 +7079,7 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
  function refreshProgress(){ensureProgress();const x=xp(),st=streak(),wd=weekDone(),dt=daysTarget(),logs=safe(()=>db.logs,[])||[],ach=nextAch();if($u('uProgressTitle'))$u('uProgressTitle').textContent='Nivel '+x.lvl;if($u('uProgressLine'))$u('uProgressLine').textContent=x.total+' XP · '+x.next+' para el próximo nivel';if($u('uProgressFill'))$u('uProgressFill').style.width=x.pct+'%';if($u('uPSessions'))$u('uPSessions').textContent=logs.length;if($u('uPStreak'))$u('uPStreak').textContent='×'+st;if($u('uPWeek'))$u('uPWeek').textContent=wd+'/'+dt;if($u('uAchText'))$u('uAchText').textContent=ach?`Siguiente: ${ach.name}`:'Todos los hitos visibles completados'}
  function refreshMore(){ensureMore();const t=$u('uFxToggle');if(t)t.classList.toggle('on',fxOn());const nav=document.querySelector('.navbtn[data-page="profile"]');if(nav&&nav.lastChild)nav.childNodes[nav.childNodes.length-1].nodeValue='Más'}
  function simplifyTraining(){document.querySelectorAll('#train .gymOptions>summary').forEach(s=>s.setAttribute('aria-label','Opciones'));const s=sessionStats();if(s.done!==lastSessionDone){if(lastSessionDone>=0&&s.done>lastSessionDone&&s.done>0&&s.done%5===0&&s.done<s.total)moment('COMBO ×'+s.done,'5 SERIES COMPLETADAS','⚡','milestone');lastSessionDone=s.done}}
- function refresh(){ambient();ensureLab();refreshHome();refreshProgress();refreshMore();refreshLab();simplifyTraining();const note=$u('settingsModal')?.querySelector('.buildNote b');if(note)note.textContent='IRON COACH 9.1 PROGRESS'}
+ function refresh(){ambient();ensureLab();refreshHome();refreshProgress();refreshMore();refreshLab();simplifyTraining();const note=$u('settingsModal')?.querySelector('.buildNote b');if(note)note.textContent='IRON COACH 9.2 CANCEL'}
  const mo=new MutationObserver(()=>{clearTimeout(refresh._t);refresh._t=setTimeout(refresh,90)});
  function init(){ambient();ensureMoment();ensureHome();ensureProgress();ensureMore();ensureLab();refresh();mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});setInterval(refresh,3500);document.addEventListener('pointerdown',e=>{const b=e.target.closest('.ultraMood,.ultraTrainBtn,.ultraMiniBtn,.ultraMoreBtn,.ultraRewardButton,.ultraToggle,.ultraLabTools button');if(b){audio();pulse(b)}},{passive:true})}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
@@ -7170,7 +7184,7 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
 
 
 <style id="clearStep1Style">
-/* IRON COACH 9.1 PROGRESS — Step 1: simple navigation + neutral language */
+/* IRON COACH 9.2 CANCEL — Step 1: simple navigation + neutral language */
 #icMorePage .ultraMoreHead h1::after{display:none!important;content:''!important}
 #icMorePage{gap:14px!important}
 .ultraMoreHead{padding:8px 3px 2px!important}
@@ -7351,7 +7365,7 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
    const guideSub=$c('joyGuideSub');if(guideSub&&/Iron Coach arma/i.test(guideSub.textContent))put(guideSub,'La sesión se organiza automáticamente.');
    document.querySelectorAll('.icRewardToast').forEach(t=>{if(/COACH AJUSTADO/i.test(t.textContent))put(t,'LISTO')});
    document.querySelectorAll('.liveCoachNudge').forEach(n=>{put(n,n.textContent.replace(/^Coach\s*[·:]\s*/i,''))});
-   const build=$c('settingsModal')?.querySelector('.buildNote b');put(build,'IRON COACH 9.1 PROGRESS');
+   const build=$c('settingsModal')?.querySelector('.buildNote b');put(build,'IRON COACH 9.2 CANCEL');
  }
 
  function refresh(){setBackButtons();ensureSettingsHub();neutralCopy();neutralLab()}
@@ -7448,4 +7462,16 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
 })();
 </script>
 
+
+<script id="build92Badge">
+(function(){
+ function show(){
+  document.querySelectorAll('#build861Badge,#build870Badge').forEach(x=>x.remove());
+  let b=document.getElementById('build920Badge');
+  if(!b){b=document.createElement('div');b.id='build920Badge';b.style.cssText='position:fixed;right:10px;top:10px;z-index:9999;padding:6px 9px;border-radius:999px;background:linear-gradient(135deg,rgba(124,58,237,.90),rgba(34,211,238,.78));border:1px solid rgba(255,255,255,.20);color:white;font:900 10px/1 system-ui,-apple-system,sans-serif;letter-spacing:.08em;backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(0,0,0,.25),0 0 20px rgba(34,211,238,.12);pointer-events:none';document.body.appendChild(b)}
+  b.textContent='9.2 CANCEL';
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show,{once:true});else show();
+})();
+</script>
 </body></html>
