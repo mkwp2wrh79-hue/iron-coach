@@ -3310,6 +3310,12 @@ body{overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){#icAmbientField::before,#icAmbientField .orb,.ultraLevelCard::after,.ultraStreakCard::before,.ultraTrainBtn,.ultraTrainBtn::after{animation:none!important}}
 
 </style>
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="iron-coach-build" content="8.6.1-ULTRA">
+
 </head>
 <body data-page="home">
 <div id="appCrash" class="appCrash">
@@ -3957,7 +3963,7 @@ window.addEventListener('error',e=>{
 window.addEventListener('unhandledrejection',()=>{
  const el=document.getElementById('appCrash');if(el)el.classList.add('show')
 });
-const BUILD='8.3 CLEAN · 2026.09.28';
+const BUILD='8.6.1 ULTRA · 2026.09.29';
 const DBKEY='ironCoachV3', AUTOKEY='ironCoachV3_autoBackup', DRAFTKEY='ironCoachDraftV20', INTAKE_VERSION=5, TUTORIAL_VERSION=13;
 const $=id=>document.getElementById(id);
 const DAYN=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], DAYFULL=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
@@ -6799,6 +6805,41 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
  const mo=new MutationObserver(()=>{clearTimeout(refresh._t);refresh._t=setTimeout(refresh,90)});
  function init(){ambient();ensureMoment();ensureHome();ensureProgress();ensureMore();ensureLab();refresh();mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});setInterval(refresh,3500);document.addEventListener('pointerdown',e=>{const b=e.target.closest('.ultraMood,.ultraTrainBtn,.ultraMiniBtn,.ultraMoreBtn,.ultraRewardButton,.ultraToggle,.ultraLabTools button');if(b){audio();pulse(b)}},{passive:true})}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+
+
+<script>
+(function(){
+  const HOTFIX='8.6.1 ULTRA';
+  async function purgeLegacyCachesOnce(){
+    try{
+      const key='ironCoachHotfix861';
+      if(sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key,'1');
+      if('serviceWorker' in navigator){
+        const regs=await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map(r=>r.unregister()));
+      }
+      if('caches' in window){
+        const keys=await caches.keys();
+        await Promise.all(keys.map(k=>caches.delete(k)));
+      }
+    }catch(e){}
+  }
+  function badge(){
+    if(document.getElementById('build861Badge'))return;
+    const b=document.createElement('div');
+    b.id='build861Badge';
+    b.textContent='8.6.1 ULTRA';
+    b.style.cssText='position:fixed;right:10px;top:10px;z-index:9999;padding:6px 9px;border-radius:999px;background:rgba(10,14,24,.82);border:1px solid rgba(103,232,249,.32);color:#bff7ff;font:800 10px/1 system-ui,-apple-system,sans-serif;letter-spacing:.08em;backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none';
+    document.body.appendChild(b);
+  }
+  async function boot(){
+    await purgeLegacyCachesOnce();
+    badge();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
 </script>
 
