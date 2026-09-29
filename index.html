@@ -3109,96 +3109,205 @@ body::before,body::after,.hero::after{display:none!important}
  #progress .progressVerdictTop h1{font-size:23px!important}
 }
 
-/* === IRON COACH 8.4 PULSE === */
+/* =========================================================
+   IRON COACH 8.5 · DOPAMINE / PULSE UI
+   High-satisfaction visual + audio feedback without clutter
+   ========================================================= */
+:root{
+ --pulse-violet:#8b5cf6;
+ --pulse-blue:#4f7cff;
+ --pulse-cyan:#22d3ee;
+ --pulse-green:#34d399;
+ --pulse-gold:#fbbf24;
+ --pulse-pink:#fb7185;
+}
+html{background:#070910}
 body{
  background:
-  radial-gradient(1000px 600px at 0% 0%, rgba(124,58,237,.14), transparent 65%),
-  radial-gradient(900px 500px at 100% 0%, rgba(34,211,238,.12), transparent 60%),
-  radial-gradient(700px 500px at 50% 100%, rgba(16,185,129,.10), transparent 65%),
-  linear-gradient(180deg,#090b12 0%,#0b0f19 100%);
+  radial-gradient(900px 620px at 8% -5%,rgba(139,92,246,.24),transparent 60%),
+  radial-gradient(760px 560px at 100% 6%,rgba(34,211,238,.18),transparent 58%),
+  radial-gradient(740px 540px at 48% 105%,rgba(79,124,255,.13),transparent 62%),
+  linear-gradient(180deg,#070910 0%,#090d17 48%,#070910 100%)!important;
+ background-attachment:fixed!important;
 }
-body::before, body::after{
- content:'';position:fixed;inset:auto;pointer-events:none;z-index:0;filter:blur(40px);opacity:.55;mix-blend-mode:screen;
+body:before,body:after{content:"";position:fixed;border-radius:999px;pointer-events:none;z-index:0;filter:blur(60px);opacity:.55;will-change:transform}
+body:before{width:290px;height:290px;left:-100px;top:12%;background:rgba(139,92,246,.28);animation:pulseOrbA 14s ease-in-out infinite alternate}
+body:after{width:330px;height:330px;right:-125px;top:34%;background:rgba(34,211,238,.19);animation:pulseOrbB 17s ease-in-out infinite alternate}
+@keyframes pulseOrbA{to{transform:translate(75px,55px) scale(1.25)}}
+@keyframes pulseOrbB{to{transform:translate(-65px,-45px) scale(1.16)}}
+.app{position:relative;z-index:1}
+.brand{background:linear-gradient(90deg,#fff 0%,#c4b5fd 38%,#67e8f9 72%,#fff 100%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brandShine 6s linear infinite}
+.brand b{color:transparent!important}
+@keyframes brandShine{to{background-position:220% center}}
+.card,.exercise,.sheet,.feedbackPanel,.confirmCard,.restDoneCard{
+ border-color:rgba(154,166,206,.16)!important;
+ box-shadow:0 18px 48px rgba(0,0,0,.32),0 1px 0 rgba(255,255,255,.035) inset!important;
 }
-body::before{
- width:260px;height:260px;left:-70px;top:8%;border-radius:50%;
- background:radial-gradient(circle at 30% 30%, rgba(139,92,246,.55), rgba(56,189,248,.0) 68%);
- animation:icFloatA 18s ease-in-out infinite;
+.card,.hero{background:linear-gradient(180deg,rgba(19,25,41,.94),rgba(12,16,26,.95))!important}
+.hero{background:
+ radial-gradient(520px 250px at 100% -10%,rgba(139,92,246,.32),transparent 66%),
+ radial-gradient(420px 220px at -10% 105%,rgba(34,211,238,.11),transparent 65%),
+ linear-gradient(180deg,rgba(20,27,45,.98),rgba(12,16,27,.96))!important}
+.btn,.quickBtn,.feelBtn,.donebtn,.navbtn,.iconbtn,[data-welcome-checkin]{will-change:transform;transition:transform .14s ease,filter .16s ease,box-shadow .2s ease,border-color .2s ease!important}
+.btn:hover,.quickBtn:hover,.feelBtn:hover,.donebtn:hover,.navbtn:hover,.iconbtn:hover,[data-welcome-checkin]:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:active,.quickBtn:active,.feelBtn:active,.donebtn:active,.navbtn:active,.iconbtn:active,[data-welcome-checkin]:active{transform:scale(.965)!important}
+.btn:not(.ghost):not(.secondary):not(.red),#welcomePrimary,#confirmTrain,#finishWorkout,#startPlanPreview{
+ position:relative;overflow:hidden;
+ background:linear-gradient(120deg,#7c3aed 0%,#5b6cff 42%,#22d3ee 100%)!important;
+ background-size:180% 180%!important;
+ border:1px solid rgba(255,255,255,.10)!important;
+ box-shadow:0 12px 28px rgba(91,108,255,.26),0 0 20px rgba(34,211,238,.09),0 1px 0 rgba(255,255,255,.22) inset!important;
+ animation:ctaFlow 5s ease-in-out infinite!important;
 }
-body::after{
- width:320px;height:320px;right:-90px;top:22%;border-radius:50%;
- background:radial-gradient(circle at 60% 40%, rgba(34,211,238,.46), rgba(139,92,246,.0) 72%);
- animation:icFloatB 22s ease-in-out infinite;
+.btn:not(.ghost):not(.secondary):not(.red):after,#welcomePrimary:after,#confirmTrain:after,#finishWorkout:after,#startPlanPreview:after{
+ content:"";position:absolute;inset:-120% auto -120% -45%;width:38%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.32),transparent);animation:buttonSheen 3.8s ease-in-out infinite;pointer-events:none
 }
-@keyframes icFloatA{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(35px,25px,0) scale(1.18)}}
-@keyframes icFloatB{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-30px,22px,0) scale(1.12)}}
-#app,.page,.card,.sheet,.feedbackPanel,.hero{position:relative;z-index:1}
-.card,.sheet,.feedbackPanel,.hero,.confirmCard,.restDoneCard{
- box-shadow:0 14px 40px rgba(0,0,0,.34), 0 0 0 1px rgba(255,255,255,.04) inset;
- backdrop-filter: blur(10px);
+@keyframes ctaFlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes buttonSheen{0%,60%{left:-55%;opacity:0}68%{opacity:1}88%{left:125%;opacity:0}100%{left:125%;opacity:0}}
+.quickBtn.selected,[data-welcome-checkin].selected{border-color:rgba(103,232,249,.55)!important;background:linear-gradient(145deg,rgba(124,58,237,.30),rgba(34,211,238,.13))!important;box-shadow:0 10px 25px rgba(79,124,255,.18),0 0 22px rgba(34,211,238,.08)!important}
+.donebtn.on{background:linear-gradient(145deg,rgba(16,185,129,.32),rgba(34,211,238,.12))!important;border-color:rgba(52,211,153,.55)!important;color:#d9fff0!important;box-shadow:0 0 0 1px rgba(52,211,153,.08),0 0 24px rgba(52,211,153,.15)!important}
+.feelBtn{position:relative;overflow:hidden;border-width:1px!important}
+.feelBtn strong{letter-spacing:.02em}
+.feelBtn[data-feel="easy"]{background:radial-gradient(220px 110px at 50% -15%,rgba(52,211,153,.29),transparent 70%),#0c1718!important;border-color:rgba(52,211,153,.40)!important}
+.feelBtn[data-feel="ideal"]{background:radial-gradient(220px 110px at 50% -15%,rgba(34,211,238,.30),transparent 70%),linear-gradient(180deg,#0d1622,#0b111b)!important;border-color:rgba(103,232,249,.48)!important;box-shadow:0 0 30px rgba(34,211,238,.08)!important}
+.feelBtn[data-feel="hard"]{background:radial-gradient(220px 110px at 50% -15%,rgba(251,191,36,.28),transparent 70%),#18140c!important;border-color:rgba(251,191,36,.40)!important}
+.feelBtn[data-feel="max"]{background:radial-gradient(220px 110px at 50% -15%,rgba(251,113,133,.30),transparent 70%),#190e16!important;border-color:rgba(251,113,133,.40)!important}
+.navbtn.active{background:linear-gradient(180deg,rgba(124,58,237,.24),rgba(34,211,238,.07))!important;box-shadow:0 -8px 28px rgba(124,58,237,.12) inset!important}
+.progressbar i,.gymProgress .bar i,.rankfill{background:linear-gradient(90deg,#8b5cf6,#4f7cff,#22d3ee)!important;background-size:200% 100%!important;animation:progressFlow 2.5s linear infinite!important;box-shadow:0 0 16px rgba(34,211,238,.22)!important}
+@keyframes progressFlow{to{background-position:200% 0}}
+/* PULSE HUD */
+#icPulseHud{position:fixed;z-index:210;left:50%;transform:translateX(-50%);top:calc(8px + var(--safeTop));width:min(520px,calc(100% - 20px));display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:19px;background:linear-gradient(135deg,rgba(12,16,28,.88),rgba(18,23,40,.92));border:1px solid rgba(151,163,204,.15);box-shadow:0 14px 42px rgba(0,0,0,.36),0 0 34px rgba(91,108,255,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+#icPulseHud .icGem{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-weight:950;font-size:13px;color:#fff;background:linear-gradient(145deg,#7c3aed,#4f7cff 56%,#22d3ee);box-shadow:0 8px 26px rgba(91,108,255,.35),0 0 18px rgba(34,211,238,.12)}
+#icPulseHud .icHudMain{flex:1;min-width:0;display:grid;gap:4px}
+#icPulseHud .icHudTop{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10px;font-weight:950;letter-spacing:.07em;color:#eef3ff}
+#icPulseHud .icHudTop span:last-child{color:#9caad0}
+#icPulseHud .icHudBar{height:7px;background:rgba(255,255,255,.075);border-radius:999px;overflow:hidden}
+#icPulseHud .icHudBar i{display:block;width:0;height:100%;border-radius:999px;background:linear-gradient(90deg,#8b5cf6,#4f7cff,#22d3ee);box-shadow:0 0 18px rgba(34,211,238,.30);transition:width .42s cubic-bezier(.2,.8,.2,1)}
+#icPulseHud .icHudSub{font-size:10px;color:#9ba8c6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#icFxToggle{width:36px;height:36px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:#dce5ff;font-size:16px;display:grid;place-items:center}
+#icFxToggle.off{opacity:.46}
+body.icTraining #icPulseHud{top:auto;bottom:calc(84px + var(--safeBottom));box-shadow:0 -14px 42px rgba(0,0,0,.36),0 0 34px rgba(91,108,255,.08)}
+.app{padding-top:calc(76px + var(--safeTop))!important}
+body.icTraining .app{padding-top:calc(18px + var(--safeTop))!important}
+/* Session progress */
+#icSessionPulse{display:none;margin:8px 0 10px;padding:12px 13px;border-radius:18px;background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(34,211,238,.065));border:1px solid rgba(123,135,190,.16);overflow:hidden;position:relative}
+body.icTraining #icSessionPulse{display:block}
+#icSessionPulse .spTop{display:flex;justify-content:space-between;align-items:end;gap:10px}
+#icSessionPulse .spTop b{font-size:12px;letter-spacing:.06em}.spCombo{font-size:19px;font-weight:950;background:linear-gradient(90deg,#c4b5fd,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+#icSessionPulse .spBar{height:10px;margin-top:8px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+#icSessionPulse .spBar i{height:100%;display:block;width:0;background:linear-gradient(90deg,#8b5cf6,#4f7cff,#22d3ee,#34d399);background-size:220% 100%;animation:progressFlow 2.2s linear infinite;border-radius:999px;box-shadow:0 0 22px rgba(34,211,238,.26);transition:width .35s cubic-bezier(.2,.8,.2,1)}
+#icSessionPulse .spSub{font-size:10px;color:#9eaaca;margin-top:6px}
+/* Reward overlays */
+.icRewardToast{position:fixed;z-index:300;left:50%;top:82px;transform:translateX(-50%);padding:11px 16px;border-radius:999px;color:white;font-size:12px;font-weight:950;letter-spacing:.055em;background:linear-gradient(100deg,#7c3aed,#4f7cff,#22d3ee);box-shadow:0 16px 40px rgba(0,0,0,.35),0 0 32px rgba(79,124,255,.24);animation:rewardToast 1.55s cubic-bezier(.18,.8,.2,1) forwards;pointer-events:none}
+body.icTraining .icRewardToast{top:16px}
+@keyframes rewardToast{0%{opacity:0;transform:translateX(-50%) translateY(-12px) scale(.85)}14%{opacity:1;transform:translateX(-50%) translateY(0) scale(1.04)}25%,72%{opacity:1;transform:translateX(-50%) scale(1)}100%{opacity:0;transform:translateX(-50%) translateY(-8px) scale(.96)}}
+.icFlash{position:fixed;inset:0;z-index:260;pointer-events:none;background:radial-gradient(circle at var(--fx,50%) var(--fy,50%),rgba(103,232,249,.20),rgba(139,92,246,.07) 24%,transparent 58%);animation:icFlash .46s ease-out forwards}
+@keyframes icFlash{from{opacity:1}to{opacity:0}}
+.icParticle{position:fixed;z-index:320;width:8px;height:8px;border-radius:3px;pointer-events:none;background:var(--pc,#8b5cf6);box-shadow:0 0 12px var(--pc,#8b5cf6);animation:icParticle .85s cubic-bezier(.18,.7,.2,1) forwards}
+@keyframes icParticle{0%{opacity:0;transform:translate(0,0) scale(.4) rotate(0)}12%{opacity:1}100%{opacity:0;transform:translate(var(--px),var(--py)) scale(.75) rotate(var(--pr))}}
+.icPulsePop{animation:icPulsePop .36s cubic-bezier(.16,.9,.22,1)!important}
+@keyframes icPulsePop{0%{transform:scale(.92)}55%{transform:scale(1.055)}100%{transform:scale(1)}}
+/* Big finish ceremony */
+#icFinishFx{position:fixed;inset:0;z-index:400;display:none;place-items:center;background:radial-gradient(circle at 50% 42%,rgba(88,71,181,.34),rgba(5,7,12,.93) 56%);backdrop-filter:blur(8px);pointer-events:none}
+#icFinishFx.show{display:grid;animation:finishFade 2.65s ease forwards}
+#icFinishFx .finishCore{text-align:center;position:relative;animation:finishCore .7s cubic-bezier(.14,.88,.2,1) both}
+#icFinishFx .finishRing{width:132px;height:132px;margin:auto;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 0deg,#8b5cf6,#22d3ee,#34d399,#fbbf24,#fb7185,#8b5cf6);box-shadow:0 0 70px rgba(91,108,255,.40);animation:ringSpin 3s linear infinite}
+#icFinishFx .finishRing:before{content:"✓";width:112px;height:112px;border-radius:50%;display:grid;place-items:center;background:#0a0e18;color:#fff;font-size:57px;font-weight:950;box-shadow:0 0 0 1px rgba(255,255,255,.09) inset}
+#icFinishFx h2{margin:20px 0 3px;font-size:34px;letter-spacing:-1px;background:linear-gradient(90deg,#fff,#c4b5fd,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+#icFinishFx p{margin:0;color:#b4bfd9;font-size:13px;font-weight:800}
+#icFinishFx .finishXp{margin-top:14px;font-size:22px;font-weight:950;color:#fbbf24;text-shadow:0 0 24px rgba(251,191,36,.25)}
+@keyframes finishFade{0%{opacity:0}10%,76%{opacity:1}100%{opacity:0}}
+@keyframes finishCore{0%{opacity:0;transform:scale(.62) translateY(30px)}65%{transform:scale(1.05)}100%{opacity:1;transform:none}}
+@keyframes ringSpin{to{transform:rotate(360deg)}}
+/* input focus payoff */
+input:focus,select:focus{border-color:rgba(103,232,249,.55)!important;box-shadow:0 0 0 3px rgba(34,211,238,.075),0 0 24px rgba(34,211,238,.06)!important}
+body.icOnboarding #icPulseHud{display:none}.icOnboarding .app{padding-top:calc(18px + var(--safeTop))!important}
+@media(max-width:520px){#icPulseHud{width:calc(100% - 16px)}#icPulseHud .icHudSub{font-size:9px}.app{padding-top:calc(72px + var(--safeTop))!important}}
+@media(prefers-reduced-motion:reduce){body:before,body:after,.brand,.btn,#finishWorkout,.progressbar i,.gymProgress .bar i,.rankfill,#icSessionPulse .spBar i,#icFinishFx .finishRing{animation:none!important}.icParticle,.icFlash{display:none!important}}
+
+
+/* =====================================================================
+   IRON COACH 8.6 ULTRA · CALM REWARD SYSTEM
+   Main path = calm. Reward path = visible. Technical path = Coach Lab.
+   ===================================================================== */
+:root{
+ --ultra-violet:#8b5cf6;--ultra-blue:#5b7cff;--ultra-cyan:#22d3ee;
+ --ultra-green:#34d399;--ultra-gold:#fbbf24;--ultra-rose:#fb7185;
+ --ultra-bg:#070911;--ultra-card:rgba(16,21,35,.72);--ultra-line:rgba(255,255,255,.08);
 }
-.btn,.feelBtn,.navbtn,.quickBtn,[data-welcome-checkin],.donebtn{
- transition:transform .16s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;
-}
-.btn:hover,.feelBtn:hover,.navbtn:hover,.quickBtn:hover,[data-welcome-checkin]:hover,.donebtn:hover{transform:translateY(-1px);filter:brightness(1.04)}
-.btn:active,.feelBtn:active,.navbtn:active,.quickBtn:active,[data-welcome-checkin]:active,.donebtn:active{transform:translateY(1px) scale(.985)}
-.btn.full,#welcomePrimary,#confirmTrain,#finishWorkout,#startPlanPreview{
- background:linear-gradient(135deg,#8b5cf6 0%, #5b7cff 45%, #22d3ee 100%)!important;
- border:none!important;color:white!important;
- box-shadow:0 10px 26px rgba(91,124,255,.30),0 0 0 1px rgba(255,255,255,.08) inset;
- animation:ctaGlow 2.4s ease-in-out infinite;
-}
-@keyframes ctaGlow{0%,100%{box-shadow:0 10px 26px rgba(91,124,255,.30),0 0 0 1px rgba(255,255,255,.08) inset}50%{box-shadow:0 14px 34px rgba(139,92,246,.42),0 0 24px rgba(34,211,238,.18),0 0 0 1px rgba(255,255,255,.12) inset}}
-.feelBtn[data-feel="easy"]{background:linear-gradient(180deg,rgba(34,197,94,.18),rgba(22,163,74,.08));border-color:rgba(74,222,128,.32)}
-.feelBtn[data-feel="ideal"]{background:linear-gradient(180deg,rgba(34,211,238,.17),rgba(59,130,246,.09));border-color:rgba(103,232,249,.34)}
-.feelBtn[data-feel="hard"]{background:linear-gradient(180deg,rgba(251,191,36,.16),rgba(249,115,22,.08));border-color:rgba(253,224,71,.30)}
-.feelBtn[data-feel="max"]{background:linear-gradient(180deg,rgba(244,63,94,.18),rgba(168,85,247,.09));border-color:rgba(251,113,133,.32)}
-.navbtn.active{
- background:linear-gradient(180deg,rgba(124,58,237,.24),rgba(34,211,238,.08));
- box-shadow:0 8px 20px rgba(124,58,237,.22),0 0 0 1px rgba(255,255,255,.05) inset;
-}
-#rewardStrip,.rewardStrip{
- background:linear-gradient(135deg,rgba(15,23,42,.86),rgba(22,31,57,.92))!important;
- border:1px solid rgba(120,152,255,.16)!important;
- box-shadow:0 14px 36px rgba(0,0,0,.28), 0 0 26px rgba(95,108,255,.08);
-}
-#xpDock{
- position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:80;
- display:flex;align-items:center;gap:10px;min-width:min(92vw,460px);max-width:min(92vw,460px);
- padding:10px 12px;border-radius:20px;
- background:linear-gradient(135deg,rgba(10,14,24,.82),rgba(15,20,35,.92));
- border:1px solid rgba(255,255,255,.08);
- box-shadow:0 16px 36px rgba(0,0,0,.34),0 0 0 1px rgba(255,255,255,.04) inset;
- backdrop-filter: blur(14px);
-}
-#xpBadge{
- width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
- background:linear-gradient(135deg,#8b5cf6,#22d3ee);color:#fff;font-weight:900;font-size:14px;
- box-shadow:0 10px 24px rgba(91,124,255,.34);
-}
-#xpDock .xpMeta{min-width:0;flex:1;display:flex;flex-direction:column;gap:4px}
-#xpDock .xpTop{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#eef3ff;font-weight:800;letter-spacing:.04em}
-#xpDock .xpSub{font-size:11px;color:#aab4d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#xpDock .xpBar{height:9px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;position:relative}
-#xpDock .xpBar i{display:block;height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#8b5cf6,#5b7cff,#22d3ee);box-shadow:0 0 18px rgba(34,211,238,.34);transition:width .45s ease}
-body.train-mode #xpDock{top:auto;bottom:84px}
-.pulseToast{
- position:fixed;left:50%;transform:translateX(-50%);top:76px;z-index:90;pointer-events:none;
- padding:12px 16px;border-radius:18px;background:linear-gradient(135deg,rgba(124,58,237,.94),rgba(34,211,238,.94));
- color:white;font-weight:900;font-size:14px;letter-spacing:.03em;box-shadow:0 18px 40px rgba(0,0,0,.28);
- opacity:0;animation:pulseToastIn 1.9s ease forwards;
-}
-@keyframes pulseToastIn{0%{opacity:0;transform:translateX(-50%) translateY(-10px) scale(.92)}12%,70%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}100%{opacity:0;transform:translateX(-50%) translateY(-6px) scale(.98)}}
-.sparkle{
- position:fixed;width:10px;height:10px;border-radius:999px;pointer-events:none;z-index:95;
- background:radial-gradient(circle at 30% 30%, #fff, var(--spark,#8b5cf6));
- box-shadow:0 0 20px var(--spark,#8b5cf6),0 0 8px rgba(255,255,255,.65);
- animation:sparkFly .8s ease-out forwards;
-}
-@keyframes sparkFly{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
-.dopaPop{animation:dopaPop .38s cubic-bezier(.2,.9,.2,1)}
-@keyframes dopaPop{0%{transform:scale(.94)}55%{transform:scale(1.06)}100%{transform:scale(1)}}
-@media(max-width:640px){#xpDock{top:10px;min-width:min(94vw,520px)}.pulseToast{top:68px}}
+html,body{background:var(--ultra-bg)!important}
+body{overflow-x:hidden}
+.app{position:relative;z-index:3}
+/* Strong but slow ambient motion: visible, never frantic. */
+#icAmbientField{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:linear-gradient(135deg,#070911 0%,#09101b 48%,#090b15 100%)}
+#icAmbientField::before{content:'';position:absolute;inset:-35%;background:conic-gradient(from 30deg at 50% 50%,rgba(139,92,246,.10),rgba(34,211,238,.07),rgba(52,211,153,.05),rgba(91,124,255,.08),rgba(139,92,246,.10));filter:blur(54px);animation:ultraMesh 28s linear infinite}
+#icAmbientField .orb{position:absolute;border-radius:50%;filter:blur(10px);opacity:.78;mix-blend-mode:screen;will-change:transform}
+#icAmbientField .a{width:320px;height:320px;left:-105px;top:9%;background:radial-gradient(circle at 35% 35%,rgba(139,92,246,.58),rgba(139,92,246,0) 66%);animation:ultraOrbA 15s ease-in-out infinite}
+#icAmbientField .b{width:390px;height:390px;right:-150px;top:24%;background:radial-gradient(circle at 44% 40%,rgba(34,211,238,.46),rgba(34,211,238,0) 69%);animation:ultraOrbB 18s ease-in-out infinite}
+#icAmbientField .c{width:300px;height:300px;left:28%;bottom:-150px;background:radial-gradient(circle at 50% 45%,rgba(52,211,153,.30),rgba(52,211,153,0) 70%);animation:ultraOrbC 20s ease-in-out infinite}
+#icAmbientField .grain{position:absolute;inset:0;opacity:.13;background-image:radial-gradient(rgba(255,255,255,.32) .55px,transparent .55px);background-size:9px 9px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.48),transparent 75%)}
+@keyframes ultraMesh{to{transform:rotate(360deg) scale(1.04)}}
+@keyframes ultraOrbA{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(55px,26px,0) scale(1.18)}}
+@keyframes ultraOrbB{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-58px,38px,0) scale(1.12)}}
+@keyframes ultraOrbC{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(30px,-44px,0) scale(1.15)}}
+/* Remove stacked old reward HUDs. Ultra owns the hierarchy. */
+#xpDock{display:none!important}
+#icPulseHud{display:none!important}
+/* Minimal top brand. */
+.simpleTop.humanTop{background:transparent!important;border:0!important;min-height:54px!important;padding-top:calc(8px + var(--safeTop))!important}
+.humanBrand b{letter-spacing:.16em!important;font-size:11px!important;color:#d9e1f4!important}
+.humanBrandMark{box-shadow:0 0 22px rgba(139,92,246,.28)}
+/* HOME: everything non-essential is out of the main path. */
+#home> :not(#icZenHome){display:none!important}
+#home{padding-top:4px!important}
+#icZenHome{display:flex;flex-direction:column;gap:16px;max-width:720px;margin:0 auto 18px;padding:4px 0 18px;animation:ultraEnter .42s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ultraEnter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.ultraHello{padding:10px 4px 0}
+.ultraHello .kicker{font-size:11px;font-weight:900;letter-spacing:.17em;color:#8996b2}
+.ultraHello h1{margin:6px 0 5px;font-size:clamp(29px,8vw,48px);line-height:.98;letter-spacing:-1.3px;color:#f6f8ff}
+.ultraHello p{margin:0;color:#8995ad;font-size:13px}
+/* Reward capsule: only motivating information stays visible. */
+.ultraRewardDeck{display:grid;grid-template-columns:1.18fr .82fr;gap:11px}
+.ultraLevelCard,.ultraStreakCard,.ultraReadiness,.ultraResumeCard,.ultraNextReward{border:1px solid var(--ultra-line);background:linear-gradient(145deg,rgba(19,25,42,.80),rgba(10,14,25,.72));box-shadow:0 18px 50px rgba(0,0,0,.26),0 0 0 1px rgba(255,255,255,.025) inset;backdrop-filter:blur(15px)}
+.ultraLevelCard{border-radius:26px;padding:17px;display:flex;align-items:center;gap:15px;overflow:hidden;position:relative}
+.ultraLevelCard::after{content:'';position:absolute;width:145px;height:145px;border-radius:50%;right:-58px;top:-67px;background:radial-gradient(circle,rgba(139,92,246,.24),transparent 68%);animation:ultraAura 3.8s ease-in-out infinite}
+@keyframes ultraAura{50%{transform:scale(1.22);opacity:.72}}
+.ultraRing{--p:0;position:relative;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;flex:none;background:conic-gradient(var(--ultra-cyan) calc(var(--p)*1%),rgba(255,255,255,.08) 0);box-shadow:0 0 28px rgba(34,211,238,.12);transition:background .45s ease}
+.ultraRing::before{content:'';position:absolute;inset:7px;border-radius:50%;background:#0d1220;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.ultraRing b{position:relative;z-index:1;font-size:16px;color:white}.ultraLevelCopy span,.ultraStreakCard span,.ultraNextReward span{display:block;font-size:9px;letter-spacing:.15em;font-weight:900;color:#7f8ba4}.ultraLevelCopy strong{display:block;margin-top:3px;font-size:20px;color:#f3f6ff}.ultraLevelCopy small{display:block;margin-top:5px;color:#8995ad;font-size:11px}
+.ultraStreakCard{border-radius:26px;padding:15px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative;overflow:hidden}.ultraStreakCard::before{content:'✦';position:absolute;right:12px;top:7px;font-size:38px;color:rgba(251,191,36,.13);animation:ultraStar 4s ease-in-out infinite}.ultraStreakCard strong{font-size:29px;line-height:1;margin-top:5px;background:linear-gradient(135deg,#fff,#fbbf24);-webkit-background-clip:text;color:transparent}.ultraStreakCard small{font-size:11px;color:#8d98ad;margin-top:6px}@keyframes ultraStar{50%{transform:rotate(16deg) scale(1.15)}}
+/* Readiness = three obvious choices, zero form fatigue. */
+.ultraReadiness{border-radius:28px;padding:17px}.ultraReadinessHead{display:flex;align-items:end;justify-content:space-between;margin-bottom:12px}.ultraReadinessHead div span{display:block;font-size:9px;letter-spacing:.16em;font-weight:900;color:#74819b}.ultraReadinessHead div b{display:block;font-size:21px;margin-top:3px}.ultraReadinessHead em{font-style:normal;font-size:10px;font-weight:900;color:#96a2b7}.ultraMoodGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.ultraMood{min-height:84px;border-radius:21px;border:1px solid rgba(255,255,255,.07);color:#eaf0ff;background:#0b1020;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-weight:900;cursor:pointer;position:relative;overflow:hidden}.ultraMood i{font-style:normal;font-size:25px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}.ultraMood span{font-size:12px}.ultraMood[data-kind="strong"]{background:linear-gradient(160deg,rgba(52,211,153,.18),rgba(8,16,22,.86))}.ultraMood[data-kind="normal"]{background:linear-gradient(160deg,rgba(34,211,238,.16),rgba(8,16,26,.86))}.ultraMood[data-kind="tired"]{background:linear-gradient(160deg,rgba(139,92,246,.18),rgba(12,11,24,.88))}.ultraMood.selected{border-color:rgba(255,255,255,.34);box-shadow:0 0 0 2px rgba(255,255,255,.07) inset,0 12px 28px rgba(0,0,0,.22);transform:translateY(-1px)}.ultraMood.selected::after{content:'✓';position:absolute;top:7px;right:8px;font-size:10px;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;background:white;color:#0b1020;box-shadow:0 5px 14px rgba(0,0,0,.28)}
+.ultraTrainBtn{position:relative;isolation:isolate;width:100%;min-height:68px;border:0;border-radius:23px;color:white;font-weight:950;font-size:17px;letter-spacing:.08em;cursor:pointer;overflow:hidden;background:linear-gradient(110deg,#7c3aed,#5b7cff,#22d3ee,#5b7cff,#7c3aed);background-size:300% 100%;animation:ultraCta 5s linear infinite;box-shadow:0 15px 38px rgba(91,124,255,.28),0 0 32px rgba(34,211,238,.12)}.ultraTrainBtn::after{content:'';position:absolute;z-index:-1;inset:-1px;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.26) 46%,transparent 62%);transform:translateX(-130%);animation:ultraSweep 3.4s ease-in-out infinite}.ultraTrainBtn small{display:block;font-size:9px;letter-spacing:.10em;opacity:.70;margin-top:3px}@keyframes ultraCta{to{background-position:300% 0}}@keyframes ultraSweep{0%,45%{transform:translateX(-130%)}70%,100%{transform:translateX(130%)}}
+.ultraTrainBtn:active,.ultraMood:active,.ultraMiniBtn:active{transform:scale(.975)}
+.ultraResumeCard{border-radius:23px;padding:14px 15px;display:flex;align-items:center;justify-content:space-between;gap:10px}.ultraResumeCard b{display:block;font-size:14px}.ultraResumeCard small{display:block;color:#7f8aa0;font-size:10px;margin-top:3px}.ultraMiniBtn{border:0;border-radius:13px;padding:11px 14px;background:#fff;color:#0b0d13;font-weight:900;font-size:11px}
+.ultraNextReward{border-radius:23px;padding:14px 15px;display:flex;align-items:center;gap:12px}.ultraRewardIcon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(251,191,36,.18),rgba(139,92,246,.18));border:1px solid rgba(251,191,36,.16);font-size:18px}.ultraNextReward b{font-size:13px}.ultraNextReward small{display:block;color:#8b96ab;font-size:10px;margin-top:3px}
+/* PLAN: only sessions visible; rationale moves to Coach Lab. */
+#plan .planScreenHead p,#plan #goalStrategyCard,#plan .planContextRow{display:none!important}#plan .planScreenHead{margin-bottom:10px!important}#plan .planScreenHead .screenActionBtn{display:none!important}.sessionTimeline{gap:10px!important}.sessionTimeline .timelineMain p{display:none!important}.sessionExercises{opacity:.82}
+/* PROGRESS: reward-first page. Technical cards stay in DOM but out of sight. */
+#progress> :not(#icRewardProgress){display:none!important}#icRewardProgress{display:flex;flex-direction:column;gap:13px;padding:8px 0 18px;max-width:720px;margin:auto}.ultraProgressHero{border:1px solid var(--ultra-line);background:linear-gradient(145deg,rgba(18,24,42,.82),rgba(10,14,25,.78));border-radius:28px;padding:20px;position:relative;overflow:hidden;box-shadow:0 20px 54px rgba(0,0,0,.28)}.ultraProgressHero::after{content:'';position:absolute;width:230px;height:230px;border-radius:50%;right:-105px;top:-120px;background:radial-gradient(circle,rgba(139,92,246,.34),transparent 67%);animation:ultraAura 4s ease-in-out infinite}.ultraProgressHero>span{font-size:9px;letter-spacing:.18em;font-weight:900;color:#8190ad}.ultraProgressHero h1{font-size:36px;letter-spacing:-1px;margin:7px 0 4px}.ultraProgressHero p{margin:0;color:#8996ae;font-size:12px}.ultraXpBar{height:12px;border-radius:999px;background:rgba(255,255,255,.07);margin-top:17px;overflow:hidden}.ultraXpBar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8b5cf6,#5b7cff,#22d3ee);box-shadow:0 0 20px rgba(34,211,238,.32);transition:width .5s ease}.ultraStatGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.ultraStat{border:1px solid var(--ultra-line);background:rgba(12,17,29,.75);border-radius:20px;padding:14px 10px;text-align:center}.ultraStat strong{font-size:21px;display:block}.ultraStat span{display:block;color:#77849d;font-size:9px;letter-spacing:.1em;font-weight:900;margin-top:4px}.ultraRewardButton{width:100%;border:1px solid rgba(139,92,246,.20);background:linear-gradient(145deg,rgba(139,92,246,.14),rgba(34,211,238,.07));border-radius:22px;padding:16px;color:white;display:flex;align-items:center;justify-content:space-between;text-align:left}.ultraRewardButton b{display:block;font-size:14px}.ultraRewardButton small{display:block;color:#8994aa;font-size:10px;margin-top:3px}.ultraRewardButton i{font-style:normal;font-size:24px}.ultraLabLink{background:transparent;border:0;color:#7e8aa2;font-size:10px;font-weight:900;letter-spacing:.12em;padding:10px}
+/* PROFILE = More. Original dense groups hidden, Ultra menu routes to them/modals. */
+#profile> :not(#icMorePage){display:none!important}#icMorePage{display:flex;flex-direction:column;gap:12px;padding:8px 0 20px;max-width:720px;margin:auto}.ultraMoreHead span{font-size:9px;letter-spacing:.18em;color:#748099;font-weight:900}.ultraMoreHead h1{font-size:34px;margin:5px 0 1px}.ultraMoreGrid{display:grid;gap:9px}.ultraMoreBtn{width:100%;min-height:66px;border:1px solid var(--ultra-line);background:rgba(12,17,29,.76);border-radius:20px;color:white;padding:12px 14px;display:grid;grid-template-columns:42px 1fr 18px;align-items:center;gap:10px;text-align:left}.ultraMoreBtn .glyph{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(139,92,246,.18),rgba(34,211,238,.07));font-size:18px}.ultraMoreBtn b{display:block;font-size:13px}.ultraMoreBtn small{display:block;color:#7f899d;font-size:10px;margin-top:3px}.ultraMoreBtn em{font-style:normal;color:#667086}.ultraSoundRow{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--ultra-line);background:rgba(12,17,29,.60);border-radius:18px;padding:12px 14px}.ultraSoundRow b{font-size:12px}.ultraToggle{width:47px;height:28px;border:0;border-radius:999px;background:#282e3c;padding:3px;position:relative}.ultraToggle::after{content:'';position:absolute;width:22px;height:22px;border-radius:50%;left:3px;top:3px;background:#fff;transition:.22s}.ultraToggle.on{background:linear-gradient(90deg,#8b5cf6,#22d3ee)}.ultraToggle.on::after{left:22px}
+/* Coach Lab full-screen technical area. */
+#icCoachLab{position:fixed;inset:0;z-index:240;background:rgba(5,7,12,.83);backdrop-filter:blur(18px);display:none;align-items:flex-end;justify-content:center}#icCoachLab.show{display:flex}.ultraLabSheet{width:min(760px,100%);max-height:91vh;overflow:auto;border-radius:30px 30px 0 0;background:linear-gradient(180deg,#101522,#090d16);border:1px solid rgba(255,255,255,.09);padding:18px 16px calc(24px + var(--safeBottom));box-shadow:0 -25px 70px rgba(0,0,0,.48);animation:ultraSheet .3s cubic-bezier(.2,.8,.2,1) both}@keyframes ultraSheet{from{transform:translateY(28px);opacity:.4}to{transform:none;opacity:1}}.ultraLabHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.ultraLabHead span{font-size:9px;letter-spacing:.17em;font-weight:900;color:#7d8aa4}.ultraLabHead h2{font-size:27px;margin:3px 0}.ultraLabClose{width:40px;height:40px;border-radius:50%;border:1px solid var(--ultra-line);background:#151a26;color:#fff;font-size:18px}.ultraLabIntro{color:#8390a8;font-size:11px;line-height:1.45;margin:-5px 0 13px}.ultraLabCard{border:1px solid var(--ultra-line);background:rgba(13,18,30,.74);border-radius:20px;padding:14px;margin:9px 0}.ultraLabCard>span{display:block;font-size:9px;letter-spacing:.15em;color:#727f98;font-weight:900}.ultraLabCard>b{display:block;font-size:15px;margin:5px 0}.ultraLabCard p{margin:4px 0;color:#9ba6b9;font-size:11px;line-height:1.45}.ultraLabKpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}.ultraLabKpis div{background:#090d17;border-radius:13px;padding:10px;text-align:center}.ultraLabKpis strong{display:block;font-size:16px}.ultraLabKpis small{display:block;font-size:8px;color:#6f7c93;margin-top:3px}.ultraLabTools{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ultraLabTools button{min-height:52px;border-radius:15px;border:1px solid var(--ultra-line);background:#111725;color:#dfe6f7;font-size:11px;font-weight:900}
+/* TRAINING: focus-only, reward progress visible. */
+#train .productTrainHero,#train .trainMotivationBanner,#train #gymProgress{display:none!important}
+#train #icSessionPulse{position:sticky!important;top:calc(8px + var(--safeTop))!important;z-index:44!important;margin:5px 0 11px!important;border-radius:22px!important;background:rgba(10,14,24,.87)!important;border:1px solid rgba(255,255,255,.08)!important;box-shadow:0 14px 38px rgba(0,0,0,.30)!important;backdrop-filter:blur(14px)!important;padding:12px 14px!important}
+#train #icSessionPulse .spTop{font-size:11px!important}.spCombo{background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(34,211,238,.12))!important;border-color:rgba(139,92,246,.22)!important}.spSub{display:none!important}
+#train .exercise.focus{min-height:auto!important;border-radius:28px!important;background:linear-gradient(160deg,rgba(15,20,34,.91),rgba(8,12,21,.93))!important;border:1px solid rgba(255,255,255,.08)!important;box-shadow:0 20px 55px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.02) inset!important;padding:18px!important}
+#train .simpleExerciseHead .muscle{font-size:9px!important;letter-spacing:.15em!important;color:#71809b!important}#train .exname{font-size:clamp(26px,7vw,38px)!important;line-height:1!important;letter-spacing:-.7px!important;margin-top:5px!important}#train .setHistory:empty{display:none!important}
+#train .nowSetKicker{font-size:9px!important;letter-spacing:.16em!important;color:#77849b!important}#train .nowSetMain{font-size:22px!important;line-height:1.22!important;margin-top:4px!important}#train .nowSetSub{display:none!important}#train .unknownWeightNote{font-size:10px!important;color:#8792a7!important;line-height:1.35!important;margin-top:6px!important}
+#train .active-set{background:transparent!important;border:0!important;padding:4px 0!important;margin:7px 0!important}.simpleSetFields{gap:9px!important}.setField input{background:#090e19!important;border:1px solid rgba(255,255,255,.08)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.015)!important}.setField input:focus{border-color:rgba(34,211,238,.48)!important;box-shadow:0 0 0 3px rgba(34,211,238,.07),0 0 28px rgba(34,211,238,.08)!important}.donebtn{min-height:64px!important;border-radius:20px!important;background:linear-gradient(110deg,#7c3aed,#5b7cff,#22d3ee)!important;box-shadow:0 13px 30px rgba(91,124,255,.23)!important;letter-spacing:.08em!important}.oneSetRule{display:none!important}#train .gymTechnique{display:none!important}#train .gymOptions{margin-top:8px!important;border:0!important;background:transparent!important}#train .gymOptions>summary{font-size:0!important;color:#69768e!important;text-align:center!important;list-style:none!important;padding:6px!important}#train .gymOptions>summary::after{content:'•••';font-size:16px!important;letter-spacing:4px!important}.gymOptionButtons{padding-top:6px!important}.liveDecision.show{font-size:11px!important}
+/* Feedback modal: big color choices, no explanatory clutter. */
+#setFeedback .feedbackTitle{font-size:13px!important;color:#8995aa!important}#setFeedback .premiumFeedbackQuestion{padding-top:5px!important}#setFeedback #feedbackEffortQuestion{font-size:25px!important}#setFeedback #feedbackEffortHelp{display:none!important}#setFeedback .feelBtn{min-height:88px!important;border-radius:20px!important}#setFeedback .feelBtn span{display:none!important}#setFeedback .feedbackOptional{opacity:.62!important}#setFeedback #saveSetFeedback{display:none!important}
+/* Bottom nav calmer and 4-way. */
+.bottomIn{grid-template-columns:repeat(4,1fr)!important}.humanTabBar .navbtn{min-height:52px!important;font-size:9px!important}.humanTabBar .navbtn span{font-size:17px!important}.humanTabBar .navbtn.active{background:linear-gradient(180deg,rgba(139,92,246,.16),rgba(34,211,238,.05))!important;color:white!important}.humanTabBar .navbtn.active::after{background:linear-gradient(90deg,#8b5cf6,#22d3ee)!important;width:25px!important}
+/* Reward moments. */
+.ultraMoment{position:fixed;inset:0;z-index:260;pointer-events:none;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,rgba(91,124,255,.18),transparent 42%);opacity:0}.ultraMoment.show{animation:ultraMoment 1.65s ease both}.ultraMoment .core{text-align:center;transform:scale(.78)}.ultraMoment.show .core{animation:ultraCore 1.65s cubic-bezier(.15,.9,.2,1) both}.ultraMoment .icon{width:92px;height:92px;border-radius:31px;margin:auto;display:grid;place-items:center;font-size:34px;background:linear-gradient(145deg,#8b5cf6,#22d3ee);box-shadow:0 0 70px rgba(91,124,255,.38),0 22px 55px rgba(0,0,0,.35)}.ultraMoment b{display:block;margin-top:13px;font-size:27px}.ultraMoment span{font-size:11px;color:#c5d1e8;font-weight:900;letter-spacing:.12em}@keyframes ultraMoment{0%,100%{opacity:0}12%,72%{opacity:1}}@keyframes ultraCore{0%{transform:scale(.65);opacity:0}18%{transform:scale(1.08);opacity:1}35%,75%{transform:scale(1)}100%{transform:scale(.97);opacity:0}}
+/* Touch response */
+.ultraTap{animation:ultraTap .24s ease}@keyframes ultraTap{50%{transform:scale(.965)}}
+@media(max-width:480px){.ultraRewardDeck{grid-template-columns:1.25fr .75fr}.ultraRing{width:64px;height:64px}.ultraLevelCard{padding:14px}.ultraHello h1{font-size:34px}.ultraMood{min-height:80px}.ultraProgressHero h1{font-size:31px}.ultraStat strong{font-size:19px}.ultraLabTools{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){#icAmbientField::before,#icAmbientField .orb,.ultraLevelCard::after,.ultraStreakCard::before,.ultraTrainBtn,.ultraTrainBtn::after{animation:none!important}}
 
 </style>
 </head>
@@ -6591,111 +6700,105 @@ if(!needsIntake){setTimeout(maybeAutoMonthlyRecap,900);setTimeout(showSmartWelco
 </script>
 
 <script>
+/* IRON COACH 8.5 · reward/motion/audio layer */
 (function(){
-  const origReady = document.readyState;
-  function afterReady(fn){ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fn,{once:true}); else fn(); }
-  afterReady(function(){
-    function ensureHud(){
-      if(document.getElementById('xpDock')) return;
-      const hud=document.createElement('div');
-      hud.id='xpDock';
-      hud.innerHTML='<div id="xpBadge">LV1</div><div class="xpMeta"><div class="xpTop"><span id="xpTitle">IRON PULSE</span><span id="xpLevelText">Nivel 1</span></div><div class="xpBar"><i id="xpFill"></i></div><div class="xpSub" id="xpSub">Cada sesión suma.</div></div>';
-      document.body.appendChild(hud);
-    }
-    function levelData(){
-      const logs=(window.db&&Array.isArray(db.logs)?db.logs:[]);
-      const sessions=logs.length;
-      const lvl=Math.max(1,Math.floor(sessions/5)+1);
-      const base=(lvl-1)*5;
-      const cur=Math.max(0,sessions-base);
-      const pct=Math.min(100,Math.round((cur/5)*100));
-      return {sessions,lvl,pct,cur,left:Math.max(0,5-cur)};
-    }
-    function weeklyStreakSafe(){
-      try{return typeof weeklyStreak==='function'?weeklyStreak():0}catch(e){return 0}
-    }
-    function completedTodaySafe(){
-      try{return typeof completedToday==='function'?completedToday():false}catch(e){return false}
-    }
-    function updateHud(){
-      ensureHud();
-      const d=levelData();
-      const streak=weeklyStreakSafe();
-      const done=completedTodaySafe();
-      const badge=document.getElementById('xpBadge');
-      const fill=document.getElementById('xpFill');
-      const title=document.getElementById('xpTitle');
-      const lvl=document.getElementById('xpLevelText');
-      const sub=document.getElementById('xpSub');
-      if(!badge||!fill) return;
-      badge.textContent='LV'+d.lvl;
-      lvl.textContent='Nivel '+d.lvl;
-      fill.style.width=d.pct+'%';
-      if(done) title.textContent='SESIÓN GANADA';
-      else if(streak>=2) title.textContent='RACHA x'+streak;
-      else title.textContent='IRON PULSE';
-      sub.textContent = done ? 'Listo. Sumaste otra sesión al progreso.' : streak>=2 ? ('Llevás '+streak+' semanas cumpliendo.') : (d.left===0 ? 'Subida de nivel lista.' : 'Te faltan '+d.left+' sesiones para subir de nivel.');
-      document.body.classList.toggle('train-mode', !!document.querySelector('#train.active'));
-    }
-    function richToast(msg){
-      const t=document.createElement('div');
-      t.className='pulseToast';
-      t.textContent=msg;
-      document.body.appendChild(t);
-      setTimeout(()=>t.remove(),1850);
-    }
-    function sparkleBurst(x,y,count=14, palette=['#8b5cf6','#22d3ee','#5b7cff','#ffffff']){
-      for(let i=0;i<count;i++){
-        const s=document.createElement('span');
-        s.className='sparkle';
-        const ang=(Math.PI*2)*(i/count)+(Math.random()*.3);
-        const dist=35+Math.random()*65;
-        s.style.left=x+'px'; s.style.top=y+'px';
-        s.style.setProperty('--dx', (Math.cos(ang)*dist)+'px');
-        s.style.setProperty('--dy', (Math.sin(ang)*dist)+'px');
-        s.style.setProperty('--spark', palette[i%palette.length]);
-        document.body.appendChild(s);
-        setTimeout(()=>s.remove(),850);
-      }
-    }
-    function pop(el){ if(!el) return; el.classList.remove('dopaPop'); void el.offsetWidth; el.classList.add('dopaPop'); }
-    function centerOf(el){ const r=el.getBoundingClientRect(); return {x:r.left+r.width/2,y:r.top+r.height/2}; }
-    function feedbackMessage(feel){
-      return feel==='easy'?'+1 · Sobrado': feel==='ideal'?'+1 · Perfecta': feel==='hard'?'+1 · Peleada': '+1 · Al límite';
-    }
-    document.addEventListener('click',function(e){
-      const action = e.target.closest('#welcomePrimary,#confirmTrain,#startPlanPreview,.quickBtn,[data-welcome-checkin],.navbtn,.btn,.feelBtn,#finishWorkout,.donebtn');
-      if(action){ pop(action); }
-      const feel=e.target.closest('#setFeedback [data-feel]');
-      if(feel){
-        const p=centerOf(feel);
-        sparkleBurst(p.x,p.y,16,['#22c55e','#22d3ee','#8b5cf6','#ffffff']);
-        richToast(feedbackMessage(feel.dataset.feel));
-        setTimeout(updateHud,220);
-        try{ if(window.playSoundCue && window.db?.profile?.soundEnabled) playSoundCue('set'); }catch(err){}
-      }
-      const fin=e.target.closest('#finishWorkout');
-      if(fin){
-        const p=centerOf(fin);
-        sparkleBurst(p.x,p.y,28,['#8b5cf6','#22d3ee','#f59e0b','#ffffff']);
-        richToast('SESIÓN GANADA');
-        setTimeout(updateHud,350);
-      }
-      const train=e.target.closest('#confirmTrain,#startPlanPreview,#welcomePrimary');
-      if(train){ setTimeout(updateHud,220); }
-    }, true);
-    const _renderAll=window.renderAll;
-    if(typeof _renderAll==='function') window.renderAll=function(){ const r=_renderAll.apply(this,arguments); setTimeout(updateHud,0); return r; };
-    const _renderHome=window.renderHome;
-    if(typeof _renderHome==='function') window.renderHome=function(){ const r=_renderHome.apply(this,arguments); setTimeout(updateHud,0); return r; };
-    const _renderTrain=window.renderTrain;
-    if(typeof _renderTrain==='function') window.renderTrain=function(){ const r=_renderTrain.apply(this,arguments); setTimeout(updateHud,0); return r; };
-    const _toast=window.toast;
-    if(typeof _toast==='function') window.toast=function(msg){ try{_toast(msg)}catch(e){} if(msg){ if(/programa creado|sesión registrada|hecho ·|sesión completa|nuevo gimnasio|plan corregido/i.test(String(msg))) richToast(String(msg).replace(/\s+/g,' ').trim()); setTimeout(updateHud,120);} };
-    ensureHud();
-    updateHud();
-    setInterval(updateHud, 5000);
-  });
+ const $ic=id=>document.getElementById(id);
+ let audioCtx=null,lastDone=0,lastPage='';
+ const FXKEY='ironCoachPulseFx';
+ function fxOn(){return localStorage.getItem(FXKEY)!=='0'}
+ function setFx(v){localStorage.setItem(FXKEY,v?'1':'0');updateFxButton()}
+ function unlockAudio(){if(!fxOn())return null;try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();return audioCtx}catch(e){return null}}
+ function tone(freq,start,dur=.08,type='sine',vol=.035){const c=unlockAudio();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(freq,c.currentTime+start);g.gain.setValueAtTime(.0001,c.currentTime+start);g.gain.exponentialRampToValueAtTime(vol,c.currentTime+start+.012);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+start+dur);o.connect(g);g.connect(c.destination);o.start(c.currentTime+start);o.stop(c.currentTime+start+dur+.02)}
+ function sound(kind){if(!fxOn())return;unlockAudio();if(kind==='tap'){tone(420,0,.045,'triangle',.018);tone(620,.035,.045,'sine',.012)}else if(kind==='set'){tone(523.25,0,.075,'triangle',.030);tone(659.25,.06,.08,'triangle',.027);tone(783.99,.125,.11,'sine',.024)}else if(kind==='perfect'){tone(659.25,0,.07,'triangle',.032);tone(830.61,.06,.08,'triangle',.030);tone(1046.5,.13,.13,'sine',.027)}else if(kind==='hard'){tone(392,0,.07,'triangle',.026);tone(523.25,.07,.09,'triangle',.024)}else if(kind==='finish'){[523.25,659.25,783.99,1046.5].forEach((f,i)=>tone(f,i*.085,.20,i<3?'triangle':'sine',.034));tone(1318.5,.38,.28,'sine',.020)}}
+ function vibrate(pattern){try{if(navigator.vibrate)navigator.vibrate(pattern)}catch(e){}}
+ function buildHud(){if($ic('icPulseHud'))return;const h=document.createElement('div');h.id='icPulseHud';h.innerHTML='<div class="icGem" id="icGem">LV1</div><div class="icHudMain"><div class="icHudTop"><span id="icHudTitle">IRON PULSE</span><span id="icHudRight">0 XP</span></div><div class="icHudBar"><i id="icHudFill"></i></div><div class="icHudSub" id="icHudSub">Cada serie suma.</div></div><button id="icFxToggle" aria-label="Sonidos y efectos" title="Sonidos y efectos">♪</button>';document.body.appendChild(h);$ic('icFxToggle').addEventListener('click',e=>{e.stopPropagation();setFx(!fxOn());if(fxOn())sound('perfect')});updateFxButton()}
+ function buildSessionPulse(){if($ic('icSessionPulse'))return;const train=document.querySelector('#train .productTrainHero,#train .trainHero,#train .hero');if(!train)return;const p=document.createElement('div');p.id='icSessionPulse';p.innerHTML='<div class="spTop"><b id="spTitle">SESIÓN · 0%</b><span class="spCombo" id="spCombo">COMBO ×0</span></div><div class="spBar"><i id="spFill"></i></div><div class="spSub" id="spSub">Primera serie = empieza el combo.</div>';train.insertAdjacentElement('afterend',p)}
+ function buildFinish(){if($ic('icFinishFx'))return;const x=document.createElement('div');x.id='icFinishFx';x.innerHTML='<div class="finishCore"><div class="finishRing"></div><h2>SESIÓN GANADA</h2><p id="icFinishLine">Trabajo hecho.</p><div class="finishXp">+100 XP</div></div>';document.body.appendChild(x)}
+ function updateFxButton(){const b=$ic('icFxToggle');if(!b)return;b.classList.toggle('off',!fxOn());b.textContent=fxOn()?'♫':'♪'}
+ function allLogs(){try{return (typeof db!=='undefined'&&Array.isArray(db.logs))?db.logs:[]}catch(e){return[]}}
+ function logSetCount(){let n=0;for(const l of allLogs()){const ex=l.exercises||l.exs||[];for(const x of ex){const s=x.sets||[];n+=Array.isArray(s)?s.length:0}}return n}
+ function weekly(){try{return typeof weeklyStreak==='function'?weeklyStreak():0}catch(e){return 0}}
+ function pageName(){const a=document.querySelector('.page.active');return a?.id||''}
+ function sessionStats(){const train=document.querySelector('#train');if(!train)return{done:0,total:0,pct:0};const all=[...train.querySelectorAll('.donebtn')];const done=all.filter(x=>x.classList.contains('on')).length;return{done,total:all.length,pct:all.length?Math.round(done/all.length*100):0}}
+ function xpData(){const logs=allLogs().length;const sets=logSetCount();const curr=sessionStats().done;const xp=logs*100+sets*8+curr*8;const per=500,lvl=Math.floor(xp/per)+1,into=xp%per,pct=Math.round(into/per*100);return{xp,lvl,pct,next:per-into}}
+ function updateUi(){buildHud();buildSessionPulse();buildFinish();const pg=pageName();document.body.classList.toggle('icTraining',pg==='train');document.body.classList.toggle('icOnboarding',!!document.querySelector('#onboarding:not(.hidden)'));const x=xpData(),s=sessionStats(),st=weekly();if($ic('icGem'))$ic('icGem').textContent='LV'+x.lvl;if($ic('icHudRight'))$ic('icHudRight').textContent=x.xp+' XP';if($ic('icHudFill'))$ic('icHudFill').style.width=x.pct+'%';if($ic('icHudTitle'))$ic('icHudTitle').textContent=pg==='train'?'SESIÓN EN CURSO':st>=2?'RACHA ×'+st:'IRON PULSE';if($ic('icHudSub'))$ic('icHudSub').textContent=pg==='train'?(s.done+' de '+s.total+' series · '+s.pct+'%'):(st>=2?st+' semanas cumpliendo · seguí construyendo':'Faltan '+x.next+' XP para el nivel '+(x.lvl+1));if($ic('spTitle'))$ic('spTitle').textContent='SESIÓN · '+s.pct+'%';if($ic('spFill'))$ic('spFill').style.width=s.pct+'%';if($ic('spCombo'))$ic('spCombo').textContent='COMBO ×'+s.done;if($ic('spSub'))$ic('spSub').textContent=s.done===0?'Primera serie = empieza el combo.':s.pct===100?'Completaste todas las series.':'Cada serie acerca el cierre.';lastPage=pg}
+ function rewardToast(text){const t=document.createElement('div');t.className='icRewardToast';t.textContent=text;document.body.appendChild(t);setTimeout(()=>t.remove(),1600)}
+ function flash(x,y){const f=document.createElement('div');f.className='icFlash';f.style.setProperty('--fx',((x/window.innerWidth)*100)+'%');f.style.setProperty('--fy',((y/window.innerHeight)*100)+'%');document.body.appendChild(f);setTimeout(()=>f.remove(),500)}
+ function particles(x,y,strong=false,palette=['#8b5cf6','#4f7cff','#22d3ee','#34d399','#ffffff']){const count=strong?34:15;for(let i=0;i<count;i++){const p=document.createElement('i');p.className='icParticle';const a=Math.PI*2*(i/count)+(Math.random()*.4),d=(strong?65:35)+Math.random()*(strong?105:60);p.style.left=x+'px';p.style.top=y+'px';p.style.setProperty('--px',Math.cos(a)*d+'px');p.style.setProperty('--py',Math.sin(a)*d+'px');p.style.setProperty('--pr',(-180+Math.random()*360)+'deg');p.style.setProperty('--pc',palette[i%palette.length]);document.body.appendChild(p);setTimeout(()=>p.remove(),900)}}
+ function pop(el){if(!el)return;el.classList.remove('icPulsePop');void el.offsetWidth;el.classList.add('icPulsePop')}
+ function center(el){const r=el.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2}}
+ function setReward(feel,el){const p=center(el);const map={easy:['+8 XP · SOBRADO','set',['#34d399','#22d3ee','#ffffff']],ideal:['+10 XP · PERFECTA','perfect',['#22d3ee','#8b5cf6','#ffffff']],hard:['+8 XP · PELEADA','hard',['#fbbf24','#fb923c','#ffffff']],max:['+8 XP · AL LÍMITE','hard',['#fb7185','#8b5cf6','#ffffff']]};const m=map[feel]||map.ideal;particles(p.x,p.y,false,m[2]);flash(p.x,p.y);rewardToast(m[0]);sound(m[1]);vibrate(feel==='ideal'?[18,30,18]:18);setTimeout(updateUi,180)}
+ function finishFx(){buildFinish();const x=$ic('icFinishFx');if(!x)return;const st=weekly();$ic('icFinishLine').textContent=st>=2?'Racha activa · '+st+' semanas cumpliendo.':'Trabajo hecho. El Coach ya tiene más datos.';x.classList.remove('show');void x.offsetWidth;x.classList.add('show');sound('finish');vibrate([30,35,30,55,45]);particles(innerWidth/2,innerHeight*.43,true);setTimeout(()=>x.classList.remove('show'),2700)}
+ document.addEventListener('pointerdown',e=>{const b=e.target.closest('button,.btn,.navbtn,.quickBtn,.donebtn');if(b&&!b.matches('#icFxToggle')){unlockAudio();sound('tap');pop(b)}},{passive:true});
+ document.addEventListener('click',e=>{const feel=e.target.closest('#setFeedback [data-feel]');if(feel){setReward(feel.dataset.feel,feel);return}const fin=e.target.closest('#finishWorkout');if(fin){const ss=sessionStats();if(ss.total&&ss.done===ss.total)finishFx();setTimeout(updateUi,400);return}const quick=e.target.closest('.quickBtn,[data-welcome-checkin]');if(quick){const p=center(quick);flash(p.x,p.y);particles(p.x,p.y,false,['#8b5cf6','#22d3ee','#ffffff']);rewardToast('COACH AJUSTADO');vibrate(12);setTimeout(updateUi,120)}} ,true);
+ const observer=new MutationObserver(()=>{const s=sessionStats();if(s.done!==lastDone){lastDone=s.done;updateUi()}else if(pageName()!==lastPage)updateUi()});
+ function init(){buildHud();buildSessionPulse();buildFinish();updateUi();observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:['class'],childList:true});setInterval(updateUi,4000)}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+
+
+<script>
+/* IRON COACH 8.6 ULTRA · calm main path + reward layer + Coach Lab */
+(function(){
+ const $u=id=>document.getElementById(id);
+ const FXKEY='ironCoachPulseFx';
+ let uAudio=null,lastSessionDone=-1,lastLevel=0,lastHomeChecked='';
+ function safe(fn,fallback){try{return fn()}catch(e){return fallback}}
+ function fxOn(){return localStorage.getItem(FXKEY)!=='0'}
+ function audio(){if(!fxOn())return null;try{uAudio=uAudio||new(window.AudioContext||window.webkitAudioContext)();if(uAudio.state==='suspended')uAudio.resume();return uAudio}catch(e){return null}}
+ function note(f,t,d=.09,v=.025,type='sine'){const c=audio();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(f,c.currentTime+t);g.gain.setValueAtTime(.0001,c.currentTime+t);g.gain.exponentialRampToValueAtTime(v,c.currentTime+t+.012);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+t+d);o.connect(g);g.connect(c.destination);o.start(c.currentTime+t);o.stop(c.currentTime+t+d+.03)}
+ function chime(kind){if(!fxOn())return;if(kind==='check'){note(587,0,.07,.024,'triangle');note(784,.065,.11,.021,'sine')}else if(kind==='start'){note(392,0,.08,.026,'triangle');note(523,.075,.09,.025,'triangle');note(784,.15,.15,.022,'sine')}else if(kind==='milestone'){note(523,0,.07,.025,'triangle');note(659,.055,.08,.025,'triangle');note(784,.11,.08,.024,'triangle');note(1046,.18,.15,.021,'sine')}else if(kind==='level'){[523,659,784,1046,1318].forEach((f,i)=>note(f,i*.07,.16,.024,i<4?'triangle':'sine'))}}
+ function vibrate(p){try{if(navigator.vibrate)navigator.vibrate(p)}catch(e){}}
+ function ambient(){if($u('icAmbientField'))return;const a=document.createElement('div');a.id='icAmbientField';a.innerHTML='<i class="orb a"></i><i class="orb b"></i><i class="orb c"></i><i class="grain"></i>';document.body.prepend(a)}
+ function setCount(logs){let n=0;for(const l of logs||[]){for(const x of (l.exercises||l.exs||[])){const s=x.sets||[];if(Array.isArray(s))n+=s.length}}return n}
+ function xp(){const logs=safe(()=>db.logs,[])||[],sets=setCount(logs);const cur=sessionStats();const total=logs.length*100+sets*8+cur.done*8;const per=500,lvl=Math.floor(total/per)+1,inside=total%per;return{total,lvl,pct:Math.round(inside/per*100),next:per-inside}}
+ function sessionStats(){const train=$u('train');if(!train)return{done:0,total:0,pct:0};const all=[...train.querySelectorAll('.donebtn')],done=all.filter(x=>x.classList.contains('on')).length;return{done,total:all.length,pct:all.length?Math.round(done/all.length*100):0}}
+ function streak(){return safe(()=>weeklyStreak(),0)||0}
+ function weekDone(){return safe(()=>plannedLogsThisWeek().length,0)||0}
+ function daysTarget(){return safe(()=>+db.profile.days||3,3)||3}
+ function sessionName(){return safe(()=>currentSession().name,'Tu sesión')||'Tu sesión'}
+ function checkKind(){if(!safe(()=>checkinCurrent(),false))return'';const c=safe(()=>db.checkin,{});if((+c.energy||0)>=4&&(+c.sleep||0)>=4)return'strong';if((+c.energy||0)<=2||(+c.stress||0)>=4)return'tired';return'normal'}
+ function checkLabel(){const k=checkKind();return k==='strong'?'Fuerte':k==='tired'?'Cansado':k==='normal'?'Normal':'Sin elegir'}
+ function nextAch(){return safe(()=>nextLockedAchievement(),null)}
+ function draftSafe(){return safe(()=>draft(),null)}
+ function ensureHome(){const h=$u('home');if(!h||$u('icZenHome'))return;const z=document.createElement('div');z.id='icZenHome';z.innerHTML=`
+  <div class="ultraHello"><span class="kicker">HOY</span><h1 id="uTodayTitle">Listo para sumar.</h1><p id="uTodaySub">Una decisión. Después, entrenar.</p></div>
+  <div class="ultraRewardDeck">
+   <div class="ultraLevelCard"><div class="ultraRing" id="uLevelRing"><b id="uLevel">LV1</b></div><div class="ultraLevelCopy"><span>PROGRESO</span><strong id="uXp">0 XP</strong><small id="uXpNext">Empezá con una sesión.</small></div></div>
+   <div class="ultraStreakCard"><span>RACHA</span><strong id="uStreak">×0</strong><small id="uWeek">0/3 esta semana</small></div>
+  </div>
+  <div class="ultraReadiness"><div class="ultraReadinessHead"><div><span>ANTES DE ENTRENAR</span><b>¿Cómo llegás?</b></div><em id="uCheckLabel">Sin elegir</em></div><div class="ultraMoodGrid"><button class="ultraMood" data-u-mood="strong"><i>⚡</i><span>Fuerte</span></button><button class="ultraMood" data-u-mood="normal"><i>◎</i><span>Normal</span></button><button class="ultraMood" data-u-mood="tired"><i>◌</i><span>Cansado</span></button></div></div>
+  <div id="uResume" class="ultraResumeCard" style="display:none"><div><b>Sesión en curso</b><small id="uResumeText">Podés seguir donde quedaste.</small></div><button class="ultraMiniBtn" id="uResumeBtn">CONTINUAR</button></div>
+  <button class="ultraTrainBtn" id="uTrain"><span id="uTrainLabel">ENTRENAR</span><small id="uTrainSub">El Coach ya hizo el resto</small></button>
+  <div class="ultraNextReward"><div class="ultraRewardIcon">✦</div><div><span>PRÓXIMO HITO</span><b id="uRewardName">Primera sesión</b><small id="uRewardSub">Cada sesión desbloquea progreso real.</small></div></div>`;
+ h.prepend(z);
+ z.addEventListener('click',e=>{
+   const m=e.target.closest('[data-u-mood]');if(m){audio();safe(()=>setQuick(m.dataset.uMood));chime('check');vibrate(12);pulse(m);setTimeout(refresh,70);return}
+   if(e.target.closest('#uTrain')){audio();if(!checkKind()){pulse(document.querySelector('.ultraReadiness'));moment('ELEGÍ TU ESTADO','UN TOQUE Y SEGUIMOS','◎','check');return}chime('start');vibrate([16,25,16]);pulse($u('uTrain'));safe(()=>startWorkoutFromHome());setTimeout(refresh,220);return}
+   if(e.target.closest('#uResumeBtn')){audio();chime('start');safe(()=>go('train'));setTimeout(refresh,200);return}
+ })}
+ function ensureProgress(){const p=$u('progress');if(!p||$u('icRewardProgress'))return;const x=document.createElement('div');x.id='icRewardProgress';x.innerHTML=`<div class="ultraProgressHero"><span>TU PROGRESO</span><h1 id="uProgressTitle">Nivel 1</h1><p id="uProgressLine">Lo que hacés se acumula.</p><div class="ultraXpBar"><i id="uProgressFill"></i></div></div><div class="ultraStatGrid"><div class="ultraStat"><strong id="uPSessions">0</strong><span>SESIONES</span></div><div class="ultraStat"><strong id="uPStreak">×0</strong><span>RACHA</span></div><div class="ultraStat"><strong id="uPWeek">0/3</strong><span>SEMANA</span></div></div><button class="ultraRewardButton" id="uAchievements"><div><b>Logros y rango</b><small id="uAchText">Mirá lo que ya desbloqueaste</small></div><i>🏆</i></button><button class="ultraRewardButton" id="uHistory"><div><b>Historial</b><small>Sesiones guardadas</small></div><i>↗</i></button><button class="ultraLabLink" id="uOpenLabP">COACH LAB · MÉTRICAS Y DECISIONES</button>`;p.prepend(x);
+ x.addEventListener('click',e=>{if(e.target.closest('#uAchievements'))safe(()=>go('trophies'));else if(e.target.closest('#uOpenLabP'))openLab();else if(e.target.closest('#uHistory'))openLab('history')})}
+ function ensureMore(){const p=$u('profile');if(!p||$u('icMorePage'))return;const x=document.createElement('div');x.id='icMorePage';x.innerHTML=`<div class="ultraMoreHead"><span>MÁS</span><h1>Todo lo demás.</h1></div><div class="ultraSoundRow"><b>Sonidos y efectos</b><button id="uFxToggle" class="ultraToggle" aria-label="Activar sonidos"></button></div><div class="ultraMoreGrid"><button class="ultraMoreBtn" id="uLab"><span class="glyph">⌁</span><div><b>Coach Lab</b><small>Métricas, decisiones y parte técnica</small></div><em>›</em></button><button class="ultraMoreBtn" id="uSettings"><span class="glyph">⚙</span><div><b>Configuración</b><small>Objetivo, frecuencia y preferencias</small></div><em>›</em></button><button class="ultraMoreBtn" id="uLibrary"><span class="glyph">⌗</span><div><b>Biblioteca</b><small>Técnica de ejercicios</small></div><em>›</em></button><button class="ultraMoreBtn" id="uAchievementsM"><span class="glyph">🏆</span><div><b>Logros y rango</b><small>Hitos desbloqueados</small></div><em>›</em></button></div>`;p.prepend(x);
+ x.addEventListener('click',e=>{if(e.target.closest('#uFxToggle')){localStorage.setItem(FXKEY,fxOn()?'0':'1');if(fxOn())chime('check');refresh();return}if(e.target.closest('#uLab'))openLab();else if(e.target.closest('#uSettings'))$u('profileEditBtn')?.click();else if(e.target.closest('#uLibrary'))$u('profileLibraryBtn')?.click();else if(e.target.closest('#uAchievementsM'))safe(()=>go('trophies'))})}
+ function ensureLab(){if($u('icCoachLab'))return;const m=document.createElement('div');m.id='icCoachLab';m.innerHTML=`<div class="ultraLabSheet"><div class="ultraLabHead"><div><span>PARTE TÉCNICA</span><h2>Coach Lab</h2></div><button class="ultraLabClose" id="uLabClose">×</button></div><p class="ultraLabIntro">Acá queda lo estricto. No necesitás mirar esto para entrenar.</p><div class="ultraLabCard"><span>PLAN ACTUAL</span><b id="uLabPlan">—</b><p id="uLabPlanText">—</p><div class="ultraLabKpis"><div><strong id="uLabDays">3</strong><small>DÍAS/SEM</small></div><div><strong id="uLabWeek">0/3</strong><small>CUMPLIDO</small></div><div><strong id="uLabReadiness">—</strong><small>ESTADO</small></div></div></div><div class="ultraLabCard"><span>DECISIÓN DEL COACH</span><b id="uLabDecision">Aprendiendo de tus datos</b><p id="uLabDecisionText">Cada serie registrada sirve para ajustar la siguiente exposición.</p></div><div class="ultraLabCard" id="uLabHistoryCard"><span>HISTORIAL</span><b id="uLabHistoryTitle">Sesiones guardadas</b><p id="uLabHistoryText">—</p></div><div class="ultraLabTools"><button id="uLabConfig">CONFIGURACIÓN</button><button id="uLabEvidence">CÓMO DECIDE</button><button id="uLabLibrary">TÉCNICA</button><button id="uLabGym">GIMNASIO</button></div></div>`;document.body.appendChild(m);m.addEventListener('click',e=>{if(e.target===m||e.target.closest('#uLabClose'))closeLab();else if(e.target.closest('#uLabConfig')){closeLab();$u('profileEditBtn')?.click()}else if(e.target.closest('#uLabEvidence')){closeLab();$u('profileEvidenceBtn')?.click()}else if(e.target.closest('#uLabLibrary')){closeLab();$u('profileLibraryBtn')?.click()}else if(e.target.closest('#uLabGym')){closeLab();$u('profileGymBtn')?.click()}})}
+ function openLab(focus){ensureLab();refreshLab();$u('icCoachLab').classList.add('show');if(focus==='history')setTimeout(()=>$u('uLabHistoryCard')?.scrollIntoView({behavior:'smooth',block:'center'}),80)}
+ function closeLab(){$u('icCoachLab')?.classList.remove('show')}
+ function refreshLab(){const title=safe(()=>currentSession().name,'Tu plan'),phase=($u('planPhaseTitle')?.textContent||$u('currentBlockTitle')?.textContent||'Bloque actual').trim(),decision=($u('coachBrainTitle')?.textContent||'El Coach está aprendiendo').trim(),decisionText=($u('coachBrainText')?.textContent||$u('progressVerdictText')?.textContent||'Cada entrenamiento mejora la calibración.').trim();if($u('uLabPlan'))$u('uLabPlan').textContent=title;if($u('uLabPlanText'))$u('uLabPlanText').textContent=phase;if($u('uLabDays'))$u('uLabDays').textContent=daysTarget();if($u('uLabWeek'))$u('uLabWeek').textContent=weekDone()+'/'+daysTarget();if($u('uLabReadiness'))$u('uLabReadiness').textContent=checkLabel();if($u('uLabDecision'))$u('uLabDecision').textContent=decision;if($u('uLabDecisionText'))$u('uLabDecisionText').textContent=decisionText;const logs=safe(()=>db.logs,[])||[];if($u('uLabHistoryText'))$u('uLabHistoryText').textContent=logs.length?`${logs.length} sesiones registradas. La última: ${new Date(logs.at(-1)?.date||Date.now()).toLocaleDateString('es-AR')}.`:'Todavía no hay sesiones guardadas.'}
+ function ensureMoment(){if($u('uMoment'))return;const m=document.createElement('div');m.id='uMoment';m.className='ultraMoment';m.innerHTML='<div class="core"><div class="icon" id="uMomentIcon">✦</div><b id="uMomentTitle">HITO</b><span id="uMomentSub">SEGUÍ ASÍ</span></div>';document.body.appendChild(m)}
+ function moment(title,sub='SEGUÍ ASÍ',icon='✦',kind='milestone'){ensureMoment();$u('uMomentTitle').textContent=title;$u('uMomentSub').textContent=sub;$u('uMomentIcon').textContent=icon;const m=$u('uMoment');m.classList.remove('show');void m.offsetWidth;m.classList.add('show');chime(kind);vibrate(kind==='level'?[24,35,24,45,36]:[15,24,15]);setTimeout(()=>m.classList.remove('show'),1650)}
+ function pulse(el){if(!el)return;el.classList.remove('ultraTap');void el.offsetWidth;el.classList.add('ultraTap')}
+ function refreshHome(){ensureHome();const x=xp(),st=streak(),wd=weekDone(),dt=daysTarget(),ck=checkKind(),ach=nextAch(),d=draftSafe();const title=sessionName();if($u('uTodayTitle'))$u('uTodayTitle').textContent=d?'Seguimos donde quedaste.':title;if($u('uTodaySub'))$u('uTodaySub').textContent=d?'Tu sesión está guardada.':'Elegí cómo llegás. El Coach ajusta el resto.';if($u('uLevel'))$u('uLevel').textContent='LV'+x.lvl;if($u('uLevelRing'))$u('uLevelRing').style.setProperty('--p',x.pct);if($u('uXp'))$u('uXp').textContent=x.total+' XP';if($u('uXpNext'))$u('uXpNext').textContent=x.next+' XP para nivel '+(x.lvl+1);if($u('uStreak'))$u('uStreak').textContent='×'+st;if($u('uWeek'))$u('uWeek').textContent=wd+'/'+dt+' esta semana';if($u('uCheckLabel'))$u('uCheckLabel').textContent=checkLabel();document.querySelectorAll('[data-u-mood]').forEach(b=>b.classList.toggle('selected',b.dataset.uMood===ck));if($u('uResume'))$u('uResume').style.display=d?'flex':'none';if($u('uResumeText')&&d)$u('uResumeText').textContent='Continuá exactamente desde la próxima serie.';if($u('uTrainLabel'))$u('uTrainLabel').textContent=ck?'ENTRENAR':'ELEGÍ CÓMO LLEGÁS';if($u('uTrainSub'))$u('uTrainSub').textContent=ck?'El Coach ya hizo el resto':'Solo un toque antes de empezar';if($u('uRewardName'))$u('uRewardName').textContent=ach?.name||'Nivel '+(x.lvl+1);if($u('uRewardSub'))$u('uRewardSub').textContent=ach?`Progreso ${Math.round((ach.pct||0)*100)}%`:`Te faltan ${x.next} XP`;
+ if(lastLevel&&x.lvl>lastLevel)moment('NIVEL '+x.lvl,'SUBISTE DE NIVEL','◆','level');lastLevel=x.lvl;
+ if(ck&&ck!==lastHomeChecked)lastHomeChecked=ck}
+ function refreshProgress(){ensureProgress();const x=xp(),st=streak(),wd=weekDone(),dt=daysTarget(),logs=safe(()=>db.logs,[])||[],ach=nextAch();if($u('uProgressTitle'))$u('uProgressTitle').textContent='Nivel '+x.lvl;if($u('uProgressLine'))$u('uProgressLine').textContent=x.total+' XP · '+x.next+' para el próximo nivel';if($u('uProgressFill'))$u('uProgressFill').style.width=x.pct+'%';if($u('uPSessions'))$u('uPSessions').textContent=logs.length;if($u('uPStreak'))$u('uPStreak').textContent='×'+st;if($u('uPWeek'))$u('uPWeek').textContent=wd+'/'+dt;if($u('uAchText'))$u('uAchText').textContent=ach?`Siguiente: ${ach.name}`:'Todos los hitos visibles completados'}
+ function refreshMore(){ensureMore();const t=$u('uFxToggle');if(t)t.classList.toggle('on',fxOn());const nav=document.querySelector('.navbtn[data-page="profile"]');if(nav&&nav.lastChild)nav.childNodes[nav.childNodes.length-1].nodeValue='Más'}
+ function simplifyTraining(){document.querySelectorAll('#train .gymOptions>summary').forEach(s=>s.setAttribute('aria-label','Opciones'));const s=sessionStats();if(s.done!==lastSessionDone){if(lastSessionDone>=0&&s.done>lastSessionDone&&s.done>0&&s.done%5===0&&s.done<s.total)moment('COMBO ×'+s.done,'5 SERIES COMPLETADAS','⚡','milestone');lastSessionDone=s.done}}
+ function refresh(){ambient();ensureLab();refreshHome();refreshProgress();refreshMore();refreshLab();simplifyTraining();const note=$u('settingsModal')?.querySelector('.buildNote b');if(note)note.textContent='IRON COACH 8.6 ULTRA'}
+ const mo=new MutationObserver(()=>{clearTimeout(refresh._t);refresh._t=setTimeout(refresh,90)});
+ function init(){ambient();ensureMoment();ensureHome();ensureProgress();ensureMore();ensureLab();refresh();mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});setInterval(refresh,3500);document.addEventListener('pointerdown',e=>{const b=e.target.closest('.ultraMood,.ultraTrainBtn,.ultraMiniBtn,.ultraMoreBtn,.ultraRewardButton,.ultraToggle,.ultraLabTools button');if(b){audio();pulse(b)}},{passive:true})}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
 
